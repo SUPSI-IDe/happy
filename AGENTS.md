@@ -44,6 +44,7 @@ Il sito è **100% statico**: è costruito con Astro e generato come file HTML/CS
 ## Verifica prima di ogni merge
 
 ```
+npm run check     # regole del CSS (px, colori, variabili) e contrasti; deve passare
 npm run build     # genera il sito statico; deve completarsi senza errori
 npm run preview   # controllo visivo su desktop e mobile
 ```

@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check:css": "node scripts/check-css.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "check": "npm run check:css && npm run check:contrast"
   },
   "dependencies": {
     "astro": "^7.3.5"
