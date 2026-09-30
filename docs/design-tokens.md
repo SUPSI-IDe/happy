@@ -1,6 +1,6 @@
 # Design token e regole visive
 
-I valori vengono dalle **variabili di Figma** e si riportano in `src/styles/tokens.css`. Se un valore cambia, si cambia prima in Figma e poi qui.
+La fonte dei valori usati dal sito è **`src/styles/tokens.css`**: è un file di testo e lo può modificare anche chi non usa Figma. Le **variabili di Figma** hanno lo stesso schema e servono a chi disegna. Quando un valore cambia si aggiornano entrambi e questo documento (vedi "Cambiare un colore"). Un controllo automatico impedisce di rompere le regole di contrasto (vedi "Controlli automatici").
 
 Dove stanno in Figma:
 
@@ -13,7 +13,7 @@ Dove stanno in Figma:
 
 1. **I colori non si toccano.** Mai scurirli, schiarirli o renderli trasparenti. Il nero puro (#000000) non si usa.
 2. **Sopra un fondo colorato il testo è solo bianco**, in tutte le pagine: verde salvia, rosa Insegnanti, arancione Famiglie, blu Professionisti. Vale anche per card, bottoni e badge.
-3. **Testo bianco su fondo colorato: almeno 1.25rem (20px) in grassetto 700, oppure 1.5rem (24px) o più** in un peso da 600. Serve perché il contrasto del bianco su salvia (3.41:1) e su Famiglie (3.36:1) è sotto il 4.5:1 richiesto al testo piccolo. La regola vale per tutti i fondi colorati, per coerenza, e su desktop e mobile.
+3. **Testo bianco su fondo colorato: almeno 1.25rem (20px) in grassetto 700, oppure 1.5rem (24px) o più** in un peso da 600. Serve perché il contrasto del bianco su salvia (3.40:1) e su Famiglie (3.36:1) è sotto il 4.5:1 richiesto al testo piccolo. La regola vale per tutti i fondi colorati, per coerenza, e su desktop e mobile.
 4. **Nessun testo sotto 1rem (16px)**, e nessun testo sotto 1.25rem (20px) se sta su un fondo colorato.
 5. **Niente grigi né trasparenze sul testo.** La gerarchia si fa con dimensione e peso, non con il colore.
 6. **Il verde salvia come testo si usa solo su bianco**, a 1.25rem (20px) in grassetto e sottolineato: è il colore dei link.
@@ -40,7 +40,7 @@ Dove stanno in Figma:
 | `--color-testo` | carbone | Testo su bianco |
 | `--color-testo-su-colore` | bianco | Testo su qualsiasi fondo colorato |
 | `--color-link` | verde salvia | Link su bianco |
-| `--color-focus-su-bianco` | verde salvia | Anello di focus su bianco (3.41:1, sopra il minimo di 3:1) |
+| `--color-focus-su-bianco` | verde salvia | Anello di focus su bianco (3.40:1, sopra il minimo di 3:1) |
 | `--color-focus-su-colore` | bianco | Anello di focus su fondo colorato |
 
 **Contrasto** (bianco sul colore, calcolato):
@@ -49,7 +49,7 @@ Dove stanno in Figma:
 |---|---|---|
 | Rosa Insegnanti | 4.63:1 | Passa anche come testo normale, ma vale la regola 3 |
 | Blu Professionisti | 4.51:1 | Come sopra |
-| Verde salvia | 3.41:1 | Solo testo grande (regola 3) |
+| Verde salvia | 3.40:1 | Solo testo grande (regola 3) |
 | Arancione Famiglie | 3.36:1 | Solo testo grande (regola 3) |
 | Carbone su bianco | 17.4:1 | Sempre a norma |
 | Salvia su Carbone (link nel testo) | 5.1:1 | Il link si distingue dal testo che lo circonda |
@@ -68,7 +68,7 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 | `--text-titolo-1` | 3rem | 2rem | Fraunces 600 | 1.2 | Titoli di sezione |
 | `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni |
 | `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Titoli di card e di fase, citazioni, testo dei bottoni |
-| `--text-logo` | 1.5rem | 1.5rem | Fraunces 700 | 1.2 | "Happy" nella navigazione |
+| `--text-logo` | 1.5rem | 1.5rem | Fraunces 700 | 1.2 | "Happy" nella navigazione. Solo in Figma finché non c'è la Navbar |
 | `--text-corpo` | 1.25rem | 1.25rem | Urbanist 500 | 1.5 | Paragrafi su bianco, colonna massima 36rem |
 | `--text-corpo-colore` | 1.25rem | 1.25rem | Urbanist 700 | 1.5 | Paragrafi e voci di navigazione su fondo colorato |
 | `--text-etichetta` | 1.25rem | 1.25rem | Urbanist 700, maiuscolo, spaziatura 0.05em | 1.5 | "A chi ci rivolgiamo", "IN ARRIVO", numero della fase, "Riferimenti" |
@@ -94,27 +94,24 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 | Link su colore | – | bianco, `--text-link` | – |
 
 - **Dimensioni del bottone:** alto almeno 2.75rem (44px), angoli completamente arrotondati, padding uguale su desktop e mobile.
-- **Hover:** l'etichetta del bottone si sottolinea (spessore 3px); nel link la sottolineatura passa da 2px a 4px. Il colore del testo e lo sfondo non cambiano mai.
+- **Hover:** l'etichetta del bottone si sottolinea (spessore 3px); nel link la sottolineatura passa da 2px (`--sottolineatura-spessore`) a 4px (`--sottolineatura-spessore-hover`). Il colore del testo e lo sfondo non cambiano mai.
 - **Focus (obbligatorio):** anello di 0.1875rem (3px) a 0.125rem (2px) di distanza (`outline` con `outline-offset`). Verde salvia su bianco (`--color-focus-su-bianco`), bianco su fondo colorato (`--color-focus-su-colore`). Il Carbone resta per testo corrente e titoli. L'anello è completamente arrotondato, come i bottoni.
 - **Disabilitato:** non è previsto. Se serve, si nasconde il bottone.
 - **Navigazione:** le voci usano `--text-corpo-colore` (senza sottolineatura automatica: la sottolineatura è disegnata a mano, vedi sotto).
 
-## Forme e spazi dei componenti
+## Forme e spazi
 
-Collezione Figma `Forme e spazi`. Sono i valori usati dai componenti della pagina Components di Figma.
+Collezione Figma `Forme e spazi`. In `tokens.css` entrano solo i valori già usati dal CSS:
 
 | Token | Valore | Uso |
 |---|---|---|
-| `--raggio-pieno` | 999 (completamente arrotondato) | Bottoni, pillole, badge |
-| `--bordo-contorno` | 0.125rem (2px) | Bordo dei bottoni a contorno e della pillola inattiva |
+| `--raggio-pieno` | completamente arrotondato | Bottoni, pillole, badge, anello di focus |
 | `--focus-spessore` | 0.1875rem (3px) | Spessore dell'anello di focus |
 | `--focus-distanza` | 0.125rem (2px) | Distanza tra il componente e l'anello di focus (`outline-offset`) |
-| `--focus-margine` | 0.3125rem (5px) | Spazio attorno al componente: anello + distanza |
-| `--bottone-padding-x` / `--bottone-padding-y` | 1.75rem / 0.75rem (28px / 12px) | Spazio interno del bottone |
-| `--etichetta-padding-x` / `--etichetta-padding-y` | 1rem / 0.25rem (16px / 4px) | Spazio interno del badge |
-| `--pillola-lato` | 2.75rem (44px) | Lato della pillola delle fasi |
+| `--sottolineatura-spessore` | 0.125rem (2px) | Sottolineatura dei link |
+| `--sottolineatura-spessore-hover` | 0.25rem (4px) | Sottolineatura dei link al passaggio del mouse |
 
-Il valore è in px nelle variabili Figma; nel CSS si scrive in rem.
+Solo in Figma, da aggiungere a `tokens.css` con il primo componente che li usa: bordo dei contorni (0.125rem), spazio attorno al componente per il focus (0.3125rem), padding del bottone (1.75rem / 0.75rem), padding del badge (1rem / 0.25rem), lato della pillola (2.75rem). Il valore è in px nelle variabili Figma; nel CSS si scrive in rem.
 
 Altri token in `tokens.css`: `--font-titoli`, `--font-testo`, i pesi (`--peso-medio` 500, `--peso-semibold` 600, `--peso-grassetto` 700), le interlinee (`--interlinea-display` 1.1, `--interlinea-titoli` 1.2, `--interlinea-titolo-3` 1.3, `--interlinea-testo` 1.5), `--spaziatura-etichetta` (0.05em) e `--colonna-testo` (36rem).
 
@@ -126,7 +123,7 @@ Nella pagina `Components` di Figma: `Bottone su bianco`, `Bottone su colore`, `L
 
 ## Come si usano nel CSS (`base.css`)
 
-- **Titoli:** `h1`, `h2`, `h3`, `h4` hanno già display, titolo-1, titolo-2 e titolo-3. Se l'aspetto deve essere diverso dal livello (per esempio un `h2` con l'aspetto di un titolo-2) si usa la classe: `.text-display`, `.text-titolo-1`, `.text-titolo-2`, `.text-titolo-3`, `.text-logo`, `.text-corpo`, `.text-corpo-colore`, `.text-etichetta`, `.text-nota`. Un solo `h1` per pagina.
+- **Titoli:** `h1`, `h2`, `h3`, `h4` hanno già display, titolo-1, titolo-2 e titolo-3. Se l'aspetto deve essere diverso dal livello (per esempio un `h2` con l'aspetto di un titolo-2) si usa la classe: `.text-display`, `.text-titolo-1`, `.text-titolo-2`, `.text-titolo-3`. Le altre classi sono `.text-etichetta` e `.text-nota`; il testo corrente è quello di base. Un solo `h1` per pagina.
 - **Fondo colorato:** la classe `.su-colore` mette il testo bianco e in grassetto, i link bianchi e l'anello di focus bianco. Il colore si sceglie con `.fondo-verde-salvia`, `.fondo-rosa-insegnanti`, `.fondo-arancione-famiglie` o `.fondo-blu-professionisti`. Dentro `.su-colore` una nota o un testo corrente non scendono sotto la regola del testo bianco.
 - **Link:** `a` è già verde salvia, in grassetto, sottolineato (2px, 4px al passaggio del mouse).
 - **Focus:** `:focus-visible` disegna l'anello con `--color-focus`, che vale verde salvia su bianco e bianco dentro `.su-colore`. Su link e bottoni l'anello è arrotondato.
@@ -139,6 +136,22 @@ Nella pagina `Components` di Figma: `Bottone su bianco`, `Bottone su colore`, `L
 - Nessun testo sotto 1rem; nessun grigio o trasparenza sul testo.
 - I link sono sottolineati e hanno il focus visibile.
 - La pagina si usa con la sola tastiera e resta leggibile con zoom al 200%.
+
+## Cambiare un colore
+
+I colori sono una scelta di marca *e* di accessibilità: non si cambiano a occhio. Chi cambia un colore (chiunque abbia accesso al repository, anche senza Figma):
+
+1. Modifica il valore in `src/styles/tokens.css`.
+2. Lancia `npm run check:contrast`. Se una coppia scende sotto la soglia, il controllo fallisce e dice quale (per esempio il testo bianco su un nuovo colore di sfondo).
+3. Aggiorna lo stesso valore nella variabile Figma e nella tabella "Palette" di questo documento.
+
+Il contenuto del sito (testi, video, risorse) non passa da qui: si modificherà nel CMS Kirby, senza toccare i token.
+
+## Controlli automatici
+
+- `npm run check:css` vieta misure in `px`, colori scritti a mano fuori da `tokens.css` e `var(--…)` non definite. Legge anche i blocchi `<style>` dei componenti Astro.
+- `npm run check:contrast` verifica i contrasti dei colori di `tokens.css` (testo su bianco, testo bianco su ogni fondo colorato, link, anelli di focus). Controlla le coppie di token, non le pagine reali: quelle si controllano con axe e Lighthouse.
+- Entrambi (`npm run check`) e la build girano su ogni pull request (`.github/workflows/ci.yml`).
 
 ## Elementi disegnati a mano
 
