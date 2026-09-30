@@ -1,7 +1,34 @@
-/* Griglia a colonne: 4 su mobile, 12 su desktop. Vedi docs/architecture.md */
+/* Griglia a colonne: 4 su mobile, 12 su desktop (da 64rem). Vedi docs/architecture.md
+   I valori (margini, gutter, larghezza massima) sono in tokens.css. */
 
-/* Griglia a colonne */
+/* Sezioni a tutta larghezza: la fascia (e il suo colore di fondo) occupa tutta la pagina,
+   il contenuto sta nel .contenitore */
+.sezione {
+	padding-block: var(--spazio-sezione);
+}
 
-/* Container */
+/* Container: centrato, con il margine di pagina ai lati, mai più largo di --larghezza-massima */
+.contenitore {
+	inline-size: min(100% - 2 * var(--margine-pagina), var(--larghezza-massima));
+	margin-inline: auto;
+}
 
-/* Sezioni a tutta larghezza */
+/* Griglia */
+.griglia {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	column-gap: var(--gutter);
+	row-gap: var(--gutter);
+}
+
+/* Su mobile ogni elemento occupa tutta la riga: le colonne si impilano.
+   Da 64rem i componenti scelgono quante colonne occupare (grid-column: span N). */
+.griglia > :where(*) {
+	grid-column: 1 / -1;
+}
+
+@media (min-width: 64rem) {
+	.griglia {
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+	}
+}

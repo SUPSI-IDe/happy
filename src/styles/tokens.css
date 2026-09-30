@@ -52,8 +52,8 @@
 
 	--spaziatura-etichetta: 0.05em;
 
-	/* Forme e spazi. I valori dei singoli componenti (padding dei bottoni, lato della pillola…)
-	   stanno in Figma e si aggiungono qui con il primo componente che li usa. */
+	/* Forme e spazi. Il lato della pillola, il padding del badge e simili stanno in Figma
+	   e si aggiungono qui con il primo componente che li usa. */
 
 	/* Abbastanza grande da arrotondare completamente qualsiasi altezza */
 	--raggio-pieno: 62.5rem;
@@ -62,13 +62,34 @@
 	--sottolineatura-spessore: 0.125rem;
 	--sottolineatura-spessore-hover: 0.25rem;
 
+	/* Bottone */
+	--bottone-altezza-min: 2.75rem;
+	--bottone-padding-inline: 1.75rem;
+	--bottone-padding-block: 0.75rem;
+	--bordo-contorno: 0.125rem;
+	--sottolineatura-bottone-hover: 0.1875rem;
+
 	/* Spaziature */
 
 	/* Testo corrente mai a tutta larghezza */
 	--colonna-testo: 36rem;
 
-	/* La scala generale delle spaziature verrà definita con i primi layout
-	   (griglia a 4 colonne su mobile, 12 su desktop: vedi layout.css). */
+	/* Scala delle spaziature: multipli di 0.25rem (4px) */
+	--spazio-1: 0.25rem;
+	--spazio-2: 0.5rem;
+	--spazio-3: 0.75rem;
+	--spazio-4: 1rem;
+	--spazio-5: 1.5rem;
+	--spazio-6: 2rem;
+	--spazio-7: 3rem;
+	--spazio-8: 4rem;
+	--spazio-9: 6rem;
+
+	/* Layout: griglia a 4 colonne su mobile, 12 su desktop (vedi layout.css) */
+	--margine-pagina: 1.25rem;
+	--gutter: var(--spazio-4);
+	--larghezza-massima: 90rem;
+	--spazio-sezione: var(--spazio-8);
 }
 
 /* Desktop: da 64rem (1024px). Il valore è in rem per seguire zoom e dimensione del testo.
@@ -82,5 +103,9 @@
 
 		--text-titolo-2: 2rem;
 		--text-titolo-3: 1.5rem;
+
+		--margine-pagina: 4.5rem;
+		--gutter: var(--spazio-5);
+		--spazio-sezione: var(--spazio-9);
 	}
 }

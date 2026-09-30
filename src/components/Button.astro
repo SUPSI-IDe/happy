@@ -1,0 +1,56 @@
+---
+// Bottone o link con l'aspetto di un bottone. Con `href` diventa un <a>, senza un <button>.
+// Varianti: pieno (verde salvia, testo bianco) e contorno (colore del testo intorno; su un fondo
+// colorato .su-colore diventa bianco da solo). Vedi docs/design-tokens.md, "Bottoni, link e focus".
+interface Props {
+	href?: string;
+	variante?: 'pieno' | 'contorno';
+	class?: string;
+}
+
+const { href, variante = 'pieno', class: classe, ...resto } = Astro.props;
+const Tag = href ? 'a' : 'button';
+const attributi = href ? { href } : { type: 'button' };
+---
+
+<Tag class:list={['bottone', `bottone--${variante}`, classe]} {...attributi} {...resto}>
+	<slot />
+</Tag>
+
+<style>
+	.bottone {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-block-size: var(--bottone-altezza-min);
+		padding: var(--bottone-padding-block) var(--bottone-padding-inline);
+		/* Il bordo c'è sempre, così pieno e contorno hanno la stessa altezza */
+		border: var(--bordo-contorno) solid transparent;
+		border-radius: var(--raggio-pieno);
+		background: none;
+		font-family: var(--font-titoli);
+		font-size: var(--text-titolo-3);
+		font-weight: var(--peso-grassetto);
+		line-height: var(--interlinea-titolo-3);
+		text-align: center;
+		text-decoration: none;
+		cursor: pointer;
+	}
+
+	/* Hover: si sottolinea l'etichetta, colori e sfondo non cambiano */
+	.bottone:hover {
+		text-decoration: underline;
+		text-decoration-thickness: var(--sottolineatura-bottone-hover);
+		text-underline-offset: 0.25em;
+	}
+
+	.bottone--pieno {
+		background-color: var(--color-verde-salvia);
+		color: var(--color-testo-su-colore);
+	}
+
+	.bottone--contorno {
+		color: inherit;
+		border-color: currentColor;
+	}
+</style>
