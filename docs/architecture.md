@@ -34,7 +34,7 @@ MAInD-HAPPY/
 ## Layout a colonne
 
 - Griglia CSS Grid: **4 colonne su mobile, 12 su desktop**.
-- Ogni sezione è una fascia a tutta larghezza con un container interno.
+- Ogni sezione è una fascia a tutta larghezza (`.sezione`) con un container interno (`.contenitore`) e, dove serve, una `.griglia`. Margini e gutter sono in `tokens.css`, vedi `docs/design-tokens.md`.
 - Le sezioni a colonne della home si impilano in verticale sotto il breakpoint.
 - Testo corrente con larghezza massima di circa 36rem.
 
@@ -46,7 +46,7 @@ MAInD-HAPPY/
 | `Hero` | Titolo e spazio configurabile per illustrazione e video |
 | `Section` | Fascia di pagina con colonne |
 | `Card` | Card dei profili, con varianti di forma "fatte a mano" |
-| `Button` | Stili definiti nel foglio bottoni di Figma (CTA, link sezioni, link pagine, link esterni) |
+| `Button` | Bottone o link con l'aspetto di un bottone. Varianti `pieno` e `contorno`; con `href` è un link |
 | `VideoEmbed` | Video 16:9 con sottotitoli |
 | `VideoGrid` | Elenco filtrabile dei video del Toolkit |
 | `PhaseSlider` | Slider delle fasi; i pallini si riempiono da attivi senza cambiare dimensione |

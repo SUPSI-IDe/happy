@@ -110,10 +110,24 @@ Collezione Figma `Forme e spazi`. In `tokens.css` entrano solo i valori già usa
 | `--focus-distanza` | 0.125rem (2px) | Distanza tra il componente e l'anello di focus (`outline-offset`) |
 | `--sottolineatura-spessore` | 0.125rem (2px) | Sottolineatura dei link |
 | `--sottolineatura-spessore-hover` | 0.25rem (4px) | Sottolineatura dei link al passaggio del mouse |
+| `--bottone-altezza-min` | 2.75rem (44px) | Altezza minima del bottone |
+| `--bottone-padding-inline` / `--bottone-padding-block` | 1.75rem / 0.75rem | Padding del bottone |
+| `--bordo-contorno` | 0.125rem (2px) | Bordo dei bottoni a contorno |
+| `--sottolineatura-bottone-hover` | 0.1875rem (3px) | Sottolineatura dell'etichetta del bottone al passaggio del mouse |
 
-Solo in Figma, da aggiungere a `tokens.css` con il primo componente che li usa: bordo dei contorni (0.125rem), spazio attorno al componente per il focus (0.3125rem), padding del bottone (1.75rem / 0.75rem), padding del badge (1rem / 0.25rem), lato della pillola (2.75rem). Il valore è in px nelle variabili Figma; nel CSS si scrive in rem.
+Solo in Figma, da aggiungere a `tokens.css` con il primo componente che li usa: spazio attorno al componente per il focus (0.3125rem), padding del badge (1rem / 0.25rem), lato della pillola (2.75rem). Il valore è in px nelle variabili Figma; nel CSS si scrive in rem.
 
 Altri token in `tokens.css`: `--font-titoli`, `--font-testo`, i pesi (`--peso-medio` 500, `--peso-semibold` 600, `--peso-grassetto` 700), le interlinee (`--interlinea-display` 1.1, `--interlinea-titoli` 1.2, `--interlinea-titolo-3` 1.3, `--interlinea-testo` 1.5), `--spaziatura-etichetta` (0.05em) e `--colonna-testo` (36rem).
+
+## Spaziature e layout
+
+I wireframe non seguono una griglia precisa, quindi i valori sono stati scelti a partire da quelli più ricorrenti e vanno in `tokens.css` (usati da `layout.css`).
+
+- **Scala delle spaziature:** `--spazio-1` … `--spazio-9`, multipli di 0.25rem: 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 6rem.
+- **Griglia:** 4 colonne su mobile, 12 da 64rem. Spazio tra le colonne (`--gutter`): 1rem su mobile, 1.5rem su desktop.
+- **Margine di pagina** (`--margine-pagina`): 1.25rem su mobile, 4.5rem su desktop. Il contenuto non supera `--larghezza-massima` (90rem) ed è centrato.
+- **Distanza tra le sezioni** (`--spazio-sezione`): 4rem su mobile, 6rem su desktop.
+- **Classi:** `.sezione` (fascia a tutta larghezza), `.contenitore` (contenuto centrato), `.griglia` (colonne). Su mobile gli elementi della griglia occupano tutta la riga; da 64rem ogni componente sceglie quante colonne occupare con `grid-column`.
 
 ## Componenti in Figma
 
