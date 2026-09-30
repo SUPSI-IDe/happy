@@ -108,12 +108,15 @@ Collezione Figma `Forme e spazi`. Sono i valori usati dai componenti della pagin
 | `--raggio-pieno` | 999 (completamente arrotondato) | Bottoni, pillole, badge |
 | `--bordo-contorno` | 0.125rem (2px) | Bordo dei bottoni a contorno e della pillola inattiva |
 | `--focus-spessore` | 0.1875rem (3px) | Spessore dell'anello di focus |
-| `--focus-margine` | 0.3125rem (5px) | Spazio attorno al componente: 3px di anello + 2px di distanza |
+| `--focus-distanza` | 0.125rem (2px) | Distanza tra il componente e l'anello di focus (`outline-offset`) |
+| `--focus-margine` | 0.3125rem (5px) | Spazio attorno al componente: anello + distanza |
 | `--bottone-padding-x` / `--bottone-padding-y` | 1.75rem / 0.75rem (28px / 12px) | Spazio interno del bottone |
 | `--etichetta-padding-x` / `--etichetta-padding-y` | 1rem / 0.25rem (16px / 4px) | Spazio interno del badge |
 | `--pillola-lato` | 2.75rem (44px) | Lato della pillola delle fasi |
 
 Il valore è in px nelle variabili Figma; nel CSS si scrive in rem.
+
+Altri token in `tokens.css`: `--font-titoli`, `--font-testo`, i pesi (`--peso-medio` 500, `--peso-semibold` 600, `--peso-grassetto` 700), le interlinee (`--interlinea-display` 1.1, `--interlinea-titoli` 1.2, `--interlinea-titolo-3` 1.3, `--interlinea-testo` 1.5), `--spaziatura-etichetta` (0.05em) e `--colonna-testo` (36rem).
 
 ## Componenti in Figma
 
