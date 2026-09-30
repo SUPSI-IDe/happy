@@ -1,7 +1,233 @@
-/* Reset, tipografia di base, stati di focus. Vedi docs/architecture.md */
+/* Reset, tipografia di base, stati di focus. Vedi docs/architecture.md e docs/design-tokens.md
+   Qui i token di tokens.css diventano regole. Nessun valore scritto a mano. */
 
 /* Reset */
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html {
+	/* Non si imposta la dimensione del testo: vale quella scelta dall'utente (1rem = 16px di default) */
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+img,
+picture,
+svg,
+video {
+	display: block;
+	max-inline-size: 100%;
+	block-size: auto;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+	color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
 /* Tipografia di base */
 
+:root {
+	/* Colori "di contesto": cambiano dentro un fondo colorato (vedi .su-colore) */
+	--color-focus: var(--color-focus-su-bianco);
+}
+
+body {
+	min-block-size: 100vh;
+	background-color: var(--color-sfondo);
+	color: var(--color-testo);
+	font-family: var(--font-testo);
+	font-size: var(--text-corpo);
+	font-weight: var(--peso-medio);
+	line-height: var(--interlinea-testo);
+}
+
+/* Titoli: il livello (h1…h4) dice la struttura, l'aspetto si può scegliere con le classi .text-…
+   qui sotto. Un solo h1 per pagina. */
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-titoli);
+	line-height: var(--interlinea-titoli);
+}
+
+h1 {
+	font-size: var(--text-display);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-display);
+}
+
+h2 {
+	font-size: var(--text-titolo-1);
+	font-weight: var(--peso-semibold);
+}
+
+h3 {
+	font-size: var(--text-titolo-2);
+	font-weight: var(--peso-semibold);
+}
+
+h4 {
+	font-size: var(--text-titolo-3);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-titolo-3);
+}
+
+/* Testo corrente mai a tutta larghezza */
+p {
+	max-inline-size: var(--colonna-testo);
+}
+
+/* Stili di testo del sistema, uno per token. Servono quando l'aspetto è diverso dal livello
+   del titolo (per esempio un h2 con l'aspetto di un titolo-2). */
+.text-display {
+	font-family: var(--font-titoli);
+	font-size: var(--text-display);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-display);
+}
+
+.text-titolo-1 {
+	font-family: var(--font-titoli);
+	font-size: var(--text-titolo-1);
+	font-weight: var(--peso-semibold);
+	line-height: var(--interlinea-titoli);
+}
+
+.text-titolo-2 {
+	font-family: var(--font-titoli);
+	font-size: var(--text-titolo-2);
+	font-weight: var(--peso-semibold);
+	line-height: var(--interlinea-titoli);
+}
+
+.text-titolo-3 {
+	font-family: var(--font-titoli);
+	font-size: var(--text-titolo-3);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-titolo-3);
+}
+
+.text-logo {
+	font-family: var(--font-titoli);
+	font-size: var(--text-logo);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-titoli);
+}
+
+.text-corpo {
+	font-family: var(--font-testo);
+	font-size: var(--text-corpo);
+	font-weight: var(--peso-medio);
+	line-height: var(--interlinea-testo);
+}
+
+.text-corpo-colore {
+	font-family: var(--font-testo);
+	font-size: var(--text-corpo-colore);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-testo);
+}
+
+.text-etichetta {
+	font-family: var(--font-testo);
+	font-size: var(--text-etichetta);
+	font-weight: var(--peso-grassetto);
+	letter-spacing: var(--spaziatura-etichetta);
+	line-height: var(--interlinea-testo);
+	text-transform: uppercase;
+}
+
+/* Riferimenti e didascalie: solo su bianco, mai dentro .su-colore */
+.text-nota {
+	font-family: var(--font-testo);
+	font-size: var(--text-nota);
+	font-weight: var(--peso-medio);
+	line-height: var(--interlinea-testo);
+}
+
+/* Fondo colorato (salvia, Insegnanti, Famiglie, Professionisti).
+   Il testo è sempre bianco e mai sotto 1.25rem in grassetto (o 1.5rem o più): per questo il testo
+   corrente diventa grassetto. Il colore di sfondo si assegna con una delle classi .fondo-… */
+.su-colore {
+	color: var(--color-testo-su-colore);
+	font-weight: var(--peso-grassetto);
+	--color-link: var(--color-testo-su-colore);
+	--color-focus: var(--color-focus-su-colore);
+}
+
+/* Anche se un'etichetta o una nota finisce dentro un fondo colorato, non può scendere
+   sotto la regola: dimensione del corpo e grassetto. */
+.su-colore .text-corpo,
+.su-colore .text-nota {
+	font-size: var(--text-corpo-colore);
+	font-weight: var(--peso-grassetto);
+}
+
+.fondo-verde-salvia {
+	background-color: var(--color-verde-salvia);
+}
+
+.fondo-rosa-insegnanti {
+	background-color: var(--color-rosa-insegnanti);
+}
+
+.fondo-arancione-famiglie {
+	background-color: var(--color-arancione-famiglie);
+}
+
+.fondo-blu-professionisti {
+	background-color: var(--color-blu-professionisti);
+}
+
+/* Link: sempre sottolineati, il colore da solo non basta per riconoscerli */
+a {
+	color: var(--color-link);
+	font-size: var(--text-link);
+	font-weight: var(--peso-grassetto);
+	text-decoration-line: underline;
+	text-decoration-thickness: var(--bordo-contorno);
+	text-underline-offset: 0.25em;
+}
+
+a:hover {
+	/* Più spessa al passaggio del mouse; il colore non cambia */
+	text-decoration-thickness: calc(var(--bordo-contorno) * 2);
+}
+
 /* Focus */
+
+/* Mai rimosso. Anello arrotondato come i bottoni: verde salvia su bianco, bianco su fondo colorato.
+   Il colore viene da --color-focus, che cambia dentro .su-colore. */
+:focus-visible {
+	outline: var(--focus-spessore) solid var(--color-focus);
+	outline-offset: var(--focus-distanza);
+}
+
+a:focus-visible,
+button:focus-visible {
+	border-radius: var(--raggio-pieno);
+}

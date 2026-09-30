@@ -124,6 +124,14 @@ Le pillole delle fasi sono cerchi da 2.75rem con solo il numero.
 
 Nella pagina `Components` di Figma: `Bottone su bianco`, `Bottone su colore`, `Link su bianco`, `Link su colore`, `Voce di navigazione`, `Pillola fase`, `Badge`. Ogni componente ha gli stati normale, hover e focus (la pillola: attiva e inattiva). In codice ognuno diventa un componente Astro con le stesse varianti.
 
+## Come si usano nel CSS (`base.css`)
+
+- **Titoli:** `h1`, `h2`, `h3`, `h4` hanno già display, titolo-1, titolo-2 e titolo-3. Se l'aspetto deve essere diverso dal livello (per esempio un `h2` con l'aspetto di un titolo-2) si usa la classe: `.text-display`, `.text-titolo-1`, `.text-titolo-2`, `.text-titolo-3`, `.text-logo`, `.text-corpo`, `.text-corpo-colore`, `.text-etichetta`, `.text-nota`. Un solo `h1` per pagina.
+- **Fondo colorato:** la classe `.su-colore` mette il testo bianco e in grassetto, i link bianchi e l'anello di focus bianco. Il colore si sceglie con `.fondo-verde-salvia`, `.fondo-rosa-insegnanti`, `.fondo-arancione-famiglie` o `.fondo-blu-professionisti`. Dentro `.su-colore` una nota o un testo corrente non scendono sotto la regola del testo bianco.
+- **Link:** `a` è già verde salvia, in grassetto, sottolineato (2px, 4px al passaggio del mouse).
+- **Focus:** `:focus-visible` disegna l'anello con `--color-focus`, che vale verde salvia su bianco e bianco dentro `.su-colore`. Su link e bottoni l'anello è arrotondato.
+- **Testo corrente:** i paragrafi hanno larghezza massima `--colonna-testo`.
+
 ## Controlli prima di consegnare una pagina
 
 - Ogni testo usa uno stile `--text-…` e un colore `--color-…`.
