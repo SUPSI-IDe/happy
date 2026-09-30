@@ -1,0 +1,44 @@
+---
+// Piè di pagina: partner e contatto. I partner sono nella collezione src/content/partner.
+import { getCollection } from 'astro:content';
+
+const partner = (await getCollection('partner')).sort((a, b) => a.data.ordine - b.data.ordine);
+const email = 'cinzia.cruder@supsi.ch';
+---
+
+<footer class="footer sezione">
+	<div class="contenitore griglia">
+		<div class="partner">
+			<p class="text-etichetta">In collaborazione con</p>
+			<ul>
+				{
+					partner.map(({ data }) => (
+						<li>{data.link ? <a href={data.link}>{data.nome}</a> : data.nome}</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<div class="contatto">
+			<p>Per informazioni sul progetto HAPPY →</p>
+			<p><a class="text-titolo-2" href={`mailto:${email}`}>{email}</a></p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.partner ul {
+		padding: 0;
+		list-style: none;
+	}
+
+	@media (min-width: 64rem) {
+		.partner {
+			grid-column: 1 / span 6;
+		}
+
+		.contatto {
+			grid-column: 7 / span 6;
+		}
+	}
+</style>

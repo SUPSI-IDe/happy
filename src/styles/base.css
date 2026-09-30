@@ -168,6 +168,33 @@ a:hover {
 	text-decoration-thickness: var(--sottolineatura-spessore-hover);
 }
 
+/* Testo solo per chi usa lo screen reader (per esempio l'etichetta di un pulsante con solo un'icona) */
+.solo-screen-reader {
+	position: absolute;
+	inline-size: 0.0625rem;
+	block-size: 0.0625rem;
+	margin: -0.0625rem;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* Primo elemento della pagina: compare solo con la tastiera e salta la navigazione */
+.salta-al-contenuto {
+	position: absolute;
+	inset-block-start: var(--spazio-2);
+	inset-inline-start: var(--spazio-2);
+	padding: var(--spazio-2) var(--spazio-4);
+	background-color: var(--color-testo);
+	color: var(--color-sfondo);
+	transform: translateY(-200%);
+}
+
+.salta-al-contenuto:focus {
+	transform: none;
+}
+
 /* Focus */
 
 /* Mai rimosso. Il colore viene da --color-focus: verde salvia su bianco, bianco su fondo colorato */
