@@ -17,6 +17,7 @@ MAInD-HAPPY/
 ├── src/
 │   ├── styles/
 │   │   ├── tokens.css     ← colori, font, spaziature (dalle variabili Figma)
+│   │   ├── fonts.css      ← @font-face di Fraunces e Urbanist (file in public/fonts)
 │   │   ├── base.css       ← reset, tipografia, focus
 │   │   └── layout.css     ← griglia a colonne
 │   ├── components/
