@@ -76,7 +76,10 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 | `--text-nota` | 1rem | 1rem | Urbanist 500 | 1.5 | Riferimenti e didascalie. Solo su bianco. |
 
 - **Interlinea:** in Figma è impostata negli stili con questi stessi valori. Il testo corrente non scende mai sotto 1.5.
-- **Mobile-first:** i valori mobile sono quelli di base; i valori desktop si applicano da un breakpoint (proposta: `48rem`, da confermare). Nei frame Figma il mobile è a 390px e il desktop a 1512px.
+- **Mobile-first:** i valori mobile sono quelli di base; i valori desktop si applicano da `64rem` (1024px), scritto in `rem` per seguire lo zoom e la dimensione del testo scelta dall'utente. Nei frame Figma il mobile è a 390px e il desktop a 1512px.
+- **Perché 64rem:** sotto questa larghezza (tablet in verticale, zoom al 200% su un monitor da 1512px) le colonne del desktop sarebbero troppo strette per il corpo a 20px, quindi resta il layout a una colonna. Da 64rem le sezioni si dispongono a colonne.
+- **Titoli grandi fluidi:** `--text-display` e `--text-titolo-1` non saltano di colpo. Da 64rem a 94.5rem (1512px) crescono gradualmente da 4rem a 6rem (`display`) e da 2.25rem a 3rem (`titolo-1`), e da 94.5rem restano ai valori di Figma. Così non escono dalla colonna. Gli altri stili cambiano di colpo a 64rem.
+- **Verifica:** una pagina va controllata a 390, 768, 1024, 1280 e 1512px di larghezza.
 - **Le misure intermedie (15, 18, 19, 22, 26px…) non esistono più.**
 - **Email nei Contatti:** `--text-titolo-2`, colore `--color-link`, sottolineata.
 
