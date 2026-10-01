@@ -68,7 +68,7 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 | `--text-titolo-1` | 3rem | 2rem | Fraunces 600 | 1.2 | Titoli di sezione |
 | `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni |
 | `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Titoli di card e di fase, citazioni, testo dei bottoni |
-| `--text-logo` | 1.5rem | 1.5rem | Fraunces 700 | 1.2 | "Happy" nella navigazione. Solo in Figma finché non c'è la Navbar |
+| `--text-logo` | 1.5rem | 1.5rem | Fraunces 700 | 1.2 | "Happy" nella navigazione |
 | `--text-corpo` | 1.25rem | 1.25rem | Urbanist 500 | 1.5 | Paragrafi su bianco, colonna massima 36rem |
 | `--text-corpo-colore` | 1.25rem | 1.25rem | Urbanist 700 | 1.5 | Paragrafi e voci di navigazione su fondo colorato |
 | `--text-etichetta` | 1.25rem | 1.25rem | Urbanist 700, maiuscolo, spaziatura 0.05em | 1.5 | "A chi ci rivolgiamo", "IN ARRIVO", numero della fase, "Riferimenti" |

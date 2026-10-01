@@ -38,11 +38,15 @@ MAInD-HAPPY/
 - Le sezioni a colonne della home si impilano in verticale sotto il breakpoint.
 - Testo corrente con larghezza massima di circa 36rem.
 
+## Struttura di ogni pagina
+
+`layouts/Base.astro` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar`, `<main id="contenuto">` con il contenuto della pagina (un solo `h1`) e il `Footer`. Le pagine passano solo il titolo e il contenuto.
+
 ## Componenti
 
 | Componente | Uso |
 |---|---|
-| `Navbar` | Risorse, La Ricerca, Il team, Contatti; sottolineature disegnate a mano |
+| `Navbar` | Logo, Risorse, La Ricerca, Il team, Contatti e la linea sotto (unico divisore della pagina). Su mobile le voci stanno dietro un pulsante menu; senza JavaScript restano visibili. La pagina corrente ha `aria-current` e una sottolineatura provvisoria, da sostituire con il disegno a mano |
 | `Hero` | Titolo e spazio configurabile per illustrazione e video |
 | `Section` | Fascia di pagina con colonne |
 | `Card` | Card dei profili, con varianti di forma "fatte a mano" |
@@ -50,4 +54,4 @@ MAInD-HAPPY/
 | `VideoEmbed` | Video 16:9 con sottotitoli |
 | `VideoGrid` | Elenco filtrabile dei video del Toolkit |
 | `PhaseSlider` | Slider delle fasi; i pallini si riempiono da attivi senza cambiare dimensione |
-| `Footer` | Partner, contatti |
+| `Footer` | Partner (collezione `src/content/partner`) e contatto email |
