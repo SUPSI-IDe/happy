@@ -157,10 +157,64 @@
 
 @media (min-width: 64rem) {
 	.contatti-partner {
-		grid-column: 1 / span 6;
+		grid-column: 1 / span 5;
 	}
 
 	.contatti-email {
-		grid-column: 7 / span 6;
+		grid-column: 6 / span 7;
+	}
+}
+
+/* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore */
+
+.piede {
+	padding-block: var(--spazio-6);
+}
+
+.piede .griglia {
+	row-gap: var(--spazio-6);
+}
+
+.piede-progetto {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spazio-6);
+}
+
+.piede-nome {
+	margin-block-end: var(--spazio-1);
+	font-family: var(--font-titoli);
+	font-size: var(--text-logo);
+	line-height: var(--interlinea-titoli);
+}
+
+.piede-loghi,
+.piede-info ul {
+	padding: 0;
+	list-style: none;
+}
+
+.piede-loghi {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spazio-4);
+}
+
+.piede-loghi img {
+	block-size: var(--bottone-altezza-min);
+	inline-size: auto;
+}
+
+@media (min-width: 64rem) {
+	.piede {
+		padding-block: var(--spazio-8);
+	}
+
+	.piede-progetto {
+		grid-column: 1 / span 5;
+	}
+
+	.piede-info {
+		grid-column: 6 / span 7;
 	}
 }

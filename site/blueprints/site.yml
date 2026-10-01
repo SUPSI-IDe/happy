@@ -9,3 +9,48 @@ tabs:
         headline: Pagine
         status: all
         create: false
+  piede:
+    label: Piè di pagina
+    icon: text
+    fields:
+      piede_nome_esteso:
+        label: Nome esteso del progetto
+        type: text
+        help: Sotto "Happy"
+      piede_testo:
+        label: Chi c'è dietro
+        type: textarea
+        size: small
+        buttons: false
+        help: Una o due frasi, per esempio le istituzioni e il finanziamento
+      piede_loghi:
+        label: Loghi
+        type: files
+        layout: cards
+        size: small
+        uploads:
+          template: logo
+        help: Facoltativi. Tutti alla stessa altezza
+      piede_link:
+        label: Link
+        type: structure
+        help: Per esempio privacy e accessibilità. Senza indirizzo il testo resta semplice testo
+        columns:
+          testo:
+            width: 1/2
+          link:
+            width: 1/2
+        fields:
+          testo:
+            label: Testo
+            type: text
+            required: true
+          link:
+            label: Indirizzo
+            type: link
+            options:
+              - url
+              - page
+      piede_copyright:
+        label: Copyright
+        type: text

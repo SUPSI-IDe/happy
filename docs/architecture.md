@@ -23,13 +23,13 @@ MAInD-HAPPY/
 │   │   ├── fonts.css      ← @font-face di Fraunces e Urbanist
 │   │   ├── base.css       ← reset, tipografia, focus
 │   │   ├── layout.css     ← griglia a colonne
-│   │   └── components.css ← bottone, navbar, pagina Contatti
+│   │   └── components.css ← bottone, navbar, footer, pagina Contatti
 │   ├── fonts/             ← Fraunces e Urbanist (woff2) e licenze
 │   └── js/                ← menu su mobile
 ├── site/
 │   ├── blueprints/        ← un file per tipo di contenuto (vedi ontology.md) e per ruolo
 │   ├── templates/         ← una pagina intera; se manca vale default.php
-│   ├── snippets/          ← layout, navbar, bottone
+│   ├── snippets/          ← layout, navbar, footer, bottone
 │   └── config/
 ├── content/               ← una cartella per pagina: home, risorse, ricerca, team, contatti,
 │                            toolkit (con i video), insegnanti · famiglie · professionisti
@@ -45,13 +45,14 @@ MAInD-HAPPY/
 
 ## Struttura di ogni pagina
 
-Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar` e `<main id="contenuto">` con il contenuto della pagina (un solo `h1`). Un piè di pagina comune non c'è ancora: si decide se serve e cosa contiene. I template lo usano con `snippet('layout', slots: true)` e scrivono solo il contenuto.
+Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar` e `<main id="contenuto">` con il contenuto della pagina (un solo `h1`). Poi il `Footer`. I template lo usano con `snippet('layout', slots: true)` e scrivono solo il contenuto.
 
 ## Componenti
 
 | Componente (snippet) | Uso |
 |---|---|
 | `Navbar` | Logo, voci (le pagine pubblicate di primo livello) e la linea sotto (unico divisore della pagina). Su mobile le voci stanno dietro un pulsante menu; senza JavaScript restano visibili. La pagina corrente ha `aria-current` e una sottolineatura provvisoria, da sostituire con il disegno a mano |
+| `Footer` | Piè di pagina uguale in tutte le pagine, su fondo verde salvia con testo bianco: nome del progetto, chi c'è dietro, loghi (facoltativi), link (privacy, accessibilità) e copyright. Tutto modificabile dal pannello (Sito → Piè di pagina) |
 | `Hero` | Titolo e spazio configurabile per illustrazione e video |
 | `Section` | Fascia di pagina con colonne |
 | `Card` | Card dei profili, con varianti di forma "fatte a mano" |

@@ -55,6 +55,9 @@ textarea {
 }
 
 body {
+	/* Il footer resta in fondo alla finestra anche nelle pagine corte */
+	display: flex;
+	flex-direction: column;
 	min-block-size: 100vh;
 	min-block-size: 100dvh;
 	background-color: var(--color-sfondo);
@@ -63,6 +66,10 @@ body {
 	font-size: var(--text-corpo);
 	font-weight: var(--peso-medio);
 	line-height: var(--interlinea-testo);
+}
+
+main {
+	flex: 1 0 auto;
 }
 
 /* Titoli: il livello (h1…h4) dice la struttura, la classe .text-… dà lo stesso aspetto a un altro

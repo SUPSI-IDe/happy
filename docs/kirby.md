@@ -23,7 +23,7 @@ Per fermare il sito: `Ctrl+C` nel Terminale.
 | Stile (token, base, layout, componenti, font) | `assets/css/`, `assets/fonts/` |
 | Script (menu su mobile) | `assets/js/` |
 | Struttura comune delle pagine | `site/snippets/layout.php` |
-| Componenti | `site/snippets/` (`navbar`, `bottone`) |
+| Componenti | `site/snippets/` (`navbar`, `footer`, `bottone`) |
 | Template delle pagine | `site/templates/` (se un template manca vale `default.php`) |
 | Campi e pannello di ogni tipo di contenuto | `site/blueprints/` (vedi `docs/ontology.md`) |
 | Contenuti | `content/` (una cartella per pagina; il prefisso `1_` è l'ordine nel menu) |
@@ -32,6 +32,7 @@ Per fermare il sito: `Ctrl+C` nel Terminale.
 ## Contenuti e pannello
 
 - **Menu:** le voci di navigazione sono le pagine di primo livello *pubblicate* (cartelle con prefisso numerico). Nome e ordine si cambiano dal pannello.
+- **Piè di pagina:** testi, loghi e link si modificano in Sito → Piè di pagina. Un link senza indirizzo resta semplice testo.
 - **Contatti:** email di contatto e partner ("In collaborazione con") si modificano nella pagina Contatti.
 - **Video del Toolkit:** sono pagine figlie di `toolkit`, con il blueprint `video` (strumento, parte del corpo, profilo, durata, link, trascrizione).
 

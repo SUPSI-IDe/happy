@@ -1,7 +1,7 @@
 <?php
 /**
  * Struttura comune a tutte le pagine: link "Vai al contenuto" (per la tastiera), navigazione,
- * <main id="contenuto"> con il contenuto della pagina (un solo h1).
+ * <main id="contenuto"> con il contenuto della pagina (un solo h1) e piè di pagina.
  * Uso nei template: snippet('layout', slots: true) … endsnippet()
  */
 $titolo = $page->isHomePage() ? 'HAPPY' : 'HAPPY – ' . $page->title();
@@ -23,6 +23,7 @@ $titolo = $page->isHomePage() ? 'HAPPY' : 'HAPPY – ' . $page->title();
 	<main id="contenuto">
 		<?= $slot ?>
 	</main>
+	<?php snippet('footer') ?>
 	<?= js('assets/js/navbar.js', ['defer' => true]) ?>
 </body>
 </html>
