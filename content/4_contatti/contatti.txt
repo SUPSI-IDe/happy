@@ -1,0 +1,18 @@
+Title: Contatti
+
+----
+
+Email_contatto: cinzia.cruder@supsi.ch
+
+----
+
+Partner:
+
+- nome: SUPSI
+- nome: Conservatorio della Svizzera italiana
+- nome: Fesmut
+- nome: PhysioSwiss Ticino
+- nome: Ergotherapie-Verband Schweiz
+- nome: Swissmedmusica
+- nome: Verband Musikschulen Schweiz
+- nome: LACedu

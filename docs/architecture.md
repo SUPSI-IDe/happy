@@ -23,13 +23,13 @@ MAInD-HAPPY/
 │   │   ├── fonts.css      ← @font-face di Fraunces e Urbanist
 │   │   ├── base.css       ← reset, tipografia, focus
 │   │   ├── layout.css     ← griglia a colonne
-│   │   └── components.css ← bottone, navbar, footer
+│   │   └── components.css ← bottone, navbar, pagina Contatti
 │   ├── fonts/             ← Fraunces e Urbanist (woff2) e licenze
 │   └── js/                ← menu su mobile
 ├── site/
 │   ├── blueprints/        ← un file per tipo di contenuto (vedi ontology.md) e per ruolo
 │   ├── templates/         ← una pagina intera; se manca vale default.php
-│   ├── snippets/          ← layout, navbar, footer, bottone
+│   ├── snippets/          ← layout, navbar, bottone
 │   └── config/
 ├── content/               ← una cartella per pagina: home, risorse, ricerca, team, contatti,
 │                            toolkit (con i video), insegnanti · famiglie · professionisti
@@ -45,7 +45,7 @@ MAInD-HAPPY/
 
 ## Struttura di ogni pagina
 
-Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar`, `<main id="contenuto">` con il contenuto della pagina (un solo `h1`) e il `Footer`. I template lo usano con `snippet('layout', slots: true)` e scrivono solo il contenuto.
+Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar` e `<main id="contenuto">` con il contenuto della pagina (un solo `h1`). Un piè di pagina comune non c'è ancora: si decide se serve e cosa contiene. I template lo usano con `snippet('layout', slots: true)` e scrivono solo il contenuto.
 
 ## Componenti
 
@@ -59,4 +59,3 @@ Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tas
 | `VideoEmbed` | Video 16:9 con sottotitoli |
 | `VideoGrid` | Elenco filtrabile dei video del Toolkit |
 | `PhaseSlider` | Slider delle fasi; i pallini si riempiono da attivi senza cambiare dimensione |
-| `Footer` | Partner e contatto email, modificabili dal pannello (Sito → Piè di pagina) |

@@ -148,19 +148,19 @@
 	}
 }
 
-/* Footer (snippet footer) */
+/* Pagina Contatti: partner ed email (template contatti) */
 
-.footer-partner ul {
+.contatti-partner ul {
 	padding: 0;
 	list-style: none;
 }
 
 @media (min-width: 64rem) {
-	.footer-partner {
+	.contatti-partner {
 		grid-column: 1 / span 6;
 	}
 
-	.footer-contatto {
+	.contatti-email {
 		grid-column: 7 / span 6;
 	}
 }
