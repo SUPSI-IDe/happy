@@ -1,17 +1,16 @@
 # Roadmap
 
-## Strategia in due fasi
+## Strategia
 
-| Fase | Cosa | Chi |
-|---|---|---|
-| **1 – Sito statico** (entro il 30 ottobre 2026) | Ontologia, pagine, componenti, rilascio online | Nerea |
-| **2 – CMS Kirby** (dopo il rilascio) | Blueprint e pannello di gestione sull'ontologia esistente; acquisto della licenza | Da definire |
+Il sito è costruito direttamente con **Kirby**, senza passare da un sito statico intermedio (decisione del 1 ottobre 2026). Hosting e licenza sono di SUPSI (`happy.supsi.ch`) e i partner gestiscono i video del Toolkit dal pannello. Da confermare con SUPSI: versione di PHP, licenza, modo per caricare i file, backup.
 
-## Timeline della fase 1
+Rilascio previsto entro il **30 ottobre 2026**.
+
+## Timeline
 
 | Settimana | Lavoro |
 |---|---|
-| 29 set – 3 ott | Variabili in Figma (palette scurita), setup del repository, token, griglia, componenti base |
+| 29 set – 3 ott | Variabili in Figma (palette), setup del repository, token, griglia, componenti base |
 | 6 – 10 ott | Home completa: sezioni, slider delle fasi, hero (in attesa del feedback di Cinzia) |
 | 13 – 17 ott | Pagine profilo, Risorse, La Ricerca, Team, Contatti; struttura del Toolkit con video segnaposto |
 | 20 – 24 ott | Integrazione degli asset di Laura, video, rifinitura mobile, audit di accessibilità |
@@ -23,11 +22,10 @@ Se ne occupa Ginevra, separatamente da questo repository.
 
 ## Next steps immediati
 
-- Creare lo scheletro del progetto Astro nel repository `MAInD-HAPPY`.
+- Confermare con SUPSI hosting, licenza e accessi.
 - Trasformare colori, tipografia e spaziature in design token.
 
 ## Dopo il rilascio
 
-- Pianificazione della fase Kirby.
 - Definizione del formato dei Diaries.
 - Crescita del Toolkit video.

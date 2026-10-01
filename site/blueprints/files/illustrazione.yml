@@ -1,0 +1,8 @@
+title: Illustrazione
+accept:
+  type: image
+fields:
+  alt:
+    label: Testo alternativo
+    type: text
+    help: Descrive l'immagine a chi non la vede. Lascia vuoto se è solo decorativa

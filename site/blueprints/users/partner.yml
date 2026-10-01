@@ -1,0 +1,19 @@
+title: Partner
+description: Può aggiungere, modificare e togliere i video del Toolkit
+permissions:
+  access:
+    site: true
+    users: false
+    system: false
+    languages: false
+  user:
+    changeRole: false
+    delete: false
+  users:
+    create: false
+    changeRole: false
+    delete: false
+    update: false
+  site:
+    changeTitle: false
+    update: false

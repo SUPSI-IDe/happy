@@ -1,0 +1,28 @@
+title: Profilo
+extends: pages/solo-admin
+fields:
+  colore:
+    label: Colore
+    type: select
+    required: true
+    options:
+      rosa-insegnanti: Rosa (Insegnanti)
+      arancione-famiglie: Arancione (Famiglie)
+      blu-professionisti: Blu (Professionisti)
+    width: 1/3
+  illustrazione:
+    label: Illustrazione
+    type: files
+    max: 1
+    layout: cards
+    uploads:
+      template: illustrazione
+    width: 2/3
+  intro:
+    label: Introduzione
+    type: textarea
+    size: small
+  testo:
+    label: Testo
+    type: textarea
+    size: large

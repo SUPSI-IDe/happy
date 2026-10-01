@@ -6,7 +6,7 @@
 
 Il sito di **HAPPY – HeAlthy Playing Practices for Young musicians**, progetto di ricerca partecipativa della SUPSI con il Conservatorio della Svizzera italiana (SUM-CSI), finanziato dal FNS (programma Agora). Si rivolge a tre profili: insegnanti di musica, famiglie e professionisti della salute.
 
-Il sito è **100% statico**: è costruito con Astro e generato come file HTML/CSS. In una seconda fase si costruirà il CMS con **Kirby** partendo dall'ontologia definita qui.
+Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e va online su `happy.supsi.ch`. I partner possono gestire i video del Toolkit dal pannello; i contenuti seguono l'ontologia di `docs/ontology.md`.
 
 ## Regole d'oro (da non infrangere)
 
@@ -19,14 +19,15 @@ Il sito è **100% statico**: è costruito con Astro e generato come file HTML/CS
 - **Doodle solo vicino a illustrazioni o mascotte**, mai accanto al testo, e solo nei colori di sistema.
 - **Testi nei file di contenuto**, mai scritti direttamente nei componenti.
 - **Mobile-first:** ogni componente si scrive prima per mobile e si verifica su entrambi i formati.
-- **Nessun server a runtime:** niente codice che presuppone un backend. I form sono link a Microsoft Forms.
+- **Niente servizi esterni a runtime:** né font, né script, né tracciamento da altri siti. I form sono link a Microsoft Forms.
 
 ## Indice della documentazione
 
 | Documento | Contenuto |
 |---|---|
 | `docs/architecture.md` | Stack, struttura delle cartelle, layout a colonne, componenti |
-| `docs/ontology.md` | Tipi di contenuto e relativi campi, base comune per il sito statico e per Kirby |
+| `docs/kirby.md` | Lavorare in locale, pannello, ruoli, messa online |
+| `docs/ontology.md` | Tipi di contenuto e relativi campi (diventano i blueprint di Kirby) |
 | `docs/design-tokens.md` | Palette, tipografia, spaziature, regole visive, asset di Laura |
 | `docs/workflow.md` | Metodo di sviluppo con AI, Git, verifiche |
 | `docs/roadmap.md` | Fasi, timeline, next steps |
@@ -35,18 +36,17 @@ Il sito è **100% statico**: è costruito con Astro e generato come file HTML/CS
 
 | Compito | Partire da |
 |---|---|
-| Aggiungere o modificare un contenuto (testo, video, risorsa) | `docs/ontology.md` → `src/content/` |
-| Cambiare un colore, un font o una spaziatura | `docs/design-tokens.md` → `src/styles/tokens.css` |
-| Creare o modificare un componente | `docs/architecture.md` → `src/components/` |
-| Sostituire un placeholder con un asset di Laura | `docs/design-tokens.md` → `public/assets/` |
+| Aggiungere o modificare un contenuto (testo, video, risorsa) | `docs/ontology.md` → `content/` e `site/blueprints/` |
+| Cambiare un colore, un font o una spaziatura | `docs/design-tokens.md` → `assets/css/tokens.css` |
+| Creare o modificare un componente | `docs/architecture.md` → `site/snippets/` e `assets/css/components.css` |
+| Sostituire un placeholder con un asset di Laura | `docs/design-tokens.md` → `assets/` |
 | Iniziare una sessione di lavoro con l'AI | `docs/workflow.md` |
 
 ## Verifica prima di ogni merge
 
 ```
-npm run check     # regole del CSS (px, colori, variabili) e contrasti; deve passare
-npm run build     # genera il sito statico; deve completarsi senza errori
-npm run preview   # controllo visivo su desktop e mobile
+npm run check     # regole del CSS, contrasti e pagine (un solo h1, lingua…); deve passare
+composer dev      # avvia il sito su localhost:8000 per il controllo visivo su desktop e mobile
 ```
 
 Poi un controllo di accessibilità con Lighthouse e axe sulle pagine modificate.

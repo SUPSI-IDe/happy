@@ -13,12 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          tools: composer
+      - name: Installa Kirby
+        run: composer install --no-interaction --prefer-dist
+      - name: Controlla composer.json
+        run: composer validate --strict
+      - name: Sintassi PHP
+        run: find index.php site -name '*.php' -print0 | xargs -0 -n1 php -l
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
-      - name: Regole d'oro del CSS e contrasti
+      - name: Regole d'oro del CSS, contrasti e pagine
         run: npm run check
-      - name: Build
-        run: npm run build

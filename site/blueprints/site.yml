@@ -1,0 +1,36 @@
+title: Sito
+tabs:
+  pagine:
+    label: Pagine
+    icon: page
+    sections:
+      pagine:
+        type: pages
+        headline: Pagine
+        status: all
+        create: false
+  piede:
+    label: Piè di pagina
+    icon: text
+    fields:
+      email_contatto:
+        label: Email di contatto
+        type: email
+        help: Compare in fondo a ogni pagina
+      partner:
+        label: Partner
+        type: structure
+        help: Trascina per cambiare l'ordine
+        columns:
+          nome:
+            width: 1/2
+          link:
+            width: 1/2
+        fields:
+          nome:
+            label: Nome
+            type: text
+            required: true
+          link:
+            label: Link
+            type: url

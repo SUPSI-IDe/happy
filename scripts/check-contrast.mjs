@@ -4,7 +4,7 @@
 
 import { readFileSync } from 'node:fs';
 
-const css = readFileSync(new URL('../src/styles/tokens.css', import.meta.url), 'utf8');
+const css = readFileSync(new URL('../assets/css/tokens.css', import.meta.url), 'utf8');
 const primoBlocco = css.split('@media')[0];
 const variabili = Object.fromEntries([...primoBlocco.matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)].map((m) => [m[1], m[2].trim()]));
 

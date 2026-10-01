@@ -1,0 +1,22 @@
+title: Home
+extends: pages/solo-admin
+tabs:
+  contenuto:
+    label: Contenuto
+    fields:
+      intro:
+        label: Introduzione
+        type: textarea
+        size: small
+      testo:
+        label: Testo
+        type: textarea
+        size: large
+  fasi:
+    label: Fasi del progetto
+    sections:
+      fasi:
+        type: pages
+        headline: Fasi
+        template: fase
+        status: all
