@@ -3,3 +3,13 @@ dist/
 .astro/
 .env
 .DS_Store
+
+# Kirby: installato da Composer, generato o con dati privati
+/vendor/
+/kirby/
+/media/
+/site/accounts/
+/site/cache/
+/site/logs/
+/site/sessions/
+/site/config/.license

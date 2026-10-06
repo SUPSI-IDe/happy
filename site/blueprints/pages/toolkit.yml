@@ -1,0 +1,31 @@
+title: Toolkit
+# I partner possono aggiungere, modificare e togliere i video; il resto è dell'amministratore
+options:
+  changeSlug:
+    partner: false
+  changeStatus:
+    partner: false
+  changeTemplate:
+    partner: false
+  changeTitle:
+    partner: false
+  delete:
+    partner: false
+  duplicate:
+    partner: false
+  move:
+    partner: false
+  update:
+    partner: false
+fields:
+  intro:
+    label: Introduzione
+    type: textarea
+    size: small
+sections:
+  video:
+    type: pages
+    headline: Video
+    template: video
+    status: all
+    info: "{{ page.durata }}"

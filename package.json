@@ -4,14 +4,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
     "check:css": "node scripts/check-css.mjs",
     "check:contrast": "node scripts/check-contrast.mjs",
-    "check": "npm run check:css && npm run check:contrast"
-  },
-  "dependencies": {
-    "astro": "^7.3.5"
+    "check:pagine": "node scripts/check-pagine.mjs",
+    "check": "npm run check:css && npm run check:contrast && npm run check:pagine"
   }
 }

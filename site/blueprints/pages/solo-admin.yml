@@ -1,0 +1,22 @@
+# Base per tutte le pagine che i partner non devono toccare. Si usa con: extends: pages/solo-admin
+options:
+  changeSlug:
+    partner: false
+  changeStatus:
+    partner: false
+  changeTemplate:
+    partner: false
+  changeTitle:
+    partner: false
+  create:
+    partner: false
+  delete:
+    partner: false
+  duplicate:
+    partner: false
+  move:
+    partner: false
+  sort:
+    partner: false
+  update:
+    partner: false

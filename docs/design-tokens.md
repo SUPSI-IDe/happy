@@ -1,6 +1,6 @@
 # Design token e regole visive
 
-La fonte dei valori usati dal sito è **`src/styles/tokens.css`**: è un file di testo e lo può modificare anche chi non usa Figma. Le **variabili di Figma** hanno lo stesso schema e servono a chi disegna. Quando un valore cambia si aggiornano entrambi e questo documento (vedi "Cambiare un colore"). Un controllo automatico impedisce di rompere le regole di contrasto (vedi "Controlli automatici").
+La fonte dei valori usati dal sito è **`assets/css/tokens.css`**: è un file di testo e lo può modificare anche chi non usa Figma. Le **variabili di Figma** hanno lo stesso schema e servono a chi disegna. Quando un valore cambia si aggiornano entrambi e questo documento (vedi "Cambiare un colore"). Un controllo automatico impedisce di rompere le regole di contrasto (vedi "Controlli automatici").
 
 Dove stanno in Figma:
 
@@ -133,7 +133,7 @@ I wireframe non seguono una griglia precisa, quindi i valori sono stati scelti a
 
 Le pillole delle fasi sono cerchi da 2.75rem con solo il numero.
 
-Nella pagina `Components` di Figma: `Bottone su bianco`, `Bottone su colore`, `Link su bianco`, `Link su colore`, `Voce di navigazione`, `Pillola fase`, `Badge`. Ogni componente ha gli stati normale, hover e focus (la pillola: attiva e inattiva). In codice ognuno diventa un componente Astro con le stesse varianti.
+Nella pagina `Components` di Figma: `Bottone su bianco`, `Bottone su colore`, `Link su bianco`, `Link su colore`, `Voce di navigazione`, `Pillola fase`, `Badge`. Ogni componente ha gli stati normale, hover e focus (la pillola: attiva e inattiva). In codice ognuno diventa uno snippet di Kirby con le stesse varianti.
 
 ## Come si usano nel CSS (`base.css`)
 
@@ -155,17 +155,17 @@ Nella pagina `Components` di Figma: `Bottone su bianco`, `Bottone su colore`, `L
 
 I colori sono una scelta di marca *e* di accessibilità: non si cambiano a occhio. Chi cambia un colore (chiunque abbia accesso al repository, anche senza Figma):
 
-1. Modifica il valore in `src/styles/tokens.css`.
+1. Modifica il valore in `assets/css/tokens.css`.
 2. Lancia `npm run check:contrast`. Se una coppia scende sotto la soglia, il controllo fallisce e dice quale (per esempio il testo bianco su un nuovo colore di sfondo).
 3. Aggiorna lo stesso valore nella variabile Figma e nella tabella "Palette" di questo documento.
 
-Il contenuto del sito (testi, video, risorse) non passa da qui: si modificherà nel CMS Kirby, senza toccare i token.
+Il contenuto del sito (testi, video, risorse) non passa da qui: si modifica nel pannello di Kirby, senza toccare i token.
 
 ## Controlli automatici
 
-- `npm run check:css` vieta misure in `px`, colori scritti a mano fuori da `tokens.css` e `var(--…)` non definite. Legge anche i blocchi `<style>` dei componenti Astro.
+- `npm run check:css` vieta misure in `px`, colori scritti a mano fuori da `tokens.css` e `var(--…)` non definite.
 - `npm run check:contrast` verifica i contrasti dei colori di `tokens.css` (testo su bianco, testo bianco su ogni fondo colorato, link, anelli di focus). Controlla le coppie di token, non le pagine reali: quelle si controllano con axe e Lighthouse.
-- Entrambi (`npm run check`) e la build girano su ogni pull request (`.github/workflows/ci.yml`).
+- Insieme a `npm run check:pagine` (ogni pagina ha un solo `h1`, `lang="it"`, `<main>`…) girano su ogni pull request (`.github/workflows/ci.yml`).
 
 ## Elementi disegnati a mano
 

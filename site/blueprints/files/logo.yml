@@ -1,0 +1,9 @@
+title: Logo
+accept:
+  type: image
+fields:
+  alt:
+    label: Testo alternativo
+    type: text
+    required: true
+    help: Il nome dell'istituzione, per esempio "SUPSI"

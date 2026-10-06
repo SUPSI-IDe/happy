@@ -1,0 +1,13 @@
+title: Il team
+extends: pages/solo-admin
+fields:
+  intro:
+    label: Introduzione
+    type: textarea
+    size: small
+sections:
+  elenco:
+    type: pages
+    headline: Persone
+    template: persona
+    status: all

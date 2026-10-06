@@ -1,0 +1,13 @@
+title: Risorse
+extends: pages/solo-admin
+fields:
+  intro:
+    label: Introduzione
+    type: textarea
+    size: small
+sections:
+  elenco:
+    type: pages
+    headline: Risorse
+    template: risorsa
+    status: all

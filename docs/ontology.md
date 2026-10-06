@@ -1,6 +1,6 @@
 # Ontologia dei contenuti
 
-I tipi di contenuto del sito. Ogni tipo ha campi fissi e vive in una cartella di `src/content/`. La stessa struttura diventerà i blueprint di Kirby.
+I tipi di contenuto del sito. Ogni tipo ha campi fissi e è un *blueprint* di Kirby in `site/blueprints/` e i suoi contenuti stanno in `content/`.
 
 | Tipo | Campi principali | Note |
 |---|---|---|

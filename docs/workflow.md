@@ -6,7 +6,7 @@ Il sito è sviluppato con l'assistenza dell'AI seguendo un processo definito, no
 
 1. **Specifica prima del codice:** ogni compito parte da questa documentazione (regole d'oro, ontologia, token).
 2. **Un compito piccolo alla volta:** un componente o una pagina per sessione.
-3. **Verifica:** build senza errori, controllo su desktop e mobile, Lighthouse e axe.
+3. **Verifica:** `npm run check` senza errori, controllo su desktop e mobile, Lighthouse e axe.
 4. **Comprensione:** ogni modifica viene letta e capita prima di essere accettata.
 5. **Salvataggio con Git:** commit piccoli e descrittivi.
 

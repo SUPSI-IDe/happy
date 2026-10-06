@@ -1,0 +1,220 @@
+/* Stili dei componenti. Ogni blocco corrisponde a uno snippet in site/snippets.
+   Solo token di tokens.css: vedi docs/design-tokens.md */
+
+/* Bottone (snippet bottone) */
+
+.bottone {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-block-size: var(--bottone-altezza-min);
+	padding: var(--bottone-padding-block) var(--bottone-padding-inline);
+	/* Il bordo c'è sempre, così pieno e contorno hanno la stessa altezza */
+	border: var(--bordo-contorno) solid transparent;
+	border-radius: var(--raggio-pieno);
+	background: none;
+	font-family: var(--font-titoli);
+	font-size: var(--text-titolo-3);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-titolo-3);
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* Hover: si sottolinea l'etichetta, colori e sfondo non cambiano */
+.bottone:hover {
+	text-decoration: underline;
+	text-decoration-thickness: var(--sottolineatura-bottone-hover);
+	text-underline-offset: 0.25em;
+}
+
+.bottone--pieno {
+	background-color: var(--color-verde-salvia);
+	color: var(--color-testo-su-colore);
+}
+
+.bottone--contorno {
+	color: inherit;
+	border-color: currentColor;
+}
+
+/* Navbar (snippet navbar) */
+
+.navbar {
+	border-block-end: var(--bordo-contorno) solid currentColor;
+}
+
+.navbar-riga {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: var(--gutter);
+	padding-block: var(--spazio-3);
+}
+
+.navbar-logo {
+	color: inherit;
+	font-family: var(--font-titoli);
+	font-size: var(--text-logo);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-titoli);
+	text-decoration: none;
+}
+
+/* Pulsante menu: visibile solo se c'è JavaScript e solo su mobile */
+.navbar-menu {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	min-inline-size: var(--bottone-altezza-min);
+	min-block-size: var(--bottone-altezza-min);
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+.js .navbar-menu {
+	display: inline-flex;
+}
+
+/* Due linee, come nel wireframe. Da sostituire con il disegno a mano di Laura */
+.navbar-menu-icona {
+	display: block;
+	inline-size: var(--bottone-altezza-min);
+	block-size: var(--spazio-2);
+	border-block: var(--bordo-contorno) solid currentColor;
+}
+
+.navbar-voci {
+	flex-basis: 100%;
+}
+
+.navbar-voci ul {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	list-style: none;
+}
+
+.js .navbar-voci {
+	display: none;
+}
+
+.js .navbar[data-aperto] .navbar-voci {
+	display: block;
+}
+
+.navbar-voce {
+	display: flex;
+	align-items: center;
+	min-block-size: var(--bottone-altezza-min);
+	color: inherit;
+	font-size: var(--text-corpo-colore);
+	font-weight: var(--peso-grassetto);
+	text-decoration: none;
+}
+
+.navbar-voce:hover {
+	text-decoration: underline;
+	text-decoration-thickness: var(--sottolineatura-bottone-hover);
+	text-underline-offset: 0.25em;
+}
+
+/* Pagina corrente: sottolineatura provvisoria, poi il disegno a mano di Laura */
+.navbar-voce[aria-current='page'] {
+	text-decoration: underline;
+	text-decoration-thickness: var(--sottolineatura-spessore);
+	text-underline-offset: 0.25em;
+}
+
+@media (min-width: 64rem) {
+	.js .navbar-menu {
+		display: none;
+	}
+
+	.navbar-voci,
+	.js .navbar-voci {
+		display: block;
+		flex-basis: auto;
+	}
+
+	.navbar-voci ul {
+		flex-direction: row;
+		column-gap: var(--spazio-9);
+	}
+}
+
+/* Pagina Contatti: partner ed email (template contatti) */
+
+.contatti-partner ul {
+	padding: 0;
+	list-style: none;
+}
+
+@media (min-width: 64rem) {
+	.contatti-partner {
+		grid-column: 1 / span 5;
+	}
+
+	.contatti-email {
+		grid-column: 6 / span 7;
+	}
+}
+
+/* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore */
+
+.piede {
+	padding-block: var(--spazio-6);
+}
+
+.piede .griglia {
+	row-gap: var(--spazio-6);
+}
+
+.piede-progetto {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spazio-6);
+}
+
+.piede-nome {
+	margin-block-end: var(--spazio-1);
+	font-family: var(--font-titoli);
+	font-size: var(--text-logo);
+	line-height: var(--interlinea-titoli);
+}
+
+.piede-loghi,
+.piede-info ul {
+	padding: 0;
+	list-style: none;
+}
+
+.piede-loghi {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--spazio-4);
+}
+
+.piede-loghi img {
+	block-size: var(--bottone-altezza-min);
+	inline-size: auto;
+}
+
+@media (min-width: 64rem) {
+	.piede {
+		padding-block: var(--spazio-8);
+	}
+
+	.piede-progetto {
+		grid-column: 1 / span 5;
+	}
+
+	.piede-info {
+		grid-column: 6 / span 7;
+	}
+}

@@ -1,0 +1,13 @@
+title: La Ricerca
+extends: pages/solo-admin
+fields:
+  intro:
+    label: Introduzione
+    type: textarea
+    size: small
+sections:
+  elenco:
+    type: pages
+    headline: Pubblicazioni
+    template: pubblicazione
+    status: all
