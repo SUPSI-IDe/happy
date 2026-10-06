@@ -2,7 +2,7 @@ Title: Contatti
 
 ----
 
-Email_contatto: cinzia.cruder@supsi.ch
+Email-contatto: cinzia.cruder@supsi.ch
 
 ----
 
@@ -16,3 +16,7 @@ Partner:
 - nome: Swissmedmusica
 - nome: Verband Musikschulen Schweiz
 - nome: LACedu
+
+----
+
+Uuid: jlx4luxjehaxoj3u
