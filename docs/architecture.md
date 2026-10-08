@@ -41,7 +41,7 @@ MAInD-HAPPY/
 - Griglia CSS Grid: **4 colonne su mobile, 12 su desktop**.
 - Ogni sezione è una fascia a tutta larghezza (`.sezione`) con un container interno (`.contenitore`) e, dove serve, una `.griglia`. Margini e gutter sono in `tokens.css`, vedi `docs/design-tokens.md`.
 - Le sezioni a colonne della home si impilano in verticale sotto il breakpoint.
-- Testo corrente con larghezza massima di circa 36rem.
+- Testo corrente con larghezza massima di 42.5rem (`--colonna-testo`, le colonne 7–12 del desktop).
 
 ## Struttura di ogni pagina
 

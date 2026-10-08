@@ -72,8 +72,9 @@
 
 	/* Spaziature */
 
-	/* Testo corrente mai a tutta larghezza */
-	--colonna-testo: 36rem;
+	/* Testo corrente mai a tutta larghezza: al massimo le colonne 7–12 del desktop
+	   (6 colonne e 5 gutter a 1512px: 6 × 93.33px + 5 × 24px = 680px) */
+	--colonna-testo: 42.5rem;
 
 	/* Scala delle spaziature: multipli di 0.25rem (4px) */
 	--spazio-1: 0.25rem;
@@ -105,7 +106,7 @@
 		--text-titolo-2: 2rem;
 		--text-titolo-3: 1.5rem;
 
-		--margine-pagina: 4.5rem;
+		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);
 		--spazio-sezione: var(--spazio-9);
 	}
