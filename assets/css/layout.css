@@ -1,5 +1,5 @@
 /* Griglia a colonne: 4 su mobile, 12 su desktop (da 64rem). Vedi docs/architecture.md
-   I valori (margini, gutter, larghezza massima) sono in tokens.css. */
+   I valori (margini, gutter) sono in tokens.css. */
 
 /* Sezioni a tutta larghezza: la fascia (e il suo colore di fondo) occupa tutta la pagina,
    il contenuto sta nel .contenitore */
@@ -7,10 +7,9 @@
 	padding-block: var(--spazio-sezione);
 }
 
-/* Container: centrato, con il margine di pagina ai lati, mai più largo di --larghezza-massima */
+/* Container: il margine di pagina ai lati, a ogni larghezza dello schermo */
 .contenitore {
-	inline-size: min(100% - 2 * var(--margine-pagina), var(--larghezza-massima));
-	margin-inline: auto;
+	margin-inline: var(--margine-pagina);
 }
 
 /* Griglia */

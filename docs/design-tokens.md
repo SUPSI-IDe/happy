@@ -64,7 +64,7 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 
 | Token | Desktop | Mobile | Peso | Interlinea | Uso |
 |---|---|---|---|---|---|
-| `--text-display` | 6rem | 2.75rem | Fraunces 700 | 1.1 | Titolo hero: solo pagine principali (Risorse, Contatti, La Ricerca) e pagine dei profili |
+| `--text-display` | 6rem | 2.75rem | Fraunces 700 | 1.1 | Titolo delle pagine dei profili. Nella hero della home il titolo è il logo SVG (vedi "Hero della home") |
 | `--text-titolo-1` | 3rem | 2rem | Fraunces 600 | 1.2 | Titoli di sezione |
 | `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni |
 | `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Titoli di card e di fase, citazioni, testo dei bottoni |
@@ -125,10 +125,22 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 
 - **Scala delle spaziature:** `--spazio-1` … `--spazio-9`, multipli di 0.25rem: 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 6rem.
 - **Griglia:** 4 colonne su mobile, 12 da 64rem. Spazio tra le colonne (`--gutter`): 1rem su mobile, 1.5rem su desktop.
-- **Margine di pagina** (`--margine-pagina`): 1.25rem (20px) su mobile, 4rem (64px) su desktop. Il contenuto non supera `--larghezza-massima` (90rem) ed è centrato.
+- **Margine di pagina** (`--margine-pagina`): 1.25rem (20px) su mobile, 4rem (64px) su desktop, a ogni larghezza dello schermo. Non c'è una larghezza massima: come in Figma le colonne crescono con lo schermo. Il testo resta leggibile perché i paragrafi non superano `--colonna-testo`.
 - **Distanza tra le sezioni** (`--spazio-sezione`): 4rem (64px) su mobile, 6rem (96px) su desktop. Su mobile tra il titolo di sezione e il contenuto c'è `--spazio-5` (1.5rem, 24px).
 - **Colonne delle sezioni (desktop):** il titolo sta nelle colonne 1–5, il contenuto nelle colonne 7–12 (larghe in tutto 42.5rem a 1512px, da qui `--colonna-testo`). Nelle sezioni lunghe il titolo può restare fermo a sinistra (`position: sticky`).
+- **Altezza della navbar** (`--navbar-altezza`): calcolata dai token del bottone. La usano le ancore (`scroll-padding` in `base.css`, così una sezione non finisce sotto la navbar sticky) e le sezioni alte uno schermo.
+- **Titoli di sezione:** l'`h2` di ogni sezione ha la classe `.titolo-sezione`, che mette a sinistra il segno a pennello (`assets/images/segno-titolo.svg`, "Vector 38" in Figma). Il segno è una maschera colorata da `--color-decorazione`: verde sul bianco, bianco sul colore. È alto 0.95em, quindi segue il titolo (30px su mobile, 46px su desktop). In Figma "Cos'è Happy?" aveva un segno diverso su mobile e su desktop: si usa lo stesso degli altri titoli.
 - **Classi:** `.sezione` (fascia a tutta larghezza), `.contenitore` (contenuto centrato), `.griglia` (colonne). Su mobile gli elementi della griglia occupano tutta la riga; da 64rem ogni componente sceglie quante colonne occupare con `grid-column`.
+
+## Hero della home
+
+- **Logo:** "Happy" è un SVG (`assets/images/logo-happy.svg`), non testo: Fraunces molto grande si deforma. Prende il colore del testo intorno (`currentColor`), quindi bianco sul verde. Larghezza `--hero-logo`: 13.125rem (210px) su uno schermo di 390px, cresce gradualmente fino a 26.5625rem (425px) a 1024px e poi resta ferma, così negli schermi intermedi non resta piccolo.
+- **Sottotitolo** (il nome esteso): `--text-titolo-3` (Fraunces 700) su tutti i formati. Nel frame mobile di Figma è in Urbanist: è un errore del frame.
+- **Mascotte:** sempre presente, anche su mobile, accanto al logo. `--hero-mascotte` è una proporzione del logo (197px accanto a 425px), quindi cresce con lui; su schermi molto stretti si restringe.
+- **Bordo a pennello:** chiude il fondo verde (`assets/images/bordo-pennello.svg`, usato come maschera, alto `--bordo-pennello` 1.1875rem). È centrato sul bordo, metà sul verde e metà sotto, così il profilo irregolare non lascia fessure. Su mobile sta sotto il video, su desktop sotto la hero.
+- **Video:** sempre il più grande possibile: su mobile da bordo a bordo, su desktop tutte le colonne 6–12 fino al margine.
+- **Desktop, altezza:** la hero è alta uno schermo sotto la navbar, con il contenuto centrato e almeno `--spazio-6` sopra e sotto.
+- **Mobile:** logo con mascotte, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
 
 ## Componenti in Figma
 

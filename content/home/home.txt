@@ -2,7 +2,21 @@ Title: Happy
 
 ----
 
+Illustrazione:
+
+- mascotte-mano.png
+
+----
+
 Presentazione_titolo: Cos'è Happy?
+
+----
+
+Presentazione_testo:
+
+HAPPY è un progetto della Scuola Universitaria Professionale della Svizzera italiana (SUPSI), in collaborazione con la Scuola Universitaria del Conservatorio della Svizzera italiana (SUM-CSI), che riunisce insegnanti di musica, famiglie e professionisti della salute per promuovere la salute e il benessere dei giovani musicisti.
+
+Il progetto è finanziato dal programma Agora del Fondo nazionale svizzero (FNS) e trasforma la ricerca sulla salute dei musicisti in strumenti pratici e accessibili, per costruire fin dall'infanzia abitudini di pratica sane e consapevoli.
 
 ----
 

@@ -5,7 +5,8 @@
  * (vedi docs/kirby.md): portano all'ancora, cioè al nome della cartella, anche dalle pagine dei profili.
  * Anche il logo porta a un'ancora (#home, la cima della pagina): così non ricarica la pagina e nessun
  * browser rimette lo scorrimento dov'era.
- * Su mobile le voci stanno dietro il pulsante menu; senza JavaScript restano sempre visibili.
+ * Su mobile le voci stanno dietro il pulsante menu, che apre un menu a tutto schermo con il bottone
+ * "Partecipa" (testo e link da Sito → Generale); senza JavaScript restano sempre visibili.
  * Resta in alto mentre si scorre (sticky), su fondo verde salvia con testo bianco.
  */
 $home = $site->homePage();
@@ -28,6 +29,9 @@ $voci = $home->children()->listed()->prepend($home)->filter(fn ($voce) => $voce-
 					</li>
 				<?php endforeach ?>
 			</ul>
+			<?php if ($site->partecipa_link()->isNotEmpty()): ?>
+				<?php snippet('bottone', ['href' => $site->partecipa_link()->value(), 'variante' => 'contorno', 'class' => 'navbar-partecipa'], slots: true) ?><?= esc($site->partecipa_testo()->value()) ?><?php endsnippet() ?>
+			<?php endif ?>
 		</nav>
 	</div>
 </header>

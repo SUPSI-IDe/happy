@@ -40,7 +40,7 @@
 }
 
 /* Navbar (snippet navbar). Fondo e testo bianco vengono da .fondo-verde-salvia e .su-colore.
-   Resta in alto mentre si scorre: l'altezza è ripetuta in base.css (scroll-padding) */
+   Resta in alto mentre si scorre: se cambia l'altezza, va aggiornato --navbar-altezza in tokens.css */
 
 .navbar {
 	position: sticky;
@@ -85,12 +85,38 @@
 	display: inline-flex;
 }
 
-/* Due linee, come nel wireframe. Da sostituire con il disegno a mano di Laura */
+/* Icona: due linee che, a menu aperto, diventano una X. Da sostituire con il disegno a mano di Laura */
 .navbar-menu-icona {
+	position: relative;
 	display: block;
 	inline-size: var(--bottone-altezza-min);
 	block-size: var(--spazio-2);
-	border-block: var(--bordo-contorno) solid currentColor;
+}
+
+.navbar-menu-icona::before,
+.navbar-menu-icona::after {
+	content: '';
+	position: absolute;
+	inset-inline: 0;
+	block-size: var(--bordo-contorno);
+	background-color: currentColor;
+}
+
+.navbar-menu-icona::before {
+	inset-block-start: 0;
+}
+
+.navbar-menu-icona::after {
+	inset-block-end: 0;
+}
+
+/* Le due linee scendono (o salgono) al centro e ruotano */
+[aria-expanded='true'] > .navbar-menu-icona::before {
+	transform: translateY(calc((var(--spazio-2) - var(--bordo-contorno)) / 2)) rotate(45deg);
+}
+
+[aria-expanded='true'] > .navbar-menu-icona::after {
+	transform: translateY(calc((var(--bordo-contorno) - var(--spazio-2)) / 2)) rotate(-45deg);
 }
 
 .navbar-voci {
@@ -128,6 +154,46 @@
 	text-underline-offset: 0.25em;
 }
 
+/* Solo mobile: il menu aperto, a tutto schermo sul verde (wireframe 1.1-menu-aperto) */
+@media (width < 64rem) {
+	.navbar[data-aperto] {
+		position: fixed;
+		inset: 0;
+		overflow-y: auto;
+		border-block-end: 0;
+	}
+
+	/* La pagina sotto il menu non scorre */
+	:root:has(.navbar[data-aperto]) {
+		overflow: hidden;
+	}
+
+	/* La linea resta sotto la riga del logo, da bordo a bordo */
+	.navbar[data-aperto] .navbar-voci {
+		flex-basis: calc(100% + 2 * var(--margine-pagina));
+		margin-block-start: var(--spazio-3);
+		margin-inline: calc(-1 * var(--margine-pagina));
+		padding: var(--spazio-6) var(--margine-pagina);
+		border-block-start: var(--bordo-contorno) solid currentColor;
+	}
+
+	.navbar-voci ul {
+		row-gap: var(--spazio-3);
+	}
+
+	.navbar-voce {
+		padding-block: var(--spazio-2);
+		font-family: var(--font-titoli);
+		font-size: var(--text-titolo-2);
+		font-weight: var(--peso-semibold);
+		line-height: var(--interlinea-titoli);
+	}
+
+	.navbar-partecipa {
+		margin-block-start: var(--spazio-6);
+	}
+}
+
 @media (min-width: 64rem) {
 	.js .navbar-menu {
 		display: none;
@@ -141,7 +207,142 @@
 
 	.navbar-voci ul {
 		flex-direction: row;
-		column-gap: var(--spazio-9);
+		column-gap: var(--spazio-7);
+	}
+
+	/* Il bottone "Partecipa" sta solo nel menu su mobile */
+	.navbar-partecipa {
+		display: none;
+	}
+}
+
+/* Hero (snippet hero). Fondo verde e testo bianco vengono da .fondo-verde-salvia e .su-colore.
+   Mobile: logo e video sul verde, presentazione sul bianco. Desktop: tutto sul verde, alto uno schermo. */
+
+.hero {
+	position: relative;
+}
+
+.hero-griglia {
+	row-gap: 0;
+	padding-block-start: var(--spazio-8);
+}
+
+/* Logo e sottotitolo a sinistra, mascotte accanto al logo (su mobile si stringe se manca spazio) */
+.hero-titolo {
+	display: grid;
+	grid-template-columns: auto minmax(0, var(--hero-mascotte));
+	justify-content: start;
+	align-items: end;
+	column-gap: var(--spazio-3);
+	margin-block-end: var(--spazio-8);
+}
+
+.hero-logo svg {
+	inline-size: var(--hero-logo);
+}
+
+/* Il sottotitolo passa sotto la mascotte, come in Figma. contain: non allarga le colonne,
+   che restano larghe quanto logo e mascotte, e il testo va a capo dentro */
+.hero-sottotitolo {
+	grid-column: 1 / -1;
+	contain: inline-size;
+	text-wrap: balance;
+}
+
+/* La mascotte c'è sempre, anche su mobile, più piccola */
+.hero-mascotte {
+	grid-column: 2;
+	grid-row: 1;
+	inline-size: 100%;
+}
+
+/* Segnaposto del video: riquadro 16:9 tratteggiato, finché il video non c'è */
+.hero-video {
+	aspect-ratio: 16 / 9;
+	border: var(--bordo-contorno) dashed currentColor;
+}
+
+.hero-presentazione > * + * {
+	margin-block-start: var(--spazio-4);
+}
+
+/* Bordo a pennello che chiude il verde (decorativo). Su mobile sta sopra la presentazione,
+   su desktop sotto la hero: si attiva con content nei due blocchi @media qui sotto.
+   È centrato sul bordo, metà sul verde e metà sotto, come in Figma: il suo profilo irregolare
+   non lascia così fessure bianche tra il verde e il pennello */
+.hero::after,
+.hero-presentazione::before {
+	position: absolute;
+	inset-inline: 0;
+	block-size: var(--bordo-pennello);
+	translate: 0 -50%;
+	background-color: var(--color-verde-salvia);
+	mask: url('../images/bordo-pennello.svg') center / 100% 100% no-repeat;
+}
+
+/* Solo mobile (sotto 64rem): regole che su desktop non servono, così non vanno annullate */
+@media (width < 64rem) {
+	/* Video e presentazione da bordo a bordo: escono dal margine di pagina */
+	.hero-video,
+	.hero-presentazione {
+		margin-inline: calc(-1 * var(--margine-pagina));
+	}
+
+	/* La presentazione sta sul bianco: si annulla .su-colore (base.css) */
+	.hero-presentazione {
+		position: relative;
+		padding: var(--spazio-sezione) var(--margine-pagina) 0;
+		background-color: var(--color-sfondo);
+		color: var(--color-testo);
+		font-weight: var(--peso-medio);
+		--color-link: var(--color-verde-salvia);
+		--color-focus: var(--color-focus-su-bianco);
+		--color-decorazione: var(--color-verde-salvia);
+	}
+
+	.hero-presentazione::before {
+		content: '';
+		inset-block-start: 0;
+	}
+
+	.hero-presentazione > h2 + * {
+		margin-block-start: var(--spazio-5);
+	}
+}
+
+@media (min-width: 64rem) {
+	/* Una schermata sotto la navbar, con il contenuto al centro */
+	.hero-griglia {
+		align-content: center;
+		row-gap: var(--spazio-7);
+		min-block-size: calc(100svh - var(--navbar-altezza));
+		padding-block: var(--spazio-6);
+	}
+
+	.hero-titolo {
+		row-gap: var(--spazio-2);
+		margin-block-end: 0;
+	}
+
+	/* La mano della mascotte scende fino al sottotitolo */
+	.hero-mascotte {
+		margin-block-end: calc(-1 * var(--spazio-2));
+	}
+
+	.hero-griglia > .hero-presentazione {
+		grid-column: 1 / span 5;
+		grid-row: 2;
+	}
+
+	.hero-griglia > .hero-video {
+		grid-column: 6 / -1;
+		grid-row: 2;
+	}
+
+	.hero::after {
+		content: '';
+		inset-block-start: 100%;
 	}
 }
 

@@ -59,7 +59,7 @@ Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tas
 
 | Componente (snippet) | Uso |
 |---|---|
-| `Navbar` | Logo, voci (la presentazione e le sezioni della home con una voce di menu, come link alle ancore) e la linea sotto (unico divisore della pagina). Su mobile le voci stanno dietro un pulsante menu, che si chiude scegliendo una voce; senza JavaScript restano visibili |
+| `Navbar` | Logo, voci (la presentazione e le sezioni della home con una voce di menu, come link alle ancore) e la linea sotto (unico divisore della pagina). Su mobile le voci stanno dietro un pulsante menu (due linee che diventano una X), che apre un menu a tutto schermo con il bottone "Partecipa"; si chiude scegliendo una voce o con Esc, e intanto il resto della pagina non si raggiunge. Senza JavaScript le voci restano visibili |
 | `Footer` | Piè di pagina uguale in tutte le pagine, su fondo verde salvia con testo bianco: nome del progetto, chi c'è dietro, loghi (facoltativi), link (privacy, accessibilità) e copyright. Tutto modificabile dal pannello (Sito → Piè di pagina) |
 | `Hero` | Logo SVG (l'`h1`), nome esteso, mascotte, video e presentazione "Cos'è Happy?" |
 | `Section` | Fascia di pagina con colonne |
