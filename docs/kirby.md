@@ -49,9 +49,29 @@ Come funziona: ogni blueprint, tranne `video` e `toolkit`, estende `pages/solo-a
 
 `kirby/` e `vendor/` (li scarica Composer), `media/` (miniature generate), `site/accounts/` (utenti e password), `site/cache/`, `site/logs/`, `site/sessions/`, `site/config/.license` (licenza). Sono tutti in `.gitignore`.
 
-## Messa online (da definire con SUPSI)
+## Messa online
 
-Servono: PHP 8.2 o più recente, la licenza Kirby registrata per `happy.supsi.ch`, e un modo per caricare i file (SSH, FTP o Git). Online vanno anche `kirby/` e `vendor/`, quindi si caricano dopo `composer install --no-dev`. Da chiarire con SUPSI: chi crea gli account dei partner, chi fa backup e aggiornamenti di sicurezza.
+Il sito si carica con FileZilla in SFTP su `web1.supsi.ch`, con l'account SUPSI. La cartella del sito sul server è `/supsi_happy/docs`.
+
+**Cosa caricare:** `assets/`, `content/`, `kirby/`, `site/` e `index.php` (il `.htaccess` è già sul server, creato con Luca). `vendor/` non serve: `index.php` carica Kirby direttamente da `kirby/`. Nient'altro: `docs/`, `scripts/`, `node_modules/`, i file di configurazione (`composer.json`, `package.json`, `AGENTS.md`…) e simili non servono al sito e potrebbero essere leggibili da chiunque. Il `content/` del server non si sovrascrive mai, perché contiene le modifiche fatte dal pannello online.
+
+**Permessi:** sul server PHP gira con un utente diverso da quello SFTP, quindi le cartelle in cui Kirby scrive vanno messe a `777`. In FileZilla: tasto destro → *File permissions…* → `777`, *Recurse into subdirectories*, *Apply to all files and directories*. Le cartelle sono `content/`, `media/`, `site/accounts/`, `site/sessions/` e `site/cache/` (se mancano, si creano vuote). Errori come «The media directory could not be created» o «… is not writable» vogliono dire che una di queste manca o non ha i permessi.
+
+**Account amministratore:** online il pannello non si installa (Kirby blocca l'installazione sui server pubblici). Si carica invece la cartella dell'account creata in locale, da `site/accounts/` a `/supsi_happy/docs/site/accounts/`, e poi si rimette `777` su `site/accounts/`. La password è quella del pannello in locale.
+
+**Password dimenticata:** la password è salvata solo come hash in `site/accounts/<id>/.htpasswd`. Per verificarla in locale, senza limiti di tentativi (il pannello blocca l'accesso per un'ora dopo 10 tentativi sbagliati):
+
+```bash
+php -r '$p = readline("Password: "); echo password_verify($p, trim(file_get_contents("site/accounts/<id>/.htpasswd"))) ? "OK\n" : "NO\n";'
+```
+
+Per impostarne una nuova, si genera un nuovo `.htpasswd` e lo si carica nella stessa cartella sul server (sovrascrivendo). FileZilla nasconde i file che iniziano col punto: *Server → Force showing hidden files*.
+
+```bash
+php -r '$p = readline("Nuova password: "); file_put_contents("site/accounts/<id>/.htpasswd", password_hash($p, PASSWORD_DEFAULT));'
+```
+
+Ancora da chiarire con SUPSI: la licenza Kirby per `happy.supsi.ch`, chi crea gli account dei partner, chi fa backup e aggiornamenti di sicurezza.
 
 ## Controlli
 
