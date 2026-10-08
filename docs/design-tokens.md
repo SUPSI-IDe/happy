@@ -25,7 +25,7 @@ Dove stanno in Figma:
 
 | Token | Valore | Uso | Non si usa per |
 |---|---|---|---|
-| `--color-verde-salvia` | #4D997F | Contenuti trasversali: barra di navigazione e hero della home, bottone pieno (CTA), pillole delle fasi, badge "IN ARRIVO", card Diaries. Come testo: i link su bianco. Anello di focus su bianco. | Testo piccolo su bianco |
+| `--color-verde-salvia` | #4D997F | Contenuti trasversali: barra di navigazione e hero della home, bottone pieno (CTA), pillole delle fasi, badge "IN ARRIVO". Come testo: i link su bianco. Anello di focus su bianco. | Testo piccolo su bianco |
 | `--color-rosa-insegnanti` | #D6278D | Pagina Insegnanti e card dedicate agli insegnanti | Testo |
 | `--color-arancione-famiglie` | #E06A1A | Pagina Famiglie e card dedicate alle famiglie | Testo |
 | `--color-blu-professionisti` | #0081A1 | Pagina Professionisti e card dedicate ai professionisti della salute | Testo |

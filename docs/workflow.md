@@ -18,7 +18,3 @@ Il sito è sviluppato con l'assistenza dell'AI seguendo un processo definito, no
 ## Revisione
 
 Ogni componente finito viene rivisto prima di essere considerato chiuso: si controlla che rispetti le regole d'oro di `AGENTS.md`, che usi solo i token e che funzioni su desktop e mobile. Se possibile, una revisione esterna della struttura (per esempio da Jérémy) a metà ottobre.
-
-## Da definire con il team
-
-- Hosting del sito e dominio.

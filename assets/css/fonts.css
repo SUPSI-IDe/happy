@@ -1,5 +1,5 @@
-/* Font del sito, ospitati qui (public/fonts): nessuna richiesta a servizi esterni.
-   Sono font variabili, solo caratteri latini, senza corsivo. Licenza OFL: vedi public/fonts/LICENSE.md
+/* Font del sito, ospitati qui (assets/fonts): nessuna richiesta a servizi esterni.
+   Sono font variabili, solo caratteri latini, senza corsivo. Licenza OFL: vedi assets/fonts/LICENSE.md
    Pesi usati: Fraunces 600 e 700, Urbanist 500 e 700 (vedi tokens.css).
    font-display: swap mostra subito il testo con il font di riserva e cambia quando il font è pronto. */
 
