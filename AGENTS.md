@@ -13,7 +13,7 @@ Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e v
 - **Accessibilità WCAG 2.1 AA non negoziabile:** mai rimuovere gli stati di focus, un solo `<h1>` per pagina, testo alternativo reale, sottotitoli su tutti i video.
 - **Solo token:** colori, font e spaziature vengono sempre da `tokens.css`. Mai valori scritti a mano nei componenti.
 - **Misure in rem**, mai in px, per rispettare lo zoom WCAG.
-- **Testo corrente mai a tutta larghezza:** colonna massima circa 36rem.
+- **Testo corrente mai a tutta larghezza:** colonna massima 42.5rem (`--colonna-testo`).
 - **Un solo divisore orizzontale per pagina**, sotto la navbar.
 - **Video sempre 16:9**, su desktop e mobile.
 - **Doodle solo vicino a illustrazioni o mascotte**, mai accanto al testo, e solo nei colori di sistema.

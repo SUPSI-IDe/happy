@@ -19,7 +19,7 @@ Dove stanno in Figma:
 6. **Il verde salvia come testo si usa solo su bianco**, a 1.25rem (20px) in grassetto e sottolineato: è il colore dei link.
 7. **Un link è sempre sottolineato.** Il colore da solo non basta per riconoscerlo.
 8. **Il focus è sempre visibile** e non si toglie mai.
-9. **Misure in rem** (1rem = 16px). Testo corrente mai a tutta larghezza: colonna massima circa 36rem.
+9. **Misure in rem** (1rem = 16px). Testo corrente mai a tutta larghezza: colonna massima 42.5rem (le colonne 7–12 del desktop).
 
 ## Palette
 
@@ -69,7 +69,7 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 | `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni |
 | `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Titoli di card e di fase, citazioni, testo dei bottoni |
 | `--text-logo` | 1.5rem | 1.5rem | Fraunces 700 | 1.2 | "Happy" nella navigazione |
-| `--text-corpo` | 1.25rem | 1.25rem | Urbanist 500 | 1.5 | Paragrafi su bianco, colonna massima 36rem |
+| `--text-corpo` | 1.25rem | 1.25rem | Urbanist 500 | 1.5 | Paragrafi su bianco, colonna massima 42.5rem |
 | `--text-corpo-colore` | 1.25rem | 1.25rem | Urbanist 700 | 1.5 | Paragrafi e voci di navigazione su fondo colorato |
 | `--text-etichetta` | 1.25rem | 1.25rem | Urbanist 700, maiuscolo, spaziatura 0.05em | 1.5 | "A chi ci rivolgiamo", "IN ARRIVO", numero della fase, "Riferimenti" |
 | `--text-link` | 1.25rem | 1.25rem | Urbanist 700, sottolineato | 1.5 | Link ("Scopri di più", "Leggi →", partner, contatti) |
@@ -117,16 +117,17 @@ Collezione Figma `Forme e spazi`. In `tokens.css` entrano solo i valori già usa
 
 Solo in Figma, da aggiungere a `tokens.css` con il primo componente che li usa: spazio attorno al componente per il focus (0.3125rem), padding del badge (1rem / 0.25rem), lato della pillola (2.75rem). Il valore è in px nelle variabili Figma; nel CSS si scrive in rem.
 
-Altri token in `tokens.css`: `--font-titoli`, `--font-testo`, i pesi (`--peso-medio` 500, `--peso-semibold` 600, `--peso-grassetto` 700), le interlinee (`--interlinea-display` 1.1, `--interlinea-titoli` 1.2, `--interlinea-titolo-3` 1.3, `--interlinea-testo` 1.5), `--spaziatura-etichetta` (0.05em) e `--colonna-testo` (36rem).
+Altri token in `tokens.css`: `--font-titoli`, `--font-testo`, i pesi (`--peso-medio` 500, `--peso-semibold` 600, `--peso-grassetto` 700), le interlinee (`--interlinea-display` 1.1, `--interlinea-titoli` 1.2, `--interlinea-titolo-3` 1.3, `--interlinea-testo` 1.5), `--spaziatura-etichetta` (0.05em) e `--colonna-testo` (42.5rem).
 
 ## Spaziature e layout
 
-I wireframe non seguono una griglia precisa, quindi i valori sono stati scelti a partire da quelli più ricorrenti e vanno in `tokens.css` (usati da `layout.css`).
+I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final") e stanno in `tokens.css` (usati da `layout.css`). Desktop: 12 colonne, margine 64px, gutter 24px. Mobile: 4 colonne, margine 20px, gutter 16px.
 
 - **Scala delle spaziature:** `--spazio-1` … `--spazio-9`, multipli di 0.25rem: 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 6rem.
 - **Griglia:** 4 colonne su mobile, 12 da 64rem. Spazio tra le colonne (`--gutter`): 1rem su mobile, 1.5rem su desktop.
-- **Margine di pagina** (`--margine-pagina`): 1.25rem su mobile, 4.5rem su desktop. Il contenuto non supera `--larghezza-massima` (90rem) ed è centrato.
-- **Distanza tra le sezioni** (`--spazio-sezione`): 4rem su mobile, 6rem su desktop.
+- **Margine di pagina** (`--margine-pagina`): 1.25rem (20px) su mobile, 4rem (64px) su desktop. Il contenuto non supera `--larghezza-massima` (90rem) ed è centrato.
+- **Distanza tra le sezioni** (`--spazio-sezione`): 4rem (64px) su mobile, 6rem (96px) su desktop. Su mobile tra il titolo di sezione e il contenuto c'è `--spazio-5` (1.5rem, 24px).
+- **Colonne delle sezioni (desktop):** il titolo sta nelle colonne 1–5, il contenuto nelle colonne 7–12 (larghe in tutto 42.5rem a 1512px, da qui `--colonna-testo`). Nelle sezioni lunghe il titolo può restare fermo a sinistra (`position: sticky`).
 - **Classi:** `.sezione` (fascia a tutta larghezza), `.contenitore` (contenuto centrato), `.griglia` (colonne). Su mobile gli elementi della griglia occupano tutta la riga; da 64rem ogni componente sceglie quante colonne occupare con `grid-column`.
 
 ## Componenti in Figma
