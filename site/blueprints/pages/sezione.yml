@@ -1,0 +1,14 @@
+title: Sezione
+# Sezione di solo testo della home: Cos'è Happy, Perché Happy?, Contatti
+fields:
+  voce_menu: fields/voce-menu
+  partecipa:
+    label: Bottone "Partecipa al progetto"
+    type: toggle
+    help: Testo e link si cambiano in Sito → Generale
+    width: 1/2
+  testo:
+    label: Testo
+    type: textarea
+    size: large
+  illustrazione: fields/illustrazione

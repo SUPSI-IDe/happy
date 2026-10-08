@@ -1,5 +1,4 @@
 title: Profilo
-extends: pages/solo-admin
 fields:
   colore:
     label: Colore
@@ -11,12 +10,7 @@ fields:
       blu-professionisti: Blu (Professionisti)
     width: 1/3
   illustrazione:
-    label: Illustrazione
-    type: files
-    max: 1
-    layout: cards
-    uploads:
-      template: illustrazione
+    extends: fields/illustrazione
     width: 2/3
   intro:
     label: Introduzione

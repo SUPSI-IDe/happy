@@ -6,7 +6,7 @@
 
 Il sito di **HAPPY – HeAlthy Playing Practices for Young musicians**, progetto di ricerca partecipativa della SUPSI con il Conservatorio della Svizzera italiana (SUM-CSI), finanziato dal FNS (programma Agora). Si rivolge a tre profili: insegnanti di musica, famiglie e professionisti della salute.
 
-Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e va online su `happy.supsi.ch`. I partner possono gestire i video del Toolkit dal pannello; i contenuti seguono l'ontologia di `docs/ontology.md`.
+Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e va online su `happy.supsi.ch`. È un one-pager: la home contiene tutte le sezioni, a parte ci sono solo le pagine dei profili. I contenuti seguono l'ontologia di `docs/ontology.md`.
 
 ## Regole d'oro (da non infrangere)
 

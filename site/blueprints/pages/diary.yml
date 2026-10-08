@@ -1,7 +1,0 @@
-title: Diary
-extends: pages/solo-admin
-# Tipo segnaposto: il formato dei Diaries non è ancora deciso (vedi docs/ontology.md)
-fields:
-  testo:
-    label: Testo
-    type: textarea

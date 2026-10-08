@@ -8,4 +8,11 @@ return [
 	],
 	// Sul computer di sviluppo (localhost) si vedono gli errori; online no
 	'debug' => in_array($_SERVER['SERVER_NAME'] ?? '', ['localhost', '127.0.0.1'], true),
+	'routes' => [
+		// Le sezioni della home non sono pagine a sé: /home/ricerca (anche dall'anteprima del pannello) porta a /#ricerca
+		[
+			'pattern' => 'home/(:all)',
+			'action'  => fn (string $percorso) => go(site()->url() . '/#' . explode('/', $percorso)[0]),
+		],
+	],
 ];

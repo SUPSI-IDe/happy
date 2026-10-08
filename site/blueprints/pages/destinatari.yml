@@ -1,0 +1,8 @@
+title: A chi ci rivolgiamo
+fields:
+  voce_menu: fields/voce-menu
+  testo:
+    label: Testo
+    type: textarea
+    size: medium
+    help: Sotto il testo compaiono da sole le card delle pagine dei profili (Insegnanti, Famiglie, Professionisti)

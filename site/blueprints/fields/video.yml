@@ -1,0 +1,4 @@
+# Link a un video ospitato sulla piattaforma esterna. Si usa con: video: fields/video
+label: Link al video
+type: url
+help: Il video deve avere i sottotitoli

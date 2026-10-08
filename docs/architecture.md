@@ -23,16 +23,18 @@ MAInD-HAPPY/
 │   │   ├── fonts.css      ← @font-face di Fraunces e Urbanist
 │   │   ├── base.css       ← reset, tipografia, focus
 │   │   ├── layout.css     ← griglia a colonne
-│   │   └── components.css ← bottone, navbar, footer, pagina Contatti
+│   │   └── components.css ← bottone, navbar, footer
 │   ├── fonts/             ← Fraunces e Urbanist (woff2) e licenze
+│   ├── images/            ← logo "Happy" in SVG (per l'h1 della home)
 │   └── js/                ← menu su mobile
 ├── site/
-│   ├── blueprints/        ← un file per tipo di contenuto (vedi ontology.md) e per ruolo
-│   ├── templates/         ← una pagina intera; se manca vale default.php
-│   ├── snippets/          ← layout, navbar, footer, bottone
-│   └── config/
-├── content/               ← una cartella per pagina: home, risorse, ricerca, team, contatti,
-│                            toolkit (con i video), insegnanti · famiglie · professionisti
+│   ├── blueprints/        ← pages/ un file per tipo di contenuto (vedi ontology.md),
+│   │                        fields/ campi riusati in più tipi, users/ i ruoli
+│   ├── templates/         ← una pagina intera: home, e default.php per le altre
+│   ├── snippets/          ← layout, navbar, footer, bottone; sezioni/ uno per tipo di sezione
+│   └── config/            ← impostazioni e redirect delle sezioni
+├── content/               ← home/ con una cartella per sezione (1_perche, 2_a-chi…),
+│                            insegnanti · famiglie · professionisti
 └── scripts/               ← controlli automatici (npm run check)
 ```
 
@@ -43,6 +45,12 @@ MAInD-HAPPY/
 - Le sezioni a colonne della home si impilano in verticale sotto il breakpoint.
 - Testo corrente con larghezza massima di 42.5rem (`--colonna-testo`, le colonne 7–12 del desktop).
 
+## Il one-pager
+
+La home è l'unica pagina lunga: il template `home` disegna la hero (l'unico `h1`) e poi, una sotto l'altra, le sezioni pubblicate, cioè le pagine figlie della home (vedi `docs/ontology.md`). Ogni sezione si disegna con lo snippet del suo tipo, `sezioni/<tipo>.php`; finché non esiste vale `sezioni/sezione.php`. Ogni sezione è un `<section>` con `id` uguale al nome della cartella (l'ancora del menu) e un `h2`.
+
+Le sezioni non hanno un indirizzo proprio: una regola in `site/config/config.php` manda `/home/ricerca` a `/#ricerca`, così anche l'anteprima del pannello porta al punto giusto.
+
 ## Struttura di ogni pagina
 
 Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar` e `<main id="contenuto">` con il contenuto della pagina (un solo `h1`). Poi il `Footer`. I template lo usano con `snippet('layout', slots: true)` e scrivono solo il contenuto.
@@ -51,12 +59,11 @@ Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tas
 
 | Componente (snippet) | Uso |
 |---|---|
-| `Navbar` | Logo, voci (le pagine pubblicate di primo livello) e la linea sotto (unico divisore della pagina). Su mobile le voci stanno dietro un pulsante menu; senza JavaScript restano visibili. La pagina corrente ha `aria-current` e una sottolineatura provvisoria, da sostituire con il disegno a mano |
+| `Navbar` | Logo, voci (la presentazione e le sezioni della home con una voce di menu, come link alle ancore) e la linea sotto (unico divisore della pagina). Su mobile le voci stanno dietro un pulsante menu, che si chiude scegliendo una voce; senza JavaScript restano visibili |
 | `Footer` | Piè di pagina uguale in tutte le pagine, su fondo verde salvia con testo bianco: nome del progetto, chi c'è dietro, loghi (facoltativi), link (privacy, accessibilità) e copyright. Tutto modificabile dal pannello (Sito → Piè di pagina) |
-| `Hero` | Titolo e spazio configurabile per illustrazione e video |
+| `Hero` | Logo SVG (l'`h1`), nome esteso, mascotte, video e presentazione "Cos'è Happy?" |
 | `Section` | Fascia di pagina con colonne |
 | `Card` | Card dei profili, con varianti di forma "fatte a mano" |
 | `Button` (`bottone`) | Bottone o link con l'aspetto di un bottone. Varianti `pieno` e `contorno`; con `href` è un link |
 | `VideoEmbed` | Video 16:9 con sottotitoli |
-| `VideoGrid` | Elenco filtrabile dei video del Toolkit |
 | `PhaseSlider` | Slider delle fasi; i pallini si riempiono da attivi senza cambiare dimensione |
