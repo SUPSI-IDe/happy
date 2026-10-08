@@ -6,4 +6,14 @@ Partecipa: true
 
 ----
 
-Uuid: oj5h4mr2m3jegyhl
+Testo:
+
+Suonare uno strumento richiede posture e movimenti particolari, che bambini e ragazzi imparano poco alla volta. Prestare attenzione a questi aspetti fin dai primi anni può aiutare a prevenire tensioni e problemi legati alla pratica strumentale.
+
+Per questo HAPPY coinvolge insegnanti, famiglie e professionisti della salute. Le loro esperienze e competenze aiutano a capire di cosa hanno bisogno i giovani musicisti. Insieme, sviluppiamo strumenti per prevenire problemi e promuovere la salute.
+
+----
+
+Illustrazione:
+
+- perche-mano.png

@@ -1,5 +1,5 @@
 title: Sezione
-# Sezione di solo testo della home: Cos'è Happy, Perché Happy?, Contatti
+# Sezione di testo della home, per esempio Perché Happy?
 fields:
   voce_menu: fields/voce-menu
   partecipa:

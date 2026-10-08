@@ -24,7 +24,7 @@ tabs:
       partecipa_link:
         label: Link al modulo
         type: url
-        help: Il Microsoft Form di iscrizione. Senza link il bottone non compare
+        help: Il modulo di iscrizione (Qualtrics della SUPSI). Senza link il bottone non compare
         width: 1/2
   piede:
     label: Piè di pagina

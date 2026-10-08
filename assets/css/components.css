@@ -346,6 +346,36 @@
 	}
 }
 
+/* Contatti (snippet sezioni/contatti): titolo piccolo, testo ed email; la mascotte chiude la home.
+   Mobile: testo e poi la mascotte, centrata. Desktop: mascotte nelle colonne 1–5, testo nelle 7–12 */
+
+.contatti-testo > * + * {
+	margin-block-start: var(--spazio-4);
+}
+
+.contatti-mascotte {
+	justify-self: center;
+	inline-size: var(--mascotte-contatti);
+	margin-block-start: var(--spazio-6);
+}
+
+@media (min-width: 64rem) {
+	.contatti {
+		align-items: center;
+	}
+
+	.contatti-mascotte {
+		grid-column: 1 / span 5;
+		grid-row: 1;
+		margin-block-start: 0;
+	}
+
+	.contatti-testo {
+		grid-column: 7 / -1;
+		grid-row: 1;
+	}
+}
+
 /* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore */
 
 .piede {

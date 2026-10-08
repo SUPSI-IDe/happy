@@ -2,9 +2,14 @@
    I valori (margini, gutter) sono in tokens.css. */
 
 /* Sezioni a tutta larghezza: la fascia (e il suo colore di fondo) occupa tutta la pagina,
-   il contenuto sta nel .contenitore */
+   il contenuto sta nel .contenitore. Tra due sezioni c'è --spazio-sezione una volta sola:
+   ogni sezione lo ha sopra, l'ultima anche sotto */
 .sezione {
-	padding-block: var(--spazio-sezione);
+	padding-block-start: var(--spazio-sezione);
+}
+
+main > .sezione:last-child {
+	padding-block-end: var(--spazio-sezione);
 }
 
 /* Container: il margine di pagina ai lati, a ogni larghezza dello schermo */
@@ -29,5 +34,87 @@
 @media (min-width: 64rem) {
 	.griglia {
 		grid-template-columns: repeat(12, minmax(0, 1fr));
+	}
+}
+
+/* Sezioni della home (snippet sezione): titolo nelle colonne 1–5, contenuto nelle 7–12.
+   Su mobile tutto in colonna: titolo, testo, illustrazione, bottone */
+
+.sezione-contenuto > * + * {
+	margin-block-start: var(--spazio-5);
+}
+
+.sezione-illustrazione {
+	inline-size: min(100%, var(--illustrazione-sezione));
+}
+
+/* Solo mobile: testata e contenuto si "aprono" (display: contents), così i loro elementi si mettono
+   nell'ordine del wireframe mobile, con l'illustrazione e il bottone dopo il testo */
+@media (width < 64rem) {
+	.sezione-griglia {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--spazio-5);
+	}
+
+	.sezione-testata,
+	.sezione-contenuto {
+		display: contents;
+	}
+
+	.sezione-contenuto > * + * {
+		margin-block-start: 0;
+	}
+
+	.sezione-illustrazione {
+		order: 1;
+		align-self: center;
+	}
+
+	.sezione-azione {
+		order: 2;
+		align-self: center;
+	}
+}
+
+@media (min-width: 64rem) {
+	/* La prima riga del testo si allinea alla linea di base del titolo */
+	.sezione-griglia {
+		align-items: baseline;
+	}
+
+	/* Il titolo resta fermo a sinistra mentre si scorre una sezione lunga */
+	.sezione-testata {
+		grid-column: 1 / span 5;
+		position: sticky;
+		inset-block-start: calc(var(--navbar-altezza) + var(--spazio-6));
+	}
+
+	.sezione-contenuto {
+		grid-column: 7 / -1;
+	}
+
+	.sezione-contenuto > .sezione-azione {
+		margin-block-start: var(--spazio-6);
+	}
+
+	/* Con un'illustrazione sotto il titolo, la testata è alta quanto il contenuto e l'illustrazione
+	   riempie lo spazio fino in fondo, cioè fino al bottone: più testo, illustrazione più grande.
+	   Almeno --illustrazione-sezione di altezza; non si deforma (object-fit) e sta in basso a sinistra.
+	   Qui il titolo non resta fermo: la sezione è corta e la testata occupa già tutta l'altezza */
+	.sezione-testata:has(.sezione-illustrazione) {
+		position: static;
+		display: flex;
+		flex-direction: column;
+		block-size: 100%;
+	}
+
+	.sezione-illustrazione {
+		flex: 1 1 0;
+		inline-size: 100%;
+		margin-block-start: var(--spazio-4);
+		min-block-size: var(--illustrazione-sezione);
+		object-fit: contain;
+		object-position: left bottom;
 	}
 }

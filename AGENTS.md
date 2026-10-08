@@ -19,7 +19,7 @@ Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e v
 - **Doodle solo vicino a illustrazioni o mascotte**, mai accanto al testo, e solo nei colori di sistema.
 - **Testi nei file di contenuto**, mai scritti direttamente nei componenti.
 - **Mobile-first:** ogni componente si scrive prima per mobile e si verifica su entrambi i formati.
-- **Niente servizi esterni a runtime:** né font, né script, né tracciamento da altri siti. I form sono link a Microsoft Forms.
+- **Niente servizi esterni a runtime:** né font, né script, né tracciamento da altri siti. I form sono link a moduli esterni (Qualtrics della SUPSI).
 
 ## Indice della documentazione
 

@@ -13,7 +13,7 @@ Home (hero: logo, mascotte, video, "Cos'è Happy?")
 ├── Le fasi del progetto fasi         → fase, fase, …
 ├── La Ricerca           ricerca      → tema, tema, …
 ├── Il team              team         → gruppo, gruppo, …
-└── Contatti             sezione
+└── Contatti             contatti
 Insegnanti · Famiglie · Professionisti   profilo
 ```
 
@@ -24,7 +24,7 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 | Tipo | Campi principali | Note |
 |---|---|---|
 | **Home** | titolo, voce di menu, illustrazione, video, titolo e testo della presentazione | Il titolo è il nome accessibile del logo SVG, l'unico `h1`. La presentazione è "Cos'è Happy?": sta nella hero perché su desktop condivide la schermata con il video. Il nome esteso del progetto viene dal sito |
-| **Sezione** | titolo, voce di menu, testo, illustrazione, bottone "Partecipa" | Sezione di solo testo: Perché Happy?, Contatti |
+| **Sezione** | titolo, voce di menu, testo, illustrazione, bottone "Partecipa" | Sezione di testo: Perché Happy? |
 | **Destinatari** | titolo, voce di menu, testo | A chi ci rivolgiamo. Le card si creano da sole dalle pagine dei profili |
 | **Fasi** | titolo, voce di menu | Contiene le fasi, nell'ordine del pannello |
 | **Fase** | titolo, descrizione, video | Il numero della fase è la sua posizione, non un campo |
@@ -32,6 +32,7 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 | **Tema** | titolo, illustrazione, testo, riferimenti (autori e anno, titolo, link DOI, rivista) | Una tendina della Ricerca |
 | **Team** | titolo, voce di menu | Contiene i gruppi. Il primo è sempre aperto, gli altri sono tendine |
 | **Gruppo** | titolo, membri (nome, link, ruolo, ente) | Gruppo di progetto, Consulenti, Partner, Scuole. Per i partner e le scuole basta il nome |
+| **Contatti** | titolo, voce di menu, testo, email, illustrazione | Chiude la home prima del piè di pagina: titolo piccolo senza segno, mascotte decorativa. È una sezione a sé (con la sua voce di menu e il suo `h2`) perché i contatti non riguardano solo il team |
 | **Profilo** | titolo, colore, illustrazione, testi | Insegnanti (rosa), Famiglie (arancione), Professionisti (blu) |
 
 Il **sito** contiene i dati comuni a tutte le pagine: il nome esteso del progetto, il bottone "Partecipa al progetto" (testo e link al modulo) e il piè di pagina.
