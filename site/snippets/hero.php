@@ -16,7 +16,7 @@ $mascotte = $page->illustrazione()->toFile();
 				<?= svg('assets/images/logo-happy.svg') ?>
 			</h1>
 			<?php if ($site->nome_esteso()->isNotEmpty()): ?>
-				<p class="hero-sottotitolo"><?= esc($site->nome_esteso()->value()) ?></p>
+				<p class="text-titolo-3 hero-sottotitolo"><?= esc($site->nome_esteso()->value()) ?></p>
 			<?php endif ?>
 			<?php if ($mascotte): ?>
 				<img class="hero-mascotte" src="<?= $mascotte->url() ?>" alt="<?= esc($mascotte->alt()->value(), 'attr') ?>" width="<?= $mascotte->width() ?>" height="<?= $mascotte->height() ?>">

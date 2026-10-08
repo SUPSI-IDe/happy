@@ -125,7 +125,7 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 
 - **Scala delle spaziature:** `--spazio-1` … `--spazio-9`, multipli di 0.25rem: 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 6rem.
 - **Griglia:** 4 colonne su mobile, 12 da 64rem. Spazio tra le colonne (`--gutter`): 1rem su mobile, 1.5rem su desktop.
-- **Margine di pagina** (`--margine-pagina`): 1.25rem (20px) su mobile, 4rem (64px) su desktop. Il contenuto non supera `--larghezza-massima` (90rem) ed è centrato.
+- **Margine di pagina** (`--margine-pagina`): 1.25rem (20px) su mobile, 4rem (64px) su desktop, a ogni larghezza dello schermo. Non c'è una larghezza massima: come in Figma le colonne crescono con lo schermo. Il testo resta leggibile perché i paragrafi non superano `--colonna-testo`.
 - **Distanza tra le sezioni** (`--spazio-sezione`): 4rem (64px) su mobile, 6rem (96px) su desktop. Su mobile tra il titolo di sezione e il contenuto c'è `--spazio-5` (1.5rem, 24px).
 - **Colonne delle sezioni (desktop):** il titolo sta nelle colonne 1–5, il contenuto nelle colonne 7–12 (larghe in tutto 42.5rem a 1512px, da qui `--colonna-testo`). Nelle sezioni lunghe il titolo può restare fermo a sinistra (`position: sticky`).
 - **Altezza della navbar** (`--navbar-altezza`): calcolata dai token del bottone. La usano le ancore (`scroll-padding` in `base.css`, così una sezione non finisce sotto la navbar sticky) e le sezioni alte uno schermo.
@@ -133,10 +133,11 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 
 ## Hero della home
 
-- **Logo:** "Happy" è un SVG (`assets/images/logo-happy.svg`), non testo: Fraunces molto grande si deforma. Prende il colore del testo intorno (`currentColor`), quindi bianco sul verde. Larghezza fissa `--hero-logo`: 13.125rem (210px) su mobile, 26.5625rem (425px) su desktop.
-- **Sottotitolo** (il nome esteso): su mobile Urbanist bold 1.25rem, interlinea dei titoli; su desktop `--text-titolo-3` (Fraunces 700).
-- **Mascotte:** sempre presente, anche su mobile, accanto al logo. Larga `--hero-mascotte`: 6.0625rem (97px, in proporzione al logo) su mobile, 12.3125rem (197px) su desktop; su schermi molto stretti si restringe.
+- **Logo:** "Happy" è un SVG (`assets/images/logo-happy.svg`), non testo: Fraunces molto grande si deforma. Prende il colore del testo intorno (`currentColor`), quindi bianco sul verde. Larghezza `--hero-logo`: 13.125rem (210px) su uno schermo di 390px, cresce gradualmente fino a 26.5625rem (425px) a 1024px e poi resta ferma, così negli schermi intermedi non resta piccolo.
+- **Sottotitolo** (il nome esteso): `--text-titolo-3` (Fraunces 700) su tutti i formati. Nel frame mobile di Figma è in Urbanist: è un errore del frame.
+- **Mascotte:** sempre presente, anche su mobile, accanto al logo. `--hero-mascotte` è una proporzione del logo (197px accanto a 425px), quindi cresce con lui; su schermi molto stretti si restringe.
 - **Bordo a pennello:** chiude il fondo verde (`assets/images/bordo-pennello.svg`, usato come maschera, alto `--bordo-pennello` 1.1875rem). Su mobile sta sotto il video, su desktop sotto la hero.
+- **Video:** sempre il più grande possibile: su mobile da bordo a bordo, su desktop tutte le colonne 6–12 fino al margine.
 - **Mobile:** logo con mascotte, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
 
 ## Componenti in Figma
