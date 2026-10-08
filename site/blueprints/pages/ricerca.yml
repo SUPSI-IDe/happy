@@ -1,13 +1,16 @@
 title: La Ricerca
-extends: pages/solo-admin
-fields:
-  intro:
-    label: Introduzione
-    type: textarea
-    size: small
 sections:
-  elenco:
+  campi:
+    type: fields
+    fields:
+      voce_menu: fields/voce-menu
+      testo:
+        label: Testo
+        type: textarea
+        size: medium
+  temi:
     type: pages
-    headline: Pubblicazioni
-    template: pubblicazione
+    headline: Temi
+    help: Ogni tema è una tendina
+    template: tema
     status: all

@@ -11,9 +11,11 @@ const PORTA = 8765;
 const BASE = `http://localhost:${PORTA}`;
 
 // Ogni cartella di content/ con un file .txt è una pagina. Il prefisso "1_" dell'ordine non è nell'indirizzo.
+// Le cartelle dentro home/ sono sezioni della home, non pagine: si controllano con la home.
 function elencaPagine(cartella) {
 	const voci = readdirSync(cartella, { withFileTypes: true });
 	const eUnaPagina = voci.some((v) => v.isFile() && v.name.endsWith('.txt'));
+	if (cartella === join(RADICE, 'content', 'home')) return [cartella];
 	const figlie = voci.filter((v) => v.isDirectory()).flatMap((v) => elencaPagine(join(cartella, v.name)));
 	return eUnaPagina ? [cartella, ...figlie] : figlie;
 }

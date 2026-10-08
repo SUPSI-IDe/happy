@@ -1,14 +1,7 @@
 title: Fase
-extends: pages/solo-admin
-num: "{{ page.numero }}"
 fields:
-  numero:
-    label: Numero
-    type: number
-    min: 1
-    required: true
-    width: 1/4
   descrizione:
     label: Descrizione
     type: textarea
-    size: large
+    size: medium
+  video: fields/video

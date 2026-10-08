@@ -1,0 +1,12 @@
+title: Le fasi
+sections:
+  campi:
+    type: fields
+    fields:
+      voce_menu: fields/voce-menu
+  fasi:
+    type: pages
+    headline: Fasi
+    help: Il numero di ogni fase è la sua posizione in questo elenco
+    template: fase
+    status: all

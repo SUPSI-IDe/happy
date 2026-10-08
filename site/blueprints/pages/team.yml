@@ -1,13 +1,12 @@
 title: Il team
-extends: pages/solo-admin
-fields:
-  intro:
-    label: Introduzione
-    type: textarea
-    size: small
 sections:
-  elenco:
+  campi:
+    type: fields
+    fields:
+      voce_menu: fields/voce-menu
+  gruppi:
     type: pages
-    headline: Persone
-    template: persona
+    headline: Gruppi
+    help: Il primo gruppo è sempre aperto, gli altri sono tendine
+    template: gruppo
     status: all

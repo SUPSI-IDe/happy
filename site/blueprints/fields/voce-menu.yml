@@ -1,0 +1,5 @@
+# Nome della sezione nella navigazione. Si usa con: voce_menu: fields/voce-menu
+label: Voce di menu
+type: text
+help: Il nome nella navigazione, se diverso dal titolo. Vuoto se la sezione non va nel menu
+width: 1/2

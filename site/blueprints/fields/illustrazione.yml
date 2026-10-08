@@ -1,0 +1,7 @@
+# Un'illustrazione di Laura, con il suo testo alternativo. Si usa con: illustrazione: fields/illustrazione
+label: Illustrazione
+type: files
+max: 1
+layout: cards
+uploads:
+  template: illustrazione

@@ -1,0 +1,34 @@
+title: Tema della ricerca
+fields:
+  illustrazione: fields/illustrazione
+  testo:
+    label: Testo
+    type: textarea
+    size: medium
+  riferimenti:
+    label: Riferimenti
+    type: structure
+    help: Trascina per cambiare l'ordine
+    columns:
+      autori:
+        width: 1/3
+      titolo:
+        width: 2/3
+    fields:
+      autori:
+        label: Autori e anno
+        type: text
+        placeholder: "Cruder, C., Barbero, M. (2020)."
+        required: true
+      titolo:
+        label: Titolo dell'articolo
+        type: text
+        required: true
+      link:
+        label: Link (DOI)
+        type: url
+        help: Diventa il link sul titolo
+      fonte:
+        label: Rivista, volume, pagine
+        type: text
+        placeholder: "PLoS One, 15(12), e0242660."

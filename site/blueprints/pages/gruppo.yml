@@ -1,0 +1,32 @@
+title: Gruppo
+fields:
+  membri:
+    label: Membri
+    type: structure
+    help: Trascina per cambiare l'ordine. Per i partner e le scuole basta il nome
+    columns:
+      nome:
+        width: 1/3
+      ruolo:
+        width: 1/3
+      ente:
+        width: 1/3
+    fields:
+      nome:
+        label: Nome
+        type: text
+        required: true
+        width: 1/2
+      link:
+        label: Link
+        type: url
+        help: Per esempio il profilo sul sito della SUPSI o del Conservatorio
+        width: 1/2
+      ruolo:
+        label: Di cosa si occupa
+        type: text
+        width: 1/2
+      ente:
+        label: Ente e dipartimento
+        type: text
+        width: 1/2

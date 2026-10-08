@@ -9,14 +9,27 @@ tabs:
         headline: Pagine
         status: all
         create: false
+  generale:
+    label: Generale
+    icon: settings
+    fields:
+      nome_esteso:
+        label: Nome esteso del progetto
+        type: text
+        help: Sotto "Happy", nella hero e nel piè di pagina
+      partecipa_testo:
+        label: Testo del bottone "Partecipa"
+        type: text
+        width: 1/2
+      partecipa_link:
+        label: Link al modulo
+        type: url
+        help: Il Microsoft Form di iscrizione. Senza link il bottone non compare
+        width: 1/2
   piede:
     label: Piè di pagina
     icon: text
     fields:
-      piede_nome_esteso:
-        label: Nome esteso del progetto
-        type: text
-        help: Sotto "Happy"
       piede_testo:
         label: Chi c'è dietro
         type: textarea

@@ -1,22 +1,34 @@
 title: Home
-extends: pages/solo-admin
-tabs:
-  contenuto:
-    label: Contenuto
+# La parte alta della home: logo (fisso, è un SVG), mascotte, video e la presentazione "Cos'è Happy?"
+columns:
+  hero:
+    width: 1/3
     fields:
-      intro:
-        label: Introduzione
+      illustrazione: fields/illustrazione
+      video: fields/video
+  presentazione:
+    width: 2/3
+    fields:
+      presentazione_titolo:
+        label: Titolo della presentazione
+        type: text
+        width: 1/2
+      voce_menu: fields/voce-menu
+      presentazione_testo:
+        label: Testo della presentazione
         type: textarea
-        size: small
-      testo:
-        label: Testo
-        type: textarea
-        size: large
-  fasi:
-    label: Fasi del progetto
+        size: medium
+  sezioni:
+    width: 1/1
     sections:
-      fasi:
+      sezioni:
         type: pages
-        headline: Fasi
-        template: fase
+        headline: Sezioni
+        help: L'ordine qui è l'ordine sulla pagina. Si vedono solo le sezioni pubblicate
         status: all
+        templates:
+          - sezione
+          - destinatari
+          - fasi
+          - ricerca
+          - team

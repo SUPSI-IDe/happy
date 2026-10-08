@@ -2,7 +2,7 @@
 
 ## Strategia
 
-Il sito è costruito direttamente con **Kirby**, senza passare da un sito statico intermedio (decisione del 1 ottobre 2026). Hosting e licenza sono di SUPSI (`happy.supsi.ch`) e i partner gestiscono i video del Toolkit dal pannello. Da confermare con SUPSI: versione di PHP, licenza, modo per caricare i file, backup.
+Il sito è costruito direttamente con **Kirby**, senza passare da un sito statico intermedio (decisione del 1 ottobre 2026). Hosting e licenza sono di SUPSI (`happy.supsi.ch`). Da confermare con SUPSI: versione di PHP, licenza, modo per caricare i file, backup.
 
 Rilascio previsto entro il **30 ottobre 2026**.
 
@@ -28,4 +28,4 @@ Se ne occupa Ginevra, separatamente da questo repository.
 ## Dopo il rilascio
 
 - Definizione del formato dei Diaries.
-- Crescita del Toolkit video.
+- Toolkit video, con il ruolo Partner per gestirli dal pannello. Blueprint e ruolo sono stati tolti l'8 ottobre 2026: si recuperano dalla storia di Git.

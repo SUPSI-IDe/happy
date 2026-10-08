@@ -11,8 +11,8 @@ $link = $site->piede_link()->toStructure();
 		<div class="piede-progetto">
 			<div>
 				<p class="piede-nome">Happy</p>
-				<?php if ($site->piede_nome_esteso()->isNotEmpty()): ?>
-					<p><?= esc($site->piede_nome_esteso()->value()) ?></p>
+				<?php if ($site->nome_esteso()->isNotEmpty()): ?>
+					<p><?= esc($site->nome_esteso()->value()) ?></p>
 				<?php endif ?>
 			</div>
 

@@ -1,4 +1,12 @@
-Title: HAPPY
+Title: Happy
+
+----
+
+Presentazione_titolo: Cos'è Happy?
+
+----
+
+Voce_menu: Il progetto
 
 ----
 

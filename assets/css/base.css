@@ -17,6 +17,9 @@ html {
 	/* Nessuna dimensione del testo: vale quella scelta dall'utente (1rem = 16px di default) */
 	-webkit-text-size-adjust: 100%;
 	text-size-adjust: 100%;
+	/* Con la navbar sticky, un'ancora (#ricerca) si ferma sotto la navbar invece di finirci dietro.
+	   È l'altezza della navbar: il pulsante o la voce più alta, il padding e la linea (components.css) */
+	scroll-padding-block-start: calc(var(--bottone-altezza-min) + 2 * var(--spazio-3) + var(--bordo-contorno));
 }
 
 img,

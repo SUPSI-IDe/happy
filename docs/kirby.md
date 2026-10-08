@@ -23,27 +23,22 @@ Per fermare il sito: `Ctrl+C` nel Terminale.
 | Stile (token, base, layout, componenti, font) | `assets/css/`, `assets/fonts/` |
 | Script (menu su mobile) | `assets/js/` |
 | Struttura comune delle pagine | `site/snippets/layout.php` |
-| Componenti | `site/snippets/` (`navbar`, `footer`, `bottone`) |
+| Componenti | `site/snippets/` (`navbar`, `footer`, `bottone`); le sezioni della home in `site/snippets/sezioni/` |
 | Template delle pagine | `site/templates/` (se un template manca vale `default.php`) |
-| Campi e pannello di ogni tipo di contenuto | `site/blueprints/` (vedi `docs/ontology.md`) |
-| Contenuti | `content/` (una cartella per pagina; il prefisso `1_` è l'ordine nel menu) |
+| Campi e pannello di ogni tipo di contenuto | `site/blueprints/pages/` (vedi `docs/ontology.md`); i campi usati in più tipi in `site/blueprints/fields/` |
+| Contenuti | `content/` (una cartella per pagina; le sezioni sono in `content/home/`, il prefisso `1_` è l'ordine) |
 | Impostazioni | `site/config/config.php` |
 
 ## Contenuti e pannello
 
-- **Menu:** le voci di navigazione sono le pagine di primo livello *pubblicate* (cartelle con prefisso numerico). Nome e ordine si cambiano dal pannello.
+- **Sezioni della home:** sono le pagine figlie della home. Si riordinano trascinandole, si nascondono rimettendole in bozza.
+- **Menu:** le voci sono le sezioni pubblicate con una "Voce di menu"; senza, la sezione non va nel menu. L'ordine è quello delle sezioni.
+- **Dati comuni:** nome esteso del progetto e bottone "Partecipa al progetto" (testo e link al modulo) in Sito → Generale.
 - **Piè di pagina:** testi, loghi e link si modificano in Sito → Piè di pagina. Un link senza indirizzo resta semplice testo.
-- **Contatti:** email di contatto e partner ("In collaborazione con") si modificano nella pagina Contatti.
-- **Video del Toolkit:** sono pagine figlie di `toolkit`, con il blueprint `video` (strumento, parte del corpo, profilo, durata, link, trascrizione).
 
 ## Ruoli
 
-| Ruolo | Cosa può fare |
-|---|---|
-| **Amministratore** | Tutto |
-| **Partner** | Aggiungere, modificare ed eliminare i video del Toolkit. Non può modificare le altre pagine, gli utenti e le impostazioni |
-
-Come funziona: ogni blueprint, tranne `video` e `toolkit`, estende `pages/solo-admin`, che toglie al partner i permessi sulla pagina. Un nuovo tipo di pagina va quindi creato con `extends: pages/solo-admin`, altrimenti i partner potrebbero modificarla.
+C'è un solo ruolo, **Amministratore**, che può fare tutto. Il ruolo Partner (per i video del Toolkit) tornerà con il Toolkit, dopo il rilascio.
 
 ## Cosa non va su Git
 
@@ -71,7 +66,7 @@ Per impostarne una nuova, si genera un nuovo `.htpasswd` e lo si carica nella st
 php -r '$p = readline("Nuova password: "); file_put_contents("site/accounts/<id>/.htpasswd", password_hash($p, PASSWORD_DEFAULT));'
 ```
 
-Ancora da chiarire con SUPSI: la licenza Kirby per `happy.supsi.ch`, chi crea gli account dei partner, chi fa backup e aggiornamenti di sicurezza.
+Ancora da chiarire con SUPSI: la licenza Kirby per `happy.supsi.ch`, chi fa backup e aggiornamenti di sicurezza.
 
 ## Controlli
 

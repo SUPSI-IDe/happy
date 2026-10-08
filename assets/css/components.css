@@ -39,9 +39,13 @@
 	border-color: currentColor;
 }
 
-/* Navbar (snippet navbar) */
+/* Navbar (snippet navbar). Fondo e testo bianco vengono da .fondo-verde-salvia e .su-colore.
+   Resta in alto mentre si scorre: l'altezza è ripetuta in base.css (scroll-padding) */
 
 .navbar {
+	position: sticky;
+	inset-block-start: 0;
+	z-index: 1;
 	border-block-end: var(--bordo-contorno) solid currentColor;
 }
 
@@ -124,13 +128,6 @@
 	text-underline-offset: 0.25em;
 }
 
-/* Pagina corrente: sottolineatura provvisoria, poi il disegno a mano di Laura */
-.navbar-voce[aria-current='page'] {
-	text-decoration: underline;
-	text-decoration-thickness: var(--sottolineatura-spessore);
-	text-underline-offset: 0.25em;
-}
-
 @media (min-width: 64rem) {
 	.js .navbar-menu {
 		display: none;
@@ -145,23 +142,6 @@
 	.navbar-voci ul {
 		flex-direction: row;
 		column-gap: var(--spazio-9);
-	}
-}
-
-/* Pagina Contatti: partner ed email (template contatti) */
-
-.contatti-partner ul {
-	padding: 0;
-	list-style: none;
-}
-
-@media (min-width: 64rem) {
-	.contatti-partner {
-		grid-column: 1 / span 5;
-	}
-
-	.contatti-email {
-		grid-column: 6 / span 7;
 	}
 }
 

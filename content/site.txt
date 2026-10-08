@@ -2,7 +2,11 @@ Title: HAPPY
 
 ----
 
-Piede_nome_esteso: HeAlthy Playing Practices for Young musicians
+Nome_esteso: HeAlthy Playing Practices for Young musicians
+
+----
+
+Partecipa_testo: Partecipa al progetto
 
 ----
 
