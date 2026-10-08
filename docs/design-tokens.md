@@ -135,9 +135,9 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 
 - **Logo:** "Happy" è un SVG (`assets/images/logo-happy.svg`), non testo: Fraunces molto grande si deforma. Prende il colore del testo intorno (`currentColor`), quindi bianco sul verde. Larghezza fissa `--hero-logo`: 13.125rem (210px) su mobile, 26.5625rem (425px) su desktop.
 - **Sottotitolo** (il nome esteso): su mobile Urbanist bold 1.25rem, interlinea dei titoli; su desktop `--text-titolo-3` (Fraunces 700).
-- **Mascotte:** solo su desktop, accanto al logo, larga `--hero-mascotte` (12.3125rem, 197px).
+- **Mascotte:** sempre presente, anche su mobile, accanto al logo. Larga `--hero-mascotte`: 6.0625rem (97px, in proporzione al logo) su mobile, 12.3125rem (197px) su desktop; su schermi molto stretti si restringe.
 - **Bordo a pennello:** chiude il fondo verde (`assets/images/bordo-pennello.svg`, usato come maschera, alto `--bordo-pennello` 1.1875rem). Su mobile sta sotto il video, su desktop sotto la hero.
-- **Mobile:** logo, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
+- **Mobile:** logo con mascotte, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
 
 ## Componenti in Figma
 

@@ -71,7 +71,7 @@
 
 	/* Hero della home: misure fisse da Figma (il logo è un SVG, non testo) */
 	--hero-logo: 13.125rem; /* 210px */
-	--hero-mascotte: 12.3125rem; /* 197px */
+	--hero-mascotte: 6.0625rem; /* 97px, in proporzione al logo */
 	--bordo-pennello: 1.1875rem; /* 19px, il bordo a pennello che chiude il verde */
 	--sottolineatura-bottone-hover: 0.1875rem;
 
@@ -116,6 +116,7 @@
 		--text-titolo-3: 1.5rem;
 
 		--hero-logo: 26.5625rem; /* 425px */
+		--hero-mascotte: 12.3125rem; /* 197px */
 
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);

@@ -68,6 +68,10 @@ body {
 	font-size: var(--text-corpo);
 	font-weight: var(--peso-medio);
 	line-height: var(--interlinea-testo);
+	/* Su macOS i browser ingrossano i tratti (soprattutto testo chiaro su fondo colorato) e il testo
+	   sembra più pesante e sfocato che in Figma. Così si disegna come in Figma; altrove non cambia nulla */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 main {
