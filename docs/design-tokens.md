@@ -126,7 +126,8 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Scala delle spaziature:** `--spazio-1` … `--spazio-9`, multipli di 0.25rem: 0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4, 6rem.
 - **Griglia:** 4 colonne su mobile, 12 da 64rem. Spazio tra le colonne (`--gutter`): 1rem su mobile, 1.5rem su desktop.
 - **Margine di pagina** (`--margine-pagina`): 1.25rem (20px) su mobile, 4rem (64px) su desktop. Il contenuto non supera `--larghezza-massima` (90rem) ed è centrato.
-- **Distanza tra le sezioni** (`--spazio-sezione`): 4rem su mobile, 6rem su desktop.
+- **Distanza tra le sezioni** (`--spazio-sezione`): 4rem (64px) su mobile, 6rem (96px) su desktop. Su mobile tra il titolo di sezione e il contenuto c'è `--spazio-5` (1.5rem, 24px).
+- **Colonne delle sezioni (desktop):** il titolo sta nelle colonne 1–5, il contenuto nelle colonne 7–12 (larghe in tutto 42.5rem a 1512px, da qui `--colonna-testo`). Nelle sezioni lunghe il titolo può restare fermo a sinistra (`position: sticky`).
 - **Classi:** `.sezione` (fascia a tutta larghezza), `.contenitore` (contenuto centrato), `.griglia` (colonne). Su mobile gli elementi della griglia occupano tutta la riga; da 64rem ogni componente sceglie quante colonne occupare con `grid-column`.
 
 ## Componenti in Figma
