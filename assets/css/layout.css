@@ -94,8 +94,27 @@ main > .sezione:last-child {
 		grid-column: 7 / -1;
 	}
 
-	.sezione-illustrazione,
 	.sezione-contenuto > .sezione-azione {
 		margin-block-start: var(--spazio-6);
+	}
+
+	/* Con un'illustrazione sotto il titolo, la testata è alta quanto il contenuto e l'illustrazione
+	   riempie lo spazio fino in fondo, cioè fino al bottone: più testo, illustrazione più grande.
+	   Almeno --illustrazione-sezione di altezza; non si deforma (object-fit) e sta in basso a sinistra.
+	   Qui il titolo non resta fermo: la sezione è corta e la testata occupa già tutta l'altezza */
+	.sezione-testata:has(.sezione-illustrazione) {
+		position: static;
+		display: flex;
+		flex-direction: column;
+		block-size: 100%;
+	}
+
+	.sezione-illustrazione {
+		flex: 1 1 0;
+		inline-size: 100%;
+		margin-block-start: var(--spazio-4);
+		min-block-size: var(--illustrazione-sezione);
+		object-fit: contain;
+		object-position: left bottom;
 	}
 }

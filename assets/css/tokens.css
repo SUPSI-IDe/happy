@@ -76,7 +76,8 @@
 	--hero-mascotte: calc(var(--hero-logo) * 0.4635);
 	--bordo-pennello: 1.1875rem; /* 19px, il bordo a pennello che chiude il verde */
 
-	/* Illustrazione sotto il titolo di una sezione (Perché Happy?): 262px, su mobile al massimo la colonna */
+	/* Illustrazione sotto il titolo di una sezione (Perché Happy?): su mobile larga 262px (al massimo la
+	   colonna); su desktop è l'altezza minima, poi cresce fino al fondo del contenuto */
 	--illustrazione-sezione: 16.375rem;
 
 	/* Mascotte dei Contatti: da 12.3125rem (197px) a 24.375rem (390px di schermo) fino a
