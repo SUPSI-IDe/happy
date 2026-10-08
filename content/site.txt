@@ -10,6 +10,10 @@ Partecipa_testo: Partecipa al progetto
 
 ----
 
+Partecipa_link: https://supsi.eu.qualtrics.com/jfe/form/SV_0HTby6h23mGExAa
+
+----
+
 Piede_testo: Progetto della SUPSI con il Conservatorio della Svizzera italiana, finanziato dal FNS (programma Agora).
 
 ----

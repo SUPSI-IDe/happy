@@ -1,0 +1,19 @@
+Title: Contatti
+
+----
+
+Voce_menu: Contatti
+
+----
+
+Testo: Per informazioni sul progetto HAPPY:
+
+----
+
+Email: cinzia.cruder@supsi.ch
+
+----
+
+Illustrazione:
+
+- mascotte-violino.png

@@ -81,7 +81,7 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 - **Titoli grandi fluidi:** `--text-display` e `--text-titolo-1` non saltano di colpo. Da 64rem a 94.5rem (1512px) crescono gradualmente da 4rem a 6rem (`display`) e da 2.25rem a 3rem (`titolo-1`), e da 94.5rem restano ai valori di Figma. Così non escono dalla colonna. Gli altri stili cambiano di colpo a 64rem.
 - **Verifica:** una pagina va controllata a 390, 768, 1024, 1280 e 1512px di larghezza.
 - **Le misure intermedie (15, 18, 19, 22, 26px…) non esistono più.**
-- **Email nei Contatti:** `--text-titolo-2`, colore `--color-link`, sottolineata.
+- **Contatti:** titolo `h2` con l'aspetto di `--text-titolo-2` (senza segno a pennello), testo corrente, email in stile link (`--text-link`, verde salvia, sottolineata). Mascotte decorativa larga `--mascotte-contatti`: da 12.3125rem (197px) su mobile a 18.75rem (300px) da 1024px; su desktop centrata nelle colonne 1–5, con il testo nelle 7–12 centrato in altezza.
 
 ## Bottoni, link e focus
 

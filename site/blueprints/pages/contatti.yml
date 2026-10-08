@@ -1,0 +1,15 @@
+title: Contatti
+# Chiude la home prima del piè di pagina: titolo piccolo, testo, email e mascotte (decorativa)
+fields:
+  voce_menu: fields/voce-menu
+  email:
+    label: Email
+    type: email
+    width: 1/2
+  testo:
+    label: Testo
+    type: textarea
+    size: small
+    buttons: false
+    help: Una frase prima dell'email
+  illustrazione: fields/illustrazione

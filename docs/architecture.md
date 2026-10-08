@@ -6,7 +6,7 @@
 - **CSS vanilla con custom properties:** nessun framework; tutti i valori grafici vengono dai design token.
 - **JavaScript:** solo dove serve (il menu su mobile), sempre come miglioramento: senza, il sito funziona.
 - **Video:** ospitati su una piattaforma esterna (da decidere, per esempio SWITCHtube o Vimeo) e incorporati nel sito.
-- **Form:** link a Microsoft Forms.
+- **Form:** link a moduli esterni (Qualtrics della SUPSI); il link del bottone "Partecipa" sta in Sito → Generale.
 - **Hosting:** SUPSI, `happy.supsi.ch` (da confermare: PHP 8.2 o più recente).
 
 ## Struttura delle cartelle
