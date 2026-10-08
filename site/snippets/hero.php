@@ -27,7 +27,7 @@ $mascotte = $page->illustrazione()->toFile();
 		<div class="hero-video" aria-hidden="true"></div>
 
 		<div class="hero-presentazione">
-			<h2><?= esc($page->presentazione_titolo()) ?></h2>
+			<h2 class="titolo-sezione"><?= esc($page->presentazione_titolo()) ?></h2>
 			<?= $page->presentazione_testo()->kirbytext() ?>
 		</div>
 	</div>

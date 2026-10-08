@@ -54,6 +54,7 @@ textarea {
 :root {
 	/* Cambiano dentro un fondo colorato (vedi .su-colore) */
 	--color-focus: var(--color-focus-su-bianco);
+	--color-decorazione: var(--color-verde-salvia);
 }
 
 body {
@@ -123,6 +124,25 @@ p {
 	max-inline-size: var(--colonna-testo);
 }
 
+/* Titolo di sezione: il segno a pennello a sinistra (decorativo, assets/images/segno-titolo.svg).
+   Il segno è una maschera: la forma viene dal file, il colore da --color-decorazione (verde sul
+   bianco, bianco sul colore). Le misure in em lo tengono in proporzione al titolo. */
+.titolo-sezione {
+	display: flex;
+	align-items: start;
+	column-gap: var(--spazio-2);
+}
+
+.titolo-sezione::before {
+	content: '';
+	flex: none;
+	block-size: 0.95em;
+	margin-block-start: 0.125em;
+	aspect-ratio: 26.4774 / 49.0326;
+	background-color: var(--color-decorazione);
+	mask: url('../images/segno-titolo.svg') center / contain no-repeat;
+}
+
 .text-etichetta {
 	font-size: var(--text-etichetta);
 	font-weight: var(--peso-grassetto);
@@ -143,6 +163,7 @@ p {
 	font-weight: var(--peso-grassetto);
 	--color-link: var(--color-testo-su-colore);
 	--color-focus: var(--color-focus-su-colore);
+	--color-decorazione: var(--color-testo-su-colore);
 }
 
 .su-colore .text-nota {

@@ -268,12 +268,15 @@
 }
 
 /* Bordo a pennello che chiude il verde (decorativo). Su mobile sta sopra la presentazione,
-   su desktop sotto la hero: si attiva con content nei due blocchi @media qui sotto */
+   su desktop sotto la hero: si attiva con content nei due blocchi @media qui sotto.
+   È centrato sul bordo, metà sul verde e metà sotto, come in Figma: il suo profilo irregolare
+   non lascia così fessure bianche tra il verde e il pennello */
 .hero::after,
 .hero-presentazione::before {
 	position: absolute;
 	inset-inline: 0;
 	block-size: var(--bordo-pennello);
+	translate: 0 -50%;
 	background-color: var(--color-verde-salvia);
 	mask: url('../images/bordo-pennello.svg') center / 100% 100% no-repeat;
 }
@@ -295,6 +298,7 @@
 		font-weight: var(--peso-medio);
 		--color-link: var(--color-verde-salvia);
 		--color-focus: var(--color-focus-su-bianco);
+		--color-decorazione: var(--color-verde-salvia);
 	}
 
 	.hero-presentazione::before {
@@ -313,7 +317,7 @@
 		align-content: center;
 		row-gap: var(--spazio-7);
 		min-block-size: calc(100svh - var(--navbar-altezza));
-		padding-block: var(--spazio-8);
+		padding-block: var(--spazio-6);
 	}
 
 	.hero-titolo {

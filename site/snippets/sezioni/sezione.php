@@ -6,7 +6,7 @@
 ?>
 <section class="sezione" id="<?= $sezione->slug() ?>" aria-labelledby="titolo-<?= $sezione->slug() ?>">
 	<div class="contenitore">
-		<h2 id="titolo-<?= $sezione->slug() ?>"><?= esc($sezione->title()) ?></h2>
+		<h2 class="titolo-sezione" id="titolo-<?= $sezione->slug() ?>"><?= esc($sezione->title()) ?></h2>
 		<?= $sezione->testo()->kirbytext() ?>
 	</div>
 </section>
