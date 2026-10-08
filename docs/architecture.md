@@ -31,7 +31,8 @@ MAInD-HAPPY/
 │   ├── blueprints/        ← pages/ un file per tipo di contenuto (vedi ontology.md),
 │   │                        fields/ campi riusati in più tipi, users/ i ruoli
 │   ├── templates/         ← una pagina intera: home, e default.php per le altre
-│   ├── snippets/          ← layout, navbar, footer, bottone; sezioni/ uno per tipo di sezione
+│   ├── snippets/          ← layout, navbar, hero, footer, bottone, sezione (struttura comune);
+│   │                        sezioni/ uno per tipo di sezione
 │   └── config/            ← impostazioni e redirect delle sezioni
 ├── content/               ← home/ con una cartella per sezione (1_perche, 2_a-chi…),
 │                            insegnanti · famiglie · professionisti
@@ -47,7 +48,9 @@ MAInD-HAPPY/
 
 ## Il one-pager
 
-La home è l'unica pagina lunga: il template `home` disegna la hero (l'unico `h1`) e poi, una sotto l'altra, le sezioni pubblicate, cioè le pagine figlie della home (vedi `docs/ontology.md`). Ogni sezione si disegna con lo snippet del suo tipo, `sezioni/<tipo>.php`; finché non esiste vale `sezioni/sezione.php`. Ogni sezione è un `<section>` con `id` uguale al nome della cartella (l'ancora del menu) e un `h2`.
+La home è l'unica pagina lunga: il template `home` disegna la hero (l'unico `h1`) e poi, una sotto l'altra, le sezioni pubblicate, cioè le pagine figlie della home (vedi `docs/ontology.md`). Ogni sezione si disegna con lo snippet del suo tipo, `sezioni/<tipo>.php`; finché non esiste vale `sezioni/sezione.php`.
+
+Gli snippet dei tipi non ripetono la struttura: usano lo snippet `sezione`, che crea il `<section>` (con `id` uguale al nome della cartella, l'ancora del menu), il titolo `h2` con il segno a pennello nelle colonne 1–5 e il contenuto nelle colonne 7–12. Il tipo fornisce solo il contenuto (slot predefinito) e, se serve, qualcosa sotto il titolo (slot `laterale`).
 
 Le sezioni non hanno un indirizzo proprio: una regola in `site/config/config.php` manda `/home/ricerca` a `/#ricerca`, così anche l'anteprima del pannello porta al punto giusto.
 
@@ -62,7 +65,7 @@ Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tas
 | `Navbar` | Logo, voci (la presentazione e le sezioni della home con una voce di menu, come link alle ancore) e la linea sotto (unico divisore della pagina). Su mobile le voci stanno dietro un pulsante menu (due linee che diventano una X), che apre un menu a tutto schermo con il bottone "Partecipa"; si chiude scegliendo una voce o con Esc, e intanto il resto della pagina non si raggiunge. Senza JavaScript le voci restano visibili |
 | `Footer` | Piè di pagina uguale in tutte le pagine, su fondo verde salvia con testo bianco: nome del progetto, chi c'è dietro, loghi (facoltativi), link (privacy, accessibilità) e copyright. Tutto modificabile dal pannello (Sito → Piè di pagina) |
 | `Hero` | Logo SVG (l'`h1`), nome esteso, mascotte, video e presentazione "Cos'è Happy?" |
-| `Section` | Fascia di pagina con colonne |
+| `Section` (`sezione`) | Struttura comune delle sezioni della home: titolo con segno a pennello nelle colonne 1–5 (fermo mentre si scorre), contenuto nelle 7–12, allineati sulla linea di base; su mobile in colonna |
 | `Card` | Card dei profili, con varianti di forma "fatte a mano" |
 | `Button` (`bottone`) | Bottone o link con l'aspetto di un bottone. Varianti `pieno` e `contorno`; con `href` è un link |
 | `VideoEmbed` | Video 16:9 con sottotitoli |
