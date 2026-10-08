@@ -23,7 +23,7 @@ Per fermare il sito: `Ctrl+C` nel Terminale.
 | Stile (token, base, layout, componenti, font) | `assets/css/`, `assets/fonts/` |
 | Script (menu su mobile) | `assets/js/` |
 | Struttura comune delle pagine | `site/snippets/layout.php` |
-| Componenti | `site/snippets/` (`navbar`, `footer`, `bottone`); le sezioni della home in `site/snippets/sezioni/` |
+| Componenti | `site/snippets/` (`navbar`, `hero`, `sezione`, `footer`, `bottone`); le sezioni della home in `site/snippets/sezioni/` |
 | Template delle pagine | `site/templates/` (se un template manca vale `default.php`) |
 | Campi e pannello di ogni tipo di contenuto | `site/blueprints/pages/` (vedi `docs/ontology.md`); i campi usati in più tipi in `site/blueprints/fields/` |
 | Contenuti | `content/` (una cartella per pagina; le sezioni sono in `content/home/`, il prefisso `1_` è l'ordine) |
