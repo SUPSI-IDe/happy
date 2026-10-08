@@ -68,6 +68,11 @@
 	--bottone-padding-inline: 1.75rem;
 	--bottone-padding-block: 0.75rem;
 	--bordo-contorno: 0.125rem;
+
+	/* Hero della home: misure fisse da Figma (il logo è un SVG, non testo) */
+	--hero-logo: 13.125rem; /* 210px */
+	--hero-mascotte: 12.3125rem; /* 197px */
+	--bordo-pennello: 1.1875rem; /* 19px, il bordo a pennello che chiude il verde */
 	--sottolineatura-bottone-hover: 0.1875rem;
 
 	/* Spaziature */
@@ -92,6 +97,10 @@
 	--gutter: var(--spazio-4);
 	--larghezza-massima: 90rem;
 	--spazio-sezione: var(--spazio-8);
+
+	/* Altezza della navbar (components.css): il pulsante o la voce più alta, il padding e la linea.
+	   Serve alle ancore (base.css) e alle sezioni alte uno schermo */
+	--navbar-altezza: calc(var(--bottone-altezza-min) + 2 * var(--spazio-3) + var(--bordo-contorno));
 }
 
 /* Desktop: da 64rem (1024px). Il valore è in rem per seguire zoom e dimensione del testo.
@@ -105,6 +114,8 @@
 
 		--text-titolo-2: 2rem;
 		--text-titolo-3: 1.5rem;
+
+		--hero-logo: 26.5625rem; /* 425px */
 
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);

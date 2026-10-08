@@ -40,7 +40,7 @@
 }
 
 /* Navbar (snippet navbar). Fondo e testo bianco vengono da .fondo-verde-salvia e .su-colore.
-   Resta in alto mentre si scorre: l'altezza è ripetuta in base.css (scroll-padding) */
+   Resta in alto mentre si scorre: se cambia l'altezza, va aggiornato --navbar-altezza in tokens.css */
 
 .navbar {
 	position: sticky;
@@ -142,6 +142,139 @@
 	.navbar-voci ul {
 		flex-direction: row;
 		column-gap: var(--spazio-9);
+	}
+}
+
+/* Hero (snippet hero). Fondo verde e testo bianco vengono da .fondo-verde-salvia e .su-colore.
+   Mobile: logo e video sul verde, presentazione sul bianco. Desktop: tutto sul verde, alto uno schermo. */
+
+.hero {
+	position: relative;
+}
+
+.hero-griglia {
+	row-gap: 0;
+	padding-block-start: var(--spazio-8);
+}
+
+.hero-titolo {
+	margin-block-end: var(--spazio-8);
+}
+
+.hero-logo svg {
+	inline-size: var(--hero-logo);
+}
+
+.hero-sottotitolo {
+	line-height: var(--interlinea-titoli);
+	text-wrap: balance;
+}
+
+/* La mascotte c'è solo su desktop, accanto al logo */
+.hero-mascotte {
+	display: none;
+	inline-size: var(--hero-mascotte);
+}
+
+/* Segnaposto del video: riquadro 16:9 tratteggiato, finché il video non c'è */
+.hero-video {
+	aspect-ratio: 16 / 9;
+	border: var(--bordo-contorno) dashed currentColor;
+}
+
+.hero-presentazione > * + * {
+	margin-block-start: var(--spazio-4);
+}
+
+/* Bordo a pennello che chiude il verde (decorativo). Su mobile sta sopra la presentazione,
+   su desktop sotto la hero: si attiva con content nei due blocchi @media qui sotto */
+.hero::after,
+.hero-presentazione::before {
+	position: absolute;
+	inset-inline: 0;
+	block-size: var(--bordo-pennello);
+	background-color: var(--color-verde-salvia);
+	mask: url('../images/bordo-pennello.svg') center / 100% 100% no-repeat;
+}
+
+/* Solo mobile (sotto 64rem): regole che su desktop non servono, così non vanno annullate */
+@media (width < 64rem) {
+	/* Video e presentazione da bordo a bordo: escono dal margine di pagina */
+	.hero-video,
+	.hero-presentazione {
+		margin-inline: calc(-1 * var(--margine-pagina));
+	}
+
+	/* La presentazione sta sul bianco: si annulla .su-colore (base.css) */
+	.hero-presentazione {
+		position: relative;
+		padding: var(--spazio-sezione) var(--margine-pagina) 0;
+		background-color: var(--color-sfondo);
+		color: var(--color-testo);
+		font-weight: var(--peso-medio);
+		--color-link: var(--color-verde-salvia);
+		--color-focus: var(--color-focus-su-bianco);
+	}
+
+	.hero-presentazione::before {
+		content: '';
+		inset-block-start: 0;
+	}
+
+	.hero-presentazione > h2 + * {
+		margin-block-start: var(--spazio-5);
+	}
+}
+
+@media (min-width: 64rem) {
+	/* Una schermata sotto la navbar, con il contenuto al centro */
+	.hero-griglia {
+		align-content: center;
+		row-gap: var(--spazio-7);
+		min-block-size: calc(100svh - var(--navbar-altezza));
+		padding-block: var(--spazio-8);
+	}
+
+	/* Logo e sottotitolo a sinistra, mascotte accanto al logo */
+	.hero-titolo {
+		display: grid;
+		grid-template-columns: auto auto;
+		justify-content: start;
+		align-items: end;
+		column-gap: var(--spazio-3);
+		row-gap: var(--spazio-2);
+		margin-block-end: 0;
+	}
+
+	/* Il sottotitolo è più largo del logo: passa sotto la mascotte, come in Figma */
+	.hero-sottotitolo {
+		grid-column: 1 / -1;
+		font-family: var(--font-titoli);
+		font-size: var(--text-titolo-3);
+		line-height: var(--interlinea-titolo-3);
+	}
+
+	/* La mano della mascotte scende fino al sottotitolo */
+	.hero-mascotte {
+		display: block;
+		grid-column: 2;
+		grid-row: 1;
+		margin-block-end: calc(-1 * var(--spazio-2));
+	}
+
+	.hero-griglia > .hero-presentazione {
+		grid-column: 1 / span 5;
+		grid-row: 2;
+	}
+
+	.hero-griglia > .hero-video {
+		grid-column: 6 / -1;
+		grid-row: 2;
+	}
+
+	.hero::after {
+		content: '';
+		inset-block-start: 100%;
 	}
 }
 

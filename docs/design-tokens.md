@@ -64,7 +64,7 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 
 | Token | Desktop | Mobile | Peso | Interlinea | Uso |
 |---|---|---|---|---|---|
-| `--text-display` | 6rem | 2.75rem | Fraunces 700 | 1.1 | Titolo hero: solo pagine principali (Risorse, Contatti, La Ricerca) e pagine dei profili |
+| `--text-display` | 6rem | 2.75rem | Fraunces 700 | 1.1 | Titolo delle pagine dei profili. Nella hero della home il titolo è il logo SVG (vedi "Hero della home") |
 | `--text-titolo-1` | 3rem | 2rem | Fraunces 600 | 1.2 | Titoli di sezione |
 | `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni |
 | `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Titoli di card e di fase, citazioni, testo dei bottoni |
@@ -128,7 +128,16 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Margine di pagina** (`--margine-pagina`): 1.25rem (20px) su mobile, 4rem (64px) su desktop. Il contenuto non supera `--larghezza-massima` (90rem) ed è centrato.
 - **Distanza tra le sezioni** (`--spazio-sezione`): 4rem (64px) su mobile, 6rem (96px) su desktop. Su mobile tra il titolo di sezione e il contenuto c'è `--spazio-5` (1.5rem, 24px).
 - **Colonne delle sezioni (desktop):** il titolo sta nelle colonne 1–5, il contenuto nelle colonne 7–12 (larghe in tutto 42.5rem a 1512px, da qui `--colonna-testo`). Nelle sezioni lunghe il titolo può restare fermo a sinistra (`position: sticky`).
+- **Altezza della navbar** (`--navbar-altezza`): calcolata dai token del bottone. La usano le ancore (`scroll-padding` in `base.css`, così una sezione non finisce sotto la navbar sticky) e le sezioni alte uno schermo.
 - **Classi:** `.sezione` (fascia a tutta larghezza), `.contenitore` (contenuto centrato), `.griglia` (colonne). Su mobile gli elementi della griglia occupano tutta la riga; da 64rem ogni componente sceglie quante colonne occupare con `grid-column`.
+
+## Hero della home
+
+- **Logo:** "Happy" è un SVG (`assets/images/logo-happy.svg`), non testo: Fraunces molto grande si deforma. Prende il colore del testo intorno (`currentColor`), quindi bianco sul verde. Larghezza fissa `--hero-logo`: 13.125rem (210px) su mobile, 26.5625rem (425px) su desktop.
+- **Sottotitolo** (il nome esteso): su mobile Urbanist bold 1.25rem, interlinea dei titoli; su desktop `--text-titolo-3` (Fraunces 700).
+- **Mascotte:** solo su desktop, accanto al logo, larga `--hero-mascotte` (12.3125rem, 197px).
+- **Bordo a pennello:** chiude il fondo verde (`assets/images/bordo-pennello.svg`, usato come maschera, alto `--bordo-pennello` 1.1875rem). Su mobile sta sotto il video, su desktop sotto la hero.
+- **Mobile:** logo, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
 
 ## Componenti in Figma
 

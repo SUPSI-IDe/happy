@@ -2,6 +2,12 @@ Title: Happy
 
 ----
 
+Illustrazione:
+
+- mascotte-mano.png
+
+----
+
 Presentazione_titolo: Cos'è Happy?
 
 ----
