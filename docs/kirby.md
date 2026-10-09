@@ -54,7 +54,9 @@ Il sito si carica con FileZilla in SFTP su `web1.supsi.ch`, con l'account SUPSI.
 
 **Cosa caricare:** `assets/`, `content/`, `kirby/`, `site/` e `index.php` (il `.htaccess` è già sul server, creato con Luca). `vendor/` non serve: `index.php` carica Kirby direttamente da `kirby/`. Nient'altro: `docs/`, `scripts/`, `node_modules/`, i file di configurazione (`composer.json`, `package.json`, `AGENTS.md`…) e simili non servono al sito e potrebbero essere leggibili da chiunque. Il `content/` del server non si sovrascrive mai, perché contiene le modifiche fatte dal pannello online.
 
-**Permessi:** sul server PHP gira con un utente diverso da quello SFTP, quindi le cartelle in cui Kirby scrive vanno messe a `777`. In FileZilla: tasto destro → *File permissions…* → `777`, *Recurse into subdirectories*, *Apply to all files and directories*. Le cartelle sono `content/`, `media/`, `site/accounts/`, `site/sessions/` e `site/cache/` (se mancano, si creano vuote). Errori come «The media directory could not be created» o «… is not writable» vogliono dire che una di queste manca o non ha i permessi.
+**Permessi:** sul server PHP gira con un utente diverso da quello SFTP, quindi le cartelle in cui Kirby scrive vanno messe a `777`. In FileZilla: tasto destro → *File permissions…* → `777`, *Recurse into subdirectories*, *Apply to all files and directories*. Le cartelle sono `content/`, `media/`, `site/accounts/`, `site/sessions/` e `site/cache/` (se mancano, si creano vuote).
+
+Attenzione: le cartelle create da PHP risultano di proprietà di `nobody` (permessi `dr-xrwsr-x`) e l'utente SFTP **non può cambiarne i permessi**: FileZilla accetta il `777` ma non succede nulla. In quel caso la cartella va **cancellata e ricreata** da FileZilla (così diventa dell'utente SFTP) e poi messa a `777`. Vedi «Se qualcosa si rompe online».
 
 **Account amministratore:** online il pannello non si installa (Kirby blocca l'installazione sui server pubblici). Si carica invece la cartella dell'account creata in locale, da `site/accounts/` a `/supsi_happy/docs/site/accounts/`, e poi si rimette `777` su `site/accounts/`. La password è quella del pannello in locale.
 
@@ -71,6 +73,21 @@ php -r '$p = readline("Nuova password: "); file_put_contents("site/accounts/<id>
 ```
 
 Ancora da chiarire con SUPSI: la licenza Kirby per `happy.supsi.ch`, i proprietari delle cartelle scritte da PHP (oggi `777`, cioè scrivibili da chiunque sul server: meglio dare la proprietà all'utente di PHP), chi fa backup e aggiornamenti di sicurezza.
+
+## Se qualcosa si rompe online
+
+Prima di tutto si guarda quali cartelle Kirby non riesce a scrivere: `https://happy.supsi.ch/api/system` (in `requirements`, `false` = non scrivibile). La cache non compare lì.
+
+| Sintomo | Cartella | Rimedio |
+|---|---|---|
+| Immagini mancanti (errore 500 sui file di `/media/…`) | `media` | Svuotarla o cancellarla, ricrearla vuota, `777` |
+| Pannello che rimanda a `/panel/installation` | `site/sessions`, `site/accounts` | `sessions`: ricrearla vuota, `777`. `accounts`: **prima scaricarla** (contiene l'account e il file nascosto `.htpasswd`), ricrearla, ricaricarne il contenuto, `777` ricorsivo |
+| Login che fallisce con «Cannot read properties of null (reading 'error')» | `site/cache` | Ricrearla vuota, `777` |
+| Il pannello non salva («not writable») | `content` | ⚠️ Contiene i testi: prima scaricarne una copia, poi ricrearla, ricaricare la copia, `777` ricorsivo |
+
+Per leggere l'errore vero: in `site/config/config.php` **sul server** si mette per qualche minuto `'debug' => true`, si ricarica la pagina, e poi si ricarica il `config.php` del repository, che lo rispegne. Il debug mostra a tutti percorsi e dettagli del server: mai lasciarlo acceso.
+
+Dopo un nuovo caricamento, se il sito sembra «scomposto», è il browser che usa ancora il CSS vecchio: si ricarica con `Cmd + Maiusc + R`.
 
 ## Controlli
 
