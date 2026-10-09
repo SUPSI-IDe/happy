@@ -12,14 +12,14 @@ $illustrazione = $sezione->illustrazione()->toFile();
 <section class="sezione" id="<?= $id ?>" aria-labelledby="titolo-<?= $id ?>">
 	<div class="contenitore griglia contatti">
 		<div class="contatti-testo">
-			<h2 class="text-titolo-2" id="titolo-<?= $id ?>"><?= esc($sezione->title()) ?></h2>
+			<h2 class="text-titolo-2" id="titolo-<?= $id ?>"><?= $sezione->title()->esc() ?></h2>
 			<?= $sezione->testo()->kirbytext() ?>
 			<?php if ($sezione->email()->isNotEmpty()): ?>
 				<p><?= Html::email($sezione->email()->value()) ?></p>
 			<?php endif ?>
 		</div>
 		<?php if ($illustrazione): ?>
-			<img class="contatti-mascotte" src="<?= $illustrazione->url() ?>" alt="<?= esc($illustrazione->alt()->value(), 'attr') ?>" width="<?= $illustrazione->width() ?>" height="<?= $illustrazione->height() ?>">
+			<img class="contatti-mascotte" src="<?= $illustrazione->url() ?>" alt="<?= $illustrazione->alt()->esc('attr') ?>" width="<?= $illustrazione->width() ?>" height="<?= $illustrazione->height() ?>">
 		<?php endif ?>
 	</div>
 </section>

@@ -36,6 +36,10 @@ Per fermare il sito: `Ctrl+C` nel Terminale.
 - **Dati comuni:** nome esteso del progetto e bottone "Partecipa al progetto" (testo e link al modulo) in Sito → Generale.
 - **Piè di pagina:** etichette, testo del contributo, loghi (titolari, finanziatore, partner) e link si modificano in Sito → Piè di pagina. Ogni logo, aperto, ha il nome dell'ente (testo alternativo, obbligatorio), il link al suo sito e la larghezza su desktop in px: su mobile si riduce da sola. Un link senza indirizzo resta semplice testo.
 
+## Campi vuoti
+
+Ogni campo del pannello può essere vuoto (un'etichetta cancellata, un'immagine senza testo alternativo, un campo nuovo che il `content/` del server non ha ancora). Negli snippet un campo si stampa con il suo metodo `->esc()` (`$site->nome_esteso()->esc()`, `$file->alt()->esc('attr')`), che con un campo vuoto restituisce testo vuoto. Mai `esc($campo->value())`: con un campo vuoto `value()` è `null` e la pagina si blocca con un errore.
+
 ## Ruoli
 
 C'è un solo ruolo, **Amministratore**, che può fare tutto. Il ruolo Partner (per i video del Toolkit) tornerà con il Toolkit, dopo il rilascio.
@@ -66,7 +70,7 @@ Per impostarne una nuova, si genera un nuovo `.htpasswd` e lo si carica nella st
 php -r '$p = readline("Nuova password: "); file_put_contents("site/accounts/<id>/.htpasswd", password_hash($p, PASSWORD_DEFAULT));'
 ```
 
-Ancora da chiarire con SUPSI: la licenza Kirby per `happy.supsi.ch`, chi fa backup e aggiornamenti di sicurezza.
+Ancora da chiarire con SUPSI: la licenza Kirby per `happy.supsi.ch`, i proprietari delle cartelle scritte da PHP (oggi `777`, cioè scrivibili da chiunque sul server: meglio dare la proprietà all'utente di PHP), chi fa backup e aggiornamenti di sicurezza.
 
 ## Controlli
 
