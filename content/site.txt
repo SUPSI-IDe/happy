@@ -14,7 +14,42 @@ Partecipa_link: https://supsi.eu.qualtrics.com/jfe/form/SV_0HTby6h23mGExAa
 
 ----
 
-Piede_testo: Progetto della SUPSI con il Conservatorio della Svizzera italiana, finanziato dal FNS (programma Agora).
+Piede_titolari_etichetta: Un progetto di
+
+----
+
+Piede_titolari:
+
+- logo-supsi.png
+- logo-conservatorio.png
+
+----
+
+Piede_contributo_etichetta: Contributo
+
+----
+
+Piede_contributo_testo: Il progetto HAPPY è finanziato dal Fondo nazionale svizzero per la ricerca scientifica (FNS).
+
+----
+
+Piede_contributo_logo:
+
+- logo-fns.png
+
+----
+
+Piede_partner_etichetta: In collaborazione con
+
+----
+
+Piede_partner:
+
+- logo-lacedu.png
+- logo-physioswiss.png
+- logo-ergoterapia.png
+- logo-swissmedmusica.png
+- logo-fisiocamera.png
 
 ----
 

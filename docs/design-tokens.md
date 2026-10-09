@@ -142,6 +142,14 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Desktop, altezza:** la hero è alta uno schermo sotto la navbar, con il contenuto centrato e almeno `--spazio-6` sopra e sotto.
 - **Mobile:** logo con mascotte, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
 
+## Piè di pagina
+
+- **Desktop:** nome e nome esteso (colonne 1–5) | link e copyright (7–12); contributo (1–5) | titolari (7–12); partner su tutta la riga. **Mobile:** in colonna: nome, titolari, contributo, partner, link.
+- Nome in `--text-logo`; il resto in Urbanist bold 1.25rem, come tutto il testo sul colore. Copyright in stile etichetta (maiuscolo). In Figma il nome esteso su desktop è in Fraunces 18px: sotto 1.25rem sul colore non si può, quindi vale lo stile mobile.
+- Le etichette "Un progetto di" e "Contributo" ci sono anche su desktop (in Figma solo su mobile): senza, lo screen reader leggerebbe loghi senza contesto. Ogni elenco di loghi ha come nome la sua etichetta (`aria-labelledby`).
+- **Loghi:** bianchi su trasparente, caricati al doppio della misura. Larghezza su desktop dal pannello (in Figma regolata a occhio logo per logo); su mobile ×`--scala-loghi` (0.73, come nel frame mobile).
+- Spazi: `--spazio-7` sopra e sotto, `--spazio-6` tra i gruppi (in Figma 40px, fuori dalla scala), `--spazio-4` tra etichetta e contenuto.
+
 ## Componenti in Figma
 
 Le pillole delle fasi sono cerchi da 2.75rem con solo il numero.

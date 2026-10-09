@@ -34,7 +34,7 @@ Per fermare il sito: `Ctrl+C` nel Terminale.
 - **Sezioni della home:** sono le pagine figlie della home. Si riordinano trascinandole, si nascondono rimettendole in bozza.
 - **Menu:** le voci sono le sezioni pubblicate con una "Voce di menu"; senza, la sezione non va nel menu. L'ordine è quello delle sezioni.
 - **Dati comuni:** nome esteso del progetto e bottone "Partecipa al progetto" (testo e link al modulo) in Sito → Generale.
-- **Piè di pagina:** testi, loghi e link si modificano in Sito → Piè di pagina. Un link senza indirizzo resta semplice testo.
+- **Piè di pagina:** etichette, testo del contributo, loghi (titolari, finanziatore, partner) e link si modificano in Sito → Piè di pagina. Ogni logo, aperto, ha il nome dell'ente (testo alternativo, obbligatorio), il link al suo sito e la larghezza su desktop in px: su mobile si riduce da sola. Un link senza indirizzo resta semplice testo.
 
 ## Ruoli
 

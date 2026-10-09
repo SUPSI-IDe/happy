@@ -1,0 +1,7 @@
+# Una serie di loghi del piè di pagina (blueprint dei file: files/logo). Si usa con: extends: fields/loghi
+type: files
+layout: cards
+size: tiny
+uploads:
+  template: logo
+help: Trascina per cambiare l'ordine. Nome, link e larghezza si cambiano aprendo il logo

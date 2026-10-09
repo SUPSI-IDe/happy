@@ -82,6 +82,9 @@
 
 	/* Mascotte dei Contatti: da 12.3125rem (197px) a 24.375rem (390px di schermo) fino a
 	   18.75rem (300px) a 64rem (1024px), come il logo della hero */
+	/* Loghi del piè di pagina: la larghezza viene dal pannello; su mobile si riduce come in Figma */
+	--scala-loghi: 0.73;
+
 	--mascotte-contatti: clamp(12.3125rem, calc(12.3125rem + (100vw - 24.375rem) * 0.1625), 18.75rem);
 	--sottolineatura-bottone-hover: 0.1875rem;
 
@@ -124,6 +127,8 @@
 
 		--text-titolo-2: 2rem;
 		--text-titolo-3: 1.5rem;
+
+		--scala-loghi: 1;
 
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);

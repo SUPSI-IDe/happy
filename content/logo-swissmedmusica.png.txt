@@ -1,0 +1,13 @@
+Template: logo
+
+----
+
+Alt: Swissmedmusica
+
+----
+
+Link: 
+
+----
+
+Larghezza: 132
