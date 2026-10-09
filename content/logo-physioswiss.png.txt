@@ -2,7 +2,7 @@ Template: logo
 
 ----
 
-Alt: PhysioSwiss Ticino
+Alt: PhysioTicino
 
 ----
 

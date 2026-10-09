@@ -2,11 +2,11 @@ Template: logo
 
 ----
 
-Alt: ASE Ticino, Associazione Svizzera di Ergoterapia
+Alt: Ergotherapie-Verband Schweiz – sezione Ticino, Associazione svizzera di ergoterapia
 
 ----
 
-Link: 
+Link: https://ergoterapia.ch
 
 ----
 

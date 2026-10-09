@@ -2,11 +2,11 @@ Template: logo
 
 ----
 
-Alt: Swissmedmusica
+Alt: Swissmedmusica, Società svizzera di medicina della musica
 
 ----
 
-Link: 
+Link: https://swissmedmusica.ch
 
 ----
 

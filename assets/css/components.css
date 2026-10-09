@@ -378,7 +378,7 @@
 
 /* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore.
    Mobile: tutto in colonna. Desktop: nome | link, contributo | titolari, poi i partner su tutta la riga.
-   I loghi dei titolari e dei partner sono centrati */
+   I loghi dei partner sono centrati */
 
 .piede {
 	padding-block: var(--spazio-7);
@@ -405,7 +405,6 @@
 	margin-block-start: var(--spazio-4);
 }
 
-.piede-titolari .loghi,
 .piede-partner .loghi {
 	justify-content: center;
 }
@@ -447,11 +446,9 @@
 		grid-row: 1;
 	}
 
-	/* I loghi dei titolari stanno al centro dell'altezza del contributo */
 	.piede-contributo,
 	.piede-titolari {
 		grid-row: 2;
-		align-self: center;
 	}
 
 	.loghi {

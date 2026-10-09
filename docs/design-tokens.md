@@ -146,10 +146,10 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 
 Segue la versione desktop dei wireframe v6 (anche su mobile).
 
-- **Desktop:** nome e nome esteso (colonne 1–5) | link e copyright (7–12); contributo, cioè testo e logo FNS (1–5) | loghi dei titolari, centrati in orizzontale e rispetto all'altezza del contributo (7–12); "In collaborazione con" e i loghi dei partner distribuiti su tutta la riga. **Mobile:** in colonna nello stesso ordine, loghi centrati, link in fondo.
+- **Desktop:** nome e nome esteso (colonne 1–5) | link e copyright (7–12); contributo, cioè testo e logo FNS (1–5) | "Un progetto di" e i loghi dei titolari (7–12); "In collaborazione con" e i loghi dei partner distribuiti su tutta la riga. **Mobile:** in colonna nello stesso ordine: i link restano sotto il nome a ogni larghezza; loghi dei partner centrati.
 - Nome in `--text-logo`; nome esteso in Fraunces bold 1.25rem (in Figma 18px: sotto 1.25rem il bianco sul verde non raggiunge il contrasto AA); il resto in Urbanist bold 1.25rem. Copyright in stile etichetta (maiuscolo).
-- Si vede solo l'etichetta "In collaborazione con". "Un progetto di" e "Contributo" restano nel pannello ma sono solo per lo screen reader: danno il nome agli elenchi di loghi (`aria-labelledby`), che altrimenti sarebbero immagini senza contesto.
-- **Loghi:** bianchi su trasparente, caricati al doppio della misura. Larghezza su desktop dal pannello (FNS, SUPSI e Conservatorio alla stessa altezza, circa 47px); su mobile ×`--scala-loghi` (0.73).
+- Si vedono le etichette "Un progetto di" (senza, i loghi dei titolari si confondono con quello del finanziatore) e "In collaborazione con". "Contributo" resta nel pannello ma è solo per lo screen reader: il testo basta a chi vede. Ogni elenco di loghi ha come nome la sua etichetta (`aria-labelledby`).
+- **Loghi:** bianchi su trasparente, caricati al doppio della misura. Larghezza su desktop dal pannello (SUPSI e Conservatorio alti circa 47px, FNS un po' più grande perché il suo segno è più sottile); su mobile ×`--scala-loghi` (0.73).
 - Spazi: `--spazio-7` sopra e sotto, `--spazio-6` tra i gruppi (in Figma 40px, fuori dalla scala), `--spazio-4` tra testo e logo.
 
 ## Componenti in Figma

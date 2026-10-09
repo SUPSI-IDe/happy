@@ -10,4 +10,4 @@ Link: https://www.snf.ch
 
 ----
 
-Larghezza: 200
+Larghezza: 250
