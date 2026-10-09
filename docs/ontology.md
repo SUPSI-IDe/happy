@@ -23,7 +23,7 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 
 | Tipo | Campi principali | Note |
 |---|---|---|
-| **Home** | titolo, voce di menu, illustrazione, video, titolo e testo della presentazione | Il titolo è il nome accessibile del logo SVG, l'unico `h1`. La presentazione è "Cos'è Happy?": sta nella hero perché su desktop condivide la schermata con il video. Il nome esteso del progetto viene dal sito |
+| **Home** | titolo, voce di menu, illustrazione, video, immagine del video, titolo e testo della presentazione | Il titolo è il nome accessibile del logo SVG, l'unico `h1`. La presentazione è "Cos'è Happy?": sta nella hero perché su desktop condivide la schermata con il video. L'immagine del video prende il posto del video finché non c'è, poi diventa la sua copertina. Il nome esteso del progetto viene dal sito |
 | **Sezione** | titolo, voce di menu, testo, illustrazione, bottone "Partecipa" | Sezione di testo: Perché Happy? |
 | **Destinatari** | titolo, voce di menu, testo | A chi ci rivolgiamo. Le card si creano da sole dalle pagine dei profili |
 | **Fasi** | titolo, voce di menu | Contiene le fasi, nell'ordine del pannello |

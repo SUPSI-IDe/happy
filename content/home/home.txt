@@ -8,6 +8,12 @@ Illustrazione:
 
 ----
 
+Copertina:
+
+- copertina-video.webp
+
+----
+
 Presentazione_titolo: Cos'è Happy?
 
 ----
