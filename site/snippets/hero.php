@@ -7,6 +7,7 @@
  * Il logo è un SVG perché Fraunces molto grande si deforma; "Happy" resta leggibile dallo screen reader.
  */
 $mascotte = $page->illustrazione()->toFile();
+$copertina = $page->copertina()->toFile();
 ?>
 <section class="hero su-colore fondo-verde-salvia" id="<?= $page->slug() ?>">
 	<div class="contenitore griglia hero-griglia">
@@ -23,8 +24,13 @@ $mascotte = $page->illustrazione()->toFile();
 			<?php endif ?>
 		</div>
 
-		<?php // Segnaposto 16:9: il video si incorpora quando sarà scelta la piattaforma (docs/architecture.md) ?>
-		<div class="hero-video" aria-hidden="true"></div>
+		<?php // Il video si incorpora quando sarà scelta la piattaforma (docs/architecture.md): fino ad allora
+		      // al suo posto c'è l'immagine del video, poi diventerà la sua copertina ?>
+		<?php if ($copertina): ?>
+			<img class="hero-video" src="<?= $copertina->url() ?>" alt="<?= esc($copertina->alt()->value(), 'attr') ?>" width="<?= $copertina->width() ?>" height="<?= $copertina->height() ?>">
+		<?php else: ?>
+			<div class="hero-video hero-video--vuoto" aria-hidden="true"></div>
+		<?php endif ?>
 
 		<div class="hero-presentazione">
 			<h2 class="titolo-sezione"><?= esc($page->presentazione_titolo()) ?></h2>

@@ -257,9 +257,14 @@
 	inline-size: 100%;
 }
 
-/* Segnaposto del video: riquadro 16:9 tratteggiato, finché il video non c'è */
+/* Il video (per ora la sua immagine) è sempre 16:9; senza immagine resta un riquadro tratteggiato */
 .hero-video {
+	inline-size: 100%;
 	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.hero-video--vuoto {
 	border: var(--bordo-contorno) dashed currentColor;
 }
 
@@ -287,6 +292,12 @@
 	.hero-video,
 	.hero-presentazione {
 		margin-inline: calc(-1 * var(--margine-pagina));
+	}
+
+	/* Un'immagine non si allarga da sola come un div: la larghezza va detta (colonna più i due margini) */
+	.hero-video {
+		inline-size: calc(100% + 2 * var(--margine-pagina));
+		max-inline-size: none;
 	}
 
 	/* La presentazione sta sul bianco: si annulla .su-colore (base.css) */

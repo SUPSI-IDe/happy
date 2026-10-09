@@ -6,6 +6,10 @@ columns:
     fields:
       illustrazione: fields/illustrazione
       video: fields/video
+      copertina:
+        extends: fields/illustrazione
+        label: Immagine del video
+        help: In formato 16:9. Finché il video non c'è prende il suo posto; poi diventa la sua copertina. Il testo alternativo descrive l'immagine
   presentazione:
     width: 2/3
     fields:
