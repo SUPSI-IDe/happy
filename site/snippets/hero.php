@@ -13,27 +13,27 @@ $copertina = $page->copertina()->toFile();
 	<div class="contenitore griglia hero-griglia">
 		<div class="hero-titolo">
 			<h1 class="hero-logo">
-				<span class="solo-screen-reader"><?= esc($page->title()) ?></span>
+				<span class="solo-screen-reader"><?= $page->title()->esc() ?></span>
 				<?= svg('assets/images/logo-happy.svg') ?>
 			</h1>
 			<?php if ($site->nome_esteso()->isNotEmpty()): ?>
-				<p class="text-titolo-3 hero-sottotitolo"><?= esc($site->nome_esteso()->value()) ?></p>
+				<p class="text-titolo-3 hero-sottotitolo"><?= $site->nome_esteso()->esc() ?></p>
 			<?php endif ?>
 			<?php if ($mascotte): ?>
-				<img class="hero-mascotte" src="<?= $mascotte->url() ?>" alt="<?= esc($mascotte->alt()->value(), 'attr') ?>" width="<?= $mascotte->width() ?>" height="<?= $mascotte->height() ?>">
+				<img class="hero-mascotte" src="<?= $mascotte->url() ?>" alt="<?= $mascotte->alt()->esc('attr') ?>" width="<?= $mascotte->width() ?>" height="<?= $mascotte->height() ?>">
 			<?php endif ?>
 		</div>
 
 		<?php // Il video si incorpora quando sarà scelta la piattaforma (docs/architecture.md): fino ad allora
 		      // al suo posto c'è l'immagine del video, poi diventerà la sua copertina ?>
 		<?php if ($copertina): ?>
-			<img class="hero-video" src="<?= $copertina->url() ?>" alt="<?= esc($copertina->alt()->value(), 'attr') ?>" width="<?= $copertina->width() ?>" height="<?= $copertina->height() ?>">
+			<img class="hero-video" src="<?= $copertina->url() ?>" alt="<?= $copertina->alt()->esc('attr') ?>" width="<?= $copertina->width() ?>" height="<?= $copertina->height() ?>">
 		<?php else: ?>
 			<div class="hero-video hero-video--vuoto" aria-hidden="true"></div>
 		<?php endif ?>
 
 		<div class="hero-presentazione">
-			<h2 class="titolo-sezione"><?= esc($page->presentazione_titolo()) ?></h2>
+			<h2 class="titolo-sezione"><?= $page->presentazione_titolo()->esc() ?></h2>
 			<?= $page->presentazione_testo()->kirbytext() ?>
 		</div>
 	</div>

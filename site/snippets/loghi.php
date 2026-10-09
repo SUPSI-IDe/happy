@@ -16,7 +16,7 @@
 		]) ?>
 		<li>
 			<?php if ($logo->link()->isNotEmpty()): ?>
-				<a href="<?= esc($logo->link()->value(), 'attr') ?>"><?= $immagine ?></a>
+				<a href="<?= $logo->link()->esc('attr') ?>"><?= $immagine ?></a>
 			<?php else: ?>
 				<?= $immagine ?>
 			<?php endif ?>

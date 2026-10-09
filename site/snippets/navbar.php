@@ -25,12 +25,12 @@ $voci = $home->children()->listed()->prepend($home)->filter(fn ($voce) => $voce-
 			<ul>
 				<?php foreach ($voci as $voce): ?>
 					<li>
-						<a class="navbar-voce" href="<?= $site->url() ?>/#<?= $voce->slug() ?>"><?= esc($voce->voce_menu()->value()) ?></a>
+						<a class="navbar-voce" href="<?= $site->url() ?>/#<?= $voce->slug() ?>"><?= $voce->voce_menu()->esc() ?></a>
 					</li>
 				<?php endforeach ?>
 			</ul>
 			<?php if ($site->partecipa_link()->isNotEmpty()): ?>
-				<?php snippet('bottone', ['href' => $site->partecipa_link()->value(), 'variante' => 'contorno', 'class' => 'navbar-partecipa'], slots: true) ?><?= esc($site->partecipa_testo()->value()) ?><?php endsnippet() ?>
+				<?php snippet('bottone', ['href' => $site->partecipa_link()->value(), 'variante' => 'contorno', 'class' => 'navbar-partecipa'], slots: true) ?><?= $site->partecipa_testo()->esc() ?><?php endsnippet() ?>
 			<?php endif ?>
 		</nav>
 	</div>

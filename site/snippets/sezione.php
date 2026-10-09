@@ -14,7 +14,7 @@ $id = $sezione->slug();
 <section class="sezione" id="<?= $id ?>" aria-labelledby="titolo-<?= $id ?>">
 	<div class="contenitore griglia sezione-griglia">
 		<div class="sezione-testata">
-			<h2 class="titolo-sezione" id="titolo-<?= $id ?>"><?= esc($sezione->title()) ?></h2>
+			<h2 class="titolo-sezione" id="titolo-<?= $id ?>"><?= $sezione->title()->esc() ?></h2>
 			<?= $slots->laterale() ?>
 		</div>
 		<div class="sezione-contenuto">

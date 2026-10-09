@@ -14,7 +14,7 @@ $link = $site->piede_link()->toStructure();
 	<div class="contenitore griglia piede-griglia">
 		<div class="piede-marchio">
 			<p class="piede-nome">Happy</p>
-			<p class="piede-sottotitolo"><?= esc($site->nome_esteso()->value()) ?></p>
+			<p class="piede-sottotitolo"><?= $site->nome_esteso()->esc() ?></p>
 		</div>
 
 		<div class="piede-info">
@@ -23,30 +23,30 @@ $link = $site->piede_link()->toStructure();
 					<?php foreach ($link as $voce): ?>
 						<li>
 							<?php if ($voce->link()->isNotEmpty()): ?>
-								<a href="<?= esc($voce->link()->toUrl(), 'attr') ?>"><?= esc($voce->testo()->value()) ?></a>
+								<a href="<?= esc($voce->link()->toUrl(), 'attr') ?>"><?= $voce->testo()->esc() ?></a>
 							<?php else: ?>
-								<?= esc($voce->testo()->value()) ?>
+								<?= $voce->testo()->esc() ?>
 							<?php endif ?>
 						</li>
 					<?php endforeach ?>
 				</ul>
 			<?php endif ?>
-			<p class="text-etichetta"><?= esc($site->piede_copyright()->value()) ?></p>
+			<p class="text-etichetta"><?= $site->piede_copyright()->esc() ?></p>
 		</div>
 
 		<div class="piede-gruppo piede-contributo">
-			<p class="solo-screen-reader" id="piede-contributo"><?= esc($site->piede_contributo_etichetta()->value()) ?></p>
-			<p><?= esc($site->piede_contributo_testo()->value()) ?></p>
+			<p class="solo-screen-reader" id="piede-contributo"><?= $site->piede_contributo_etichetta()->esc() ?></p>
+			<p><?= $site->piede_contributo_testo()->esc() ?></p>
 			<?php snippet('loghi', ['loghi' => $site->piede_contributo_logo()->toFiles(), 'etichetta' => 'piede-contributo']) ?>
 		</div>
 
 		<div class="piede-gruppo piede-titolari">
-			<p id="piede-titolari"><?= esc($site->piede_titolari_etichetta()->value()) ?></p>
+			<p id="piede-titolari"><?= $site->piede_titolari_etichetta()->esc() ?></p>
 			<?php snippet('loghi', ['loghi' => $site->piede_titolari()->toFiles(), 'etichetta' => 'piede-titolari']) ?>
 		</div>
 
 		<div class="piede-gruppo piede-partner">
-			<p id="piede-partner"><?= esc($site->piede_partner_etichetta()->value()) ?></p>
+			<p id="piede-partner"><?= $site->piede_partner_etichetta()->esc() ?></p>
 			<?php snippet('loghi', ['loghi' => $site->piede_partner()->toFiles(), 'etichetta' => 'piede-partner']) ?>
 		</div>
 	</div>
