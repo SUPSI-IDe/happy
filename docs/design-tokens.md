@@ -144,11 +144,13 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 
 ## Piè di pagina
 
-- **Desktop:** nome e nome esteso (colonne 1–5) | link e copyright (7–12); contributo (1–5) | titolari (7–12); partner su tutta la riga. **Mobile:** in colonna: nome, titolari, contributo, partner, link.
-- Nome in `--text-logo`; il resto in Urbanist bold 1.25rem, come tutto il testo sul colore. Copyright in stile etichetta (maiuscolo). In Figma il nome esteso su desktop è in Fraunces 18px: sotto 1.25rem sul colore non si può, quindi vale lo stile mobile.
-- Le etichette "Un progetto di" e "Contributo" ci sono anche su desktop (in Figma solo su mobile): senza, lo screen reader leggerebbe loghi senza contesto. Ogni elenco di loghi ha come nome la sua etichetta (`aria-labelledby`).
-- **Loghi:** bianchi su trasparente, caricati al doppio della misura. Larghezza su desktop dal pannello (in Figma regolata a occhio logo per logo); su mobile ×`--scala-loghi` (0.73, come nel frame mobile).
-- Spazi: `--spazio-7` sopra e sotto, `--spazio-6` tra i gruppi (in Figma 40px, fuori dalla scala), `--spazio-4` tra etichetta e contenuto.
+Segue la versione desktop dei wireframe v6 (anche su mobile).
+
+- **Desktop:** nome e nome esteso (colonne 1–5) | link e copyright (7–12); contributo, cioè testo e logo FNS (1–5) | loghi dei titolari, centrati in orizzontale e rispetto all'altezza del contributo (7–12); "In collaborazione con" e i loghi dei partner distribuiti su tutta la riga. **Mobile:** in colonna nello stesso ordine, loghi centrati, link in fondo.
+- Nome in `--text-logo`; nome esteso in Fraunces bold 1.25rem (in Figma 18px: sotto 1.25rem il bianco sul verde non raggiunge il contrasto AA); il resto in Urbanist bold 1.25rem. Copyright in stile etichetta (maiuscolo).
+- Si vede solo l'etichetta "In collaborazione con". "Un progetto di" e "Contributo" restano nel pannello ma sono solo per lo screen reader: danno il nome agli elenchi di loghi (`aria-labelledby`), che altrimenti sarebbero immagini senza contesto.
+- **Loghi:** bianchi su trasparente, caricati al doppio della misura. Larghezza su desktop dal pannello (FNS, SUPSI e Conservatorio alla stessa altezza, circa 47px); su mobile ×`--scala-loghi` (0.73).
+- Spazi: `--spazio-7` sopra e sotto, `--spazio-6` tra i gruppi (in Figma 40px, fuori dalla scala), `--spazio-4` tra testo e logo.
 
 ## Componenti in Figma
 

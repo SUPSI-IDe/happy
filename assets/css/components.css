@@ -377,7 +377,8 @@
 }
 
 /* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore.
-   Mobile: tutto in colonna. Desktop: nome | link, contributo | titolari, poi i partner su tutta la riga */
+   Mobile: tutto in colonna. Desktop: nome | link, contributo | titolari, poi i partner su tutta la riga.
+   I loghi dei titolari e dei partner sono centrati */
 
 .piede {
 	padding-block: var(--spazio-7);
@@ -394,8 +395,19 @@
 	line-height: var(--interlinea-titoli);
 }
 
-.piede-gruppo > * + * {
+/* Nome esteso in Fraunces, a 1.25rem: sul colore il testo non scende sotto questa misura (in Figma 18px) */
+.piede-sottotitolo {
+	font-family: var(--font-titoli);
+	line-height: var(--interlinea-titoli);
+}
+
+.piede-gruppo > :not(.solo-screen-reader) + * {
 	margin-block-start: var(--spazio-4);
+}
+
+.piede-titolari .loghi,
+.piede-partner .loghi {
+	justify-content: center;
 }
 
 .piede-info ul {
@@ -435,12 +447,19 @@
 		grid-row: 1;
 	}
 
+	/* I loghi dei titolari stanno al centro dell'altezza del contributo */
 	.piede-contributo,
 	.piede-titolari {
 		grid-row: 2;
+		align-self: center;
 	}
 
 	.loghi {
 		gap: var(--spazio-6) var(--spazio-8);
+	}
+
+	/* Partner distribuiti su tutta la riga, come in Figma */
+	.piede-partner .loghi {
+		justify-content: space-evenly;
 	}
 }

@@ -10,4 +10,4 @@ Link: https://www.supsi.ch
 
 ----
 
-Larghezza: 164
+Larghezza: 140
