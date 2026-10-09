@@ -1,0 +1,13 @@
+Template: logo
+
+----
+
+Alt: LACedu
+
+----
+
+Link: 
+
+----
+
+Larghezza: 144

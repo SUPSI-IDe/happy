@@ -387,20 +387,16 @@
 	}
 }
 
-/* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore */
+/* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore.
+   Mobile: tutto in colonna. Desktop: nome | link, contributo | titolari, poi i partner su tutta la riga.
+   I loghi dei partner sono centrati */
 
 .piede {
-	padding-block: var(--spazio-6);
+	padding-block: var(--spazio-7);
 }
 
-.piede .griglia {
+.piede-griglia {
 	row-gap: var(--spazio-6);
-}
-
-.piede-progetto {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spazio-6);
 }
 
 .piede-nome {
@@ -410,33 +406,68 @@
 	line-height: var(--interlinea-titoli);
 }
 
-.piede-loghi,
+/* Nome esteso in Fraunces, a 1.25rem: sul colore il testo non scende sotto questa misura (in Figma 18px) */
+.piede-sottotitolo {
+	font-family: var(--font-titoli);
+	line-height: var(--interlinea-titoli);
+}
+
+.piede-gruppo > :not(.solo-screen-reader) + * {
+	margin-block-start: var(--spazio-4);
+}
+
+.piede-partner .loghi {
+	justify-content: center;
+}
+
 .piede-info ul {
 	padding: 0;
 	list-style: none;
 }
 
-.piede-loghi {
+/* Elenco di loghi (snippet loghi): la larghezza di ogni logo viene dal pannello e arriva come
+   --larghezza nell'attributo style; 10rem (160px) è il valore se nel pannello manca */
+.loghi {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--spazio-4);
+	align-items: center;
+	gap: var(--spazio-5) var(--spazio-6);
+	padding: 0;
+	list-style: none;
 }
 
-.piede-loghi img {
-	block-size: var(--bottone-altezza-min);
-	inline-size: auto;
+.loghi img {
+	--larghezza: 10rem;
+	inline-size: calc(var(--larghezza) * var(--scala-loghi));
 }
 
 @media (min-width: 64rem) {
-	.piede {
-		padding-block: var(--spazio-8);
-	}
-
-	.piede-progetto {
+	.piede-marchio,
+	.piede-contributo {
 		grid-column: 1 / span 5;
 	}
 
+	.piede-info,
+	.piede-titolari {
+		grid-column: 7 / -1;
+	}
+
+	.piede-marchio,
 	.piede-info {
-		grid-column: 6 / span 7;
+		grid-row: 1;
+	}
+
+	.piede-contributo,
+	.piede-titolari {
+		grid-row: 2;
+	}
+
+	.loghi {
+		gap: var(--spazio-6) var(--spazio-8);
+	}
+
+	/* Partner distribuiti su tutta la riga, come in Figma */
+	.piede-partner .loghi {
+		justify-content: space-evenly;
 	}
 }

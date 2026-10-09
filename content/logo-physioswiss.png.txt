@@ -1,0 +1,13 @@
+Template: logo
+
+----
+
+Alt: PhysioTicino
+
+----
+
+Link: 
+
+----
+
+Larghezza: 171

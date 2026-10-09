@@ -1,0 +1,13 @@
+Template: logo
+
+----
+
+Alt: Swissmedmusica, Società svizzera di medicina della musica
+
+----
+
+Link: https://swissmedmusica.ch
+
+----
+
+Larghezza: 132

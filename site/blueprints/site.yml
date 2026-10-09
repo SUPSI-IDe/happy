@@ -30,20 +30,39 @@ tabs:
     label: Piè di pagina
     icon: text
     fields:
-      piede_testo:
-        label: Chi c'è dietro
+      piede_titolari_etichetta:
+        label: Titolari
+        type: text
+        placeholder: Un progetto di
+        width: 1/3
+      piede_titolari:
+        extends: fields/loghi
+        label: Loghi dei titolari
+        width: 2/3
+      piede_contributo_etichetta:
+        label: Contributo
+        type: text
+        placeholder: Contributo
+        width: 1/3
+      piede_contributo_testo:
+        label: Testo del contributo
         type: textarea
         size: small
         buttons: false
-        help: Una o due frasi, per esempio le istituzioni e il finanziamento
-      piede_loghi:
-        label: Loghi
-        type: files
-        layout: cards
-        size: small
-        uploads:
-          template: logo
-        help: Facoltativi. Tutti alla stessa altezza
+        width: 2/3
+      piede_contributo_logo:
+        extends: fields/loghi
+        label: Logo del finanziatore
+        max: 1
+      piede_partner_etichetta:
+        label: Partner
+        type: text
+        placeholder: In collaborazione con
+        width: 1/3
+      piede_partner:
+        extends: fields/loghi
+        label: Loghi dei partner
+        width: 2/3
       piede_link:
         label: Link
         type: structure

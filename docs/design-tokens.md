@@ -142,6 +142,16 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Desktop, altezza:** la hero è alta uno schermo sotto la navbar, con il contenuto centrato e almeno `--spazio-6` sopra e sotto.
 - **Mobile:** logo con mascotte, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
 
+## Piè di pagina
+
+Segue la versione desktop dei wireframe v6 (anche su mobile).
+
+- **Desktop:** nome e nome esteso (colonne 1–5) | link e copyright (7–12); contributo, cioè testo e logo FNS (1–5) | "Un progetto di" e i loghi dei titolari (7–12); "In collaborazione con" e i loghi dei partner distribuiti su tutta la riga. **Mobile:** in colonna nello stesso ordine: i link restano sotto il nome a ogni larghezza; loghi dei partner centrati.
+- Nome in `--text-logo`; nome esteso in Fraunces bold 1.25rem (in Figma 18px: sotto 1.25rem il bianco sul verde non raggiunge il contrasto AA); il resto in Urbanist bold 1.25rem. Copyright in stile etichetta (maiuscolo).
+- Si vedono le etichette "Un progetto di" (senza, i loghi dei titolari si confondono con quello del finanziatore) e "In collaborazione con". "Contributo" resta nel pannello ma è solo per lo screen reader: il testo basta a chi vede. Ogni elenco di loghi ha come nome la sua etichetta (`aria-labelledby`).
+- **Loghi:** bianchi su trasparente, caricati al doppio della misura. Larghezza su desktop dal pannello (SUPSI e Conservatorio alti circa 47px, FNS un po' più grande perché il suo segno è più sottile); su mobile ×`--scala-loghi` (0.73).
+- Spazi: `--spazio-7` sopra e sotto, `--spazio-6` tra i gruppi (in Figma 40px, fuori dalla scala), `--spazio-4` tra testo e logo.
+
 ## Componenti in Figma
 
 Le pillole delle fasi sono cerchi da 2.75rem con solo il numero.

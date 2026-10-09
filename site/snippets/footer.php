@@ -1,32 +1,20 @@
 <?php
 /**
- * Piè di pagina: nome del progetto, chi c'è dietro, loghi, link e copyright.
- * Tutti i testi si modificano dal pannello (Sito → Piè di pagina).
+ * Piè di pagina (wireframe v6, versione desktop): nome del progetto, link e copyright, contributo
+ * (testo e logo del finanziatore), titolari ("Un progetto di"), partner ("In collaborazione con").
+ * Tutto si modifica dal pannello: Sito → Piè di pagina (il nome esteso in Sito → Generale).
+ * Mobile: in colonna, in quest'ordine (i link restano sotto il nome a ogni larghezza).
+ * Desktop: griglia (components.css, "Footer").
+ * L'etichetta "Contributo" non si vede (il testo basta) ma dà il nome al logo per lo screen reader.
  * Fondo verde salvia: il testo è sempre bianco e bold (classe .su-colore, vedi base.css).
  */
 $link = $site->piede_link()->toStructure();
 ?>
 <footer class="piede su-colore fondo-verde-salvia">
-	<div class="contenitore griglia">
-		<div class="piede-progetto">
-			<div>
-				<p class="piede-nome">Happy</p>
-				<?php if ($site->nome_esteso()->isNotEmpty()): ?>
-					<p><?= esc($site->nome_esteso()->value()) ?></p>
-				<?php endif ?>
-			</div>
-
-			<?php if ($site->piede_testo()->isNotEmpty()): ?>
-				<p><?= esc($site->piede_testo()->value()) ?></p>
-			<?php endif ?>
-
-			<?php if ($site->piede_loghi()->toFiles()->isNotEmpty()): ?>
-				<ul class="piede-loghi">
-					<?php foreach ($site->piede_loghi()->toFiles() as $logo): ?>
-						<li><img src="<?= $logo->url() ?>" alt="<?= esc($logo->alt()->value(), 'attr') ?>"></li>
-					<?php endforeach ?>
-				</ul>
-			<?php endif ?>
+	<div class="contenitore griglia piede-griglia">
+		<div class="piede-marchio">
+			<p class="piede-nome">Happy</p>
+			<p class="piede-sottotitolo"><?= esc($site->nome_esteso()->value()) ?></p>
 		</div>
 
 		<div class="piede-info">
@@ -43,9 +31,23 @@ $link = $site->piede_link()->toStructure();
 					<?php endforeach ?>
 				</ul>
 			<?php endif ?>
-			<?php if ($site->piede_copyright()->isNotEmpty()): ?>
-				<p><?= esc($site->piede_copyright()->value()) ?></p>
-			<?php endif ?>
+			<p class="text-etichetta"><?= esc($site->piede_copyright()->value()) ?></p>
+		</div>
+
+		<div class="piede-gruppo piede-contributo">
+			<p class="solo-screen-reader" id="piede-contributo"><?= esc($site->piede_contributo_etichetta()->value()) ?></p>
+			<p><?= esc($site->piede_contributo_testo()->value()) ?></p>
+			<?php snippet('loghi', ['loghi' => $site->piede_contributo_logo()->toFiles(), 'etichetta' => 'piede-contributo']) ?>
+		</div>
+
+		<div class="piede-gruppo piede-titolari">
+			<p id="piede-titolari"><?= esc($site->piede_titolari_etichetta()->value()) ?></p>
+			<?php snippet('loghi', ['loghi' => $site->piede_titolari()->toFiles(), 'etichetta' => 'piede-titolari']) ?>
+		</div>
+
+		<div class="piede-gruppo piede-partner">
+			<p id="piede-partner"><?= esc($site->piede_partner_etichetta()->value()) ?></p>
+			<?php snippet('loghi', ['loghi' => $site->piede_partner()->toFiles(), 'etichetta' => 'piede-partner']) ?>
 		</div>
 	</div>
 </footer>

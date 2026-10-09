@@ -3,7 +3,21 @@ accept:
   type: image
 fields:
   alt:
-    label: Testo alternativo
+    label: Nome dell'ente
     type: text
     required: true
-    help: Il nome dell'istituzione, per esempio "SUPSI"
+    help: Il testo alternativo del logo, per esempio "SUPSI"
+  link:
+    label: Sito dell'ente
+    type: url
+    width: 2/3
+    help: Facoltativo. Il logo diventa un link
+  larghezza:
+    label: Larghezza su desktop
+    type: number
+    after: px
+    default: 160
+    min: 40
+    max: 320
+    width: 1/3
+    help: Su mobile si riduce da sola. Loghi di forma diversa sembrano uguali con larghezze diverse

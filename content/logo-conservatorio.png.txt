@@ -1,0 +1,13 @@
+Template: logo
+
+----
+
+Alt: Conservatorio della Svizzera italiana
+
+----
+
+Link: https://www.conservatorio.ch
+
+----
+
+Larghezza: 238
