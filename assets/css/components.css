@@ -357,6 +357,123 @@
 	}
 }
 
+/* Card dei profili (snippet sezioni/destinatari). Il fondo è la macchia a matita di Laura nel colore
+   del profilo, scurita solo dove serviva perché il bianco abbia almeno 3:1: si allunga col testo, che
+   non esce mai dalla forma. Mobile: una sotto l'altra, sfalsate. Desktop: in fila (due e una se non
+   ci stanno), ruotate e a diverse altezze, come se fossero appoggiate a mano */
+
+.sezione-sotto {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--spazio-5);
+}
+
+.card-profili {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--spazio-2);
+	padding: 0;
+	list-style: none;
+}
+
+/* Le varianti si ripetono ogni tre card: rientro su mobile; rotazione e scarto verticale su desktop.
+   Gli angoli hanno il segno opposto a Figma, dove un angolo positivo gira in senso antiorario */
+.card-profili > li {
+	--card-rientro: 0rem;
+	--card-rotazione: -4deg;
+	--card-scarto: var(--spazio-7);
+}
+
+.card-profili > :nth-child(3n + 2) {
+	--card-rientro: var(--spazio-7);
+	--card-rotazione: 2deg;
+	--card-scarto: 0rem;
+}
+
+.card-profili > :nth-child(3n) {
+	--card-rientro: var(--spazio-4);
+	--card-rotazione: 5deg;
+	--card-scarto: var(--spazio-6);
+}
+
+/* Il rientro non porta mai la card fuori dalla colonna: su uno schermo stretto si stringe lei */
+.card-profilo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	row-gap: var(--spazio-4);
+	inline-size: min(100% - var(--card-rientro), var(--card-larghezza));
+	aspect-ratio: 302 / 185;
+	margin-inline-start: var(--card-rientro);
+	padding: var(--spazio-6);
+	background: center / 100% 100% no-repeat;
+	color: var(--color-testo-su-colore);
+	text-decoration: none;
+}
+
+.card-profilo--rosa-insegnanti {
+	background-image: url('../images/card-rosa-insegnanti.webp');
+}
+
+.card-profilo--arancione-famiglie {
+	background-image: url('../images/card-arancione-famiglie.webp');
+}
+
+.card-profilo--blu-professionisti {
+	background-image: url('../images/card-blu-professionisti.webp');
+}
+
+/* "Scopri di più" ha l'aspetto di un link: sottolineato, più spesso al passaggio del mouse sulla card */
+.card-profilo-azione {
+	align-self: end;
+	text-decoration: underline;
+	text-decoration-thickness: var(--sottolineatura-spessore);
+	text-underline-offset: 0.25em;
+}
+
+.card-profilo:hover .card-profilo-azione {
+	text-decoration-thickness: var(--sottolineatura-spessore-hover);
+}
+
+/* L'anello di focus segue il rettangolo della card, non la pillola dei link */
+.card-profilo:focus-visible {
+	border-radius: 0;
+}
+
+.destinatari-illustrazione {
+	align-self: center;
+	inline-size: min(100%, var(--illustrazione-destinatari));
+}
+
+@media (min-width: 64rem) {
+	.sezione-sotto {
+		margin-block-start: var(--spazio-4);
+	}
+
+	.card-profili {
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: start;
+		gap: var(--spazio-6) var(--spazio-8);
+	}
+
+	.card-profili > li {
+		inline-size: min(100%, var(--card-larghezza));
+		margin-block-start: var(--card-scarto);
+	}
+
+	.card-profilo {
+		inline-size: 100%;
+		margin-inline-start: 0;
+		rotate: var(--card-rotazione);
+	}
+
+	/* Su desktop l'illustrazione non c'è, come nel wireframe */
+	.destinatari-illustrazione {
+		display: none;
+	}
+}
+
 /* Contatti (snippet sezioni/contatti): titolo piccolo, testo ed email; la mascotte chiude la home.
    Mobile: testo e poi la mascotte, centrata. Desktop: mascotte nelle colonne 1–5, testo nelle 7–12 */
 

@@ -7,6 +7,7 @@
  *   snippet('sezione', ['sezione' => $sezione], slots: true)
  *     slot('laterale') … endslot()   facoltativo: sotto il titolo, per esempio un'illustrazione
  *     slot() … endslot()             il contenuto
+ *     slot('sotto') … endslot()      facoltativo: sotto titolo e contenuto, a tutta larghezza (le card dei profili)
  *   endsnippet()
  */
 $id = $sezione->slug();
@@ -20,5 +21,8 @@ $id = $sezione->slug();
 		<div class="sezione-contenuto">
 			<?= $slot ?>
 		</div>
+		<?php if ($sotto = $slots->sotto()): ?>
+			<div class="sezione-sotto"><?= $sotto ?></div>
+		<?php endif ?>
 	</div>
 </section>
