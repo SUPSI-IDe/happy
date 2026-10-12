@@ -196,7 +196,8 @@ Card, sottolineature della navbar e pallini dello slider devono sembrare fatti a
 
 ## Asset di Laura
 
-- Illustrazioni (mascotte, personaggi per profilo, doodle) in **SVG con sfondo trasparente**.
-- Finché non arrivano si usano placeholder con proporzioni fisse: all'arrivo si sostituisce il file, il layout non cambia.
-- I placeholder grigi non sono scelte di design.
+- Le illustrazioni (mascotte, personaggi dei profili, immagini delle fasi, strumenti della Ricerca) sono disegni a matita: arrivano in **PNG con sfondo trasparente**, perché la grana del tratto non si può rendere in SVG. Sono contenuti: si caricano dal pannello, nel campo dell'illustrazione della sezione o della pagina.
+- **Cambiare un'illustrazione:** nel pannello si apre l'immagine e si sceglie *Sostituisci*: nome del file e testo alternativo restano, il layout non cambia. Il file si prepara al doppio della misura con cui compare in Figma su desktop.
+- **Esportare da Figma:** in Figma le illustrazioni sono spesso un ritaglio di un foglio più grande. L'esportazione PNG di Figma può riempire di bianco lo sfondo: prima di caricarla, controllare che sia trasparente (per esempio aprendola sopra un fondo colorato).
+- **Decorazioni disegnate in Figma** (per esempio le stelline della pagina Famiglie): sono vettori, quindi diventano SVG in `assets/images/` con `stroke="currentColor"`, così prendono il colore del testo intorno (bianco sui fondi colorati). Non sono contenuti: le disegna lo snippet della pagina.
 - I doodle stanno solo vicino a illustrazioni o mascotte, mai accanto al testo, e solo nei colori di sistema.

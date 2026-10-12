@@ -25,7 +25,8 @@ MAInD-HAPPY/
 │   │   ├── layout.css     ← griglia a colonne
 │   │   └── components.css ← bottone, navbar, footer
 │   ├── fonts/             ← Fraunces e Urbanist (woff2) e licenze
-│   ├── images/            ← logo "Happy" in SVG (per l'h1 della home)
+│   ├── images/            ← SVG del sito: logo "Happy" (per l'h1 della home), segno dei titoli,
+│   │                        bordo a pennello, decorazioni disegnate in Figma (stelline di Famiglie)
 │   └── js/                ← menu su mobile
 ├── site/
 │   ├── blueprints/        ← pages/ un file per tipo di contenuto (vedi ontology.md),
