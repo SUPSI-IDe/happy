@@ -1,7 +1,9 @@
 // Carosello delle Fasi (snippet sezioni/fasi): mostra una fase alla volta, con le frecce (in giro: dopo
 // l'ultima torna la prima) e i pallini. Nessun avanzamento automatico. Senza JavaScript le fasi restano
-// un elenco, una sotto l'altra. Allo screen reader la fase nuova viene letta (aria-live) e il pallino
-// della fase visibile è indicato con aria-current.
+// un elenco, una sotto l'altra. Le fasi stanno tutte nello stesso spazio (components.css): le altre sono
+// inert, cioè invisibili e fuori da tastiera e screen reader, così il carosello è alto quanto la fase più
+// lunga e niente si sposta. Allo screen reader la fase nuova viene letta (aria-live) e il pallino della
+// fase visibile è indicato con aria-current.
 document.querySelectorAll('[data-fasi]').forEach((sezione) => {
 	const controlli = sezione.querySelector('[data-fasi-controlli]');
 	if (!controlli) return;
@@ -13,12 +15,7 @@ document.querySelectorAll('[data-fasi]').forEach((sezione) => {
 
 	const mostra = (indice) => {
 		attuale = (indice + fasi.length) % fasi.length;
-		fasi.forEach((fase, i) => (fase.hidden = i !== attuale));
-		// Le immagini si caricano solo quando servono: si preparano già quelle delle due fasi vicine
-		[attuale - 1, attuale + 1].forEach((i) => {
-			const immagine = fasi[(i + fasi.length) % fasi.length].querySelector('img');
-			if (immagine) immagine.loading = 'eager';
-		});
+		fasi.forEach((fase, i) => (fase.inert = i !== attuale));
 		pallini.forEach((pallino, i) => pallino.setAttribute('aria-current', String(i === attuale)));
 	};
 

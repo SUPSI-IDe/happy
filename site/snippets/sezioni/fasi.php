@@ -6,11 +6,12 @@
  * Senza JavaScript le fasi sono un elenco, una sotto l'altra; assets/js/fasi.js ne mostra una alla volta,
  * con le frecce e i pallini (components.css, "Fasi"). Nessun avanzamento automatico.
  * Le note accanto al titolo sono decorative (note su desktop, stelline su mobile, come nei wireframe).
+ * La sezione è alta almeno uno schermo, con il contenuto al centro (layout.css, .sezione--schermo).
  */
 $id = $sezione->slug();
 $fasi = $sezione->children()->listed();
 ?>
-<section class="sezione" id="<?= $id ?>" aria-labelledby="titolo-<?= $id ?>">
+<section class="sezione sezione--schermo" id="<?= $id ?>" aria-labelledby="titolo-<?= $id ?>">
 	<div class="contenitore griglia fasi" data-fasi>
 		<h2 class="titolo-sezione fasi-titolo" id="titolo-<?= $id ?>"><?= $sezione->title()->esc() ?></h2>
 

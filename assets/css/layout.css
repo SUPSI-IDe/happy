@@ -12,6 +12,15 @@ main > .sezione:last-child {
 	padding-block-end: var(--spazio-sezione);
 }
 
+/* Sezione alta almeno uno schermo sotto la navbar, con il contenuto al centro: arrivando dal menu si
+   vede solo lei (decisione dei wireframe dell'8 ottobre). Se il contenuto è più alto, la sezione cresce */
+.sezione--schermo {
+	display: grid;
+	align-content: center;
+	min-block-size: calc(100svh - var(--navbar-altezza));
+	padding-block: var(--spazio-6);
+}
+
 /* Container: il margine di pagina ai lati, a ogni larghezza dello schermo */
 .contenitore {
 	margin-inline: var(--margine-pagina);

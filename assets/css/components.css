@@ -513,6 +513,15 @@
 	row-gap: var(--spazio-5);
 }
 
+/* Carosello: tutte le fasi nella stessa cella, si vede solo quella attiva */
+.fasi--carosello .fase {
+	grid-area: 1 / 1;
+}
+
+.fase[inert] {
+	visibility: hidden;
+}
+
 .fase-immagine {
 	inline-size: 100%;
 	aspect-ratio: 16 / 9;
@@ -646,6 +655,10 @@
 	.fasi--carosello .fase {
 		grid-row: 1 / span 2;
 		grid-template-rows: subgrid;
+	}
+
+	.fasi--carosello .fase {
+		grid-column: 1 / -1;
 	}
 
 	.fasi--carosello .fase-testo {

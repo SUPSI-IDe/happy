@@ -153,6 +153,8 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 ## Fasi
 
 - **Carosello:** una fase alla volta (numero, titolo in `--text-titolo-2`, testo e illustrazione 16:9), con frecce e pallini sotto. Le frecce girano in tondo (dalla prima si torna all'ultima); niente avanzamento automatico. Senza JavaScript le fasi sono un elenco, una sotto l'altra.
+- **Niente si sposta:** le fasi stanno tutte nello stesso spazio e si vede solo quella attiva, quindi il carosello è alto quanto la fase più lunga e illustrazione, testo e controlli restano fermi cambiando fase.
+- **Uno schermo:** la sezione è alta almeno uno schermo sotto la navbar, con il contenuto al centro (`.sezione--schermo` in `layout.css`): arrivando dal menu non si vedono le sezioni vicine.
 - **Desktop:** titolo della sezione e testo della fase nelle colonne 1–5, illustrazione nelle 7–12 allineata in alto al titolo (subgrid); controlli centrati sotto, larghi `--controlli-fasi`. **Mobile:** titolo, illustrazione, testo della fase, controlli.
 - **Pillola del numero:** cerchio verde salvia di `--pillola-fase` (44px) con il numero bianco in grassetto (`--text-etichetta`).
 - **Frecce:** cerchi verdi di `--freccia-fasi`, 44px su mobile (in Figma 22px, troppo piccole per il dito) e 56px su desktop. **Pallini:** `--pallino-fasi` (12px mobile, 24px desktop) a contorno, pieno quello della fase visibile; l'area che reagisce al tocco è alta 44px.
