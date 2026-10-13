@@ -1,4 +1,5 @@
 title: Profilo
+# Pagina di un profilo: titolo e introduzione, il personaggio, "Come partecipare" con il bottone del sondaggio
 fields:
   colore:
     label: Colore
@@ -9,14 +10,34 @@ fields:
       arancione-famiglie: Arancione (Famiglie)
       blu-professionisti: Blu (Professionisti)
     width: 1/3
+    help: Colora la pagina e la sua card, e sceglie le note intorno al personaggio
   illustrazione:
     extends: fields/illustrazione
     width: 2/3
+    help: Il personaggio, trasparente, nel riquadro di Figma (445 × 361, caricato al doppio). Le note intorno le aggiunge il sito
   intro:
     label: Introduzione
     type: textarea
     size: small
-  testo:
-    label: Testo
+  partecipa_titolo:
+    label: Titolo della seconda parte
+    type: text
+    placeholder: Come partecipare
+  partecipa_testo:
+    label: Testo prima del bottone
     type: textarea
-    size: large
+    size: small
+  sondaggio_testo:
+    label: Testo del bottone
+    type: text
+    placeholder: Partecipa al sondaggio
+    width: 1/2
+  sondaggio_link:
+    label: Link al sondaggio
+    type: url
+    help: Senza link il bottone non compare
+    width: 1/2
+  partecipa_altro:
+    label: Testo dopo il bottone
+    type: textarea
+    size: medium

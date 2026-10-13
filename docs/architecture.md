@@ -26,12 +26,12 @@ MAInD-HAPPY/
 │   │   └── components.css ← bottone, navbar, footer
 │   ├── fonts/             ← Fraunces e Urbanist (woff2) e licenze
 │   ├── images/            ← SVG del sito: logo "Happy" (per l'h1 della home), segno dei titoli,
-│   │                        bordo a pennello, decorazioni disegnate in Figma (stelline di Famiglie)
+│   │                        bordo a pennello, note e stelline intorno ai personaggi dei profili
 │   └── js/                ← menu su mobile
 ├── site/
 │   ├── blueprints/        ← pages/ un file per tipo di contenuto (vedi ontology.md),
 │   │                        fields/ campi riusati in più tipi, users/ i ruoli
-│   ├── templates/         ← una pagina intera: home, e default.php per le altre
+│   ├── templates/         ← una pagina intera: home, profilo, e default.php per le altre
 │   ├── snippets/          ← layout, navbar, hero, footer, bottone, sezione (struttura comune);
 │   │                        sezioni/ uno per tipo di sezione
 │   ├── plugins/           ← sottotitoli: Kirby accetta i file .vtt
@@ -58,7 +58,7 @@ Le sezioni non hanno un indirizzo proprio: una regola in `site/config/config.php
 
 ## Struttura di ogni pagina
 
-Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar` e `<main id="contenuto">` con il contenuto della pagina (un solo `h1`). Poi il `Footer`. I template lo usano con `snippet('layout', slots: true)` e scrivono solo il contenuto.
+Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar` e `<main id="contenuto">` con il contenuto della pagina (un solo `h1`). Poi il `Footer`. I template lo usano con `snippet('layout', slots: true)` e scrivono solo il contenuto. Con `'main' => '…'` il `<main>` riceve delle classi: le pagine dei profili lo colorano così (`su-colore fondo-<colore>`), e la `Navbar` prende lo stesso colore dal campo `colore` della pagina (verde salvia se non c'è).
 
 ## Componenti
 

@@ -3,6 +3,7 @@
  * Struttura comune a tutte le pagine: link "Vai al contenuto" (per la tastiera), navigazione,
  * <main id="contenuto"> con il contenuto della pagina (un solo h1) e piè di pagina.
  * Uso nei template: snippet('layout', slots: true) … endsnippet()
+ * Con 'main' => 'classi' il <main> riceve delle classi, per esempio il fondo colorato di un profilo.
  */
 $titolo = $page->isHomePage() ? 'HAPPY' : 'HAPPY – ' . $page->title();
 ?>
@@ -20,7 +21,7 @@ $titolo = $page->isHomePage() ? 'HAPPY' : 'HAPPY – ' . $page->title();
 <body>
 	<a class="salta-al-contenuto" href="#contenuto">Vai al contenuto</a>
 	<?php snippet('navbar') ?>
-	<main id="contenuto">
+	<main id="contenuto" <?= attr(['class' => $main ?? null]) ?>>
 		<?= $slot ?>
 	</main>
 	<?php snippet('footer') ?>

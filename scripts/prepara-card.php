@@ -1,6 +1,6 @@
 <?php
 // Prepara la macchia a matita di una card dei profili perché il testo bianco abbia almeno 3:1.
-// Uso: php scripts/prepara-card.php macchia.png assets/images/card-<colore>.webp <colore di sistema, es. e06a1a>
+// Uso: php scripts/prepara-card.php macchia.png assets/images/card-<colore>.webp <colore di sistema, es. e06a1a> [contrasto]
 // La macchia è un PNG trasparente, orizzontale, al doppio della misura della card (672px di larghezza).
 // Vedi docs/design-tokens.md, "Card dei profili".
 //
@@ -8,10 +8,12 @@
 // Ogni punto della macchia in cui il bianco non arriva a 3:1 si avvicina al colore di sistema, solo quanto
 // basta; gli altri restano com'erano. I buchi interni (quasi trasparenti ma chiusi dalla macchia) contano
 // come macchia; il bordo esterno sfumato resta com'è.
+// Il contrasto minimo è 3.1 (3:1 con un piccolo margine). Un valore più alto rende la macchia più liscia:
+// serve a un colore il cui tratto è già scuro, perché somigli alle altre card (il blu usa 4.2).
 
 [, $sorgente, $destinazione, $esadecimale] = $argv;
+$obiettivo = (float)($argv[4] ?? 3.1);
 $sistema = sscanf($esadecimale, '%02x%02x%02x');
-$obiettivo = 3.1;
 $lineare = fn ($v) => ($v /= 255) <= 0.03928 ? $v / 12.92 : (($v + 0.055) / 1.055) ** 2.4;
 $contrasto = fn ($c) => 1.05 / (0.2126 * $lineare($c[0]) + 0.7152 * $lineare($c[1]) + 0.0722 * $lineare($c[2]) + 0.05);
 

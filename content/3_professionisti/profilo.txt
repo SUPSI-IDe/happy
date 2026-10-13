@@ -6,4 +6,38 @@ Colore: blu-professionisti
 
 ----
 
+Illustrazione: 
+- personaggio-professionisti.webp
+
+----
+
+Intro: 
+I giovani musicisti hanno esigenze fisiche specifiche, e la tua competenza è fondamentale per supportarli al meglio. HAPPY raccoglie in un Toolkit strumenti di valutazione, protocolli e risorse cliniche, e costruisce un linguaggio comune tra chi cura, chi insegna e chi accompagna i musicisti. Con la tua esperienza dai solidità a questi strumenti e, in più, entri nel mondo dell’educazione musicale e in una rete dedicata alla salute dei musicisti.
+
+----
+
+Partecipa_titolo: Come partecipare
+
+----
+
+Partecipa_testo: 
+Parti dal sondaggio dedicato e raccontaci il tuo punto di vista sulle esigenze di salute dei musicisti.
+
+----
+
+Sondaggio_testo: Partecipa al sondaggio
+
+----
+
+Sondaggio_link: https://supsi.eu.qualtrics.com/jfe/form/SV_0HTby6h23mGExAa
+
+----
+
+Partecipa_altro: 
+Poi, se vuoi, puoi fare di più. Segui la formazione dedicata, partecipa ai workshop di co-design e raccontaci la tua esperienza negli HAPPY Diaries, uno spazio digitale in cui annoti quando vuoi osservazioni e riflessioni.
+
+Aderendo ricevi materiali formativi specialistici, accedi alle risorse basate sull’evidenza e ai concerti del CSI.
+
+----
+
 Uuid: qpsoed86qlxlvv63

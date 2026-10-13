@@ -474,6 +474,106 @@
 	}
 }
 
+/* Pagine dei profili (template profilo). Il fondo colorato e il testo bianco vengono da .su-colore e
+   .fondo-… sul <main>. Mobile: titolo, introduzione, illustrazione, come partecipare. Desktop: titolo |
+   introduzione, poi illustrazione | come partecipare (colonne 1–5 | 7–12) */
+
+.profilo {
+	row-gap: var(--spazio-5);
+	padding-block: var(--spazio-6) var(--spazio-8);
+}
+
+.profilo-apertura {
+	display: grid;
+	row-gap: var(--spazio-4);
+}
+
+.profilo-titolo > * + * {
+	margin-block-start: var(--spazio-2);
+}
+
+.profilo-intro > * + *,
+.profilo-partecipa > * + * {
+	margin-block-start: var(--spazio-4);
+}
+
+.profilo-partecipa > .profilo-sondaggio,
+.profilo-sondaggio + * {
+	margin-block-start: var(--spazio-5);
+}
+
+/* Il bottone è centrato su mobile, a sinistra su desktop */
+.profilo-sondaggio {
+	display: flex;
+	inline-size: fit-content;
+	margin-inline: auto;
+}
+
+/* Il personaggio (dal pannello) e sopra, nello stesso riquadro, le sue note: una maschera colorata da
+   --color-decorazione (bianco sul colore), come il segno dei titoli. Le note sono decorative */
+.profilo-illustrazione {
+	display: grid;
+	justify-self: center;
+	inline-size: min(100%, var(--illustrazione-profilo));
+	aspect-ratio: 445.33 / 361;
+}
+
+.profilo-illustrazione > *,
+.profilo-illustrazione::after {
+	grid-area: 1 / 1;
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.profilo-illustrazione::after {
+	content: '';
+	background-color: var(--color-decorazione);
+	mask: var(--decorazioni) center / 100% 100% no-repeat;
+}
+
+.profilo-illustrazione--rosa-insegnanti {
+	--decorazioni: url('../images/decorazioni-rosa-insegnanti.webp');
+}
+
+.profilo-illustrazione--arancione-famiglie {
+	--decorazioni: url('../images/decorazioni-arancione-famiglie.svg');
+}
+
+.profilo-illustrazione--blu-professionisti {
+	--decorazioni: url('../images/decorazioni-blu-professionisti.webp');
+}
+
+@media (min-width: 64rem) {
+	.profilo {
+		align-items: start;
+		row-gap: var(--spazio-9);
+		padding-block: var(--spazio-8) var(--spazio-9);
+	}
+
+	/* Titolo e introduzione diventano due celle della griglia */
+	.profilo-apertura {
+		display: contents;
+	}
+
+	.profilo-titolo,
+	.profilo-illustrazione {
+		grid-column: 1 / span 5;
+	}
+
+	.profilo-intro,
+	.profilo-partecipa {
+		grid-column: 7 / -1;
+	}
+
+	.profilo-illustrazione {
+		justify-self: start;
+	}
+
+	.profilo-sondaggio {
+		margin-inline: 0;
+	}
+}
+
 /* Contatti (snippet sezioni/contatti): titolo piccolo, testo ed email; la mascotte chiude la home.
    Mobile: testo e poi la mascotte, centrata. Desktop: mascotte nelle colonne 1–5, testo nelle 7–12 */
 

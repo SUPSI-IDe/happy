@@ -34,7 +34,7 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 | **Team** | titolo, voce di menu | Contiene i gruppi. Il primo è sempre aperto, gli altri sono tendine |
 | **Gruppo** | titolo, membri (nome, link, ruolo, ente) | Gruppo di progetto, Consulenti, Partner, Scuole. Per i partner e le scuole basta il nome |
 | **Contatti** | titolo, voce di menu, testo, email, illustrazione | Chiude la home prima del piè di pagina: titolo piccolo senza segno, mascotte decorativa. È una sezione a sé (con la sua voce di menu e il suo `h2`) perché i contatti non riguardano solo il team |
-| **Profilo** | titolo, colore, illustrazione, testi | Insegnanti di musica (rosa), Famiglie (arancione), Professionisti della salute (blu). Il colore sceglie anche la macchia della card |
+| **Profilo** | titolo, colore, illustrazione (il personaggio), introduzione, titolo e testo di "Come partecipare", testo e link del bottone del sondaggio, testo dopo il bottone | Insegnanti di musica (rosa), Famiglie (arancione), Professionisti della salute (blu). Il colore colora la pagina e la navbar, sceglie la macchia della card e le note intorno al personaggio. L'etichetta sopra il titolo è il titolo della sezione A chi ci rivolgiamo |
 
 Il **sito** contiene i dati comuni a tutte le pagine: il nome esteso del progetto, il bottone "Partecipa al progetto" (testo e link al modulo) e il piè di pagina.
 
