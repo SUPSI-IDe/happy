@@ -405,6 +405,12 @@
 		inset-block-start: 0;
 	}
 
+	/* Su mobile la presentazione sta sul bianco: lì il bottone "Partecipa" ripeterebbe quello della sezione
+	   "Vuoi partecipare?" poco sotto. Si vede solo su desktop, sul verde */
+	.hero-partecipa {
+		display: none;
+	}
+
 	/* Il pennello che chiude il verde scende per metà sul verde: la descrizione del video gli lascia posto */
 	.hero-crediti {
 		padding-block-end: calc(var(--bordo-pennello) / 2 + var(--spazio-5));
