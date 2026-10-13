@@ -95,6 +95,18 @@
 	/* Pagine dei profili: il riquadro del personaggio con le sue note (445 × 361 in Figma),
 	   largo 300px su mobile e 445px su desktop */
 	--illustrazione-profilo: 18.75rem;
+
+	/* Fasi: pillola del numero (36px); frecce e pallini del carosello. Le frecce sono di 44px, il minimo
+	   per un bottone (in Figma 22px su mobile e 56px su desktop, ridotte per equilibrio). I pallini
+	   restano piccoli, ma l'area che reagisce al tocco è più grande (vedi components.css). Le decorazioni
+	   accanto al titolo: note su desktop (102px), stelline su mobile (56px) */
+	--pillola-fase: 2.25rem;
+	--freccia-fasi: 2.75rem;
+	--freccia-fasi-tratto: 0.1875rem;
+	--pallino-fasi: 0.75rem;
+	--pallino-fasi-bordo: 0.0625rem;
+	--controlli-fasi: 19.4375rem;
+	--decorazione-fasi: 3.5rem;
 	--sottolineatura-bottone-hover: 0.1875rem;
 
 	/* Spaziature */
@@ -140,6 +152,10 @@
 		--scala-loghi: 1;
 		--card-larghezza: 20.9375rem;
 		--illustrazione-profilo: 27.8125rem;
+		--pallino-fasi: 1rem;
+		--pallino-fasi-bordo: 0.125rem;
+		--controlli-fasi: 49.5rem;
+		--decorazione-fasi: 6.375rem;
 
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);

@@ -30,6 +30,11 @@ video {
 	block-size: auto;
 }
 
+/* Un elemento con l'attributo hidden resta nascosto anche se un componente gli dà un display */
+[hidden] {
+	display: none !important;
+}
+
 button,
 input,
 select,

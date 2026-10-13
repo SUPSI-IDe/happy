@@ -450,11 +450,13 @@
 		margin-block-start: var(--spazio-4);
 	}
 
+	/* Lo spazio sotto tiene dentro la sezione gli angoli delle card ruotate */
 	.card-profili {
 		flex-flow: row wrap;
 		justify-content: center;
 		align-items: start;
 		gap: var(--spazio-6) var(--spazio-8);
+		padding-block-end: var(--spazio-6);
 	}
 
 	.card-profili > li {
@@ -471,6 +473,209 @@
 	/* Su desktop l'illustrazione non c'è, come nel wireframe */
 	.destinatari-illustrazione {
 		display: none;
+	}
+}
+
+/* Fasi (snippet sezioni/fasi e assets/js/fasi.js). Senza JavaScript: titolo e poi le fasi una sotto
+   l'altra. Con JavaScript (.fasi--carosello) una fase alla volta e, sotto, frecce e pallini.
+   Mobile: titolo, illustrazione, numero, titolo e testo della fase, controlli.
+   Desktop: titolo e testo della fase nelle colonne 1–5, illustrazione nelle 7–12 allineata al titolo */
+
+.fasi {
+	row-gap: var(--spazio-5);
+}
+
+/* Le note (desktop) e le stelline (mobile) stanno sopra la fine del titolo: il titolo è largo quanto
+   il suo testo, così la decorazione lo segue anche quando va a capo. Sono decorative */
+.fasi-titolo {
+	position: relative;
+	justify-self: start;
+}
+
+.fasi-titolo::after {
+	content: '';
+	position: absolute;
+	inset-block-start: calc(-1 * var(--spazio-5));
+	inset-inline-start: calc(100% - var(--spazio-6));
+	inline-size: var(--decorazione-fasi);
+	aspect-ratio: 113 / 126;
+	background: url('../images/stelline-fasi.webp') center / contain no-repeat;
+	pointer-events: none;
+}
+
+.fasi-elenco {
+	display: grid;
+	row-gap: var(--spazio-7);
+	padding: 0;
+	list-style: none;
+}
+
+.fase {
+	display: grid;
+	row-gap: var(--spazio-5);
+}
+
+/* Carosello: tutte le fasi nella stessa cella, si vede solo quella attiva */
+.fasi--carosello .fase {
+	grid-area: 1 / 1;
+}
+
+.fase[inert] {
+	visibility: hidden;
+}
+
+.fase-immagine {
+	inline-size: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.fase-testo > h3 {
+	margin-block-start: var(--spazio-4);
+}
+
+.fase-testo > h3 ~ * {
+	margin-block-start: var(--spazio-4);
+}
+
+/* La pillola con il numero: testo bianco grande e in grassetto sul verde (regola 3) */
+.fase-numero {
+	display: grid;
+	place-items: center;
+	inline-size: var(--pillola-fase);
+	block-size: var(--pillola-fase);
+	border-radius: var(--raggio-pieno);
+	background-color: var(--color-verde-salvia);
+	color: var(--color-testo-su-colore);
+	font-size: var(--text-etichetta);
+	font-weight: var(--peso-grassetto);
+}
+
+.fasi-controlli {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	justify-self: center;
+	inline-size: min(100%, var(--controlli-fasi));
+}
+
+.fasi-controlli button {
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+/* Frecce: cerchio verde con una freccia bianca disegnata dai bordi */
+.fasi-controlli .fasi-freccia {
+	display: grid;
+	place-items: center;
+	inline-size: var(--freccia-fasi);
+	block-size: var(--freccia-fasi);
+	border-radius: var(--raggio-pieno);
+	background-color: var(--color-verde-salvia);
+}
+
+.fasi-freccia::before {
+	content: '';
+	inline-size: 28%;
+	aspect-ratio: 1;
+	margin-inline-start: 12%;
+	border-block-end: var(--freccia-fasi-tratto) solid var(--color-testo-su-colore);
+	border-inline-start: var(--freccia-fasi-tratto) solid var(--color-testo-su-colore);
+	rotate: 45deg;
+}
+
+.fasi-freccia--avanti::before {
+	margin-inline: 0 12%;
+	rotate: -135deg;
+}
+
+/* Pallini: l'area che reagisce al tocco è alta 44px (larga quanto il passo tra i pallini in Figma);
+   il pallino si riempie quando la sua fase è visibile, senza cambiare dimensione */
+.fasi-pallini {
+	display: flex;
+}
+
+.fasi-controlli .fasi-pallino {
+	display: grid;
+	place-items: center;
+	inline-size: calc(2 * var(--pallino-fasi));
+	block-size: var(--bottone-altezza-min);
+	border-radius: var(--raggio-pieno);
+}
+
+.fasi-pallino::before {
+	content: '';
+	inline-size: var(--pallino-fasi);
+	aspect-ratio: 1;
+	border: var(--pallino-fasi-bordo) solid var(--color-verde-salvia);
+	border-radius: var(--raggio-pieno);
+}
+
+.fasi-pallino[aria-current='true']::before {
+	background-color: var(--color-verde-salvia);
+}
+
+@media (min-width: 64rem) {
+	.fasi {
+		row-gap: var(--spazio-7);
+	}
+
+	.fasi-titolo {
+		grid-column: 1 / span 5;
+		grid-row: 1;
+	}
+
+	.fasi-titolo::after {
+		inset-block-start: calc(-1 * var(--spazio-7));
+		inset-inline-start: calc(100% - var(--spazio-7));
+		aspect-ratio: 204 / 196;
+		background-image: url('../images/note-fasi.webp');
+	}
+
+	/* Elenco e fasi seguono le colonne della sezione (subgrid) */
+	.fasi-elenco,
+	.fase {
+		grid-column: 1 / -1;
+		grid-template-columns: subgrid;
+		row-gap: var(--spazio-7);
+	}
+
+	/* Come il video della hero: colonne 6–12, centrata in altezza rispetto a titolo e testo */
+	.fase-immagine {
+		grid-column: 6 / -1;
+		grid-row: 1 / span 2;
+		align-self: center;
+	}
+
+	.fase-testo {
+		grid-column: 1 / span 5;
+	}
+
+	/* Carosello: anche le righe sono quelle della sezione, così l'illustrazione parte all'altezza
+	   del titolo e il testo della fase sta sotto il titolo */
+	.fasi--carosello .fasi-elenco,
+	.fasi--carosello .fase {
+		grid-row: 1 / span 2;
+		grid-template-rows: subgrid;
+	}
+
+	.fasi--carosello .fase {
+		grid-column: 1 / -1;
+	}
+
+	.fasi--carosello .fase-testo {
+		grid-row: 2;
+	}
+
+	.fasi-controlli {
+		grid-column: 1 / -1;
+		margin-block-start: var(--spazio-4);
+	}
+
+	.fasi-controlli .fasi-pallino {
+		inline-size: var(--bottone-altezza-min);
 	}
 }
 

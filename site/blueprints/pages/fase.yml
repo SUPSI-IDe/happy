@@ -1,7 +1,10 @@
 title: Fase
+# Una fase del carosello delle Fasi: il numero è la sua posizione nell'elenco
 fields:
+  illustrazione:
+    extends: fields/illustrazione
+    help: In formato 16:9 (1360 × 765). Se dice qualcosa che il testo non dice, scrivilo nel testo alternativo
   descrizione:
     label: Descrizione
     type: textarea
     size: medium
-  video: fields/video
