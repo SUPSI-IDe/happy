@@ -268,6 +268,94 @@
 	border: var(--bordo-contorno) dashed currentColor;
 }
 
+/* Il tasto play al centro della copertina: cerchio verde con il triangolo bianco (come le frecce delle
+   fasi). Sta sulla copertina chiara: l'anello di focus è quello per il bianco */
+.hero-lettore {
+	position: relative;
+}
+
+.hero-play {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	inline-size: var(--play-video);
+	block-size: var(--play-video);
+	margin: auto;
+	padding: 0;
+	border: var(--bordo-contorno) solid var(--color-testo-su-colore);
+	border-radius: var(--raggio-pieno);
+	background-color: var(--color-verde-salvia);
+	cursor: pointer;
+	transition: scale 0.2s ease-out;
+	--color-focus: var(--color-focus-su-bianco);
+}
+
+.hero-play::before {
+	content: '';
+	inline-size: 34%;
+	aspect-ratio: 0.87;
+	margin-inline-start: 10%;
+	background-color: var(--color-testo-su-colore);
+	clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* Hover: il tasto si ingrandisce appena (con "riduci movimento" senza transizione, base.css) */
+.hero-play:hover {
+	scale: 1.08;
+}
+
+/* I crediti del video: una sola riga, "Crediti del video", larga quanto il video con la freccia sul suo
+   lato destro, che si apre (<details>). Sul verde il testo
+   bianco non può essere piccolo (regole visive 2 e 3): così si vede solo una riga. Freccia e hover
+   come le tendine; aperti, il testo è più fitto del corpo, come una nota */
+.hero-crediti {
+	margin-block-start: var(--spazio-4);
+}
+
+.hero-crediti summary {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: var(--spazio-3);
+	list-style: none;
+	cursor: pointer;
+}
+
+.hero-crediti summary::-webkit-details-marker {
+	display: none;
+}
+
+.hero-crediti summary::after {
+	content: '';
+	inline-size: calc(var(--freccia-tendina) * 0.7);
+	aspect-ratio: 27 / 9;
+	background-color: currentColor;
+	mask: url('../images/freccia-tendina.svg') center / contain no-repeat;
+	transition: translate 0.2s ease-out;
+}
+
+.hero-crediti[open] summary::after {
+	rotate: 180deg;
+}
+
+.hero-crediti summary:hover::after {
+	translate: 0 var(--spazio-1);
+}
+
+.hero-crediti[open] summary:hover::after {
+	translate: 0 calc(-1 * var(--spazio-1));
+}
+
+.hero-crediti summary:focus-visible {
+	border-radius: 0;
+}
+
+.hero-crediti > :not(summary) {
+	margin-block-start: var(--spazio-3);
+	line-height: var(--interlinea-titolo-3);
+}
+
 .hero-presentazione > * + * {
 	margin-block-start: var(--spazio-4);
 }
@@ -317,6 +405,17 @@
 		inset-block-start: 0;
 	}
 
+	/* Su mobile la presentazione sta sul bianco: lì il bottone "Partecipa" ripeterebbe quello della sezione
+	   "Vuoi partecipare?" poco sotto. Si vede solo su desktop, sul verde */
+	.hero-partecipa {
+		display: none;
+	}
+
+	/* Il pennello che chiude il verde scende per metà sul verde: la descrizione del video gli lascia posto */
+	.hero-crediti {
+		padding-block-end: calc(var(--bordo-pennello) / 2 + var(--spazio-5));
+	}
+
 	.hero-presentazione > h2 + * {
 		margin-block-start: var(--spazio-5);
 	}
@@ -341,12 +440,26 @@
 		margin-block-end: calc(-1 * var(--spazio-2));
 	}
 
+	/* La presentazione è alta quanto video e crediti: il bottone "Partecipa" scende in fondo, alla loro altezza */
 	.hero-griglia > .hero-presentazione {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--spazio-4);
 		grid-column: 1 / span 5;
 		grid-row: 2;
 	}
 
-	.hero-griglia > .hero-video {
+	.hero-griglia > .hero-presentazione > * {
+		margin-block-start: 0;
+	}
+
+	.hero-griglia > .hero-presentazione > .hero-partecipa {
+		align-self: start;
+		margin-block-start: auto;
+	}
+
+	.hero-griglia > .hero-video,
+	.hero-griglia > .hero-media {
 		grid-column: 6 / -1;
 		grid-row: 2;
 	}

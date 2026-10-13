@@ -23,6 +23,13 @@ columns:
         extends: fields/illustrazione
         label: Immagine del video
         help: In formato 16:9. È la copertina del video finché non si preme play; senza video prende il suo posto. Il testo alternativo descrive l'immagine
+      video_crediti:
+        label: Crediti del video
+        type: textarea
+        size: small
+        buttons:
+          - link
+        help: Sotto il video, in una riga "Crediti del video" che si apre. Ogni riga va a capo
   presentazione:
     width: 2/3
     fields:

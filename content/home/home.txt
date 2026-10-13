@@ -26,6 +26,14 @@ Copertina:
 
 ----
 
+Video_crediti:
+
+Illustrazione e montaggio: Laura Bassi ([Fisiocamera](https://www.fisiocamera.it))
+Testo e voce: Cinzia Cruder
+Musica: Buddy – [Bensound](https://www.bensound.com). Support by [RFM - NCM](https://youtu.be/0qoqn2fI4Gg)
+
+----
+
 Presentazione_titolo: Cos'è Happy?
 
 ----

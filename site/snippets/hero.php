@@ -4,9 +4,13 @@
  * Un solo HTML nell'ordine logo → video → presentazione; il CSS lo dispone (components.css, "Hero"):
  * - mobile: logo e video sul verde, la presentazione sotto, sul bianco;
  * - desktop: tutto sul verde in una schermata, presentazione nelle colonne 1–5 e video nelle 6–12.
+ * Sotto la presentazione il bottone "Partecipa" (il questionario, da Sito → Generale): solo su desktop (sul
+ * verde), in basso, alla stessa altezza della fine di video e crediti.
  * Il logo è un SVG perché Fraunces molto grande si deforma; "Happy" resta leggibile dallo screen reader.
  * Il video compare solo con i suoi sottotitoli (regola d'oro). Non parte da solo e si scarica solo quando
- * si preme play (preload="none"): fino ad allora si vede la copertina. Senza video resta la copertina.
+ * si preme play (preload="none"): fino ad allora si vede la copertina, con un grande tasto play al centro
+ * (assets/js/video.js; senza JavaScript restano i controlli del browser). Sotto, i crediti del video, chiusi
+ * in una riga che si apre (<details>): sul verde il testo è grande (regole visive 2 e 3), così non pesa. Senza video resta la copertina.
  */
 $mascotte = $page->illustrazione()->toFile();
 $copertina = $page->copertina()->toFile();
@@ -29,10 +33,24 @@ $sottotitoli = $page->sottotitoli()->toFile();
 		</div>
 
 		<?php if ($video && $sottotitoli): ?>
-			<video class="hero-video" controls preload="none" playsinline <?= attr(['poster' => $copertina?->thumb(['width' => 1280, 'format' => 'webp'])->url()]) ?>>
-				<source src="<?= $video->url() ?>" type="<?= $video->mime() ?>">
-				<track kind="captions" src="<?= $sottotitoli->url() ?>" srclang="it" label="Italiano" default>
-			</video>
+			<div class="hero-media">
+				<div class="hero-lettore">
+					<video class="hero-video" controls preload="none" playsinline data-video <?= attr(['poster' => $copertina?->thumb(['width' => 1280, 'format' => 'webp'])->url()]) ?>>
+						<source src="<?= $video->url() ?>" type="<?= $video->mime() ?>">
+						<track kind="captions" src="<?= $sottotitoli->url() ?>" srclang="it" label="Italiano" default>
+					</video>
+					<button class="hero-play" type="button" hidden data-play>
+						<span class="solo-screen-reader">Guarda il video</span>
+					</button>
+				</div>
+				<?php if ($page->video_crediti()->isNotEmpty()): ?>
+					<details class="hero-crediti">
+						<summary>Crediti del video</summary>
+						<?= $page->video_crediti()->kirbytext() ?>
+					</details>
+				<?php endif ?>
+			</div>
+			<?= js('assets/js/video.js', ['defer' => true]) ?>
 		<?php elseif ($copertina): ?>
 			<?php snippet('immagine', ['file' => $copertina, 'sizes' => '(min-width: 64rem) 53vw, 100vw', 'subito' => true, 'attr' => ['class' => 'hero-video']]) ?>
 		<?php else: ?>
@@ -42,6 +60,9 @@ $sottotitoli = $page->sottotitoli()->toFile();
 		<div class="hero-presentazione">
 			<h2 class="titolo-sezione"><?= $page->presentazione_titolo()->esc() ?></h2>
 			<?= $page->presentazione_testo()->kirbytext() ?>
+			<?php if ($site->partecipa_link()->isNotEmpty()): ?>
+				<?php snippet('bottone', ['href' => $site->partecipa_link()->value(), 'variante' => 'contorno', 'class' => 'hero-partecipa'], slots: true) ?><?= $site->partecipa_testo()->esc() ?><?php endsnippet() ?>
+			<?php endif ?>
 		</div>
 	</div>
 </section>

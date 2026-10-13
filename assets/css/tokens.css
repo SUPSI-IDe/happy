@@ -113,6 +113,9 @@
 	--freccia-tendina: 1.6875rem;
 	--sottolineatura-bottone-hover: 0.1875rem;
 
+	/* Il tasto play sopra la copertina del video (64px su mobile, 96px su desktop) */
+	--play-video: 4rem;
+
 	/* Il team: lo spazio tra il titolo di un gruppo e i membri, e tra una persona e l'altra
 	   (24px su mobile, 32px su desktop) */
 	--spazio-gruppo: var(--spazio-5);
@@ -165,6 +168,7 @@
 		--controlli-fasi: 49.5rem;
 		--decorazione-fasi: 6.375rem;
 		--spazio-gruppo: var(--spazio-6);
+		--play-video: 6rem;
 
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);
