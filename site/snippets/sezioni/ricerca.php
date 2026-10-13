@@ -42,7 +42,7 @@ $temi = $sezione->children()->listed();
 					</p>
 					<?php if ($riferimenti->isNotEmpty()): ?>
 						<div class="tendina-riferimenti" id="<?= $id ?>-riferimenti">
-							<h4 class="text-etichetta"><?= $sezione->riferimenti_titolo()->esc() ?></h4>
+							<h4 class="text-etichetta"><?= $sezione->riferimenti_titolo()->or('Riferimenti')->esc() ?></h4>
 							<ul>
 								<?php foreach ($riferimenti as $riferimento): ?>
 									<li>

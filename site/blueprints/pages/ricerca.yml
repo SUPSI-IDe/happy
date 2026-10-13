@@ -12,7 +12,7 @@ sections:
         label: Titolo dei riferimenti
         type: text
         placeholder: Riferimenti
-        help: Sopra l'elenco dei riferimenti di ogni tema
+        help: Sopra l'elenco dei riferimenti di ogni tema. Se resta vuoto, compare "Riferimenti"
         width: 1/2
   temi:
     type: pages
