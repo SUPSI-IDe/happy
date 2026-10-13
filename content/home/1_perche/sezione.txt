@@ -2,7 +2,7 @@ Title: Perché Happy?
 
 ----
 
-Partecipa: true
+Partecipa: false
 
 ----
 
