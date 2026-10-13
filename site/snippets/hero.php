@@ -5,9 +5,13 @@
  * - mobile: logo e video sul verde, la presentazione sotto, sul bianco;
  * - desktop: tutto sul verde in una schermata, presentazione nelle colonne 1–5 e video nelle 6–12.
  * Il logo è un SVG perché Fraunces molto grande si deforma; "Happy" resta leggibile dallo screen reader.
+ * Il video compare solo con i suoi sottotitoli (regola d'oro). Non parte da solo e si scarica solo quando
+ * si preme play (preload="none"): fino ad allora si vede la copertina. Senza video resta la copertina.
  */
 $mascotte = $page->illustrazione()->toFile();
 $copertina = $page->copertina()->toFile();
+$video = $page->video()->toFile();
+$sottotitoli = $page->sottotitoli()->toFile();
 ?>
 <section class="hero su-colore fondo-verde-salvia" id="<?= $page->slug() ?>">
 	<div class="contenitore griglia hero-griglia">
@@ -24,9 +28,12 @@ $copertina = $page->copertina()->toFile();
 			<?php endif ?>
 		</div>
 
-		<?php // Il video si incorpora quando sarà scelta la piattaforma (docs/architecture.md): fino ad allora
-		      // al suo posto c'è l'immagine del video, poi diventerà la sua copertina ?>
-		<?php if ($copertina): ?>
+		<?php if ($video && $sottotitoli): ?>
+			<video class="hero-video" controls preload="none" playsinline <?= attr(['poster' => $copertina?->url()]) ?>>
+				<source src="<?= $video->url() ?>" type="<?= $video->mime() ?>">
+				<track kind="captions" src="<?= $sottotitoli->url() ?>" srclang="it" label="Italiano" default>
+			</video>
+		<?php elseif ($copertina): ?>
 			<img class="hero-video" src="<?= $copertina->url() ?>" alt="<?= $copertina->alt()->esc('attr') ?>" width="<?= $copertina->width() ?>" height="<?= $copertina->height() ?>">
 		<?php else: ?>
 			<div class="hero-video hero-video--vuoto" aria-hidden="true"></div>

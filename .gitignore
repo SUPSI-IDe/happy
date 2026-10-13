@@ -14,3 +14,6 @@ node_modules/
 /site/logs/
 /site/sessions/
 /site/config/.license
+
+# Video: troppo pesanti per la storia di git. Stanno sul server (content/), l'originale nella cartella del progetto
+/content/**/*.mp4

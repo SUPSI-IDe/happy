@@ -64,6 +64,10 @@ RewriteRule ^ index.php [L]
 </IfModule>
 
 
+# Subtitles: with nosniff (below) the browser loads them only with their real type
+AddType text/vtt .vtt
+
+
 # Pass the Authorization header to PHP (the panel needs it to log in)
 SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
 

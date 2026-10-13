@@ -5,7 +5,7 @@
 - **Kirby 5:** CMS in PHP, senza database. I contenuti sono file di testo in `content/`; i tipi di contenuto sono blueprint YAML in `site/blueprints/`; le pagine si costruiscono con template e snippet PHP. Dettagli, pannello e ruoli in `docs/kirby.md`.
 - **CSS vanilla con custom properties:** nessun framework; tutti i valori grafici vengono dai design token.
 - **JavaScript:** solo dove serve (il menu su mobile), sempre come miglioramento: senza, il sito funziona.
-- **Video:** ospitati su una piattaforma esterna (da decidere, per esempio SWITCHtube o Vimeo) e incorporati nel sito.
+- **Video:** sul server del sito, non su una piattaforma esterna (niente cookie né script di terzi): MP4 (H.264) compresso, con i sottotitoli in un file `.vtt`. Kirby non conosce i `.vtt`: li registra il plugin `site/plugins/sottotitoli`. Un video troppo pesante per il caricamento dal pannello si carica con FileZilla nella cartella della pagina e poi si sceglie nel pannello. I video non vanno in git (`.gitignore`).
 - **Form:** link a moduli esterni (Qualtrics della SUPSI); il link del bottone "Partecipa" sta in Sito → Generale.
 - **Hosting:** SUPSI, `happy.supsi.ch` (da confermare: PHP 8.2 o più recente).
 
@@ -34,6 +34,7 @@ MAInD-HAPPY/
 │   ├── templates/         ← una pagina intera: home, e default.php per le altre
 │   ├── snippets/          ← layout, navbar, hero, footer, bottone, sezione (struttura comune);
 │   │                        sezioni/ uno per tipo di sezione
+│   ├── plugins/           ← sottotitoli: Kirby accetta i file .vtt
 │   └── config/            ← impostazioni e redirect delle sezioni
 ├── content/               ← home/ con una cartella per sezione (1_perche, 2_a-chi…),
 │                            insegnanti · famiglie · professionisti
@@ -69,5 +70,5 @@ Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tas
 | `Section` (`sezione`) | Struttura comune delle sezioni della home: titolo con segno a pennello nelle colonne 1–5 (fermo mentre si scorre), contenuto nelle 7–12, allineati sulla linea di base; su mobile in colonna |
 | `Card` (in `sezioni/destinatari`) | Card dei profili: un link alla pagina del profilo, sulla macchia a matita del suo colore; tre varianti di posizione e rotazione (vedi `docs/design-tokens.md`, "Card dei profili") |
 | `Button` (`bottone`) | Bottone o link con l'aspetto di un bottone. Varianti `pieno` e `contorno`; con `href` è un link |
-| `VideoEmbed` | Video 16:9 con sottotitoli |
+| Video (nella `Hero`) | `<video>` del browser, 16:9, con i controlli e i sottotitoli attivi. Non parte da solo e si scarica solo quando si preme play (`preload="none"`); fino ad allora mostra la copertina. Senza sottotitoli non compare |
 | `PhaseSlider` | Slider delle fasi; i pallini si riempiono da attivi senza cambiare dimensione |

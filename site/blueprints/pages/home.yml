@@ -5,11 +5,24 @@ columns:
     width: 1/3
     fields:
       illustrazione: fields/illustrazione
-      video: fields/video
+      video:
+        label: Video
+        type: files
+        max: 1
+        query: page.videos
+        uploads: video
+        help: MP4 (H.264) compresso, in 16:9. Se il pannello non lo accetta perché è troppo pesante, caricalo con FileZilla in content/home e poi sceglilo qui
+      sottotitoli:
+        label: Sottotitoli del video
+        type: files
+        max: 1
+        query: page.files.filterBy('extension', 'vtt')
+        uploads: sottotitoli
+        help: File .vtt in italiano. Senza sottotitoli il video non compare e resta l'immagine
       copertina:
         extends: fields/illustrazione
         label: Immagine del video
-        help: In formato 16:9. Finché il video non c'è prende il suo posto; poi diventa la sua copertina. Il testo alternativo descrive l'immagine
+        help: In formato 16:9. È la copertina del video finché non si preme play; senza video prende il suo posto. Il testo alternativo descrive l'immagine
   presentazione:
     width: 2/3
     fields:
