@@ -5,6 +5,7 @@
  * L'etichetta sopra il titolo è il nome della sezione da cui si arriva (A chi ci rivolgiamo).
  * L'illustrazione è il personaggio (dal pannello); le note intorno sono decorazioni del sito, disegnate
  * sopra nello stesso riquadro (components.css, "Pagine dei profili").
+ * Senza link al sondaggio il bottone non compare; senza titolo la seconda parte non ha l'h2 (mai un titolo vuoto).
  */
 $colore = $page->colore()->esc('attr');
 $destinatari = $site->homePage()->childrenAndDrafts()->filterBy('intendedTemplate', 'destinatari')->first();
@@ -30,8 +31,10 @@ $illustrazione = $page->illustrazione()->toFile();
 			</div>
 		<?php endif ?>
 
-		<section class="profilo-partecipa" aria-labelledby="partecipa">
-			<h2 class="text-titolo-2" id="partecipa"><?= $page->partecipa_titolo()->esc() ?></h2>
+		<section class="profilo-partecipa" <?= attr(['aria-labelledby' => $page->partecipa_titolo()->isNotEmpty() ? 'partecipa' : null]) ?>>
+			<?php if ($page->partecipa_titolo()->isNotEmpty()): ?>
+				<h2 class="text-titolo-2" id="partecipa"><?= $page->partecipa_titolo()->esc() ?></h2>
+			<?php endif ?>
 			<?= $page->partecipa_testo()->kirbytext() ?>
 			<?php if ($page->sondaggio_link()->isNotEmpty()): ?>
 				<?php snippet('bottone', ['href' => $page->sondaggio_link()->value(), 'variante' => 'contorno', 'class' => 'profilo-sondaggio'], slots: true) ?><?= $page->sondaggio_testo()->esc() ?><?php endsnippet() ?>
