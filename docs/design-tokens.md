@@ -66,8 +66,8 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 |---|---|---|---|---|---|
 | `--text-display` | 6rem | 2.75rem | Fraunces 700 | 1.1 | Titolo delle pagine dei profili. Nella hero della home il titolo è il logo SVG (vedi "Hero della home") |
 | `--text-titolo-1` | 3rem | 2rem | Fraunces 600 | 1.2 | Titoli di sezione |
-| `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni, titoli delle card dei profili |
-| `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Titoli di fase, citazioni, testo dei bottoni |
+| `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni, titoli delle card dei profili e delle fasi |
+| `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Citazioni, testo dei bottoni |
 | `--text-logo` | 1.5rem | 1.5rem | Fraunces 700 | 1.2 | "Happy" nella navigazione |
 | `--text-corpo` | 1.25rem | 1.25rem | Urbanist 500 | 1.5 | Paragrafi su bianco, colonna massima 42.5rem |
 | `--text-corpo-colore` | 1.25rem | 1.25rem | Urbanist 700 | 1.5 | Paragrafi e voci di navigazione su fondo colorato |
@@ -115,7 +115,7 @@ Collezione Figma `Forme e spazi`. In `tokens.css` entrano solo i valori già usa
 | `--bordo-contorno` | 0.125rem (2px) | Bordo dei bottoni a contorno |
 | `--sottolineatura-bottone-hover` | 0.1875rem (3px) | Sottolineatura dell'etichetta del bottone al passaggio del mouse |
 
-Solo in Figma, da aggiungere a `tokens.css` con il primo componente che li usa: spazio attorno al componente per il focus (0.3125rem), padding del badge (1rem / 0.25rem), lato della pillola (2.75rem). Il valore è in px nelle variabili Figma; nel CSS si scrive in rem.
+Solo in Figma, da aggiungere a `tokens.css` con il primo componente che li usa: spazio attorno al componente per il focus (0.3125rem), padding del badge (1rem / 0.25rem). Il lato della pillola delle fasi è `--pillola-fase` (2.75rem). Il valore è in px nelle variabili Figma; nel CSS si scrive in rem.
 
 Altri token in `tokens.css`: `--font-titoli`, `--font-testo`, i pesi (`--peso-medio` 500, `--peso-semibold` 600, `--peso-grassetto` 700), le interlinee (`--interlinea-display` 1.1, `--interlinea-titoli` 1.2, `--interlinea-titolo-3` 1.3, `--interlinea-testo` 1.5), `--spaziatura-etichetta` (0.05em) e `--colonna-testo` (42.5rem).
 
@@ -149,6 +149,14 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Testo:** nome del profilo in `--text-titolo-2` (come nel frame mobile; nel frame desktop il gruppo era ingrandito a 28.8px), "Scopri di più" con l'aspetto di un link, in basso a destra. Tutta la card è un solo link; al passaggio del mouse la sottolineatura si ispessisce.
 - **Mobile:** una sotto l'altra, sfalsate: la seconda rientra di `--spazio-7`, la terza di `--spazio-4`. Sotto, solo su mobile, l'illustrazione dei musicisti (`--illustrazione-destinatari`).
 - **Desktop:** in fila a tutta larghezza, a `--spazio-8` l'una dall'altra, ruotate (−4°, 2°, 5°) e scese di `--spazio-7`, 0 e `--spazio-6`, come se fossero appoggiate a mano. Se non ci stanno in tre (da 1024 a circa 1280px), vanno a capo due e una, senza stringersi. Le varianti si ripetono ogni tre card.
+
+## Fasi
+
+- **Carosello:** una fase alla volta (numero, titolo in `--text-titolo-2`, testo e illustrazione 16:9), con frecce e pallini sotto. Le frecce girano in tondo (dalla prima si torna all'ultima); niente avanzamento automatico. Senza JavaScript le fasi sono un elenco, una sotto l'altra.
+- **Desktop:** titolo della sezione e testo della fase nelle colonne 1–5, illustrazione nelle 7–12 allineata in alto al titolo (subgrid); controlli centrati sotto, larghi `--controlli-fasi`. **Mobile:** titolo, illustrazione, testo della fase, controlli.
+- **Pillola del numero:** cerchio verde salvia di `--pillola-fase` (44px) con il numero bianco in grassetto (`--text-etichetta`).
+- **Frecce:** cerchi verdi di `--freccia-fasi`, 44px su mobile (in Figma 22px, troppo piccole per il dito) e 56px su desktop. **Pallini:** `--pallino-fasi` (12px mobile, 24px desktop) a contorno, pieno quello della fase visibile; l'area che reagisce al tocco è alta 44px.
+- **Decorazioni:** sopra la fine del titolo, le note di Laura su desktop (`note-fasi.webp`) e le stelline su mobile (`stelline-fasi.webp`), come nei wireframe.
 
 ## Pagine dei profili
 
@@ -214,4 +222,4 @@ Card, sottolineature della navbar e pallini dello slider devono sembrare fatti a
 - **Cambiare un'illustrazione:** nel pannello si apre l'immagine e si sceglie *Sostituisci*: nome del file e testo alternativo restano, il layout non cambia. Il file si prepara al doppio della misura con cui compare in Figma su desktop.
 - **Esportare da Figma:** in Figma le illustrazioni sono spesso un ritaglio di un foglio più grande. L'esportazione PNG di Figma può riempire di bianco lo sfondo: prima di caricarla, controllare che sia trasparente (per esempio aprendola sopra un fondo colorato).
 - **Decorazioni dei profili** (note, chiave di violino, stelline): non sono contenuti, le disegna il sito. Per ogni profilo un file in `assets/images/decorazioni-<colore>`, grande quanto il riquadro del personaggio (445 × 361 in Figma, al doppio): le stelline di Famiglie, disegnate in Figma, sono un SVG; le note di Laura un WebP trasparente. Il sito le usa come maschera colorata da `--color-decorazione`, quindi sono sempre bianche sul colore.
-- I doodle stanno solo vicino a illustrazioni o mascotte, mai accanto al testo, e solo nei colori di sistema.
+- Doodle e note decorative non stanno mai sopra o in mezzo al testo corrente: vicino a illustrazioni, mascotte o alla fine di un titolo (le note delle Fasi). Quelli disegnati per il sito sono nei colori di sistema; le note di Laura hanno i loro colori.

@@ -28,7 +28,7 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 | **Sezione** | titolo, voce di menu, testo, illustrazione, bottone "Partecipa" | Sezione di testo: Perché Happy?, Vuoi partecipare? (con il bottone). Un sottotitolo nel testo (### nel pannello) diventa un `h3` |
 | **Destinatari** | titolo, voce di menu, testo, testo del link delle card, illustrazione | A chi ci rivolgiamo. Le card si creano da sole dalle pagine dei profili pubblicate, nel loro ordine (Sito → Pagine); la card mostra il titolo del profilo. L'illustrazione si vede solo su mobile, sotto le card |
 | **Fasi** | titolo, voce di menu | Contiene le fasi, nell'ordine del pannello |
-| **Fase** | titolo, descrizione, video | Il numero della fase è la sua posizione, non un campo |
+| **Fase** | titolo, illustrazione (16:9), descrizione | Il numero della fase è la sua posizione, non un campo. Si vedono solo le fasi pubblicate, nell'ordine del pannello |
 | **Ricerca** | titolo, voce di menu, testo | Contiene i temi |
 | **Tema** | titolo, illustrazione, testo, riferimenti (autori e anno, titolo, link DOI, rivista) | Una tendina della Ricerca |
 | **Team** | titolo, voce di menu | Contiene i gruppi. Il primo è sempre aperto, gli altri sono tendine |

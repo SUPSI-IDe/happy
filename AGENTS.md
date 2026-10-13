@@ -16,7 +16,7 @@ Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e v
 - **Testo corrente mai a tutta larghezza:** colonna massima 42.5rem (`--colonna-testo`).
 - **Un solo divisore orizzontale per pagina**, sotto la navbar.
 - **Video sempre 16:9**, su desktop e mobile.
-- **Doodle solo vicino a illustrazioni o mascotte**, mai accanto al testo, e solo nei colori di sistema.
+- **Doodle e note decorative mai sopra o in mezzo al testo corrente:** stanno vicino a illustrazioni, mascotte o alla fine di un titolo. Quelli disegnati per il sito sono nei colori di sistema; le note di Laura hanno i loro colori.
 - **Testi nei file di contenuto**, mai scritti direttamente nei componenti.
 - **Mobile-first:** ogni componente si scrive prima per mobile e si verifica su entrambi i formati.
 - **Niente servizi esterni a runtime:** né font, né script, né tracciamento da altri siti. I form sono link a moduli esterni (Qualtrics della SUPSI).
