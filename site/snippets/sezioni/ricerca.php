@@ -63,4 +63,4 @@ $temi = $sezione->children()->listed();
 		</div>
 	<?php endslot() ?>
 <?php endsnippet() ?>
-<?= js('assets/js/tendine.js', ['defer' => true]) ?>
+<?= js('assets/js/tendine.js', ['type' => 'module']) ?>

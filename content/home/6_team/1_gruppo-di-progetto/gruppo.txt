@@ -1,0 +1,50 @@
+Title: Gruppo di progetto
+
+----
+
+Membri:
+
+-
+  nome: "Cinzia Cruder"
+  link: https://www.supsi.ch/cinzia-cruder
+  ruolo: "Ricercatrice"
+  ente: "SUPSI DEASS, SUM-CSI"
+-
+  nome: "Antonio Amendola"
+  link: https://www.supsi.ch/antonio-amendola
+  ruolo: "Responsabile della comunicazione"
+  ente: "SUPSI DEASS"
+-
+  nome: "Massimo Zicari"
+  link: https://www.conservatorio.ch/it/scuola-universitaria/ricerca/team/massimo-zicari
+  ruolo: "Musicologo e professore di ricerca"
+  ente: "SUM-CSI"
+-
+  nome: "Serena Cangiano"
+  link: https://www.supsi.ch/serena-cangiano
+  ruolo: "Ricercatrice senior"
+  ente: "SUPSI DACD, IDe"
+-
+  nome: "Ginevra Terenghi"
+  link: https://www.supsi.ch/ginevra-terenghi
+  ruolo: "Ricercatrice postdoc"
+  ente: "SUPSI DACD, IDe"
+-
+  nome: "Nerea Asensio Tornero"
+  link: https://www.linkedin.com/in/nereaasensio/
+  ruolo: "Interaction designer"
+  ente: "SUPSI DACD, IDe"
+-
+  nome: "Laura Bassi"
+  link: https://www.fisiocamera.it/
+  ruolo: "Fisioterapista e illustratrice"
+  ente: "Fisiocamera"
+-
+  nome: "Paolo Paolantonio"
+  link: https://www.conservatorio.ch/it/scuola-universitaria/ricerca/team/paolo-paolantonio
+  ruolo: "Docente ricercatore"
+  ente: "SUM-CSI"
+-
+  nome: "Luciano Zampar"
+  link: https://www.lucianozampar.com/
+  ruolo: "Docente di musica e percussionista"
