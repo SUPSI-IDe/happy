@@ -6,4 +6,38 @@ Colore: rosa-insegnanti
 
 ----
 
+Illustrazione: 
+- personaggio-insegnanti.webp
+
+----
+
+Intro: 
+Hai un ruolo unico nella vita dei tuoi allievi, e insegnare musica significa anche prenderti cura di chi suona. HAPPY raccoglie in un Toolkit gli strumenti pratici per farlo ogni giorno, come guide illustrate, esercizi e materiali pratici per parlarne con famiglie e professionisti della salute. Non serve nessuna competenza clinica, e sei tu ad aiutarci a costruire queste risorse, raccontandoci cosa serve davvero in classe.
+
+----
+
+Partecipa_titolo: Come partecipare
+
+----
+
+Partecipa_testo: 
+Parti dal sondaggio, pochi minuti per dirci cosa osservi e cosa vivi in classe.
+
+----
+
+Sondaggio_testo: Partecipa al sondaggio
+
+----
+
+Sondaggio_link: https://supsi.eu.qualtrics.com/jfe/form/SV_0HTby6h23mGExAa
+
+----
+
+Partecipa_altro: 
+Poi, se vuoi, puoi fare di più. Partecipa ai workshop e continua a raccontarti negli HAPPY Diaries, uno spazio digitale in cui annoti quando vuoi osservazioni e riflessioni.
+
+Chi partecipa riceve un attestato di formazione, entra in una rete di colleghi e istituzioni e accede gratuitamente a tutto il Toolkit.
+
+----
+
 Uuid: eob1e8djdsoefn6p

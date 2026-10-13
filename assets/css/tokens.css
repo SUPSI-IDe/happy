@@ -91,6 +91,10 @@
 	   sotto le card (solo mobile) è larga 333px, al massimo la colonna */
 	--card-larghezza: 18.875rem;
 	--illustrazione-destinatari: 20.8125rem;
+
+	/* Pagine dei profili: il riquadro del personaggio con le sue note (445 × 361 in Figma),
+	   largo 300px su mobile e 445px su desktop */
+	--illustrazione-profilo: 18.75rem;
 	--sottolineatura-bottone-hover: 0.1875rem;
 
 	/* Spaziature */
@@ -135,6 +139,7 @@
 
 		--scala-loghi: 1;
 		--card-larghezza: 20.9375rem;
+		--illustrazione-profilo: 27.8125rem;
 
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);

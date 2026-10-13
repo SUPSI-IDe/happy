@@ -6,4 +6,38 @@ Colore: arancione-famiglie
 
 ----
 
+Illustrazione: 
+- personaggio-famiglie.webp
+
+----
+
+Intro: 
+Tuo figlio o tua figlia suona uno strumento, e tu vuoi che lo faccia bene e a lungo. HAPPY raccoglie in un Toolkit strumenti semplici e concreti pensati anche per le famiglie, come materiali illustrati, consigli per lo studio a casa e spunti per parlarne con insegnanti e professionisti della salute. Senza bisogno di competenze mediche, e con risposte che nascono anche da ciò che racconti tu.
+
+----
+
+Partecipa_titolo: Come partecipare
+
+----
+
+Partecipa_testo: 
+Parti dal sondaggio, pochi minuti per dirci cosa osservi e cosa vorresti sapere.
+
+----
+
+Sondaggio_testo: Partecipa al sondaggio
+
+----
+
+Sondaggio_link: https://supsi.eu.qualtrics.com/jfe/form/SV_0HTby6h23mGExAa
+
+----
+
+Partecipa_altro: 
+Poi, se vuoi, puoi fare di più. Partecipa agli incontri pensati per le famiglie e raccontaci la tua esperienza negli HAPPY Diaries, uno spazio digitale in cui annoti quando vuoi osservazioni e riflessioni.
+
+Aderendo ricevi consigli ogni mese via newsletter, accesso prioritario ai workshop e accesso gratuito al Toolkit, alle risorse e ai concerti del CSI.
+
+----
+
 Uuid: mue9b6tlme9l5tq0

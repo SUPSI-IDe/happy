@@ -150,6 +150,12 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Mobile:** una sotto l'altra, sfalsate: la seconda rientra di `--spazio-7`, la terza di `--spazio-4`. Sotto, solo su mobile, l'illustrazione dei musicisti (`--illustrazione-destinatari`).
 - **Desktop:** in fila a tutta larghezza, a `--spazio-8` l'una dall'altra, ruotate (−4°, 2°, 5°) e scese di `--spazio-7`, 0 e `--spazio-6`, come se fossero appoggiate a mano. Se non ci stanno in tre (da 1024 a circa 1280px), vanno a capo due e una, senza stringersi. Le varianti si ripetono ogni tre card.
 
+## Pagine dei profili
+
+- **Colore:** tutta la pagina, navbar compresa, è nel colore del profilo, con il testo bianco (`.su-colore`). Il piè di pagina resta verde salvia come nelle altre pagine.
+- **Desktop:** etichetta "A chi ci rivolgiamo" e titolo (`--text-display`) nelle colonne 1–5, introduzione nelle 7–12, allineate in alto; sotto, a `--spazio-9`, il personaggio (1–5) e "Come partecipare" (7–12, titolo in `--text-titolo-2`, bottone a contorno a sinistra). **Mobile:** in colonna nello stesso ordine, personaggio e bottone centrati.
+- **Personaggio:** riquadro largo `--illustrazione-profilo` (300px su mobile, 445px su desktop), con il personaggio dal pannello e sopra le sue note (vedi "Asset di Laura"). Su mobile le note scalano con il riquadro, invece di avere le posizioni del frame mobile: la differenza è di pochi pixel.
+
 ## Piè di pagina
 
 Segue la versione desktop dei wireframe v6 (anche su mobile).
@@ -207,5 +213,5 @@ Card, sottolineature della navbar e pallini dello slider devono sembrare fatti a
 - Le illustrazioni (mascotte, personaggi dei profili, immagini delle fasi, strumenti della Ricerca) sono disegni a matita: arrivano in **PNG con sfondo trasparente**, perché la grana del tratto non si può rendere in SVG. Sono contenuti: si caricano dal pannello, nel campo dell'illustrazione della sezione o della pagina.
 - **Cambiare un'illustrazione:** nel pannello si apre l'immagine e si sceglie *Sostituisci*: nome del file e testo alternativo restano, il layout non cambia. Il file si prepara al doppio della misura con cui compare in Figma su desktop.
 - **Esportare da Figma:** in Figma le illustrazioni sono spesso un ritaglio di un foglio più grande. L'esportazione PNG di Figma può riempire di bianco lo sfondo: prima di caricarla, controllare che sia trasparente (per esempio aprendola sopra un fondo colorato).
-- **Decorazioni disegnate in Figma** (per esempio le stelline della pagina Famiglie): sono vettori, quindi diventano SVG in `assets/images/` con `stroke="currentColor"`, così prendono il colore del testo intorno (bianco sui fondi colorati). Non sono contenuti: le disegna lo snippet della pagina.
+- **Decorazioni dei profili** (note, chiave di violino, stelline): non sono contenuti, le disegna il sito. Per ogni profilo un file in `assets/images/decorazioni-<colore>`, grande quanto il riquadro del personaggio (445 × 361 in Figma, al doppio): le stelline di Famiglie, disegnate in Figma, sono un SVG; le note di Laura un WebP trasparente. Il sito le usa come maschera colorata da `--color-decorazione`, quindi sono sempre bianche sul colore.
 - I doodle stanno solo vicino a illustrazioni o mascotte, mai accanto al testo, e solo nei colori di sistema.

@@ -7,12 +7,14 @@
  * browser rimette lo scorrimento dov'era.
  * Su mobile le voci stanno dietro il pulsante menu, che apre un menu a tutto schermo con il bottone
  * "Partecipa" (testo e link da Sito → Generale); senza JavaScript restano sempre visibili.
- * Resta in alto mentre si scorre (sticky), su fondo verde salvia con testo bianco.
+ * Resta in alto mentre si scorre (sticky), con testo bianco sul verde salvia o, nelle pagine dei profili,
+ * sul colore del profilo.
  */
 $home = $site->homePage();
+$fondo = $page->colore()->or('verde-salvia');
 $voci = $home->children()->listed()->prepend($home)->filter(fn ($voce) => $voce->voce_menu()->isNotEmpty());
 ?>
-<header class="navbar su-colore fondo-verde-salvia" data-navbar>
+<header class="navbar su-colore fondo-<?= $fondo->esc('attr') ?>" data-navbar>
 	<div class="contenitore navbar-riga">
 		<a class="navbar-logo" href="<?= $site->url() ?>/#<?= $home->slug() ?>" aria-label="HAPPY, pagina iniziale">Happy</a>
 
