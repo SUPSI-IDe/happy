@@ -732,12 +732,6 @@
 	row-gap: var(--spazio-2);
 }
 
-.tendina-bottone:hover .tendina-titolo {
-	text-decoration: underline;
-	text-decoration-thickness: var(--sottolineatura-bottone-hover);
-	text-underline-offset: 0.2em;
-}
-
 /* La freccia punta in giù a tendina chiusa, in su a tendina aperta (decorativa: lo stato lo dice aria-expanded) */
 .tendina-bottone[aria-expanded]::after {
 	content: '';
@@ -747,10 +741,21 @@
 	margin-block-end: 0.4em;
 	background-color: currentColor;
 	mask: url('../images/freccia-tendina.svg') center / contain no-repeat;
+	transition: translate 0.2s ease-out;
 }
 
 .tendina-bottone[aria-expanded='true']::after {
 	rotate: 180deg;
+}
+
+/* Hover: niente sottolineatura (nel sito vuol dire link); la freccia si sposta verso dove si apre
+   la tendina, giù se è chiusa, su se è aperta (translate non segue la rotazione) */
+.tendina-bottone:hover::after {
+	translate: 0 var(--spazio-1);
+}
+
+.tendina-bottone[aria-expanded='true']:hover::after {
+	translate: 0 calc(-1 * var(--spazio-1));
 }
 
 /* L'anello di focus segue la riga del titolo, non la pillola dei bottoni */

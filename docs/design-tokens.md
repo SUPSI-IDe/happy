@@ -162,7 +162,7 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 
 ## La Ricerca (tendine)
 
-- **Tendina chiusa:** strumento disegnato (decorativo), titolo in `--text-titolo-3` con la freccia a destra, anteprima del testo. **Aperta:** la continuazione nello stesso paragrafo e i riferimenti, sotto l'etichetta "Riferimenti" (`.text-etichetta`, è un `h4`). La freccia gira in su.
+- **Tendina chiusa:** strumento disegnato (decorativo), titolo in `--text-titolo-3` con la freccia a destra, anteprima del testo. **Aperta:** la continuazione nello stesso paragrafo e i riferimenti, sotto l'etichetta "Riferimenti" (`.text-etichetta`, è un `h4`). La freccia gira in su. **Hover:** il titolo non si sottolinea (la sottolineatura nel sito vuol dire link); la freccia si sposta di `--spazio-1` verso dove si apre la tendina.
 - **Riferimenti:** a 20px (`--text-corpo`), con il titolo dell'articolo come link al DOI (verde salvia, grassetto, sottolineato). In Figma erano a 16px: il verde a 16px non arriva al contrasto 4.5:1 (regola 6).
 - **Linee:** tra le tendine una linea di `--linea-sottile` (1px) in Carbone, anche sotto l'ultima. In Figma era nera e di 0.5px: il nero puro non si usa. È interna all'elenco, non un divisore di pagina.
 - **Spazi:** `--spazio-5` sopra e `--spazio-7` sotto il contenuto di ogni tendina, `--spazio-4` tra le parti.
