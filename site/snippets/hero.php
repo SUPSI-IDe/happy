@@ -4,6 +4,8 @@
  * Un solo HTML nell'ordine logo → video → presentazione; il CSS lo dispone (components.css, "Hero"):
  * - mobile: logo e video sul verde, la presentazione sotto, sul bianco;
  * - desktop: tutto sul verde in una schermata, presentazione nelle colonne 1–5 e video nelle 6–12.
+ * Sotto la presentazione il bottone "Partecipa" (il questionario, da Sito → Generale): su desktop in basso,
+ * alla stessa altezza della fine di video e crediti.
  * Il logo è un SVG perché Fraunces molto grande si deforma; "Happy" resta leggibile dallo screen reader.
  * Il video compare solo con i suoi sottotitoli (regola d'oro). Non parte da solo e si scarica solo quando
  * si preme play (preload="none"): fino ad allora si vede la copertina, con un grande tasto play al centro
@@ -58,6 +60,9 @@ $sottotitoli = $page->sottotitoli()->toFile();
 		<div class="hero-presentazione">
 			<h2 class="titolo-sezione"><?= $page->presentazione_titolo()->esc() ?></h2>
 			<?= $page->presentazione_testo()->kirbytext() ?>
+			<?php if ($site->partecipa_link()->isNotEmpty()): ?>
+				<?php snippet('bottone', ['href' => $site->partecipa_link()->value(), 'variante' => 'contorno', 'class' => 'hero-partecipa'], slots: true) ?><?= $site->partecipa_testo()->esc() ?><?php endsnippet() ?>
+			<?php endif ?>
 		</div>
 	</div>
 </section>
