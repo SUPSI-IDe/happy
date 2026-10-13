@@ -1,0 +1,44 @@
+Title: Il progetto RISMUS: la base del lavoro
+
+----
+
+Illustrazione:
+
+- strumento-1.webp
+
+----
+
+Anteprima: Una parte importante della ricerca alla base di HAPPY nasce dal progetto RISMUS (Risk of Music Students), finanziato dal Fondo nazionale svizzero (FNS), che ha studiato i disturbi legati alla pratica strumentale negli studenti universitari di musica in Europa.
+
+----
+
+Testo: 
+
+----
+
+Riferimenti:
+
+-
+  autori: "Cruder, C., Koufaki, P., Barbero, M., & Gleeson, N. (2019)."
+  titolo: "A longitudinal investigation of the factors associated with increased risk of playing-related musculoskeletal disorders in music students (RISMUS): a study protocol."
+  link: https://doi.org/10.1186/s12891-019-2440-4
+  fonte: "BMC Musculoskeletal Disorders, 20(1), 64."
+-
+  autori: "Cruder, C., Barbero, M., Koufaki, P., Soldini, E., & Gleeson, N. (2020)."
+  titolo: "Prevalence and associated factors of playing-related musculoskeletal disorders among music students in Europe."
+  link: https://doi.org/10.1371/journal.pone.0242660
+  fonte: "PLoS One, 15(12), e0242660."
+-
+  autori: "Cruder, C., Barbero, M., Soldini, E., & Gleeson, N. (2021)."
+  titolo: "Patterns of pain location in music students: a cluster analysis."
+  link: https://doi.org/10.1186/s12891-021-04046-6
+  fonte: "BMC Musculoskeletal Disorders, 22(1), 184."
+-
+  autori: "Cruder, C., Soldini, E., Gleeson, N., & Barbero, M. (2023)."
+  titolo: "Factors associated with increased risk of playing-related disorders among classical music students within the RISMUS longitudinal study."
+  link: https://doi.org/10.1038/s41598-023-49965-7
+  fonte: "Scientific Reports, 13(1), 22939."
+
+----
+
+Uuid: 7mo2gp3imptworzb

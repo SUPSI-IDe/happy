@@ -4,7 +4,7 @@
 
 - **Kirby 5:** CMS in PHP, senza database. I contenuti sono file di testo in `content/`; i tipi di contenuto sono blueprint YAML in `site/blueprints/`; le pagine si costruiscono con template e snippet PHP. Dettagli, pannello e ruoli in `docs/kirby.md`.
 - **CSS vanilla con custom properties:** nessun framework; tutti i valori grafici vengono dai design token.
-- **JavaScript:** solo dove serve (il menu su mobile, il carosello delle fasi), sempre come miglioramento: senza, il sito funziona.
+- **JavaScript:** solo dove serve (il menu su mobile, il carosello delle fasi, le tendine), sempre come miglioramento: senza, il sito funziona.
 - **Video:** sul server del sito, non su una piattaforma esterna (niente cookie né script di terzi): MP4 (H.264) compresso, con i sottotitoli in un file `.vtt`. Kirby non conosce i `.vtt`: li registra il plugin `site/plugins/sottotitoli`. Un video troppo pesante per il caricamento dal pannello si carica con FileZilla nella cartella della pagina e poi si sceglie nel pannello. I video non vanno in git (`.gitignore`).
 - **Form:** link a moduli esterni (Qualtrics della SUPSI); il link del bottone "Partecipa" sta in Sito → Generale.
 - **Hosting:** SUPSI, `happy.supsi.ch` (da confermare: PHP 8.2 o più recente).
@@ -71,4 +71,5 @@ Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tas
 | `Card` (in `sezioni/destinatari`) | Card dei profili: un link alla pagina del profilo, sulla macchia a matita del suo colore; tre varianti di posizione e rotazione (vedi `docs/design-tokens.md`, "Card dei profili") |
 | `Button` (`bottone`) | Bottone o link con l'aspetto di un bottone. Varianti `pieno` e `contorno`; con `href` è un link |
 | Video (nella `Hero`) | `<video>` del browser, 16:9, con i controlli e i sottotitoli attivi. Non parte da solo e si scarica solo quando si preme play (`preload="none"`); fino ad allora mostra la copertina. Senza sottotitoli non compare |
+| Tendine (`sezioni/ricerca` e `assets/js/tendine.js`) | Il titolo è un bottone dentro l'`h3` che apre e chiude la continuazione del testo e i riferimenti (`aria-expanded`, `aria-controls`). Senza JavaScript restano aperte |
 | Carosello delle fasi (`sezioni/fasi` e `assets/js/fasi.js`) | Una fase alla volta, con frecce e pallini (bottoni con un nome per lo screen reader; la fase nuova viene letta, `aria-live`). Senza JavaScript le fasi restano un elenco |

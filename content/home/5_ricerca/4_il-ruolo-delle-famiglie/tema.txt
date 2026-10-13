@@ -1,0 +1,44 @@
+Title: Il ruolo delle famiglie
+
+----
+
+Illustrazione:
+
+- strumento-4.webp
+
+----
+
+Anteprima: I genitori sono spesso i primi a osservare sintomi di disagio fisico nei figli, ma raramente dispongono di strumenti adeguati per riconoscerli o affrontarli.
+
+----
+
+Testo: La ricerca indica che informare le famiglie contribuisce alla prevenzione precoce.
+
+----
+
+Riferimenti:
+
+-
+  autori: "Ackermann, B. J., & Driscoll, T. R. (2013)."
+  titolo: "Attitudes and practices of parents of teenage musicians to health issues related to playing an instrument."
+  link: https://doi.org/10.21091/mppa.2013.1005
+  fonte: "Medical Problems of Performing Artists, 28(1), 24-27."
+-
+  autori: "Gembris, H., & Davidson, J. (2002)."
+  titolo: "Environmental influences."
+  link: https://doi.org/10.1093/acprof:oso/9780195138108.003.0002
+  fonte: "In R. Parncutt & G. E. McPherson (Eds.), The Science and Psychology of Music Performance. Oxford University Press."
+-
+  autori: "McKechnie, N. C., & Jacobs, K. (2011)."
+  titolo: "Physical and environmental factors contributing to music related injuries among children."
+  link: https://doi.org/10.3233/WOR-2011-1234
+  fonte: "Work, 40(3), 303-315."
+-
+  autori: "Ranelli, S., Smith, A., & Straker, L. (2015)."
+  titolo: "The association of music experience, pattern of practice and performance anxiety with playing-related musculoskeletal problems in children."
+  link: https://doi.org/10.1177/0255761415597151
+  fonte: "International Journal of Music Education, 33, 390-412."
+
+----
+
+Uuid: iahfddg8s499dhvv

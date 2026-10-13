@@ -1,10 +1,23 @@
 title: Tema della ricerca
+# Una tendina della Ricerca: lo strumento disegnato, il titolo e l'anteprima si vedono sempre; il resto
+# del testo e i riferimenti si vedono aprendo la tendina
 fields:
-  illustrazione: fields/illustrazione
-  testo:
-    label: Testo
+  illustrazione:
+    extends: fields/illustrazione
+    label: Strumento
+    help: Decorativo, trasparente, al doppio della misura con cui compare
+  anteprima:
+    label: Anteprima
     type: textarea
-    size: medium
+    size: small
+    buttons: false
+    help: La prima frase, sempre visibile anche con la tendina chiusa
+  testo:
+    label: Continuazione
+    type: textarea
+    size: small
+    buttons: false
+    help: Il resto del testo, che compare aprendo la tendina subito dopo l'anteprima. Può restare vuoto
   riferimenti:
     label: Riferimenti
     type: structure

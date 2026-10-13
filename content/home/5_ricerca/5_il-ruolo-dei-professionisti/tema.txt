@@ -1,0 +1,39 @@
+Title: Il ruolo dei professionisti della salute
+
+----
+
+Illustrazione:
+
+- strumento-5.webp
+
+----
+
+Anteprima: Prendersi cura della salute di un giovane musicista richiede di conoscere anche le caratteristiche della pratica strumentale.
+
+----
+
+Testo: HAPPY vuole favorire questo incontro tra il mondo della salute e quello della musica, creando occasioni di confronto e condivisione tra professionisti.
+
+----
+
+Riferimenti:
+
+-
+  autori: "Ackermann, B. J. (2018)."
+  titolo: "Making health care worth it: increasing value and awareness in performing arts medicine."
+  link: https://doi.org/10.21091/mppa.2018.2022
+  fonte: "Medical Problems of Performing Artists, 33(2), 146."
+-
+  autori: "Stanhope, J. (2020)."
+  titolo: "Should musicians play in pain?"
+  link: https://doi.org/10.1177/2049463720911399
+  fonte: "British Journal of Pain."
+-
+  autori: "Stanhope, J., Pisaniello, D., & Weinstein, P. (2022)."
+  titolo: "The effect of strategies to prevent and manage musicians’ musculoskeletal symptoms: A systematic review."
+  link: https://doi.org/10.1080/19338244.2020.1860879
+  fonte: "Archives of Environmental and Occupational Health, 77(3), 185-208."
+
+----
+
+Uuid: k6yx26do4e5wvelp

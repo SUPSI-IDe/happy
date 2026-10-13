@@ -29,8 +29,8 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 | **Destinatari** | titolo, voce di menu, testo, testo del link delle card, illustrazione | A chi ci rivolgiamo. Le card si creano da sole dalle pagine dei profili pubblicate, nel loro ordine (Sito → Pagine); la card mostra il titolo del profilo. L'illustrazione si vede solo su mobile, sotto le card |
 | **Fasi** | titolo, voce di menu | Contiene le fasi, nell'ordine del pannello |
 | **Fase** | titolo, illustrazione (16:9), descrizione | Il numero della fase è la sua posizione, non un campo. Si vedono solo le fasi pubblicate, nell'ordine del pannello |
-| **Ricerca** | titolo, voce di menu, testo | Contiene i temi |
-| **Tema** | titolo, illustrazione, testo, riferimenti (autori e anno, titolo, link DOI, rivista) | Una tendina della Ricerca |
+| **Ricerca** | titolo, voce di menu, testo, titolo dei riferimenti | Contiene i temi, nell'ordine del pannello |
+| **Tema** | titolo, strumento (illustrazione decorativa), anteprima, continuazione, riferimenti (autori e anno, titolo, link DOI, rivista) | Una tendina della Ricerca: strumento, titolo e anteprima sempre visibili; aprendola, la continuazione del testo e i riferimenti, con il link DOI sul titolo dell'articolo |
 | **Team** | titolo, voce di menu | Contiene i gruppi. Il primo è sempre aperto, gli altri sono tendine |
 | **Gruppo** | titolo, membri (nome, link, ruolo, ente) | Gruppo di progetto, Consulenti, Partner, Scuole. Per i partner e le scuole basta il nome |
 | **Contatti** | titolo, voce di menu, testo, email, illustrazione | Chiude la home prima del piè di pagina: titolo piccolo senza segno, mascotte decorativa. È una sezione a sé (con la sua voce di menu e il suo `h2`) perché i contatti non riguardano solo il team |

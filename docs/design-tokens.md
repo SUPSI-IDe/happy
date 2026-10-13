@@ -160,6 +160,13 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Frecce:** cerchi verdi di `--freccia-fasi`, 44px (in Figma 22px su mobile, troppo piccole per il dito, e 56px su desktop, troppo grandi). **Pallini:** `--pallino-fasi` (12px mobile, 16px desktop) a contorno, pieno quello della fase visibile; l'area che reagisce al tocco è alta 44px.
 - **Decorazioni:** sopra la fine del titolo, le note di Laura su desktop (`note-fasi.webp`) e le stelline su mobile (`stelline-fasi.webp`), come nei wireframe.
 
+## La Ricerca (tendine)
+
+- **Tendina chiusa:** strumento disegnato (decorativo), titolo in `--text-titolo-3` con la freccia a destra, anteprima del testo. **Aperta:** la continuazione nello stesso paragrafo e i riferimenti, sotto l'etichetta "Riferimenti" (`.text-etichetta`, è un `h4`). La freccia gira in su.
+- **Riferimenti:** a 20px (`--text-corpo`), con il titolo dell'articolo come link al DOI (verde salvia, grassetto, sottolineato). In Figma erano a 16px: il verde a 16px non arriva al contrasto 4.5:1 (regola 6).
+- **Linee:** tra le tendine una linea di `--linea-sottile` (1px) in Carbone, anche sotto l'ultima. In Figma era nera e di 0.5px: il nero puro non si usa. È interna all'elenco, non un divisore di pagina.
+- **Spazi:** `--spazio-5` sopra e `--spazio-7` sotto il contenuto di ogni tendina, `--spazio-4` tra le parti.
+
 ## Pagine dei profili
 
 - **Colore:** tutta la pagina, navbar compresa, è nel colore del profilo, con il testo bianco (`.su-colore`). Il piè di pagina resta verde salvia come nelle altre pagine.

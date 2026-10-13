@@ -14,7 +14,7 @@ Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e v
 - **Solo token:** colori, font e spaziature vengono sempre da `tokens.css`. Mai valori scritti a mano nei componenti.
 - **Misure in rem**, mai in px, per rispettare lo zoom WCAG.
 - **Testo corrente mai a tutta larghezza:** colonna massima 42.5rem (`--colonna-testo`).
-- **Un solo divisore orizzontale per pagina**, sotto la navbar.
+- **Un solo divisore orizzontale di pagina**, sotto la navbar. Le linee sottili interne a un elenco di tendine (La Ricerca) sono ammesse.
 - **Video sempre 16:9**, su desktop e mobile.
 - **Doodle e note decorative mai sopra o in mezzo al testo corrente:** stanno vicino a illustrazioni, mascotte o alla fine di un titolo. Quelli disegnati per il sito sono nei colori di sistema; le note di Laura hanno i loro colori.
 - **Testi nei file di contenuto**, mai scritti direttamente nei componenti.

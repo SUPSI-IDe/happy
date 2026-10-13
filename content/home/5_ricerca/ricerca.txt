@@ -6,4 +6,12 @@ Voce-menu: La ricerca
 
 ----
 
+Testo: La ricerca sulla salute dei musicisti è una parte importante di HAPPY: ci aiuta a capire quali aspetti approfondire, a sviluppare gli strumenti del progetto e a valutarne l'efficacia. Di seguito trovi i principali studi che fanno da riferimento al progetto, organizzati per tema.
+
+----
+
+Riferimenti_titolo: Riferimenti
+
+----
+
 Uuid: zui1tbjqrhb2ykim
