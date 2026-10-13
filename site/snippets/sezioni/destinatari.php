@@ -29,7 +29,7 @@ $illustrazione = $sezione->illustrazione()->toFile();
 			</ul>
 		<?php endif ?>
 		<?php if ($illustrazione): ?>
-			<img class="destinatari-illustrazione" src="<?= $illustrazione->url() ?>" alt="<?= $illustrazione->alt()->esc('attr') ?>" width="<?= $illustrazione->width() ?>" height="<?= $illustrazione->height() ?>" loading="lazy">
+			<?php snippet('immagine', ['file' => $illustrazione, 'sizes' => '80vw', 'attr' => ['class' => 'destinatari-illustrazione']]) ?>
 		<?php endif ?>
 	<?php endslot() ?>
 <?php endsnippet() ?>

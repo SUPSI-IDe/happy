@@ -21,7 +21,7 @@ $fasi = $sezione->children()->listed();
 				<?php $illustrazione = $fase->illustrazione()->toFile() ?>
 				<li class="fase">
 					<?php if ($illustrazione): ?>
-						<img class="fase-immagine" src="<?= $illustrazione->url() ?>" alt="<?= $illustrazione->alt()->esc('attr') ?>" width="<?= $illustrazione->width() ?>" height="<?= $illustrazione->height() ?>" loading="lazy">
+						<?php snippet('immagine', ['file' => $illustrazione, 'sizes' => '(min-width: 64rem) 53vw, 75vw', 'attr' => ['class' => 'fase-immagine']]) ?>
 					<?php endif ?>
 					<div class="fase-testo">
 						<span class="fase-numero" aria-hidden="true"><?= $numero ?></span>

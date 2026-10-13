@@ -27,7 +27,7 @@ $illustrazione = $page->illustrazione()->toFile();
 
 		<?php if ($illustrazione): ?>
 			<div class="profilo-illustrazione profilo-illustrazione--<?= $colore ?>">
-				<img src="<?= $illustrazione->url() ?>" alt="<?= $illustrazione->alt()->esc('attr') ?>" width="<?= $illustrazione->width() ?>" height="<?= $illustrazione->height() ?>">
+				<?php snippet('immagine', ['file' => $illustrazione, 'sizes' => '(min-width: 64rem) 28rem, 19rem']) ?>
 			</div>
 		<?php endif ?>
 

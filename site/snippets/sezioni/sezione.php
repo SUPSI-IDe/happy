@@ -10,7 +10,7 @@ $partecipa = $sezione->partecipa()->toBool() && $site->partecipa_link()->isNotEm
 <?php snippet('sezione', ['sezione' => $sezione], slots: true) ?>
 	<?php if ($illustrazione): ?>
 		<?php slot('laterale') ?>
-			<img class="sezione-illustrazione" src="<?= $illustrazione->url() ?>" alt="<?= $illustrazione->alt()->esc('attr') ?>" width="<?= $illustrazione->width() ?>" height="<?= $illustrazione->height() ?>">
+			<?php snippet('immagine', ['file' => $illustrazione, 'sizes' => '(min-width: 64rem) 37vw, 70vw', 'attr' => ['class' => 'sezione-illustrazione']]) ?>
 		<?php endslot() ?>
 	<?php endif ?>
 

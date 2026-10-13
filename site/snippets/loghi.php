@@ -12,6 +12,7 @@
 			'alt'    => $logo->alt()->value(),
 			'width'  => $logo->width(),
 			'height' => $logo->height(),
+			'loading' => 'lazy',
 			'style'  => $logo->larghezza()->isNotEmpty() ? '--larghezza: ' . $logo->larghezza()->toInt() / 16 . 'rem' : null,
 		]) ?>
 		<li>

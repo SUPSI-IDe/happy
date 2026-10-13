@@ -32,7 +32,7 @@ MAInD-HAPPY/
 │   ├── blueprints/        ← pages/ un file per tipo di contenuto (vedi ontology.md),
 │   │                        fields/ campi riusati in più tipi, users/ i ruoli
 │   ├── templates/         ← una pagina intera: home, profilo, e default.php per le altre
-│   ├── snippets/          ← layout, navbar, hero, footer, bottone, sezione (struttura comune), membri;
+│   ├── snippets/          ← layout, navbar, hero, footer, bottone, sezione (struttura comune), membri, immagine;
 │   │                        sezioni/ uno per tipo di sezione
 │   ├── plugins/           ← sottotitoli: Kirby accetta i file .vtt
 │   └── config/            ← impostazioni e redirect delle sezioni
@@ -58,6 +58,8 @@ Le sezioni non hanno un indirizzo proprio: una regola in `site/config/config.php
 
 ## Struttura di ogni pagina
 
+Nel `<head>` lo snippet `layout` mette il titolo della scheda (prima la pagina, poi "HAPPY"; sulla home il nome esteso), la descrizione e l'anteprima del link (Open Graph, da Sito → Condivisione; i profili usano la loro introduzione) e la favicon (la H del logo su verde salvia: `assets/images/favicon.svg`, `apple-touch-icon.png`, e `favicon.ico` nella radice per i browser che la cercano lì).
+
 Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tastiera), la `Navbar` e `<main id="contenuto">` con il contenuto della pagina (un solo `h1`). Poi il `Footer`. I template lo usano con `snippet('layout', slots: true)` e scrivono solo il contenuto. Con `'main' => '…'` il `<main>` riceve delle classi: le pagine dei profili lo colorano così (`su-colore fondo-<colore>`), e la `Navbar` prende lo stesso colore dal campo `colore` della pagina (verde salvia se non c'è).
 
 ## Componenti
@@ -72,5 +74,6 @@ Lo snippet `layout` mette in ogni pagina: il link "Vai al contenuto" (per la tas
 | `Button` (`bottone`) | Bottone o link con l'aspetto di un bottone. Varianti `pieno` e `contorno`; con `href` è un link |
 | Video (nella `Hero`) | `<video>` del browser, 16:9, con i controlli e i sottotitoli attivi. Non parte da solo e si scarica solo quando si preme play (`preload="none"`); fino ad allora mostra la copertina. Senza sottotitoli non compare |
 | Tendine (`sezioni/ricerca`, `sezioni/team` e `assets/js/tendine.js`) | Il titolo è un bottone dentro l'`h3` che apre e chiude ciò che controlla (`aria-expanded`, `aria-controls`): nella Ricerca la continuazione del testo e i riferimenti, nel Team l'elenco del gruppo. Senza JavaScript restano aperte. Lo script è un modulo, così il browser lo esegue una volta sola anche se lo caricano due sezioni |
+| Immagine (`immagine`) | Ogni immagine caricata dal pannello: Kirby ne crea versioni WebP più piccole (qualità 80, `site/config/config.php`) e il browser sceglie la misura adatta (`srcset` e `sizes`). Si scarica solo quando ci si avvicina (`loading="lazy"`), tranne nella hero. Nel pannello si carica l'originale |
 | Membri (`membri`) | L'elenco di un gruppo del team: persone (nome come link, ruolo ed ente) o soli nomi (partner, scuole), a seconda dei campi compilati |
 | Carosello delle fasi (`sezioni/fasi` e `assets/js/fasi.js`) | Una fase alla volta, con frecce e pallini (bottoni con un nome per lo screen reader; la fase nuova viene letta, `aria-live`). Senza JavaScript le fasi restano un elenco |
