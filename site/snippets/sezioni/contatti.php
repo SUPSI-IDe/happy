@@ -19,7 +19,7 @@ $illustrazione = $sezione->illustrazione()->toFile();
 			<?php endif ?>
 		</div>
 		<?php if ($illustrazione): ?>
-			<img class="contatti-mascotte" src="<?= $illustrazione->url() ?>" alt="<?= $illustrazione->alt()->esc('attr') ?>" width="<?= $illustrazione->width() ?>" height="<?= $illustrazione->height() ?>">
+			<?php snippet('immagine', ['file' => $illustrazione, 'sizes' => '(min-width: 64rem) 19rem, 12.5rem', 'attr' => ['class' => 'contatti-mascotte']]) ?>
 		<?php endif ?>
 	</div>
 </section>

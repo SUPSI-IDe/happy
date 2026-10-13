@@ -61,3 +61,13 @@ Piede_link:
 ----
 
 Piede_copyright: © 2026 SUPSI
+
+----
+
+Condivisione_testo: HAPPY è un progetto della SUPSI che riunisce insegnanti di musica, famiglie e professionisti della salute per promuovere la salute dei giovani musicisti.
+
+----
+
+Condivisione_immagine:
+
+- condivisione.jpg

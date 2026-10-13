@@ -24,17 +24,17 @@ $sottotitoli = $page->sottotitoli()->toFile();
 				<p class="text-titolo-3 hero-sottotitolo"><?= $site->nome_esteso()->esc() ?></p>
 			<?php endif ?>
 			<?php if ($mascotte): ?>
-				<img class="hero-mascotte" src="<?= $mascotte->url() ?>" alt="<?= $mascotte->alt()->esc('attr') ?>" width="<?= $mascotte->width() ?>" height="<?= $mascotte->height() ?>">
+				<?php snippet('immagine', ['file' => $mascotte, 'sizes' => '(min-width: 64rem) 12.5rem, 6.25rem', 'subito' => true, 'attr' => ['class' => 'hero-mascotte']]) ?>
 			<?php endif ?>
 		</div>
 
 		<?php if ($video && $sottotitoli): ?>
-			<video class="hero-video" controls preload="none" playsinline <?= attr(['poster' => $copertina?->url()]) ?>>
+			<video class="hero-video" controls preload="none" playsinline <?= attr(['poster' => $copertina?->thumb(['width' => 1280, 'format' => 'webp'])->url()]) ?>>
 				<source src="<?= $video->url() ?>" type="<?= $video->mime() ?>">
 				<track kind="captions" src="<?= $sottotitoli->url() ?>" srclang="it" label="Italiano" default>
 			</video>
 		<?php elseif ($copertina): ?>
-			<img class="hero-video" src="<?= $copertina->url() ?>" alt="<?= $copertina->alt()->esc('attr') ?>" width="<?= $copertina->width() ?>" height="<?= $copertina->height() ?>">
+			<?php snippet('immagine', ['file' => $copertina, 'sizes' => '(min-width: 64rem) 53vw, 100vw', 'subito' => true, 'attr' => ['class' => 'hero-video']]) ?>
 		<?php else: ?>
 			<div class="hero-video hero-video--vuoto" aria-hidden="true"></div>
 		<?php endif ?>

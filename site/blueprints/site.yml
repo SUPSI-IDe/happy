@@ -26,6 +26,24 @@ tabs:
         type: url
         help: Il modulo di iscrizione (Qualtrics della SUPSI). Senza link il bottone non compare
         width: 1/2
+  condivisione:
+    label: Condivisione
+    icon: share
+    fields:
+      condivisione_info:
+        type: info
+        text: Cosa compare quando qualcuno manda il link del sito (mail, WhatsApp, Teams, social) e nei risultati di ricerca
+      condivisione_testo:
+        label: Descrizione
+        type: textarea
+        size: small
+        buttons: false
+        maxlength: 200
+        help: Una o due frasi sul progetto. Le pagine dei profili usano la loro introduzione
+      condivisione_immagine:
+        extends: fields/illustrazione
+        label: Immagine dell'anteprima
+        help: Orizzontale, 1200 × 630. Il testo alternativo descrive l'immagine
   piede:
     label: Piè di pagina
     icon: text

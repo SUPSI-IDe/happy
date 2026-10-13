@@ -28,7 +28,7 @@ $temi = $sezione->children()->listed();
 						<button class="tendina-bottone" type="button" <?= attr(['aria-expanded' => $parti ? 'true' : null, 'aria-controls' => implode(' ', $parti) ?: null, 'data-tendina' => $parti ? true : null]) ?>>
 							<span class="tendina-titolo">
 								<?php if ($strumento): ?>
-									<img src="<?= $strumento->url() ?>" alt="" width="<?= round($strumento->width() / 2) ?>" height="<?= round($strumento->height() / 2) ?>">
+									<?php snippet('immagine', ['file' => $strumento, 'sizes' => '6rem', 'attr' => ['alt' => '', 'width' => round($strumento->width() / 2), 'height' => round($strumento->height() / 2)]]) ?>
 								<?php endif ?>
 								<?= $tema->title()->esc() ?>
 							</span>
