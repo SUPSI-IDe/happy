@@ -450,11 +450,13 @@
 		margin-block-start: var(--spazio-4);
 	}
 
+	/* Lo spazio sotto tiene dentro la sezione gli angoli delle card ruotate */
 	.card-profili {
 		flex-flow: row wrap;
 		justify-content: center;
 		align-items: start;
 		gap: var(--spazio-6) var(--spazio-8);
+		padding-block-end: var(--spazio-6);
 	}
 
 	.card-profili > li {

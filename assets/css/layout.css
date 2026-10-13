@@ -13,12 +13,14 @@ main > .sezione:last-child {
 }
 
 /* Sezione alta almeno uno schermo sotto la navbar, con il contenuto al centro: arrivando dal menu si
-   vede solo lei (decisione dei wireframe dell'8 ottobre). Se il contenuto è più alto, la sezione cresce */
+   vede solo lei (decisione dei wireframe dell'8 ottobre). Se il contenuto è più alto, la sezione cresce.
+   Lo spazio sopra e sotto è quello tra le sezioni: così non entra niente di quelle vicine (per esempio
+   gli angoli delle card ruotate di A chi ci rivolgiamo) */
 .sezione--schermo {
 	display: grid;
 	align-content: center;
 	min-block-size: calc(100svh - var(--navbar-altezza));
-	padding-block: var(--spazio-6);
+	padding-block: var(--spazio-sezione);
 }
 
 /* Container: il margine di pagina ai lati, a ogni larghezza dello schermo */
