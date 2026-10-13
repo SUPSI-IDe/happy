@@ -8,7 +8,7 @@ Membri:
   nome: "Cinzia Cruder"
   link: https://www.supsi.ch/cinzia-cruder
   ruolo: "Ricercatrice"
-  ente: "SUPSI DEASS, SUM-CSI"
+  ente: "SUPSI DEASS, <a href=\"https://www.conservatorio.ch/it/scuola-universitaria\">SUM-CSI</a>"
 -
   nome: "Antonio Amendola"
   link: https://www.supsi.ch/antonio-amendola
@@ -18,22 +18,22 @@ Membri:
   nome: "Massimo Zicari"
   link: https://www.conservatorio.ch/it/scuola-universitaria/ricerca/team/massimo-zicari
   ruolo: "Musicologo e professore di ricerca"
-  ente: "SUM-CSI"
+  ente: "<a href=\"https://www.conservatorio.ch/it/scuola-universitaria\">SUM-CSI</a>"
 -
   nome: "Serena Cangiano"
   link: https://www.supsi.ch/serena-cangiano
   ruolo: "Ricercatrice senior"
-  ente: "SUPSI DACD, IDe"
+  ente: "SUPSI DACD, <a href=\"https://www.supsi.ch/ide\">IDe</a>"
 -
   nome: "Ginevra Terenghi"
   link: https://www.supsi.ch/ginevra-terenghi
   ruolo: "Ricercatrice postdoc"
-  ente: "SUPSI DACD, IDe"
+  ente: "SUPSI DACD, <a href=\"https://www.supsi.ch/ide\">IDe</a>"
 -
   nome: "Nerea Asensio Tornero"
   link: https://www.linkedin.com/in/nereaasensio/
   ruolo: "Interaction designer"
-  ente: "SUPSI DACD, IDe"
+  ente: "SUPSI DACD, <a href=\"https://www.supsi.ch/ide\">IDe</a>"
 -
   nome: "Laura Bassi"
   link: https://www.fisiocamera.it/
@@ -43,7 +43,7 @@ Membri:
   nome: "Paolo Paolantonio"
   link: https://www.conservatorio.ch/it/scuola-universitaria/ricerca/team/paolo-paolantonio
   ruolo: "Docente ricercatore"
-  ente: "SUM-CSI"
+  ente: "<a href=\"https://www.conservatorio.ch/it/scuola-universitaria\">SUM-CSI</a>"
 -
   nome: "Luciano Zampar"
   link: https://www.lucianozampar.com/

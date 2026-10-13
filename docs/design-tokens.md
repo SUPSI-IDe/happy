@@ -170,7 +170,7 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 ## Il team
 
 - **Gruppo di progetto:** sempre visibile, titolo in `--text-titolo-2` (un `h3`). **Gli altri gruppi** (consulenti, partner, scuole) sono tendine come quelle della Ricerca, con il titolo in `--text-titolo-2` e la freccia al centro del titolo. Chiusa, una tendina ha `--spazio-5` sopra e sotto il titolo.
-- **Persone:** nome in `--text-titolo-3`, link verde salvia sottolineato al profilo; sotto, a `--spazio-2`, ruolo ed ente in `--text-corpo`. Due colonne su desktop (gutter tra le colonne), una su mobile.
+- **Persone:** nome in `--text-titolo-3`, link verde salvia sottolineato al profilo; sotto, a `--spazio-2`, ruolo ed ente in `--text-corpo`. Nell'ente il nome di un istituto (IDe, SUM-CSI, 2rLab) può essere un link al suo sito, con lo stile dei link. Due colonne su desktop (gutter tra le colonne), una su mobile.
 - **Partner e scuole:** solo i nomi, in `--text-corpo`, a `--spazio-3` l'uno dall'altro.
 - **Spazi:** `--spazio-gruppo` (24px mobile, 32px desktop) tra il titolo di un gruppo e i membri e tra una persona e l'altra; tra il gruppo di progetto e le tendine `--spazio-6` su mobile, `--spazio-7` su desktop.
 
