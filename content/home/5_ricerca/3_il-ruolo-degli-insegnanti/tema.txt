@@ -1,0 +1,48 @@
+Title: Il ruolo degli insegnanti di musica
+
+----
+
+Illustrazione:
+
+- strumento-3.webp
+
+----
+
+Anteprima: Gli insegnanti hanno un ruolo importante nella salute dei giovani musicisti.
+
+----
+
+Testo: La ricerca mostra che una formazione specifica può aiutarli a portare nella pratica didattica maggiore attenzione alla salute e al benessere degli allievi.
+
+----
+
+Riferimenti:
+
+-
+  autori: "Hildebrandt, H., & Nubling, M. (2004)."
+  titolo: "Providing further training in musicophysiology to instrumental teachers."
+  link: https://doi.org/10.21091/mppa.2004.2010
+  fonte: "Medical Problems of Performing Artists, 19(2), 62-69."
+-
+  autori: "Evans, A., Rennie-Salonen, B., Wijsman, S., & Ackermann, B. (2024)."
+  titolo: "A scoping review of occupational health education programs for music students and teachers."
+  link: https://doi.org/10.1177/1321103X241235794
+  fonte: "Research Studies in Music Education, 46(3), 493-515."
+-
+  autori: "Rickert, D. L. L., Barrett, M. S., & Ackermann, B. J. (2015)."
+  titolo: "Are music students fit to play?"
+  link: https://doi.org/10.1177/0255761415582343
+  fonte: "International Journal of Music Education, 1-16."
+-
+  autori: "Wijsman, S., & Ackermann, B. J. (2019)."
+  titolo: "Educating Australian musicians: are we playing it safe?"
+  link: https://doi.org/10.1093/heapro/day030
+  fonte: "Health Promotion International, 34(4), 869-876."
+-
+  autori: "Wijsman, S., & Ackermann, B. (2025)."
+  titolo: "Instrumental and vocal music teachers’ health knowledge and health promotion strategies."
+  fonte: "PAMA Annual Symposium, Washington DC."
+
+----
+
+Uuid: rduv9t7roqbnjbkb

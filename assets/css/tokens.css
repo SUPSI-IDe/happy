@@ -107,6 +107,10 @@
 	--pallino-fasi-bordo: 0.0625rem;
 	--controlli-fasi: 19.4375rem;
 	--decorazione-fasi: 3.5rem;
+
+	/* Tendine (La Ricerca): la linea sottile tra una tendina e l'altra e la freccia (27 × 9 in Figma) */
+	--linea-sottile: 0.0625rem;
+	--freccia-tendina: 1.6875rem;
 	--sottolineatura-bottone-hover: 0.1875rem;
 
 	/* Spaziature */

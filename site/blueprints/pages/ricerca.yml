@@ -8,6 +8,12 @@ sections:
         label: Testo
         type: textarea
         size: medium
+      riferimenti_titolo:
+        label: Titolo dei riferimenti
+        type: text
+        placeholder: Riferimenti
+        help: Sopra l'elenco dei riferimenti di ogni tema
+        width: 1/2
   temi:
     type: pages
     headline: Temi

@@ -679,6 +679,90 @@
 	}
 }
 
+/* Tendine (snippet sezioni/ricerca e assets/js/tendine.js). Ogni tendina: lo strumento e il titolo
+   (un bottone, con la freccia a destra), l'anteprima sempre visibile e, aperta, il resto del testo e
+   i riferimenti. Tra le tendine una linea sottile in Carbone: è interna all'elenco, non un divisore
+   della pagina (la regola del divisore unico riguarda la pagina) */
+
+.tendine {
+	margin-block-start: var(--spazio-6);
+}
+
+.tendina {
+	padding-block: var(--spazio-5) var(--spazio-7);
+	border-block-start: var(--linea-sottile) solid var(--color-testo);
+}
+
+.tendina:last-child {
+	border-block-end: var(--linea-sottile) solid var(--color-testo);
+}
+
+.tendina > * + *,
+.tendina-riferimenti li + li {
+	margin-block-start: var(--spazio-4);
+}
+
+.tendina-riferimenti h4 + ul {
+	margin-block-start: var(--spazio-3);
+}
+
+.tendina-riferimenti ul {
+	padding: 0;
+	list-style: none;
+}
+
+/* Il bottone occupa tutta la riga: strumento e titolo a sinistra, freccia a destra in basso */
+.tendina-bottone {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+	column-gap: var(--spazio-4);
+	inline-size: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	font: inherit;
+	text-align: start;
+	cursor: pointer;
+}
+
+.tendina-titolo {
+	display: grid;
+	justify-items: start;
+	row-gap: var(--spazio-2);
+}
+
+/* La freccia punta in giù a tendina chiusa, in su a tendina aperta (decorativa: lo stato lo dice aria-expanded) */
+.tendina-bottone[aria-expanded]::after {
+	content: '';
+	flex: none;
+	inline-size: var(--freccia-tendina);
+	aspect-ratio: 27 / 9;
+	margin-block-end: 0.4em;
+	background-color: currentColor;
+	mask: url('../images/freccia-tendina.svg') center / contain no-repeat;
+	transition: translate 0.2s ease-out;
+}
+
+.tendina-bottone[aria-expanded='true']::after {
+	rotate: 180deg;
+}
+
+/* Hover: niente sottolineatura (nel sito vuol dire link); la freccia si sposta verso dove si apre
+   la tendina, giù se è chiusa, su se è aperta (translate non segue la rotazione) */
+.tendina-bottone:hover::after {
+	translate: 0 var(--spazio-1);
+}
+
+.tendina-bottone[aria-expanded='true']:hover::after {
+	translate: 0 calc(-1 * var(--spazio-1));
+}
+
+/* L'anello di focus segue la riga del titolo, non la pillola dei bottoni */
+.tendina-bottone:focus-visible {
+	border-radius: 0;
+}
+
 /* Pagine dei profili (template profilo). Il fondo colorato e il testo bianco vengono da .su-colore e
    .fondo-… sul <main>. Mobile: titolo, introduzione, illustrazione, come partecipare. Desktop: titolo |
    introduzione, poi illustrazione | come partecipare (colonne 1–5 | 7–12) */

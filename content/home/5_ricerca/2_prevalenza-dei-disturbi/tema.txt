@@ -1,0 +1,49 @@
+Title: Prevalenza dei disturbi muscoloscheletrici nei bambini e adolescenti che suonano uno strumento musicale
+
+----
+
+Illustrazione:
+
+- strumento-2.webp
+
+----
+
+Anteprima: I disturbi muscolo-scheletrici legati alla pratica strumentale (playing-related musculoskeletal disorders, PRMDs) possono comparire già nei primi anni di studio.
+
+----
+
+Testo: La ricerca ha rilevato questi disturbi anche tra bambini e adolescenti. Gli studi condotti in Australia hanno riportato una prevalenza fino al 69% tra i giovani musicisti. In Svizzera, invece, mancano ancora dati specifici su questa fascia d’età. È proprio questa una delle lacune che HAPPY vuole contribuire a colmare.
+
+----
+
+Riferimenti:
+
+-
+  autori: "Gembris, H., Menze, J., Heye, A., & Bullerjahn, C. (2020)."
+  titolo: "High-Performing Young Musicians’ Playing-Related Pain."
+  link: https://doi.org/10.3389/fpsyg.2020.564736
+  fonte: "Frontiers in Psychology, 11, 564736."
+-
+  autori: "Ranelli, S., Smith, A., & Straker, L. (2011)."
+  titolo: "Playing-related musculoskeletal problems in child instrumentalists: the influence of gender, age, and instrument exposure."
+  link: https://doi.org/10.1177/0255761410389662
+  fonte: "International Journal of Music Education, 29, 28-44."
+-
+  autori: "Ranelli, S., Straker, L., & Smith, A. (2008)."
+  titolo: "Prevalence of playing-related musculoskeletal symptoms and disorders in children learning instrumental music."
+  link: https://doi.org/10.21091/mppa.2008.4036
+  fonte: "Medical Problems of Performing Artists, 23, 178-185."
+-
+  autori: "Ranelli, S., Straker, L., & Smith, A. (2014)."
+  titolo: "Soreness during non-music activities is associated with playing-related musculoskeletal problems."
+  link: https://doi.org/10.1016/j.jphys.2014.05.005
+  fonte: "Australian Journal of Physiotherapy, 60(2), 102-108."
+-
+  autori: "Vinci, S., Smith, A., & Ranelli, S. (2015)."
+  titolo: "Selected Physical Characteristics and Playing-Related Musculoskeletal Problems in Adolescent String Instrumentalists."
+  link: https://doi.org/10.21091/mppa.2015.3028
+  fonte: "Medical Problems of Performing Artists, 30(3), 143-151."
+
+----
+
+Uuid: 40dg6hhn9af3mbb9

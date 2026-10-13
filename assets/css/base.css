@@ -148,7 +148,10 @@ p {
 	mask: url('../images/segno-titolo.svg') center / contain no-repeat;
 }
 
+/* Font e interlinea dichiarati: l'etichetta può stare anche su un titolo (h4 "Riferimenti") */
 .text-etichetta {
+	font-family: var(--font-testo);
+	line-height: var(--interlinea-testo);
 	font-size: var(--text-etichetta);
 	font-weight: var(--peso-grassetto);
 	letter-spacing: var(--spaziatura-etichetta);
