@@ -529,7 +529,7 @@
 }
 
 .fase-testo > h3 {
-	margin-block-start: var(--spazio-2);
+	margin-block-start: var(--spazio-4);
 }
 
 .fase-testo > h3 ~ * {
@@ -640,9 +640,11 @@
 		row-gap: var(--spazio-7);
 	}
 
+	/* Come il video della hero: colonne 6–12, centrata in altezza rispetto a titolo e testo */
 	.fase-immagine {
-		grid-column: 7 / -1;
+		grid-column: 6 / -1;
 		grid-row: 1 / span 2;
+		align-self: center;
 	}
 
 	.fase-testo {
@@ -667,6 +669,7 @@
 
 	.fasi-controlli {
 		grid-column: 1 / -1;
+		margin-block-start: var(--spazio-4);
 	}
 
 	.fasi-controlli .fasi-pallino {
