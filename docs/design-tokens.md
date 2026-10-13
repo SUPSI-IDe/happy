@@ -138,7 +138,7 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Sottotitolo** (il nome esteso): `--text-titolo-3` (Fraunces 700) su tutti i formati. Nel frame mobile di Figma è in Urbanist: è un errore del frame.
 - **Mascotte:** sempre presente, anche su mobile, accanto al logo. `--hero-mascotte` è una proporzione del logo (197px accanto a 425px), quindi cresce con lui; su schermi molto stretti si restringe.
 - **Bordo a pennello:** chiude il fondo verde (`assets/images/bordo-pennello.svg`, usato come maschera, alto `--bordo-pennello` 1.1875rem). È centrato sul bordo, metà sul verde e metà sotto, così il profilo irregolare non lascia fessure. Su mobile sta sotto il video, su desktop sotto la hero.
-- **Video:** sempre il più grande possibile e sempre 16:9: su mobile da bordo a bordo, su desktop tutte le colonne 6–12 fino al margine. Finché non c'è, al suo posto c'è l'immagine del video (illustrazione di Laura, campo "Immagine del video" della Home); senza immagine, un riquadro tratteggiato.
+- **Video:** sempre il più grande possibile e sempre 16:9: su mobile da bordo a bordo, su desktop tutte le colonne 6–12 fino al margine. L'immagine del video (illustrazione di Laura, campo "Immagine del video" della Home) è la copertina finché non si preme play; senza video, o senza i suoi sottotitoli, prende il suo posto; senza immagine, un riquadro tratteggiato.
 - **Desktop, altezza:** la hero è alta uno schermo sotto la navbar, con il contenuto centrato e almeno `--spazio-6` sopra e sotto.
 - **Mobile:** logo con mascotte, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
 

@@ -8,6 +8,18 @@ Illustrazione:
 
 ----
 
+Video:
+
+- video-happy.mp4
+
+----
+
+Sottotitoli:
+
+- sottotitoli.vtt
+
+----
+
 Copertina:
 
 - copertina-video.webp
