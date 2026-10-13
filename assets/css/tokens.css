@@ -86,6 +86,11 @@
 	--scala-loghi: 0.73;
 
 	--mascotte-contatti: clamp(12.3125rem, calc(12.3125rem + (100vw - 24.375rem) * 0.1625), 18.75rem);
+
+	/* Card dei profili (A chi ci rivolgiamo): 302px su mobile, 335px su desktop. L'illustrazione
+	   sotto le card (solo mobile) è larga 333px, al massimo la colonna */
+	--card-larghezza: 18.875rem;
+	--illustrazione-destinatari: 20.8125rem;
 	--sottolineatura-bottone-hover: 0.1875rem;
 
 	/* Spaziature */
@@ -129,6 +134,7 @@
 		--text-titolo-3: 1.5rem;
 
 		--scala-loghi: 1;
+		--card-larghezza: 20.9375rem;
 
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);

@@ -66,8 +66,8 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 |---|---|---|---|---|---|
 | `--text-display` | 6rem | 2.75rem | Fraunces 700 | 1.1 | Titolo delle pagine dei profili. Nella hero della home il titolo è il logo SVG (vedi "Hero della home") |
 | `--text-titolo-1` | 3rem | 2rem | Fraunces 600 | 1.2 | Titoli di sezione |
-| `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni |
-| `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Titoli di card e di fase, citazioni, testo dei bottoni |
+| `--text-titolo-2` | 2rem | 1.5rem | Fraunces 600 | 1.2 | Sottosezioni, titoli delle card dei profili |
+| `--text-titolo-3` | 1.5rem | 1.25rem | Fraunces 700 | 1.3 | Titoli di fase, citazioni, testo dei bottoni |
 | `--text-logo` | 1.5rem | 1.5rem | Fraunces 700 | 1.2 | "Happy" nella navigazione |
 | `--text-corpo` | 1.25rem | 1.25rem | Urbanist 500 | 1.5 | Paragrafi su bianco, colonna massima 42.5rem |
 | `--text-corpo-colore` | 1.25rem | 1.25rem | Urbanist 700 | 1.5 | Paragrafi e voci di navigazione su fondo colorato |
@@ -141,6 +141,14 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Video:** sempre il più grande possibile e sempre 16:9: su mobile da bordo a bordo, su desktop tutte le colonne 6–12 fino al margine. Finché non c'è, al suo posto c'è l'immagine del video (illustrazione di Laura, campo "Immagine del video" della Home); senza immagine, un riquadro tratteggiato.
 - **Desktop, altezza:** la hero è alta uno schermo sotto la navbar, con il contenuto centrato e almeno `--spazio-6` sopra e sotto.
 - **Mobile:** logo con mascotte, sottotitolo e video (da bordo a bordo) sul verde; "Cos'è Happy?" sotto, sul bianco. **Desktop:** tutto sul verde in una schermata sotto la navbar; "Cos'è Happy?" nelle colonne 1–5, video nelle 6–12.
+
+## Card dei profili (A chi ci rivolgiamo)
+
+- **Forma:** la macchia a matita di Laura nel colore del profilo (`assets/images/card-<colore>.webp`), stirata sulla card: se il testo cresce, la card si allunga e il testo non esce mai dalla forma. Proporzioni 302 × 185, larga `--card-larghezza` (302px su mobile, 335px su desktop).
+- **Contrasto:** il tratto a matita è semitrasparente, quindi sul bianco della pagina i colori risultano più chiari di quelli di sistema (arancione 2.9:1 in media). Le macchie sono state scurite verso il colore di sistema solo nei punti in cui il bianco non arrivava a 3:1, e solo quanto bastava: il bianco ha ovunque almeno 3:1, che basta perché tutto il testo della card è grande (regola 3). Una nuova macchia si prepara allo stesso modo con `php scripts/prepara-card.php macchia.png assets/images/card-<colore>.webp <esadecimale del colore>` (PNG trasparente e orizzontale, largo 672px).
+- **Testo:** nome del profilo in `--text-titolo-2` (come nel frame mobile; nel frame desktop il gruppo era ingrandito a 28.8px), "Scopri di più" con l'aspetto di un link, in basso a destra. Tutta la card è un solo link; al passaggio del mouse la sottolineatura si ispessisce.
+- **Mobile:** una sotto l'altra, sfalsate: la seconda rientra di `--spazio-7`, la terza di `--spazio-4`. Sotto, solo su mobile, l'illustrazione dei musicisti (`--illustrazione-destinatari`).
+- **Desktop:** in fila a tutta larghezza, a `--spazio-8` l'una dall'altra, ruotate (−4°, 2°, 5°) e scese di `--spazio-7`, 0 e `--spazio-6`, come se fossero appoggiate a mano. Se non ci stanno in tre (da 1024 a circa 1280px), vanno a capo due e una, senza stringersi. Le varianti si ripetono ogni tre card.
 
 ## Piè di pagina
 

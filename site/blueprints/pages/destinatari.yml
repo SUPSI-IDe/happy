@@ -1,8 +1,17 @@
 title: A chi ci rivolgiamo
+# Testo e, sotto, le card delle pagine dei profili pubblicate, nell'ordine di Sito → Pagine
 fields:
   voce_menu: fields/voce-menu
+  scopri:
+    label: Testo del link delle card
+    type: text
+    placeholder: Scopri di più
+    width: 1/2
   testo:
     label: Testo
     type: textarea
     size: medium
-    help: Sotto il testo compaiono da sole le card delle pagine dei profili (Insegnanti, Famiglie, Professionisti)
+    help: Sotto il testo compaiono da sole le card dei profili pubblicati (Sito → Pagine), nel loro ordine
+  illustrazione:
+    extends: fields/illustrazione
+    help: Solo su mobile, sotto le card
