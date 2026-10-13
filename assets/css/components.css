@@ -305,13 +305,53 @@
 	scale: 1.08;
 }
 
-/* La descrizione del video: crediti e link, in bianco sul verde */
+/* I crediti del video: una sola riga, "Crediti del video", che si apre (<details>). Sul verde il testo
+   bianco non può essere piccolo (regole visive 2 e 3): così si vede solo una riga. Freccia e hover
+   come le tendine; aperti, il testo è più fitto del corpo, come una nota */
 .hero-crediti {
 	margin-block-start: var(--spazio-4);
 }
 
-.hero-crediti > * + * {
+.hero-crediti summary {
+	display: inline-flex;
+	align-items: center;
+	column-gap: var(--spazio-3);
+	list-style: none;
+	cursor: pointer;
+}
+
+.hero-crediti summary::-webkit-details-marker {
+	display: none;
+}
+
+.hero-crediti summary::after {
+	content: '';
+	inline-size: calc(var(--freccia-tendina) * 0.7);
+	aspect-ratio: 27 / 9;
+	background-color: currentColor;
+	mask: url('../images/freccia-tendina.svg') center / contain no-repeat;
+	transition: translate 0.2s ease-out;
+}
+
+.hero-crediti[open] summary::after {
+	rotate: 180deg;
+}
+
+.hero-crediti summary:hover::after {
+	translate: 0 var(--spazio-1);
+}
+
+.hero-crediti[open] summary:hover::after {
+	translate: 0 calc(-1 * var(--spazio-1));
+}
+
+.hero-crediti summary:focus-visible {
+	border-radius: 0;
+}
+
+.hero-crediti > :not(summary) {
 	margin-block-start: var(--spazio-3);
+	line-height: var(--interlinea-titolo-3);
 }
 
 .hero-presentazione > * + * {

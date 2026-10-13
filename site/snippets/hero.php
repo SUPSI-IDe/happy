@@ -7,8 +7,8 @@
  * Il logo è un SVG perché Fraunces molto grande si deforma; "Happy" resta leggibile dallo screen reader.
  * Il video compare solo con i suoi sottotitoli (regola d'oro). Non parte da solo e si scarica solo quando
  * si preme play (preload="none"): fino ad allora si vede la copertina, con un grande tasto play al centro
- * (assets/js/video.js; senza JavaScript restano i controlli del browser). Sotto, la descrizione del video
- * (crediti, musica, link del questionario), come su YouTube. Senza video resta la copertina.
+ * (assets/js/video.js; senza JavaScript restano i controlli del browser). Sotto, i crediti del video, chiusi
+ * in una riga che si apre (<details>): sul verde il testo è grande (regole visive 2 e 3), così non pesa. Senza video resta la copertina.
  */
 $mascotte = $page->illustrazione()->toFile();
 $copertina = $page->copertina()->toFile();
@@ -42,7 +42,10 @@ $sottotitoli = $page->sottotitoli()->toFile();
 					</button>
 				</div>
 				<?php if ($page->video_crediti()->isNotEmpty()): ?>
-					<div class="hero-crediti"><?= $page->video_crediti()->kirbytext() ?></div>
+					<details class="hero-crediti">
+						<summary>Crediti del video</summary>
+						<?= $page->video_crediti()->kirbytext() ?>
+					</details>
 				<?php endif ?>
 			</div>
 			<?= js('assets/js/video.js', ['defer' => true]) ?>
