@@ -9,6 +9,7 @@ Il sito è un **one-pager**: la home contiene tutte le sezioni, una sotto l'altr
 ```
 Home (hero: logo, mascotte, video, "Cos'è Happy?")
 ├── Perché Happy?        sezione
+├── Vuoi partecipare?    sezione      → con il bottone "Partecipa al progetto"
 ├── A chi ci rivolgiamo  destinatari  → card verso le pagine dei profili
 ├── Le fasi del progetto fasi         → fase, fase, …
 ├── La Ricerca           ricerca      → tema, tema, …
@@ -24,7 +25,7 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 | Tipo | Campi principali | Note |
 |---|---|---|
 | **Home** | titolo, voce di menu, illustrazione, video, immagine del video, titolo e testo della presentazione | Il titolo è il nome accessibile del logo SVG, l'unico `h1`. La presentazione è "Cos'è Happy?": sta nella hero perché su desktop condivide la schermata con il video. L'immagine del video prende il posto del video finché non c'è, poi diventa la sua copertina. Il nome esteso del progetto viene dal sito |
-| **Sezione** | titolo, voce di menu, testo, illustrazione, bottone "Partecipa" | Sezione di testo: Perché Happy? |
+| **Sezione** | titolo, voce di menu, testo, illustrazione, bottone "Partecipa" | Sezione di testo: Perché Happy?, Vuoi partecipare? (con il bottone). Un sottotitolo nel testo (### nel pannello) diventa un `h3` |
 | **Destinatari** | titolo, voce di menu, testo, testo del link delle card, illustrazione | A chi ci rivolgiamo. Le card si creano da sole dalle pagine dei profili pubblicate, nel loro ordine (Sito → Pagine); la card mostra il titolo del profilo. L'illustrazione si vede solo su mobile, sotto le card |
 | **Fasi** | titolo, voce di menu | Contiene le fasi, nell'ordine del pannello |
 | **Fase** | titolo, descrizione, video | Il numero della fase è la sua posizione, non un campo |
