@@ -113,6 +113,10 @@
 	--freccia-tendina: 1.6875rem;
 	--sottolineatura-bottone-hover: 0.1875rem;
 
+	/* Il team: lo spazio tra il titolo di un gruppo e i membri, e tra una persona e l'altra
+	   (24px su mobile, 32px su desktop) */
+	--spazio-gruppo: var(--spazio-5);
+
 	/* Spaziature */
 
 	/* Testo corrente mai a tutta larghezza: al massimo le colonne 7–12 del desktop
@@ -160,6 +164,7 @@
 		--pallino-fasi-bordo: 0.125rem;
 		--controlli-fasi: 49.5rem;
 		--decorazione-fasi: 6.375rem;
+		--spazio-gruppo: var(--spazio-6);
 
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);

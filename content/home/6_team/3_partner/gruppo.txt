@@ -1,0 +1,16 @@
+Title: Partner
+
+----
+
+Membri:
+
+-
+  nome: "Area Ricerca e sviluppo della Scuola universitaria di Musica del Conservatorio della Svizzera italiana (SUM-CSI)"
+-
+  nome: "LACedu"
+-
+  nome: "PhysioTicino"
+-
+  nome: "Ergotherapie-Verband Schweiz – sezione Ticino, Associazione svizzera di ergoterapia"
+-
+  nome: "Swissmedmusica, Società svizzera di medicina della musica"

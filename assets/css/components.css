@@ -679,10 +679,10 @@
 	}
 }
 
-/* Tendine (snippet sezioni/ricerca e assets/js/tendine.js). Ogni tendina: lo strumento e il titolo
-   (un bottone, con la freccia a destra), l'anteprima sempre visibile e, aperta, il resto del testo e
-   i riferimenti. Tra le tendine una linea sottile in Carbone: è interna all'elenco, non un divisore
-   della pagina (la regola del divisore unico riguarda la pagina) */
+/* Tendine (snippet sezioni/ricerca e sezioni/team, assets/js/tendine.js). Ogni tendina: il titolo
+   (un bottone, con la freccia a destra) e, aperta, il suo contenuto. Nella Ricerca sopra il titolo c'è
+   lo strumento e sotto l'anteprima sempre visibile. Tra le tendine una linea sottile in Carbone: è
+   interna all'elenco, non un divisore della pagina (la regola del divisore unico riguarda la pagina) */
 
 .tendine {
 	margin-block-start: var(--spazio-6);
@@ -711,11 +711,11 @@
 	list-style: none;
 }
 
-/* Il bottone occupa tutta la riga: strumento e titolo a sinistra, freccia a destra in basso */
+/* Il bottone occupa tutta la riga: titolo a sinistra, freccia a destra, al centro del titolo */
 .tendina-bottone {
 	display: flex;
 	justify-content: space-between;
-	align-items: end;
+	align-items: center;
 	column-gap: var(--spazio-4);
 	inline-size: 100%;
 	padding: 0;
@@ -724,6 +724,15 @@
 	font: inherit;
 	text-align: start;
 	cursor: pointer;
+}
+
+/* Con lo strumento sopra il titolo (la Ricerca) la freccia scende all'altezza del titolo */
+.tendina-bottone:has(img) {
+	align-items: end;
+}
+
+.tendina-bottone:has(img)::after {
+	margin-block-end: 0.4em;
 }
 
 .tendina-titolo {
@@ -738,7 +747,6 @@
 	flex: none;
 	inline-size: var(--freccia-tendina);
 	aspect-ratio: 27 / 9;
-	margin-block-end: 0.4em;
 	background-color: currentColor;
 	mask: url('../images/freccia-tendina.svg') center / contain no-repeat;
 	transition: translate 0.2s ease-out;
@@ -761,6 +769,49 @@
 /* L'anello di focus segue la riga del titolo, non la pillola dei bottoni */
 .tendina-bottone:focus-visible {
 	border-radius: 0;
+}
+
+/* Il team (snippet sezioni/team e membri). Il gruppo di progetto sempre visibile, poi le tendine.
+   In ogni gruppo il titolo e l'elenco dei membri: persone (nome come link in titolo-3, ruolo ed ente;
+   due colonne su desktop) o soli nomi (partner, scuole) */
+
+.gruppo > * + * {
+	margin-block-start: var(--spazio-gruppo);
+}
+
+/* Chiusa, una tendina del team ha solo il titolo: lo spazio sotto è uguale a quello sopra (nella
+   Ricerca invece sotto il titolo resta l'anteprima) */
+.tendina.gruppo:has([aria-expanded='false']) {
+	padding-block-end: var(--spazio-5);
+}
+
+.persone,
+.nomi {
+	padding: 0;
+	list-style: none;
+}
+
+.persone {
+	display: grid;
+	gap: var(--spazio-gruppo) var(--gutter);
+}
+
+.persone li > * + * {
+	margin-block-start: var(--spazio-2);
+}
+
+.nomi li + li {
+	margin-block-start: var(--spazio-3);
+}
+
+@media (min-width: 64rem) {
+	.persone {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gruppo + .tendine {
+		margin-block-start: var(--spazio-7);
+	}
 }
 
 /* Pagine dei profili (template profilo). Il fondo colorato e il testo bianco vengono da .su-colore e

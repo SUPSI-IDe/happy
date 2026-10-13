@@ -167,6 +167,13 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 - **Linee:** tra le tendine una linea di `--linea-sottile` (1px) in Carbone, anche sotto l'ultima. In Figma era nera e di 0.5px: il nero puro non si usa. È interna all'elenco, non un divisore di pagina.
 - **Spazi:** `--spazio-5` sopra e `--spazio-7` sotto il contenuto di ogni tendina, `--spazio-4` tra le parti.
 
+## Il team
+
+- **Gruppo di progetto:** sempre visibile, titolo in `--text-titolo-2` (un `h3`). **Gli altri gruppi** (consulenti, partner, scuole) sono tendine come quelle della Ricerca, con il titolo in `--text-titolo-2` e la freccia al centro del titolo. Chiusa, una tendina ha `--spazio-5` sopra e sotto il titolo.
+- **Persone:** nome in `--text-titolo-3`, link verde salvia sottolineato al profilo; sotto, a `--spazio-2`, ruolo ed ente in `--text-corpo`. Nell'ente il nome di un istituto (IDe, SUM-CSI, 2rLab) può essere un link al suo sito, con lo stile dei link. Due colonne su desktop (gutter tra le colonne), una su mobile.
+- **Partner e scuole:** solo i nomi, in `--text-corpo`, a `--spazio-3` l'uno dall'altro.
+- **Spazi:** `--spazio-gruppo` (24px mobile, 32px desktop) tra il titolo di un gruppo e i membri e tra una persona e l'altra; tra il gruppo di progetto e le tendine `--spazio-6` su mobile, `--spazio-7` su desktop.
+
 ## Pagine dei profili
 
 - **Colore:** tutta la pagina, navbar compresa, è nel colore del profilo, con il testo bianco (`.su-colore`). Il piè di pagina resta verde salvia come nelle altre pagine.

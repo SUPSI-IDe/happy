@@ -1,0 +1,22 @@
+Title: Scuole partecipanti
+
+----
+
+Membri:
+
+-
+  nome: "Scuola di Musica del Conservatorio della Svizzera italiana"
+-
+  nome: "Scuola di Musica Moderna (SMuM)"
+-
+  nome: "Scuola Moderna di Musica (HMI)"
+-
+  nome: "Centro Artistico MAT"
+-
+  nome: "Associazione Musicando (SMM)"
+-
+  nome: "Accademia Vivaldi"
+-
+  nome: "Scuola Popolare di Musica (SPML)"
+-
+  nome: "Scuola di Musica Biaschese"

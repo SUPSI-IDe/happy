@@ -1,0 +1,21 @@
+Title: Consulenti scientifici e clinici
+
+----
+
+Membri:
+
+-
+  nome: "Bronwen Ackermann"
+  link: https://profiles.sydney.edu.au/bronwen.ackermann
+  ruolo: "Professoressa di ricerca in fisioterapia"
+  ente: "University of Sydney"
+-
+  nome: "Christine Guptill"
+  link: https://www.uottawa.ca/faculty-health-sciences/rehabilitation/our-professors/christine-guptill
+  ruolo: "Professoressa di terapia occupazionale"
+  ente: "University of Ottawa"
+-
+  nome: "Marco Barbero"
+  link: https://www.supsi.ch/marco-barbero
+  ruolo: "Fisioterapista e professore di ricerca"
+  ente: "SUPSI DEASS, <a href=\"https://www.supsi.ch/2rlab\">2rLab</a>"
