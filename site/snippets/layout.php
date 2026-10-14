@@ -10,7 +10,7 @@
 // Prima ciò che distingue la pagina: con molte schede aperte si legge quello, e lo screen reader lo dice per primo
 $titolo = $page->isHomePage() ? $site->title() . ' – ' . $site->nome_esteso() : $page->title() . ' – ' . $site->title();
 // Anteprima del link (Open Graph) e risultati di ricerca: la descrizione del profilo o quella del sito
-$descrizione = $page->intro()->or($site->condivisione_testo())->excerpt(200);
+$descrizione = $page->intro()->or($site->condivisione_testo())->excerpt(200)->value();
 $condivisione = $site->condivisione_immagine()->toFile();
 ?>
 <!doctype html>
