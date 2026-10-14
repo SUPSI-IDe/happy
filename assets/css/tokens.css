@@ -142,6 +142,8 @@
 	--margine-pagina: 1.25rem;
 	--gutter: var(--spazio-4);
 	--spazio-sezione: var(--spazio-8);
+	/* Tra una sezione e una sua sottosezione (Perché Happy? → Vuoi partecipare?) */
+	--spazio-sottosezione: var(--spazio-6);
 
 	/* Altezza della navbar (components.css): il pulsante o la voce più alta, il padding e la linea.
 	   Serve alle ancore (base.css) e alle sezioni alte uno schermo */
@@ -173,5 +175,6 @@
 		--margine-pagina: 4rem;
 		--gutter: var(--spazio-5);
 		--spazio-sezione: var(--spazio-9);
+		--spazio-sottosezione: var(--spazio-7);
 	}
 }
