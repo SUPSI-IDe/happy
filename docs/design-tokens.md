@@ -95,6 +95,7 @@ Due famiglie: **Fraunces** (`--font-titoli`) per i titoli, **Urbanist** (`--font
 
 - **Dimensioni del bottone:** alto almeno 2.75rem (44px), angoli completamente arrotondati, padding uguale su desktop e mobile.
 - **Hover:** l'etichetta del bottone si sottolinea (spessore 3px); nel link la sottolineatura passa da 2px (`--sottolineatura-spessore`) a 4px (`--sottolineatura-spessore-hover`). Il colore del testo e lo sfondo non cambiano mai.
+- **Nuova scheda:** i link che escono dal sito si aprono in una nuova scheda, anche quelli scritti nei testi del pannello (plugin `nuova-scheda`); un link interno solo se il componente ha `target="_blank"` (le card dei profili). Lo screen reader legge "(si apre in una nuova scheda)".
 - **Focus (obbligatorio):** anello di 0.1875rem (3px) a 0.125rem (2px) di distanza (`outline` con `outline-offset`). Verde salvia su bianco (`--color-focus-su-bianco`), bianco su fondo colorato (`--color-focus-su-colore`). Il Carbone resta per testo corrente e titoli. L'anello è completamente arrotondato, come i bottoni.
 - **Disabilitato:** non è previsto. Se serve, si nasconde il bottone.
 - **Navigazione:** le voci usano `--text-corpo-colore` (senza sottolineatura automatica: la sottolineatura è disegnata a mano, vedi sotto).
