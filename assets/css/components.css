@@ -982,6 +982,45 @@
 	margin-block-start: var(--spazio-5);
 }
 
+/* I due link del percorso: indietro alla sezione della home (freccia a sinistra) e avanti al profilo
+   successivo (freccia a destra, in fondo alla pagina). La freccia è un tratto spezzato come quello delle
+   fasi, nel colore del testo; al passaggio del mouse si sposta appena nella sua direzione */
+.profilo-indietro,
+.profilo-successivo a {
+	display: inline-flex;
+	align-items: center;
+	column-gap: var(--spazio-3);
+}
+
+.profilo-indietro::before,
+.profilo-successivo a::after {
+	content: '';
+	flex: none;
+	inline-size: 0.5em;
+	aspect-ratio: 1;
+	border-block-end: var(--freccia-fasi-tratto) solid currentColor;
+	border-inline-start: var(--freccia-fasi-tratto) solid currentColor;
+	rotate: 45deg;
+	transition: translate 0.2s ease-out;
+}
+
+.profilo-successivo a::after {
+	rotate: -135deg;
+}
+
+.profilo-indietro:hover::before {
+	translate: calc(-1 * var(--spazio-1)) 0;
+}
+
+.profilo-successivo a:hover::after {
+	translate: var(--spazio-1) 0;
+}
+
+.profilo-successivo {
+	display: flex;
+	justify-content: end;
+}
+
 /* Il bottone è centrato su mobile, a sinistra su desktop */
 .profilo-sondaggio {
 	display: flex;
@@ -1041,7 +1080,8 @@
 	}
 
 	.profilo-intro,
-	.profilo-partecipa {
+	.profilo-partecipa,
+	.profilo-successivo {
 		grid-column: 7 / -1;
 	}
 

@@ -2,7 +2,8 @@
 /**
  * Pagina di un profilo (wireframe v6, frame 3.x desktop e 4.x mobile), tutta nel colore del profilo,
  * anche la navbar. Desktop: titolo | introduzione, poi illustrazione | come partecipare. Mobile: in colonna.
- * L'etichetta sopra il titolo è il nome della sezione da cui si arriva (A chi ci rivolgiamo).
+ * Sopra il titolo, il link per tornare alla sezione da cui si arriva (A chi ci rivolgiamo, nella home);
+ * in fondo, il link al profilo successivo (dopo l'ultimo si ricomincia dal primo). Le frecce sono nel CSS.
  * L'illustrazione è il personaggio (dal pannello); le note intorno sono decorazioni del sito, disegnate
  * sopra nello stesso riquadro (components.css, "Pagine dei profili").
  * Senza link al sondaggio il bottone non compare; senza titolo la seconda parte non ha l'h2 (mai un titolo vuoto).
@@ -10,13 +11,15 @@
 $colore = $page->colore()->esc('attr');
 $destinatari = $site->homePage()->childrenAndDrafts()->filterBy('intendedTemplate', 'destinatari')->first();
 $illustrazione = $page->illustrazione()->toFile();
+$profili = $page->siblings()->listed()->filterBy('intendedTemplate', 'profilo');
+$successivo = $profili->count() > 1 ? ($page->nextListed($profili) ?? $profili->first()) : null;
 ?>
 <?php snippet('layout', ['main' => 'su-colore fondo-' . $colore], slots: true) ?>
 	<div class="contenitore griglia profilo">
 		<div class="profilo-apertura">
 			<div class="profilo-titolo">
 				<?php if ($destinatari): ?>
-					<p class="text-etichetta"><?= $destinatari->title()->esc() ?></p>
+					<a class="text-etichetta profilo-indietro" href="<?= $site->url() ?>/#<?= $destinatari->slug() ?>"><span class="solo-screen-reader">Torna a: </span><?= $destinatari->title()->esc() ?></a>
 				<?php endif ?>
 				<h1><?= $page->title()->esc() ?></h1>
 			</div>
@@ -41,5 +44,11 @@ $illustrazione = $page->illustrazione()->toFile();
 			<?php endif ?>
 			<?= $page->partecipa_altro()->kirbytext() ?>
 		</section>
+
+		<?php if ($successivo): ?>
+			<nav class="profilo-successivo" aria-label="Profili">
+				<a class="text-titolo-3" href="<?= $successivo->url() ?>" rel="next"><span class="solo-screen-reader">Profilo successivo: </span><?= $successivo->title()->esc() ?></a>
+			</nav>
+		<?php endif ?>
 	</div>
 <?php endsnippet() ?>

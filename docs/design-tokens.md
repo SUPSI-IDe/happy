@@ -180,8 +180,9 @@ I valori vengono dai wireframe definitivi (Figma, pagina "wireframe - v5 - final
 
 ## Pagine dei profili
 
-- **Colore:** tutta la pagina, navbar compresa, è nel colore del profilo, con il testo bianco (`.su-colore`). Il piè di pagina resta verde salvia come nelle altre pagine.
+- **Colore:** tutta la pagina, navbar e piè di pagina compresi, è nel colore del profilo, con il testo bianco (`.su-colore`).
 - **Desktop:** etichetta "A chi ci rivolgiamo" e titolo (`--text-display`) nelle colonne 1–5, introduzione nelle 7–12, allineate in alto; sotto, a `--spazio-9`, il personaggio (1–5) e "Come partecipare" (7–12, titolo in `--text-titolo-2`, bottone a contorno a sinistra). **Mobile:** in colonna nello stesso ordine, personaggio e bottone centrati.
+- **Percorso:** l'etichetta "A chi ci rivolgiamo" è un link con una freccia a sinistra che riporta alla sezione nella home; in fondo, nelle colonne 7–12 e allineato a destra, il link al profilo successivo (`--text-titolo-3`, freccia a destra; dopo l'ultimo si torna al primo). Le frecce sono tratti come quelle delle fasi, nel colore del testo.
 - **Personaggio:** riquadro largo `--illustrazione-profilo` (300px su mobile, 445px su desktop), con il personaggio dal pannello e sopra le sue note (vedi "Asset di Laura"). Su mobile le note scalano con il riquadro, invece di avere le posizioni del frame mobile: la differenza è di pochi pixel.
 
 ## Piè di pagina
