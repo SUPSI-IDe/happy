@@ -2,6 +2,7 @@ title: A chi ci rivolgiamo
 # Testo e, sotto, le card delle pagine dei profili pubblicate, nell'ordine di Sito → Pagine
 fields:
   voce_menu: fields/voce-menu
+  sottosezione: fields/sottosezione
   scopri:
     label: Testo del link delle card
     type: text

@@ -1,4 +1,8 @@
-Title: Vuoi partecipare?
+Title: Come partecipare
+
+----
+
+Sottosezione: true
 
 ----
 
@@ -9,7 +13,5 @@ Partecipa: true
 Testo:
 
 Insegni musica? Tuo figlio o tua figlia suona uno strumento? Ti occupi della salute di bambini o adolescenti? Scopri il progetto e come puoi collaborare con noi.
-
-### Come partecipare
 
 Parti dal sondaggio e raccontaci la tua esperienza!
