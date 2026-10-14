@@ -473,6 +473,17 @@
 	/* Video e crediti a destra, accanto a logo e presentazione insieme, allineati in basso: la fine dei
 	   crediti (aperti) è alla stessa altezza del bottone "Partecipa", e sopra il video non resta il vuoto
 	   accanto al logo. Se video e crediti sono più alti, è il bottone a scendere (margin-block-start: auto) */
+	/* I crediti tengono il loro posto anche chiusi: aprirli mostra solo il testo, senza spostare video,
+	   titolo e bottone. Chiusi, il testo è nascosto, anche allo screen reader (visibility). Nei browser
+	   che non conoscono ::details-content la tendina si apre come su mobile */
+	.hero-crediti::details-content {
+		content-visibility: visible;
+	}
+
+	.hero-crediti:not([open])::details-content {
+		visibility: hidden;
+	}
+
 	.hero-griglia > .hero-video,
 	.hero-griglia > .hero-media {
 		grid-column: 6 / -1;
