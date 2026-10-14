@@ -14,3 +14,8 @@ if (video && play) {
 	video.addEventListener('play', () => (play.hidden = true));
 	video.addEventListener('ended', () => (play.hidden = false));
 }
+
+// Su desktop i crediti partono aperti: c'è spazio, e la loro fine è allineata al bottone "Partecipa".
+// Su mobile restano chiusi, una riga sola. Si possono sempre aprire e chiudere.
+const crediti = document.querySelector('.hero-crediti');
+if (crediti && matchMedia('(min-width: 64rem)').matches) crediti.open = true;
