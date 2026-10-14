@@ -6,11 +6,13 @@
  * Mobile: in colonna, in quest'ordine (i link restano sotto il nome a ogni larghezza).
  * Desktop: griglia (components.css, "Footer").
  * L'etichetta "Contributo" non si vede (il testo basta) ma dà il nome al logo per lo screen reader.
- * Fondo verde salvia: il testo è sempre bianco e bold (classe .su-colore, vedi base.css).
+ * Fondo verde salvia, o il colore del profilo nelle sue pagine (come la navbar): il testo è sempre bianco
+ * e bold (classe .su-colore, vedi base.css).
  */
 $link = $site->piede_link()->toStructure();
+$fondo = $page->colore()->or('verde-salvia');
 ?>
-<footer class="piede su-colore fondo-verde-salvia">
+<footer class="piede su-colore fondo-<?= $fondo->esc('attr') ?>">
 	<div class="contenitore griglia piede-griglia">
 		<div class="piede-marchio">
 			<p class="piede-nome">Happy</p>
