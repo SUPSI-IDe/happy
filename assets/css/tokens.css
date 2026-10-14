@@ -80,12 +80,15 @@
 	   colonna); su desktop è l'altezza minima, poi cresce fino al fondo del contenuto */
 	--illustrazione-sezione: 16.375rem;
 
-	/* Mascotte dei Contatti: da 12.3125rem (197px) a 24.375rem (390px di schermo) fino a
-	   18.75rem (300px) a 64rem (1024px), come il logo della hero */
+	/* Mascotte: quella della hero è la misura di riferimento del sito. Su mobile è --hero-mascotte; su
+	   desktop occupa tutto lo spazio che il logo lascia libero nelle colonne 1–5 (vedi il blocco desktop).
+	   Le altre mascotte dipendono da lei: quella dei Contatti, senza la mano, è 1.5 volte più larga, così
+	   il personaggio è un po' più grande che nella hero ma non troppo diverso */
+	--mascotte: var(--hero-mascotte);
+	--mascotte-contatti: calc(var(--mascotte) * 1.5);
+
 	/* Loghi del piè di pagina: la larghezza viene dal pannello; su mobile si riduce come in Figma */
 	--scala-loghi: 0.73;
-
-	--mascotte-contatti: clamp(12.3125rem, calc(12.3125rem + (100vw - 24.375rem) * 0.1625), 18.75rem);
 
 	/* Card dei profili (A chi ci rivolgiamo): 302px su mobile, 335px su desktop. L'illustrazione
 	   sotto le card (solo mobile) è larga 333px, al massimo la colonna */
@@ -163,6 +166,11 @@
 		--text-titolo-3: 1.5rem;
 
 		--scala-loghi: 1;
+		/* Le colonne 1–5, dove stanno logo e mascotte della hero (12 colonne, 11 gutter, i due margini).
+		   La mascotte prende ciò che il logo lascia (almeno il 30%), ma non supera il 60% del logo: sugli
+		   schermi molto larghi non diventa più grande di lui */
+		--colonne-hero: calc((100vw - 2 * var(--margine-pagina) - 11 * var(--gutter)) * 5 / 12 + 4 * var(--gutter));
+		--mascotte: min(max(var(--colonne-hero) * 0.3, var(--colonne-hero) - var(--hero-logo)), var(--hero-logo) * 0.6);
 		--card-larghezza: 20.9375rem;
 		--illustrazione-profilo: 27.8125rem;
 		--pallino-fasi: 1rem;
