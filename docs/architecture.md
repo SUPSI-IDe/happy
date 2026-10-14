@@ -34,7 +34,8 @@ MAInD-HAPPY/
 │   ├── templates/         ← una pagina intera: home, profilo, e default.php per le altre
 │   ├── snippets/          ← layout, navbar, hero, footer, bottone, sezione (struttura comune), membri, immagine;
 │   │                        sezioni/ uno per tipo di sezione
-│   ├── plugins/           ← sottotitoli: Kirby accetta i file .vtt
+│   ├── plugins/           ← sottotitoli: Kirby accetta i file .vtt; versioni: CSS e JS con la data
+│   │                        di modifica nell'indirizzo, così dopo un aggiornamento il browser non usa i vecchi
 │   └── config/            ← impostazioni e redirect delle sezioni
 ├── content/               ← home/ con una cartella per sezione (1_perche, 2_a-chi…),
 │                            insegnanti · famiglie · professionisti
