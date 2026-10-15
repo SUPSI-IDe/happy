@@ -424,8 +424,7 @@
 @media (min-width: 64rem) {
 	/* Una schermata sotto la navbar, con il contenuto al centro. Tre blocchi: in alto, da solo, logo,
 	   sottotitolo e mascotte; sotto, la presentazione (colonne 1–5) e il video con i crediti (7–12, come
-	   le sezioni della home), allineati in alto tra loro. Il bottone "Partecipa" sta in fondo alla
-	   presentazione: alla fine dei crediti se video e crediti sono più alti del testo */
+	   le sezioni della home), allineati in alto tra loro. Il bottone "Partecipa" segue il testo */
 	.hero {
 		display: flex;
 		flex-direction: column;
@@ -474,20 +473,11 @@
 		margin-block-start: 0;
 	}
 
+	/* Il bottone segue il testo, alla stessa distanza del bottone delle sezioni: non scende ad allinearsi
+	   ai crediti, che possono essere aperti o chiusi (aprirli allunga solo la colonna del video) */
 	.hero-griglia > .hero-presentazione > .hero-partecipa {
 		align-self: start;
-		margin-block-start: auto;
-	}
-
-	/* I crediti tengono il loro posto anche chiusi: aprirli mostra solo il testo, senza spostare video,
-	   titolo e bottone. Chiusi, il testo è nascosto, anche allo screen reader (visibility). Nei browser
-	   che non conoscono ::details-content la tendina si apre come su mobile */
-	.hero-crediti::details-content {
-		content-visibility: visible;
-	}
-
-	.hero-crediti:not([open])::details-content {
-		visibility: hidden;
+		margin-block-start: var(--spazio-6);
 	}
 
 	.hero-griglia > .hero-video,
