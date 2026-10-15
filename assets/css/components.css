@@ -547,6 +547,15 @@
 	--card-scarto: var(--spazio-6);
 }
 
+/* Su mobile le card, con i loro rientri, formano un gruppo centrato nello schermo: l'elenco è largo
+   quanto una card più il rientro più grande (--spazio-7) */
+@media (width < 64rem) {
+	.card-profili {
+		align-self: center;
+		inline-size: min(100%, var(--card-larghezza) + var(--spazio-7));
+	}
+}
+
 /* Il rientro non porta mai la card fuori dalla colonna: su uno schermo stretto si stringe lei */
 .card-profilo {
 	display: flex;
@@ -993,18 +1002,21 @@
 	margin-block-start: var(--spazio-5);
 }
 
-/* I due link del percorso: indietro alla sezione della home (freccia a sinistra) e avanti al profilo
-   successivo (freccia a destra, in fondo alla pagina). La freccia è un tratto spezzato come quello delle
-   fasi, nel colore del testo; al passaggio del mouse si sposta appena nella sua direzione */
+/* I link del percorso: indietro alla sezione della home (sopra il titolo) e, in fondo alla pagina, il
+   profilo precedente (freccia a sinistra) e il successivo (freccia a destra, allineato a destra anche
+   quando è da solo). La freccia è un tratto spezzato come quello delle fasi, nel colore del testo; al
+   passaggio del mouse si sposta appena nella sua direzione */
 .profilo-indietro,
-.profilo-successivo a {
+.profilo-precedente,
+.profilo-successivo {
 	display: inline-flex;
 	align-items: center;
 	column-gap: var(--spazio-3);
 }
 
 .profilo-indietro::before,
-.profilo-successivo a::after {
+.profilo-precedente::before,
+.profilo-successivo::after {
 	content: '';
 	flex: none;
 	inline-size: 0.5em;
@@ -1015,21 +1027,28 @@
 	transition: translate 0.2s ease-out;
 }
 
-.profilo-successivo a::after {
+.profilo-successivo::after {
 	rotate: -135deg;
 }
 
-.profilo-indietro:hover::before {
+.profilo-indietro:hover::before,
+.profilo-precedente:hover::before {
 	translate: calc(-1 * var(--spazio-1)) 0;
 }
 
-.profilo-successivo a:hover::after {
+.profilo-successivo:hover::after {
 	translate: var(--spazio-1) 0;
 }
 
-.profilo-successivo {
+.profilo-percorso {
 	display: flex;
-	justify-content: end;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: var(--spazio-5);
+}
+
+.profilo-successivo {
+	margin-inline-start: auto;
 }
 
 /* Il bottone è centrato su mobile, a sinistra su desktop */
@@ -1076,7 +1095,7 @@
 @media (min-width: 64rem) {
 	.profilo {
 		align-items: start;
-		row-gap: var(--spazio-9);
+		row-gap: var(--spazio-8);
 		padding-block: var(--spazio-8) var(--spazio-9);
 	}
 
@@ -1091,9 +1110,20 @@
 	}
 
 	.profilo-intro,
-	.profilo-partecipa,
-	.profilo-successivo {
+	.profilo-partecipa {
 		grid-column: 7 / -1;
+	}
+
+	.profilo-percorso {
+		grid-column: 1 / -1;
+	}
+
+	/* Il personaggio e "Come partecipare" sono centrati in altezza l'uno rispetto all'altro. Il personaggio
+	   è largo quanto le colonne 1–5 (fino a --illustrazione-profilo): sugli schermi grandi è alto più o
+	   meno quanto il testo accanto */
+	.profilo-illustrazione,
+	.profilo-partecipa {
+		align-self: center;
 	}
 
 	.profilo-illustrazione {
@@ -1137,7 +1167,7 @@
 
 /* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore.
    Mobile: tutto in colonna. Desktop: nome | link, contributo | titolari, poi i partner su tutta la riga.
-   I loghi dei partner sono centrati */
+   I loghi dei partner partono da sinistra: se vanno a capo, anche l'ultima fila è allineata a sinistra */
 
 .piede {
 	padding-block: var(--spazio-7);
@@ -1162,10 +1192,6 @@
 
 .piede-gruppo > :not(.solo-screen-reader) + * {
 	margin-block-start: var(--spazio-4);
-}
-
-.piede-partner .loghi {
-	justify-content: center;
 }
 
 .piede-info ul {
@@ -1212,10 +1238,5 @@
 
 	.loghi {
 		gap: var(--spazio-6) var(--spazio-8);
-	}
-
-	/* Partner distribuiti su tutta la riga, come in Figma */
-	.piede-partner .loghi {
-		justify-content: space-evenly;
 	}
 }

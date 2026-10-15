@@ -69,10 +69,11 @@
 	--bottone-padding-block: 0.75rem;
 	--bordo-contorno: 0.125rem;
 
-	/* Hero della home (il logo è un SVG, non testo). Il logo cresce da 13.125rem (210px) a 24.375rem
-	   (390px di schermo) fino a 26.5625rem (425px) a 64rem (1024px), poi resta fermo come in Figma.
-	   La mascotte segue il logo: 197px accanto a un logo di 425px */
-	--hero-logo: clamp(13.125rem, calc(13.125rem + (100vw - 24.375rem) * 0.3391), 26.5625rem);
+	/* Hero della home (il logo è un SVG, non testo). Su mobile logo e mascotte riempiono insieme la
+	   larghezza della colonna (meno lo spazio tra loro): il logo ne prende il 68.3%, la mascotte il resto,
+	   nella proporzione di Figma (197px accanto a 425px). Il logo non supera 26.5625rem (425px), la sua
+	   misura su desktop */
+	--hero-logo: min(26.5625rem, (100vw - 2 * var(--margine-pagina) - var(--spazio-3)) * 0.683);
 	--hero-mascotte: calc(var(--hero-logo) * 0.4635);
 	--bordo-pennello: 1.1875rem; /* 19px, il bordo a pennello che chiude il verde */
 
@@ -166,13 +167,14 @@
 		--text-titolo-3: 1.5rem;
 
 		--scala-loghi: 1;
+		--hero-logo: 26.5625rem;
 		/* Le colonne 1–5, dove stanno logo e mascotte della hero (12 colonne, 11 gutter, i due margini).
 		   La mascotte prende ciò che il logo lascia (almeno il 30%), ma non supera il 60% del logo: sugli
 		   schermi molto larghi non diventa più grande di lui */
 		--colonne-hero: calc((100vw - 2 * var(--margine-pagina) - 11 * var(--gutter)) * 5 / 12 + 4 * var(--gutter));
 		--mascotte: min(max(var(--colonne-hero) * 0.3, var(--colonne-hero) - var(--hero-logo)), var(--hero-logo) * 0.6);
 		--card-larghezza: 20.9375rem;
-		--illustrazione-profilo: 27.8125rem;
+		--illustrazione-profilo: 36rem;
 		--pallino-fasi: 1rem;
 		--pallino-fasi-bordo: 0.125rem;
 		--controlli-fasi: 49.5rem;

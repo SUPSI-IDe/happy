@@ -21,7 +21,6 @@ Piede_titolari_etichetta: Un progetto di
 Piede_titolari:
 
 - logo-supsi.png
-- logo-conservatorio.png
 
 ----
 
@@ -45,11 +44,12 @@ Piede_partner_etichetta: In collaborazione con
 
 Piede_partner:
 
+- logo-conservatorio.png
+- logo-fisiocamera.png
 - logo-lacedu.png
 - logo-physioswiss.png
 - logo-ergoterapia.png
 - logo-swissmedmusica.png
-- logo-fisiocamera.png
 
 ----
 
