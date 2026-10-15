@@ -422,9 +422,10 @@
 }
 
 @media (min-width: 64rem) {
-	/* Una schermata sotto la navbar, con il contenuto al centro. Nella griglia la riga del titolo è alta
-	   quanto logo e mascotte; quella della presentazione prende il resto (1fr): se video e crediti sono
-	   più alti, è lei ad allungarsi, e il bottone "Partecipa" scende alla fine dei crediti */
+	/* Una schermata sotto la navbar, con il contenuto al centro. Tre blocchi: in alto, da solo, logo,
+	   sottotitolo e mascotte; sotto, la presentazione (colonne 1–5) e il video con i crediti (7–12, come
+	   le sezioni della home), allineati in alto tra loro. Il bottone "Partecipa" sta in fondo alla
+	   presentazione: alla fine dei crediti se video e crediti sono più alti del testo */
 	.hero {
 		display: flex;
 		flex-direction: column;
@@ -433,34 +434,34 @@
 	}
 
 	.hero-griglia {
-		grid-template-rows: min-content 1fr;
 		row-gap: var(--spazio-7);
 		padding-block: var(--spazio-6);
 	}
 
-	/* Logo e mascotte restano nelle colonne 1–5, così non toccano il video, che sale accanto al logo.
-	   Il logo è al massimo il 70% delle colonne (cqi = percentuale della larghezza del titolo); la mascotte
-	   prende tutto il resto (--mascotte, tokens.css): è sempre il più grande possibile */
+	/* Logo e sottotitolo a sinistra, la mascotte accanto, alta quanto loro due insieme (tokens.css,
+	   --hero-mascotte-altezza). Il sottotitolo sta su una riga sola: c'è tutta la larghezza dello schermo,
+	   e la mascotte si sposta a destra quanto serve */
 	.hero-titolo {
-		grid-column: 1 / span 5;
+		grid-column: 1 / -1;
 		grid-template-columns: auto auto;
-		column-gap: 0;
+		column-gap: var(--spazio-5);
 		row-gap: var(--spazio-2);
 		margin-block-end: 0;
-		container-type: inline-size;
 	}
 
-	.hero-logo svg {
-		inline-size: min(var(--hero-logo), 70cqi);
+	.hero-sottotitolo {
+		grid-column: 1;
+		contain: none;
+		white-space: nowrap;
 	}
 
-	/* La mano della mascotte scende fino al sottotitolo */
 	.hero-mascotte {
-		inline-size: min(var(--mascotte), 100cqi - min(var(--hero-logo), 70cqi));
-		margin-block-end: calc(-1 * var(--spazio-2));
+		grid-row: 1 / span 2;
+		align-self: start;
+		inline-size: var(--hero-mascotte);
+		block-size: var(--hero-mascotte-altezza);
 	}
 
-	/* Il bottone "Partecipa" sta in fondo alla presentazione: alla fine dei crediti, se video e crediti sono più alti */
 	.hero-griglia > .hero-presentazione {
 		display: flex;
 		flex-direction: column;
@@ -478,12 +479,6 @@
 		margin-block-start: auto;
 	}
 
-	/* Video e crediti a destra, accanto a logo e presentazione insieme. La cima del video è sempre alla
-	   stessa altezza della cima della mascotte (l'immagine è ritagliata sul disegno, senza vuoto sopra).
-	   Se video e crediti sono più alti del testo (schermi larghi), anche la fine dei crediti e il bottone
-	   "Partecipa" sono alla stessa altezza; se il testo è più lungo (schermi più stretti, dove il video è
-	   più piccolo) i crediti finiscono prima del bottone: allineare anche il fondo vorrebbe dire
-	   rimpicciolire logo e mascotte */
 	/* I crediti tengono il loro posto anche chiusi: aprirli mostra solo il testo, senza spostare video,
 	   titolo e bottone. Chiusi, il testo è nascosto, anche allo screen reader (visibility). Nei browser
 	   che non conoscono ::details-content la tendina si apre come su mobile */
@@ -497,8 +492,8 @@
 
 	.hero-griglia > .hero-video,
 	.hero-griglia > .hero-media {
-		grid-column: 6 / -1;
-		grid-row: 1 / span 2;
+		grid-column: 7 / -1;
+		grid-row: 2;
 		align-self: start;
 	}
 

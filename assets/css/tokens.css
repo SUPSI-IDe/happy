@@ -81,8 +81,7 @@
 	   colonna); su desktop è l'altezza minima, poi cresce fino al fondo del contenuto */
 	--illustrazione-sezione: 16.375rem;
 
-	/* Mascotte: quella della hero è la misura di riferimento del sito. Su mobile è --hero-mascotte; su
-	   desktop occupa tutto lo spazio che il logo lascia libero nelle colonne 1–5 (vedi il blocco desktop).
+	/* Mascotte: quella della hero (--hero-mascotte, in proporzione al logo) è la misura di riferimento del sito.
 	   Le altre mascotte dipendono da lei: quella dei Contatti, senza la mano, è 1.5 volte più larga, così
 	   il personaggio è un po' più grande che nella hero ma non troppo diverso */
 	--mascotte: var(--hero-mascotte);
@@ -167,12 +166,13 @@
 		--text-titolo-3: 1.5rem;
 
 		--scala-loghi: 1;
-		--hero-logo: 26.5625rem;
-		/* Le colonne 1–5, dove stanno logo e mascotte della hero (12 colonne, 11 gutter, i due margini).
-		   La mascotte prende ciò che il logo lascia (almeno il 30%), ma non supera il 60% del logo: sugli
-		   schermi molto larghi non diventa più grande di lui */
-		--colonne-hero: calc((100vw - 2 * var(--margine-pagina) - 11 * var(--gutter)) * 5 / 12 + 4 * var(--gutter));
-		--mascotte: min(max(var(--colonne-hero) * 0.3, var(--colonne-hero) - var(--hero-logo)), var(--hero-logo) * 0.6);
+		/* Su desktop logo e mascotte stanno da soli sopra presentazione e video: il logo cresce con lo
+		   schermo, da 26.5625rem (425px) a 1024px fino a 40rem (640px); a 1512px è 544px come in Figma.
+		   La mascotte è alta esattamente quanto logo e sottotitolo insieme: l'altezza del logo (SVG 425 × 121),
+		   lo spazio e una riga di sottotitolo. La larghezza segue dalle proporzioni del disegno (353 × 369) */
+		--hero-logo: clamp(26.5625rem, 36vw, 40rem);
+		--hero-mascotte-altezza: calc(var(--hero-logo) * 121 / 425 + var(--spazio-2) + var(--text-titolo-3) * var(--interlinea-titolo-3));
+		--hero-mascotte: calc(var(--hero-mascotte-altezza) * 353 / 369);
 		--card-larghezza: 20.9375rem;
 		--illustrazione-profilo: 36rem;
 		--pallino-fasi: 1rem;
