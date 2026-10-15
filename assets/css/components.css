@@ -438,24 +438,28 @@
 		padding-block: var(--spazio-6);
 	}
 
-	/* Logo e sottotitolo a sinistra, la mascotte accanto, alta quanto loro (la mano arriva al fondo
-	   del sottotitolo). Il blocco è largo quanto serve, senza colonne fisse */
+	/* Logo e sottotitolo a sinistra, la mascotte accanto, alta quanto loro due insieme (tokens.css,
+	   --hero-mascotte-altezza). Il sottotitolo sta su una riga sola: c'è tutta la larghezza dello schermo,
+	   e la mascotte si sposta a destra quanto serve */
 	.hero-titolo {
 		grid-column: 1 / -1;
 		grid-template-columns: auto auto;
-		column-gap: var(--spazio-4);
+		column-gap: var(--spazio-5);
 		row-gap: var(--spazio-2);
 		margin-block-end: 0;
 	}
 
 	.hero-sottotitolo {
 		grid-column: 1;
+		contain: none;
+		white-space: nowrap;
 	}
 
 	.hero-mascotte {
 		grid-row: 1 / span 2;
-		align-self: end;
+		align-self: start;
 		inline-size: var(--hero-mascotte);
+		block-size: var(--hero-mascotte-altezza);
 	}
 
 	.hero-griglia > .hero-presentazione {

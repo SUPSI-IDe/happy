@@ -168,9 +168,11 @@
 		--scala-loghi: 1;
 		/* Su desktop logo e mascotte stanno da soli sopra presentazione e video: il logo cresce con lo
 		   schermo, da 26.5625rem (425px) a 1024px fino a 40rem (640px); a 1512px è 544px come in Figma.
-		   La mascotte è alta più o meno quanto logo e sottotitolo insieme */
+		   La mascotte è alta esattamente quanto logo e sottotitolo insieme: l'altezza del logo (SVG 425 × 121),
+		   lo spazio e una riga di sottotitolo. La larghezza segue dalle proporzioni del disegno (353 × 369) */
 		--hero-logo: clamp(26.5625rem, 36vw, 40rem);
-		--hero-mascotte: calc(var(--hero-logo) * 0.36);
+		--hero-mascotte-altezza: calc(var(--hero-logo) * 121 / 425 + var(--spazio-2) + var(--text-titolo-3) * var(--interlinea-titolo-3));
+		--hero-mascotte: calc(var(--hero-mascotte-altezza) * 353 / 369);
 		--card-larghezza: 20.9375rem;
 		--illustrazione-profilo: 36rem;
 		--pallino-fasi: 1rem;
