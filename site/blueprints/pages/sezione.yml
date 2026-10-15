@@ -2,6 +2,7 @@ title: Sezione
 # Sezione di testo della home, per esempio Perché Happy?
 fields:
   voce_menu: fields/voce-menu
+  sottosezione: fields/sottosezione
   partecipa:
     label: Bottone "Partecipa al progetto"
     type: toggle

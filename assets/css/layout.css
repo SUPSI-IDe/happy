@@ -8,6 +8,11 @@
 	padding-block-start: var(--spazio-sezione);
 }
 
+/* Sottosezione (snippet sezione): fa parte di quella sopra, quindi le sta più vicina */
+.sezione--sotto {
+	padding-block-start: var(--spazio-sottosezione);
+}
+
 main > .sezione:last-child {
 	padding-block-end: var(--spazio-sezione);
 }

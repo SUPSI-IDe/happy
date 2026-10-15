@@ -18,4 +18,4 @@ Membri:
   nome: "Marco Barbero"
   link: https://www.supsi.ch/marco-barbero
   ruolo: "Fisioterapista e professore di ricerca"
-  ente: "SUPSI DEASS, <a href=\"https://www.supsi.ch/2rlab\">2rLab</a>"
+  ente: "2rLab, SUPSI DEASS"

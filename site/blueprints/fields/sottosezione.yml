@@ -1,0 +1,6 @@
+# La sezione fa parte di quella che la precede (per esempio Vuoi partecipare? dentro Perché Happy?).
+# Si usa con: sottosezione: fields/sottosezione
+label: Parte della sezione precedente
+type: toggle
+help: Il titolo diventa di un livello più piccolo e la sezione si avvicina a quella sopra
+width: 1/2

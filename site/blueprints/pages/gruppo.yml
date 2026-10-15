@@ -28,10 +28,6 @@ fields:
         width: 1/2
       ente:
         label: Ente e dipartimento
-        type: writer
-        inline: true
-        marks:
-          - link
-        nodes: false
-        help: Per collegare un ente al suo sito, seleziona il nome e premi il link
+        type: text
+        help: Dal più piccolo al più grande, per esempio "IDe, SUPSI DACD". Senza link
         width: 1/2

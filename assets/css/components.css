@@ -422,17 +422,25 @@
 }
 
 @media (min-width: 64rem) {
-	/* Una schermata sotto la navbar, con il contenuto al centro */
-	.hero-griglia {
-		align-content: center;
-		row-gap: var(--spazio-7);
+	/* Una schermata sotto la navbar, con il contenuto al centro. Nella griglia la riga del titolo è alta
+	   quanto logo e mascotte; quella della presentazione prende il resto (1fr): se video e crediti sono
+	   più alti, è lei ad allungarsi, e il bottone "Partecipa" scende alla fine dei crediti */
+	.hero {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		min-block-size: calc(100svh - var(--navbar-altezza));
+	}
+
+	.hero-griglia {
+		grid-template-rows: min-content 1fr;
+		row-gap: var(--spazio-7);
 		padding-block: var(--spazio-6);
 	}
 
 	/* Logo e mascotte restano nelle colonne 1–5, così non toccano il video, che sale accanto al logo.
-	   Se le colonne sono strette (schermi vicini a 1024px) si rimpiccioliscono insieme, in proporzione
-	   (cqi = percentuale della larghezza del titolo): la mascotte c'è sempre */
+	   Il logo è al massimo il 70% delle colonne (cqi = percentuale della larghezza del titolo); la mascotte
+	   prende tutto il resto (--mascotte, tokens.css): è sempre il più grande possibile */
 	.hero-titolo {
 		grid-column: 1 / span 5;
 		grid-template-columns: auto auto;
@@ -448,11 +456,11 @@
 
 	/* La mano della mascotte scende fino al sottotitolo */
 	.hero-mascotte {
-		inline-size: min(var(--hero-mascotte), 30cqi);
+		inline-size: min(var(--mascotte), 100cqi - min(var(--hero-logo), 70cqi));
 		margin-block-end: calc(-1 * var(--spazio-2));
 	}
 
-	/* La presentazione è alta quanto video e crediti: il bottone "Partecipa" scende in fondo, alla loro altezza */
+	/* Il bottone "Partecipa" sta in fondo alla presentazione: alla fine dei crediti, se video e crediti sono più alti */
 	.hero-griglia > .hero-presentazione {
 		display: flex;
 		flex-direction: column;
@@ -470,9 +478,12 @@
 		margin-block-start: auto;
 	}
 
-	/* Video e crediti a destra, accanto a logo e presentazione insieme, allineati in basso: la fine dei
-	   crediti (aperti) è alla stessa altezza del bottone "Partecipa", e sopra il video non resta il vuoto
-	   accanto al logo. Se video e crediti sono più alti, è il bottone a scendere (margin-block-start: auto) */
+	/* Video e crediti a destra, accanto a logo e presentazione insieme. La cima del video è sempre alla
+	   stessa altezza della cima della mascotte (l'immagine è ritagliata sul disegno, senza vuoto sopra).
+	   Se video e crediti sono più alti del testo (schermi larghi), anche la fine dei crediti e il bottone
+	   "Partecipa" sono alla stessa altezza; se il testo è più lungo (schermi più stretti, dove il video è
+	   più piccolo) i crediti finiscono prima del bottone: allineare anche il fondo vorrebbe dire
+	   rimpicciolire logo e mascotte */
 	/* I crediti tengono il loro posto anche chiusi: aprirli mostra solo il testo, senza spostare video,
 	   titolo e bottone. Chiusi, il testo è nascosto, anche allo screen reader (visibility). Nei browser
 	   che non conoscono ::details-content la tendina si apre come su mobile */
@@ -488,7 +499,7 @@
 	.hero-griglia > .hero-media {
 		grid-column: 6 / -1;
 		grid-row: 1 / span 2;
-		align-self: end;
+		align-self: start;
 	}
 
 	.hero::after {
@@ -534,6 +545,15 @@
 	--card-rientro: var(--spazio-4);
 	--card-rotazione: 5deg;
 	--card-scarto: var(--spazio-6);
+}
+
+/* Su mobile le card, con i loro rientri, formano un gruppo centrato nello schermo: l'elenco è largo
+   quanto una card più il rientro più grande (--spazio-7) */
+@media (width < 64rem) {
+	.card-profili {
+		align-self: center;
+		inline-size: min(100%, var(--card-larghezza) + var(--spazio-7));
+	}
 }
 
 /* Il rientro non porta mai la card fuori dalla colonna: su uno schermo stretto si stringe lei */
@@ -982,6 +1002,55 @@
 	margin-block-start: var(--spazio-5);
 }
 
+/* I link del percorso: indietro alla sezione della home (sopra il titolo) e, in fondo alla pagina, il
+   profilo precedente (freccia a sinistra) e il successivo (freccia a destra, allineato a destra anche
+   quando è da solo). La freccia è un tratto spezzato come quello delle fasi, nel colore del testo; al
+   passaggio del mouse si sposta appena nella sua direzione */
+.profilo-indietro,
+.profilo-precedente,
+.profilo-successivo {
+	display: inline-flex;
+	align-items: center;
+	column-gap: var(--spazio-3);
+}
+
+.profilo-indietro::before,
+.profilo-precedente::before,
+.profilo-successivo::after {
+	content: '';
+	flex: none;
+	inline-size: 0.5em;
+	aspect-ratio: 1;
+	border-block-end: var(--freccia-fasi-tratto) solid currentColor;
+	border-inline-start: var(--freccia-fasi-tratto) solid currentColor;
+	rotate: 45deg;
+	transition: translate 0.2s ease-out;
+}
+
+.profilo-successivo::after {
+	rotate: -135deg;
+}
+
+.profilo-indietro:hover::before,
+.profilo-precedente:hover::before {
+	translate: calc(-1 * var(--spazio-1)) 0;
+}
+
+.profilo-successivo:hover::after {
+	translate: var(--spazio-1) 0;
+}
+
+.profilo-percorso {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: var(--spazio-5);
+}
+
+.profilo-successivo {
+	margin-inline-start: auto;
+}
+
 /* Il bottone è centrato su mobile, a sinistra su desktop */
 .profilo-sondaggio {
 	display: flex;
@@ -1026,7 +1095,7 @@
 @media (min-width: 64rem) {
 	.profilo {
 		align-items: start;
-		row-gap: var(--spazio-9);
+		row-gap: var(--spazio-8);
 		padding-block: var(--spazio-8) var(--spazio-9);
 	}
 
@@ -1043,6 +1112,18 @@
 	.profilo-intro,
 	.profilo-partecipa {
 		grid-column: 7 / -1;
+	}
+
+	.profilo-percorso {
+		grid-column: 1 / -1;
+	}
+
+	/* Il personaggio e "Come partecipare" sono centrati in altezza l'uno rispetto all'altro. Il personaggio
+	   è largo quanto le colonne 1–5 (fino a --illustrazione-profilo): sugli schermi grandi è alto più o
+	   meno quanto il testo accanto */
+	.profilo-illustrazione,
+	.profilo-partecipa {
+		align-self: center;
 	}
 
 	.profilo-illustrazione {
@@ -1086,7 +1167,7 @@
 
 /* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore.
    Mobile: tutto in colonna. Desktop: nome | link, contributo | titolari, poi i partner su tutta la riga.
-   I loghi dei partner sono centrati */
+   I loghi dei partner partono da sinistra: se vanno a capo, anche l'ultima fila è allineata a sinistra */
 
 .piede {
 	padding-block: var(--spazio-7);
@@ -1111,10 +1192,6 @@
 
 .piede-gruppo > :not(.solo-screen-reader) + * {
 	margin-block-start: var(--spazio-4);
-}
-
-.piede-partner .loghi {
-	justify-content: center;
 }
 
 .piede-info ul {
@@ -1161,10 +1238,5 @@
 
 	.loghi {
 		gap: var(--spazio-6) var(--spazio-8);
-	}
-
-	/* Partner distribuiti su tutta la riga, come in Figma */
-	.piede-partner .loghi {
-		justify-content: space-evenly;
 	}
 }
