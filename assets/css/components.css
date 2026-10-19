@@ -1,0 +1,1227 @@
+/* Stili dei componenti. Ogni blocco corrisponde a uno snippet in site/snippets.
+   Solo token di tokens.css: vedi docs/design-tokens.md */
+
+/* Bottone (snippet bottone) */
+
+.bottone {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-block-size: var(--bottone-altezza-min);
+	padding: var(--bottone-padding-block) var(--bottone-padding-inline);
+	/* Il bordo c'è sempre, così pieno e contorno hanno la stessa altezza */
+	border: var(--bordo-contorno) solid transparent;
+	border-radius: var(--raggio-pieno);
+	background: none;
+	font-family: var(--font-titoli);
+	font-size: var(--text-titolo-3);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-titolo-3);
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+/* Hover: si sottolinea l'etichetta, colori e sfondo non cambiano */
+.bottone:hover {
+	text-decoration: underline;
+	text-decoration-thickness: var(--sottolineatura-bottone-hover);
+	text-underline-offset: 0.25em;
+}
+
+.bottone--pieno {
+	background-color: var(--color-verde-salvia);
+	color: var(--color-testo-su-colore);
+}
+
+.bottone--contorno {
+	color: inherit;
+	border-color: currentColor;
+}
+
+/* Navbar (snippet navbar). Fondo e testo bianco vengono da .fondo-verde-salvia e .su-colore.
+   Resta in alto mentre si scorre: se cambia l'altezza, va aggiornato --navbar-altezza in tokens.css */
+
+.navbar {
+	position: sticky;
+	inset-block-start: 0;
+	z-index: 1;
+	border-block-end: var(--bordo-contorno) solid currentColor;
+}
+
+.navbar-riga {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: var(--gutter);
+	padding-block: var(--spazio-3);
+}
+
+.navbar-logo {
+	color: inherit;
+	font-family: var(--font-titoli);
+	font-size: var(--text-logo);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-titoli);
+	text-decoration: none;
+}
+
+/* Pulsante menu: visibile solo se c'è JavaScript e solo su mobile */
+.navbar-menu {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	min-inline-size: var(--bottone-altezza-min);
+	min-block-size: var(--bottone-altezza-min);
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	cursor: pointer;
+}
+
+.js .navbar-menu {
+	display: inline-flex;
+}
+
+/* Icona: due linee che, a menu aperto, diventano una X. Da sostituire con il disegno a mano di Laura */
+.navbar-menu-icona {
+	position: relative;
+	display: block;
+	inline-size: var(--bottone-altezza-min);
+	block-size: var(--spazio-2);
+}
+
+.navbar-menu-icona::before,
+.navbar-menu-icona::after {
+	content: '';
+	position: absolute;
+	inset-inline: 0;
+	block-size: var(--bordo-contorno);
+	background-color: currentColor;
+}
+
+.navbar-menu-icona::before {
+	inset-block-start: 0;
+}
+
+.navbar-menu-icona::after {
+	inset-block-end: 0;
+}
+
+/* Le due linee scendono (o salgono) al centro e ruotano */
+[aria-expanded='true'] > .navbar-menu-icona::before {
+	transform: translateY(calc((var(--spazio-2) - var(--bordo-contorno)) / 2)) rotate(45deg);
+}
+
+[aria-expanded='true'] > .navbar-menu-icona::after {
+	transform: translateY(calc((var(--bordo-contorno) - var(--spazio-2)) / 2)) rotate(-45deg);
+}
+
+.navbar-voci {
+	flex-basis: 100%;
+}
+
+.navbar-voci ul {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+	list-style: none;
+}
+
+.js .navbar-voci {
+	display: none;
+}
+
+.js .navbar[data-aperto] .navbar-voci {
+	display: block;
+}
+
+.navbar-voce {
+	display: flex;
+	align-items: center;
+	min-block-size: var(--bottone-altezza-min);
+	color: inherit;
+	font-size: var(--text-corpo-colore);
+	font-weight: var(--peso-grassetto);
+	text-decoration: none;
+}
+
+.navbar-voce:hover {
+	text-decoration: underline;
+	text-decoration-thickness: var(--sottolineatura-bottone-hover);
+	text-underline-offset: 0.25em;
+}
+
+/* Solo mobile: il menu aperto, a tutto schermo sul verde (wireframe 1.1-menu-aperto) */
+@media (width < 64rem) {
+	.navbar[data-aperto] {
+		position: fixed;
+		inset: 0;
+		overflow-y: auto;
+		border-block-end: 0;
+	}
+
+	/* La pagina sotto il menu non scorre */
+	:root:has(.navbar[data-aperto]) {
+		overflow: hidden;
+	}
+
+	/* La linea resta sotto la riga del logo, da bordo a bordo */
+	.navbar[data-aperto] .navbar-voci {
+		flex-basis: calc(100% + 2 * var(--margine-pagina));
+		margin-block-start: var(--spazio-3);
+		margin-inline: calc(-1 * var(--margine-pagina));
+		padding: var(--spazio-6) var(--margine-pagina);
+		border-block-start: var(--bordo-contorno) solid currentColor;
+	}
+
+	.navbar-voci ul {
+		row-gap: var(--spazio-3);
+	}
+
+	.navbar-voce {
+		padding-block: var(--spazio-2);
+		font-family: var(--font-titoli);
+		font-size: var(--text-titolo-2);
+		font-weight: var(--peso-semibold);
+		line-height: var(--interlinea-titoli);
+	}
+
+	.navbar-partecipa {
+		margin-block-start: var(--spazio-6);
+	}
+}
+
+@media (min-width: 64rem) {
+	.js .navbar-menu {
+		display: none;
+	}
+
+	.navbar-voci,
+	.js .navbar-voci {
+		display: block;
+		flex-basis: auto;
+	}
+
+	.navbar-voci ul {
+		flex-direction: row;
+		column-gap: var(--spazio-7);
+	}
+
+	/* Il bottone "Partecipa" sta solo nel menu su mobile */
+	.navbar-partecipa {
+		display: none;
+	}
+}
+
+/* Hero (snippet hero). Fondo verde e testo bianco vengono da .fondo-verde-salvia e .su-colore.
+   Mobile: logo e video sul verde, presentazione sul bianco. Desktop: tutto sul verde, alto uno schermo. */
+
+.hero {
+	position: relative;
+}
+
+.hero-griglia {
+	row-gap: 0;
+	padding-block-start: var(--spazio-8);
+}
+
+/* Logo e sottotitolo a sinistra, mascotte accanto al logo (su mobile si stringe se manca spazio) */
+.hero-titolo {
+	display: grid;
+	grid-template-columns: auto minmax(0, var(--hero-mascotte));
+	justify-content: start;
+	align-items: end;
+	column-gap: var(--spazio-3);
+	margin-block-end: var(--spazio-8);
+}
+
+.hero-logo svg {
+	inline-size: var(--hero-logo);
+}
+
+/* Il sottotitolo passa sotto la mascotte, come in Figma. contain: non allarga le colonne,
+   che restano larghe quanto logo e mascotte, e il testo va a capo dentro */
+.hero-sottotitolo {
+	grid-column: 1 / -1;
+	contain: inline-size;
+	text-wrap: balance;
+}
+
+/* La mascotte c'è sempre, anche su mobile, più piccola */
+.hero-mascotte {
+	grid-column: 2;
+	grid-row: 1;
+	inline-size: 100%;
+}
+
+/* Il video (per ora la sua immagine) è sempre 16:9; senza immagine resta un riquadro tratteggiato */
+.hero-video {
+	inline-size: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.hero-video--vuoto {
+	border: var(--bordo-contorno) dashed currentColor;
+}
+
+/* Il tasto play al centro della copertina: cerchio verde con il triangolo bianco (come le frecce delle
+   fasi). Sta sulla copertina chiara: l'anello di focus è quello per il bianco */
+.hero-lettore {
+	position: relative;
+}
+
+.hero-play {
+	position: absolute;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	inline-size: var(--play-video);
+	block-size: var(--play-video);
+	margin: auto;
+	padding: 0;
+	border: var(--bordo-contorno) solid var(--color-testo-su-colore);
+	border-radius: var(--raggio-pieno);
+	background-color: var(--color-verde-salvia);
+	cursor: pointer;
+	transition: scale 0.2s ease-out;
+	--color-focus: var(--color-focus-su-bianco);
+}
+
+.hero-play::before {
+	content: '';
+	inline-size: 34%;
+	aspect-ratio: 0.87;
+	margin-inline-start: 10%;
+	background-color: var(--color-testo-su-colore);
+	clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* Hover: il tasto si ingrandisce appena (con "riduci movimento" senza transizione, base.css) */
+.hero-play:hover {
+	scale: 1.08;
+}
+
+/* I crediti del video: una sola riga, "Crediti del video", larga quanto il video con la freccia sul suo
+   lato destro, che si apre (<details>). Sul verde il testo
+   bianco non può essere piccolo (regole visive 2 e 3): così si vede solo una riga. Freccia e hover
+   come le tendine; aperti, il testo è più fitto del corpo, come una nota */
+.hero-crediti {
+	margin-block-start: var(--spazio-4);
+}
+
+.hero-crediti summary {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: var(--spazio-3);
+	list-style: none;
+	cursor: pointer;
+}
+
+.hero-crediti summary::-webkit-details-marker {
+	display: none;
+}
+
+.hero-crediti summary::after {
+	content: '';
+	inline-size: calc(var(--freccia-tendina) * 0.7);
+	aspect-ratio: 27 / 9;
+	background-color: currentColor;
+	mask: url('../images/freccia-tendina.svg') center / contain no-repeat;
+	transition: translate 0.2s ease-out;
+}
+
+.hero-crediti[open] summary::after {
+	rotate: 180deg;
+}
+
+.hero-crediti summary:hover::after {
+	translate: 0 var(--spazio-1);
+}
+
+.hero-crediti[open] summary:hover::after {
+	translate: 0 calc(-1 * var(--spazio-1));
+}
+
+.hero-crediti summary:focus-visible {
+	border-radius: 0;
+}
+
+.hero-crediti > :not(summary) {
+	margin-block-start: var(--spazio-3);
+	line-height: var(--interlinea-titolo-3);
+}
+
+.hero-presentazione > * + * {
+	margin-block-start: var(--spazio-4);
+}
+
+/* Bordo a pennello che chiude il verde (decorativo). Su mobile sta sopra la presentazione,
+   su desktop sotto la hero: si attiva con content nei due blocchi @media qui sotto.
+   È centrato sul bordo, metà sul verde e metà sotto, come in Figma: il suo profilo irregolare
+   non lascia così fessure bianche tra il verde e il pennello */
+.hero::after,
+.hero-presentazione::before {
+	position: absolute;
+	inset-inline: 0;
+	block-size: var(--bordo-pennello);
+	translate: 0 -50%;
+	background-color: var(--color-verde-salvia);
+	mask: url('../images/bordo-pennello.svg') center / 100% 100% no-repeat;
+}
+
+/* Solo mobile (sotto 64rem): regole che su desktop non servono, così non vanno annullate */
+@media (width < 64rem) {
+	/* Video e presentazione da bordo a bordo: escono dal margine di pagina */
+	.hero-video,
+	.hero-presentazione {
+		margin-inline: calc(-1 * var(--margine-pagina));
+	}
+
+	/* Un'immagine non si allarga da sola come un div: la larghezza va detta (colonna più i due margini) */
+	.hero-video {
+		inline-size: calc(100% + 2 * var(--margine-pagina));
+		max-inline-size: none;
+	}
+
+	/* La presentazione sta sul bianco: si annulla .su-colore (base.css) */
+	.hero-presentazione {
+		position: relative;
+		padding: var(--spazio-sezione) var(--margine-pagina) 0;
+		background-color: var(--color-sfondo);
+		color: var(--color-testo);
+		font-weight: var(--peso-medio);
+		--color-link: var(--color-verde-salvia);
+		--color-focus: var(--color-focus-su-bianco);
+		--color-decorazione: var(--color-verde-salvia);
+	}
+
+	.hero-presentazione::before {
+		content: '';
+		inset-block-start: 0;
+	}
+
+	/* Su mobile la presentazione sta sul bianco: lì il bottone "Partecipa" ripeterebbe quello della sezione
+	   "Vuoi partecipare?" poco sotto. Si vede solo su desktop, sul verde */
+	.hero-partecipa {
+		display: none;
+	}
+
+	/* Il pennello che chiude il verde scende per metà sul verde: la descrizione del video gli lascia posto */
+	.hero-crediti {
+		padding-block-end: calc(var(--bordo-pennello) / 2 + var(--spazio-5));
+	}
+
+	.hero-presentazione > h2 + * {
+		margin-block-start: var(--spazio-5);
+	}
+}
+
+@media (min-width: 64rem) {
+	/* Una schermata sotto la navbar, con il contenuto al centro. Tre blocchi: in alto, da solo, logo,
+	   sottotitolo e mascotte; sotto, la presentazione (colonne 1–5) e il video con i crediti (7–12, come
+	   le sezioni della home), allineati in alto tra loro. Il bottone "Partecipa" segue il testo */
+	.hero {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-block-size: calc(100svh - var(--navbar-altezza));
+	}
+
+	.hero-griglia {
+		row-gap: var(--spazio-7);
+		padding-block: var(--spazio-6);
+	}
+
+	/* Logo e sottotitolo a sinistra, la mascotte accanto, alta quanto loro due insieme (tokens.css,
+	   --hero-mascotte-altezza). Il sottotitolo sta su una riga sola: c'è tutta la larghezza dello schermo,
+	   e la mascotte si sposta a destra quanto serve */
+	.hero-titolo {
+		grid-column: 1 / -1;
+		grid-template-columns: auto auto;
+		column-gap: var(--spazio-5);
+		row-gap: var(--spazio-2);
+		margin-block-end: 0;
+	}
+
+	.hero-sottotitolo {
+		grid-column: 1;
+		contain: none;
+		white-space: nowrap;
+	}
+
+	.hero-mascotte {
+		grid-row: 1 / span 2;
+		align-self: start;
+		inline-size: var(--hero-mascotte);
+		block-size: var(--hero-mascotte-altezza);
+	}
+
+	.hero-griglia > .hero-presentazione {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--spazio-4);
+		grid-column: 1 / span 5;
+		grid-row: 2;
+	}
+
+	.hero-griglia > .hero-presentazione > * {
+		margin-block-start: 0;
+	}
+
+	/* Il bottone segue il testo, alla stessa distanza del bottone delle sezioni: non scende ad allinearsi
+	   ai crediti, che possono essere aperti o chiusi (aprirli allunga solo la colonna del video) */
+	.hero-griglia > .hero-presentazione > .hero-partecipa {
+		align-self: start;
+		margin-block-start: var(--spazio-6);
+	}
+
+	.hero-griglia > .hero-video,
+	.hero-griglia > .hero-media {
+		grid-column: 7 / -1;
+		grid-row: 2;
+		align-self: start;
+	}
+
+	.hero::after {
+		content: '';
+		inset-block-start: 100%;
+	}
+}
+
+/* Card dei profili (snippet sezioni/destinatari). Il fondo è la macchia a matita di Laura nel colore
+   del profilo, scurita solo dove serviva perché il bianco abbia almeno 3:1: si allunga col testo, che
+   non esce mai dalla forma. Mobile: una sotto l'altra, sfalsate. Desktop: in fila (due e una se non
+   ci stanno), ruotate e a diverse altezze, come se fossero appoggiate a mano */
+
+.sezione-sotto {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--spazio-5);
+}
+
+.card-profili {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--spazio-2);
+	padding: 0;
+	list-style: none;
+}
+
+/* Le varianti si ripetono ogni tre card: rientro su mobile; rotazione e scarto verticale su desktop.
+   Gli angoli hanno il segno opposto a Figma, dove un angolo positivo gira in senso antiorario */
+.card-profili > li {
+	--card-rientro: 0rem;
+	--card-rotazione: -4deg;
+	--card-scarto: var(--spazio-7);
+}
+
+.card-profili > :nth-child(3n + 2) {
+	--card-rientro: var(--spazio-7);
+	--card-rotazione: 2deg;
+	--card-scarto: 0rem;
+}
+
+.card-profili > :nth-child(3n) {
+	--card-rientro: var(--spazio-4);
+	--card-rotazione: 5deg;
+	--card-scarto: var(--spazio-6);
+}
+
+/* Su mobile le card, con i loro rientri, formano un gruppo centrato nello schermo: l'elenco è largo
+   quanto una card più il rientro più grande (--spazio-7) */
+@media (width < 64rem) {
+	.card-profili {
+		align-self: center;
+		inline-size: min(100%, var(--card-larghezza) + var(--spazio-7));
+	}
+}
+
+/* Il rientro non porta mai la card fuori dalla colonna: su uno schermo stretto si stringe lei */
+.card-profilo {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	row-gap: var(--spazio-4);
+	inline-size: min(100% - var(--card-rientro), var(--card-larghezza));
+	aspect-ratio: 302 / 185;
+	margin-inline-start: var(--card-rientro);
+	padding: var(--spazio-6);
+	background: center / 100% 100% no-repeat;
+	color: var(--color-testo-su-colore);
+	text-decoration: none;
+}
+
+.card-profilo--rosa-insegnanti {
+	background-image: url('../images/card-rosa-insegnanti.webp');
+}
+
+.card-profilo--arancione-famiglie {
+	background-image: url('../images/card-arancione-famiglie.webp');
+}
+
+.card-profilo--blu-professionisti {
+	background-image: url('../images/card-blu-professionisti.webp');
+}
+
+/* "Scopri di più" ha l'aspetto di un link: sottolineato, più spesso al passaggio del mouse sulla card */
+.card-profilo-azione {
+	align-self: end;
+	text-decoration: underline;
+	text-decoration-thickness: var(--sottolineatura-spessore);
+	text-underline-offset: 0.25em;
+}
+
+.card-profilo:hover .card-profilo-azione {
+	text-decoration-thickness: var(--sottolineatura-spessore-hover);
+}
+
+/* L'anello di focus segue il rettangolo della card, non la pillola dei link */
+.card-profilo:focus-visible {
+	border-radius: 0;
+}
+
+.destinatari-illustrazione {
+	align-self: center;
+	inline-size: min(100%, var(--illustrazione-destinatari));
+}
+
+@media (min-width: 64rem) {
+	.sezione-sotto {
+		margin-block-start: var(--spazio-4);
+	}
+
+	/* Lo spazio sotto tiene dentro la sezione gli angoli delle card ruotate */
+	.card-profili {
+		flex-flow: row wrap;
+		justify-content: center;
+		align-items: start;
+		gap: var(--spazio-6) var(--spazio-8);
+		padding-block-end: var(--spazio-6);
+	}
+
+	.card-profili > li {
+		inline-size: min(100%, var(--card-larghezza));
+		margin-block-start: var(--card-scarto);
+	}
+
+	.card-profilo {
+		inline-size: 100%;
+		margin-inline-start: 0;
+		rotate: var(--card-rotazione);
+	}
+
+	/* Su desktop l'illustrazione non c'è, come nel wireframe */
+	.destinatari-illustrazione {
+		display: none;
+	}
+}
+
+/* Fasi (snippet sezioni/fasi e assets/js/fasi.js). Senza JavaScript: titolo e poi le fasi una sotto
+   l'altra. Con JavaScript (.fasi--carosello) una fase alla volta e, sotto, frecce e pallini.
+   Mobile: titolo, illustrazione, numero, titolo e testo della fase, controlli.
+   Desktop: titolo e testo della fase nelle colonne 1–5, illustrazione nelle 7–12 allineata al titolo */
+
+.fasi {
+	row-gap: var(--spazio-5);
+}
+
+/* Le note (desktop) e le stelline (mobile) stanno sopra la fine del titolo: il titolo è largo quanto
+   il suo testo, così la decorazione lo segue anche quando va a capo. Sono decorative */
+.fasi-titolo {
+	position: relative;
+	justify-self: start;
+}
+
+.fasi-titolo::after {
+	content: '';
+	position: absolute;
+	inset-block-start: calc(-1 * var(--spazio-5));
+	inset-inline-start: calc(100% - var(--spazio-6));
+	inline-size: var(--decorazione-fasi);
+	aspect-ratio: 113 / 126;
+	background: url('../images/stelline-fasi.webp') center / contain no-repeat;
+	pointer-events: none;
+}
+
+.fasi-elenco {
+	display: grid;
+	row-gap: var(--spazio-7);
+	padding: 0;
+	list-style: none;
+}
+
+.fase {
+	display: grid;
+	row-gap: var(--spazio-5);
+}
+
+/* Carosello: tutte le fasi nella stessa cella, si vede solo quella attiva */
+.fasi--carosello .fase {
+	grid-area: 1 / 1;
+}
+
+.fase[inert] {
+	visibility: hidden;
+}
+
+.fase-immagine {
+	inline-size: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.fase-testo > h3 {
+	margin-block-start: var(--spazio-4);
+}
+
+.fase-testo > h3 ~ * {
+	margin-block-start: var(--spazio-4);
+}
+
+/* La pillola con il numero: testo bianco grande e in grassetto sul verde (regola 3) */
+.fase-numero {
+	display: grid;
+	place-items: center;
+	inline-size: var(--pillola-fase);
+	block-size: var(--pillola-fase);
+	border-radius: var(--raggio-pieno);
+	background-color: var(--color-verde-salvia);
+	color: var(--color-testo-su-colore);
+	font-size: var(--text-etichetta);
+	font-weight: var(--peso-grassetto);
+}
+
+.fasi-controlli {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	justify-self: center;
+	inline-size: min(100%, var(--controlli-fasi));
+}
+
+.fasi-controlli button {
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+}
+
+/* Frecce: cerchio verde con una freccia bianca disegnata dai bordi */
+.fasi-controlli .fasi-freccia {
+	display: grid;
+	place-items: center;
+	inline-size: var(--freccia-fasi);
+	block-size: var(--freccia-fasi);
+	border-radius: var(--raggio-pieno);
+	background-color: var(--color-verde-salvia);
+}
+
+.fasi-freccia::before {
+	content: '';
+	inline-size: 28%;
+	aspect-ratio: 1;
+	margin-inline-start: 12%;
+	border-block-end: var(--freccia-fasi-tratto) solid var(--color-testo-su-colore);
+	border-inline-start: var(--freccia-fasi-tratto) solid var(--color-testo-su-colore);
+	rotate: 45deg;
+}
+
+.fasi-freccia--avanti::before {
+	margin-inline: 0 12%;
+	rotate: -135deg;
+}
+
+/* Pallini: l'area che reagisce al tocco è alta 44px (larga quanto il passo tra i pallini in Figma);
+   il pallino si riempie quando la sua fase è visibile, senza cambiare dimensione */
+.fasi-pallini {
+	display: flex;
+}
+
+.fasi-controlli .fasi-pallino {
+	display: grid;
+	place-items: center;
+	inline-size: calc(2 * var(--pallino-fasi));
+	block-size: var(--bottone-altezza-min);
+	border-radius: var(--raggio-pieno);
+}
+
+.fasi-pallino::before {
+	content: '';
+	inline-size: var(--pallino-fasi);
+	aspect-ratio: 1;
+	border: var(--pallino-fasi-bordo) solid var(--color-verde-salvia);
+	border-radius: var(--raggio-pieno);
+}
+
+.fasi-pallino[aria-current='true']::before {
+	background-color: var(--color-verde-salvia);
+}
+
+@media (min-width: 64rem) {
+	.fasi {
+		row-gap: var(--spazio-7);
+	}
+
+	.fasi-titolo {
+		grid-column: 1 / span 5;
+		grid-row: 1;
+	}
+
+	.fasi-titolo::after {
+		inset-block-start: calc(-1 * var(--spazio-7));
+		inset-inline-start: calc(100% - var(--spazio-7));
+		aspect-ratio: 204 / 196;
+		background-image: url('../images/note-fasi.webp');
+	}
+
+	/* Elenco e fasi seguono le colonne della sezione (subgrid) */
+	.fasi-elenco,
+	.fase {
+		grid-column: 1 / -1;
+		grid-template-columns: subgrid;
+		row-gap: var(--spazio-7);
+	}
+
+	/* Come il video della hero: colonne 6–12, centrata in altezza rispetto a titolo e testo */
+	.fase-immagine {
+		grid-column: 6 / -1;
+		grid-row: 1 / span 2;
+		align-self: center;
+	}
+
+	.fase-testo {
+		grid-column: 1 / span 5;
+	}
+
+	/* Carosello: anche le righe sono quelle della sezione, così l'illustrazione parte all'altezza
+	   del titolo e il testo della fase sta sotto il titolo */
+	.fasi--carosello .fasi-elenco,
+	.fasi--carosello .fase {
+		grid-row: 1 / span 2;
+		grid-template-rows: subgrid;
+	}
+
+	.fasi--carosello .fase {
+		grid-column: 1 / -1;
+	}
+
+	.fasi--carosello .fase-testo {
+		grid-row: 2;
+	}
+
+	.fasi-controlli {
+		grid-column: 1 / -1;
+		margin-block-start: var(--spazio-4);
+	}
+
+	.fasi-controlli .fasi-pallino {
+		inline-size: var(--bottone-altezza-min);
+	}
+}
+
+/* Tendine (snippet sezioni/ricerca e sezioni/team, assets/js/tendine.js). Ogni tendina: il titolo
+   (un bottone, con la freccia a destra) e, aperta, il suo contenuto. Nella Ricerca sopra il titolo c'è
+   lo strumento e sotto l'anteprima sempre visibile. Tra le tendine una linea sottile in Carbone: è
+   interna all'elenco, non un divisore della pagina (la regola del divisore unico riguarda la pagina) */
+
+.tendine {
+	margin-block-start: var(--spazio-6);
+}
+
+.tendina {
+	padding-block: var(--spazio-5) var(--spazio-7);
+	border-block-start: var(--linea-sottile) solid var(--color-testo);
+}
+
+.tendina:last-child {
+	border-block-end: var(--linea-sottile) solid var(--color-testo);
+}
+
+.tendina > * + *,
+.tendina-riferimenti li + li {
+	margin-block-start: var(--spazio-4);
+}
+
+.tendina-riferimenti h4 + ul {
+	margin-block-start: var(--spazio-3);
+}
+
+.tendina-riferimenti ul {
+	padding: 0;
+	list-style: none;
+}
+
+/* Il bottone occupa tutta la riga: titolo a sinistra, freccia a destra, al centro del titolo */
+.tendina-bottone {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	column-gap: var(--spazio-4);
+	inline-size: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	font: inherit;
+	text-align: start;
+	cursor: pointer;
+}
+
+/* Con lo strumento sopra il titolo (la Ricerca) la freccia scende all'altezza del titolo */
+.tendina-bottone:has(img) {
+	align-items: end;
+}
+
+.tendina-bottone:has(img)::after {
+	margin-block-end: 0.4em;
+}
+
+.tendina-titolo {
+	display: grid;
+	justify-items: start;
+	row-gap: var(--spazio-2);
+}
+
+/* La freccia punta in giù a tendina chiusa, in su a tendina aperta (decorativa: lo stato lo dice aria-expanded) */
+.tendina-bottone[aria-expanded]::after {
+	content: '';
+	flex: none;
+	inline-size: var(--freccia-tendina);
+	aspect-ratio: 27 / 9;
+	background-color: currentColor;
+	mask: url('../images/freccia-tendina.svg') center / contain no-repeat;
+	transition: translate 0.2s ease-out;
+}
+
+.tendina-bottone[aria-expanded='true']::after {
+	rotate: 180deg;
+}
+
+/* Hover: niente sottolineatura (nel sito vuol dire link); la freccia si sposta verso dove si apre
+   la tendina, giù se è chiusa, su se è aperta (translate non segue la rotazione) */
+.tendina-bottone:hover::after {
+	translate: 0 var(--spazio-1);
+}
+
+.tendina-bottone[aria-expanded='true']:hover::after {
+	translate: 0 calc(-1 * var(--spazio-1));
+}
+
+/* L'anello di focus segue la riga del titolo, non la pillola dei bottoni */
+.tendina-bottone:focus-visible {
+	border-radius: 0;
+}
+
+/* Il team (snippet sezioni/team e membri). Il gruppo di progetto sempre visibile, poi le tendine.
+   In ogni gruppo il titolo e l'elenco dei membri: persone (nome come link in titolo-3, ruolo ed ente;
+   due colonne su desktop) o soli nomi (partner, scuole) */
+
+.gruppo > * + * {
+	margin-block-start: var(--spazio-gruppo);
+}
+
+/* Chiusa, una tendina del team ha solo il titolo: lo spazio sotto è uguale a quello sopra (nella
+   Ricerca invece sotto il titolo resta l'anteprima) */
+.tendina.gruppo:has([aria-expanded='false']) {
+	padding-block-end: var(--spazio-5);
+}
+
+.persone,
+.nomi {
+	padding: 0;
+	list-style: none;
+}
+
+.persone {
+	display: grid;
+	gap: var(--spazio-gruppo) var(--gutter);
+}
+
+.persone li > * + * {
+	margin-block-start: var(--spazio-2);
+}
+
+.nomi li + li {
+	margin-block-start: var(--spazio-3);
+}
+
+@media (min-width: 64rem) {
+	.persone {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.gruppo + .tendine {
+		margin-block-start: var(--spazio-7);
+	}
+}
+
+/* Pagine dei profili (template profilo). Il fondo colorato e il testo bianco vengono da .su-colore e
+   .fondo-… sul <main>. Mobile: titolo, introduzione, illustrazione, come partecipare. Desktop: titolo |
+   introduzione, poi illustrazione | come partecipare (colonne 1–5 | 7–12) */
+
+.profilo {
+	row-gap: var(--spazio-5);
+	padding-block: var(--spazio-6) var(--spazio-8);
+}
+
+.profilo-apertura {
+	display: grid;
+	row-gap: var(--spazio-4);
+}
+
+.profilo-titolo > * + * {
+	margin-block-start: var(--spazio-2);
+}
+
+.profilo-intro > * + *,
+.profilo-partecipa > * + * {
+	margin-block-start: var(--spazio-4);
+}
+
+.profilo-partecipa > .profilo-sondaggio,
+.profilo-sondaggio + * {
+	margin-block-start: var(--spazio-5);
+}
+
+/* I link del percorso: indietro alla sezione della home (sopra il titolo) e, in fondo alla pagina, il
+   profilo precedente (freccia a sinistra) e il successivo (freccia a destra, allineato a destra anche
+   quando è da solo). La freccia è un tratto spezzato come quello delle fasi, nel colore del testo; al
+   passaggio del mouse si sposta appena nella sua direzione */
+.profilo-indietro,
+.profilo-precedente,
+.profilo-successivo {
+	display: inline-flex;
+	align-items: center;
+	column-gap: var(--spazio-3);
+}
+
+.profilo-indietro::before,
+.profilo-precedente::before,
+.profilo-successivo::after {
+	content: '';
+	flex: none;
+	inline-size: 0.5em;
+	aspect-ratio: 1;
+	border-block-end: var(--freccia-fasi-tratto) solid currentColor;
+	border-inline-start: var(--freccia-fasi-tratto) solid currentColor;
+	rotate: 45deg;
+	transition: translate 0.2s ease-out;
+}
+
+.profilo-successivo::after {
+	rotate: -135deg;
+}
+
+.profilo-indietro:hover::before,
+.profilo-precedente:hover::before {
+	translate: calc(-1 * var(--spazio-1)) 0;
+}
+
+.profilo-successivo:hover::after {
+	translate: var(--spazio-1) 0;
+}
+
+.profilo-percorso {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: var(--spazio-5);
+}
+
+.profilo-successivo {
+	margin-inline-start: auto;
+}
+
+/* Il bottone è centrato su mobile, a sinistra su desktop */
+.profilo-sondaggio {
+	display: flex;
+	inline-size: fit-content;
+	margin-inline: auto;
+}
+
+/* Il personaggio (dal pannello) e sopra, nello stesso riquadro, le sue note: una maschera colorata da
+   --color-decorazione (bianco sul colore), come il segno dei titoli. Le note sono decorative */
+.profilo-illustrazione {
+	display: grid;
+	justify-self: center;
+	inline-size: min(100%, var(--illustrazione-profilo));
+	aspect-ratio: 445.33 / 361;
+}
+
+.profilo-illustrazione > *,
+.profilo-illustrazione::after {
+	grid-area: 1 / 1;
+	inline-size: 100%;
+	block-size: 100%;
+}
+
+.profilo-illustrazione::after {
+	content: '';
+	background-color: var(--color-decorazione);
+	mask: var(--decorazioni) center / 100% 100% no-repeat;
+}
+
+.profilo-illustrazione--rosa-insegnanti {
+	--decorazioni: url('../images/decorazioni-rosa-insegnanti.webp');
+}
+
+.profilo-illustrazione--arancione-famiglie {
+	--decorazioni: url('../images/decorazioni-arancione-famiglie.svg');
+}
+
+.profilo-illustrazione--blu-professionisti {
+	--decorazioni: url('../images/decorazioni-blu-professionisti.webp');
+}
+
+@media (min-width: 64rem) {
+	.profilo {
+		align-items: start;
+		row-gap: var(--spazio-8);
+		padding-block: var(--spazio-8) var(--spazio-9);
+	}
+
+	/* Titolo e introduzione diventano due celle della griglia */
+	.profilo-apertura {
+		display: contents;
+	}
+
+	.profilo-titolo,
+	.profilo-illustrazione {
+		grid-column: 1 / span 5;
+	}
+
+	.profilo-intro,
+	.profilo-partecipa {
+		grid-column: 7 / -1;
+	}
+
+	.profilo-percorso {
+		grid-column: 1 / -1;
+	}
+
+	/* Il personaggio e "Come partecipare" sono centrati in altezza l'uno rispetto all'altro. Il personaggio
+	   è largo quanto le colonne 1–5 (fino a --illustrazione-profilo): sugli schermi grandi è alto più o
+	   meno quanto il testo accanto */
+	.profilo-illustrazione,
+	.profilo-partecipa {
+		align-self: center;
+	}
+
+	.profilo-illustrazione {
+		justify-self: start;
+	}
+
+	.profilo-sondaggio {
+		margin-inline: 0;
+	}
+}
+
+/* Contatti (snippet sezioni/contatti): titolo piccolo, testo ed email; la mascotte chiude la home.
+   Mobile: testo e poi la mascotte, centrata. Desktop: mascotte nelle colonne 1–5, testo nelle 7–12 */
+
+.contatti-testo > * + * {
+	margin-block-start: var(--spazio-4);
+}
+
+.contatti-mascotte {
+	justify-self: center;
+	inline-size: var(--mascotte-contatti);
+	margin-block-start: var(--spazio-6);
+}
+
+@media (min-width: 64rem) {
+	.contatti {
+		align-items: center;
+	}
+
+	.contatti-mascotte {
+		grid-column: 1 / span 5;
+		grid-row: 1;
+		margin-block-start: 0;
+	}
+
+	.contatti-testo {
+		grid-column: 7 / -1;
+		grid-row: 1;
+	}
+}
+
+/* Footer (snippet footer). Fondo e testo bianco bold vengono da .fondo-verde-salvia e .su-colore.
+   Mobile: tutto in colonna. Desktop: nome | link, contributo | titolari, poi i partner su tutta la riga.
+   I loghi dei partner partono da sinistra: se vanno a capo, anche l'ultima fila è allineata a sinistra */
+
+.piede {
+	padding-block: var(--spazio-7);
+}
+
+.piede-griglia {
+	row-gap: var(--spazio-6);
+}
+
+.piede-nome {
+	margin-block-end: var(--spazio-1);
+	font-family: var(--font-titoli);
+	font-size: var(--text-logo);
+	line-height: var(--interlinea-titoli);
+}
+
+/* Nome esteso in Fraunces, a 1.25rem: sul colore il testo non scende sotto questa misura (in Figma 18px) */
+.piede-sottotitolo {
+	font-family: var(--font-titoli);
+	line-height: var(--interlinea-titoli);
+}
+
+.piede-gruppo > :not(.solo-screen-reader) + * {
+	margin-block-start: var(--spazio-4);
+}
+
+.piede-info ul {
+	padding: 0;
+	list-style: none;
+}
+
+/* Elenco di loghi (snippet loghi): la larghezza di ogni logo viene dal pannello e arriva come
+   --larghezza nell'attributo style; 10rem (160px) è il valore se nel pannello manca */
+.loghi {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--spazio-5) var(--spazio-6);
+	padding: 0;
+	list-style: none;
+}
+
+.loghi img {
+	--larghezza: 10rem;
+	inline-size: calc(var(--larghezza) * var(--scala-loghi));
+}
+
+@media (min-width: 64rem) {
+	.piede-marchio,
+	.piede-contributo {
+		grid-column: 1 / span 5;
+	}
+
+	.piede-info,
+	.piede-titolari {
+		grid-column: 7 / -1;
+	}
+
+	.piede-marchio,
+	.piede-info {
+		grid-row: 1;
+	}
+
+	.piede-contributo,
+	.piede-titolari {
+		grid-row: 2;
+	}
+
+	.loghi {
+		gap: var(--spazio-6) var(--spazio-8);
+	}
+}

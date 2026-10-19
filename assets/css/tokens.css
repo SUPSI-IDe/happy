@@ -1,0 +1,190 @@
+/* Design token — valori dalle variabili Figma. Vedi docs/design-tokens.md
+   Se un valore cambia, si cambia prima in Figma e poi qui e nel documento.
+   Mobile-first: i valori base sono quelli mobile, il desktop parte da 64rem. */
+
+:root {
+	/* Colori */
+
+	/* Palette: non si scurisce, non si schiarisce, non si rende trasparente */
+	--color-verde-salvia: #4d997f;
+	--color-rosa-insegnanti: #d6278d;
+	--color-arancione-famiglie: #e06a1a;
+	--color-blu-professionisti: #0081a1;
+	--color-carbone: #1a1a1a;
+	--color-bianco: #ffffff;
+
+	/* Semantici: nei componenti si usano questi */
+	--color-sfondo: var(--color-bianco);
+	--color-testo: var(--color-carbone);
+	--color-testo-su-colore: var(--color-bianco);
+	--color-link: var(--color-verde-salvia);
+	--color-focus-su-bianco: var(--color-verde-salvia);
+	--color-focus-su-colore: var(--color-bianco);
+
+	/* Tipografia */
+
+	--font-titoli: 'Fraunces', Georgia, serif;
+	--font-testo: 'Urbanist', system-ui, sans-serif;
+
+	/* Pesi ammessi: Fraunces 600 e 700, Urbanist 500 e 700 */
+	--peso-medio: 500;
+	--peso-semibold: 600;
+	--peso-grassetto: 700;
+
+	/* Dimensioni: valori mobile. Su desktop vedi il blocco @media più sotto */
+	--text-display: 2.75rem;
+	--text-titolo-1: 2rem;
+	--text-titolo-2: 1.5rem;
+	--text-titolo-3: 1.25rem;
+	--text-corpo: 1.25rem;
+	--text-nota: 1rem;
+	--text-logo: 1.5rem;
+
+	/* Etichetta e link condividono la dimensione del corpo */
+	--text-etichetta: var(--text-corpo);
+	--text-link: var(--text-corpo);
+	--text-corpo-colore: var(--text-corpo);
+
+	/* Interlinea: il testo corrente non scende mai sotto 1.5 */
+	--interlinea-display: 1.1;
+	--interlinea-titoli: 1.2;
+	--interlinea-titolo-3: 1.3;
+	--interlinea-testo: 1.5;
+
+	--spaziatura-etichetta: 0.05em;
+
+	/* Forme e spazi. Il lato della pillola, il padding del badge e simili stanno in Figma
+	   e si aggiungono qui con il primo componente che li usa. */
+
+	/* Abbastanza grande da arrotondare completamente qualsiasi altezza */
+	--raggio-pieno: 62.5rem;
+	--focus-spessore: 0.1875rem;
+	--focus-distanza: 0.125rem;
+	--sottolineatura-spessore: 0.125rem;
+	--sottolineatura-spessore-hover: 0.25rem;
+
+	/* Bottone */
+	--bottone-altezza-min: 2.75rem;
+	--bottone-padding-inline: 1.75rem;
+	--bottone-padding-block: 0.75rem;
+	--bordo-contorno: 0.125rem;
+
+	/* Hero della home (il logo è un SVG, non testo). Su mobile logo e mascotte riempiono insieme la
+	   larghezza della colonna (meno lo spazio tra loro): il logo ne prende il 68.3%, la mascotte il resto,
+	   nella proporzione di Figma (197px accanto a 425px). Il logo non supera 26.5625rem (425px), la sua
+	   misura su desktop */
+	--hero-logo: min(26.5625rem, (100vw - 2 * var(--margine-pagina) - var(--spazio-3)) * 0.683);
+	--hero-mascotte: calc(var(--hero-logo) * 0.4635);
+	--bordo-pennello: 1.1875rem; /* 19px, il bordo a pennello che chiude il verde */
+
+	/* Illustrazione sotto il titolo di una sezione (Perché Happy?): su mobile larga 262px (al massimo la
+	   colonna); su desktop è l'altezza minima, poi cresce fino al fondo del contenuto */
+	--illustrazione-sezione: 16.375rem;
+
+	/* Mascotte: quella della hero (--hero-mascotte, in proporzione al logo) è la misura di riferimento del sito.
+	   Le altre mascotte dipendono da lei: quella dei Contatti, senza la mano, è 1.5 volte più larga, così
+	   il personaggio è un po' più grande che nella hero ma non troppo diverso */
+	--mascotte: var(--hero-mascotte);
+	--mascotte-contatti: calc(var(--mascotte) * 1.5);
+
+	/* Loghi del piè di pagina: la larghezza viene dal pannello; su mobile si riduce come in Figma */
+	--scala-loghi: 0.73;
+
+	/* Card dei profili (A chi ci rivolgiamo): 302px su mobile, 335px su desktop. L'illustrazione
+	   sotto le card (solo mobile) è larga 333px, al massimo la colonna */
+	--card-larghezza: 18.875rem;
+	--illustrazione-destinatari: 20.8125rem;
+
+	/* Pagine dei profili: il riquadro del personaggio con le sue note (445 × 361 in Figma),
+	   largo 300px su mobile e 445px su desktop */
+	--illustrazione-profilo: 18.75rem;
+
+	/* Fasi: pillola del numero (36px); frecce e pallini del carosello. Le frecce sono di 44px, il minimo
+	   per un bottone (in Figma 22px su mobile e 56px su desktop, ridotte per equilibrio). I pallini
+	   restano piccoli, ma l'area che reagisce al tocco è più grande (vedi components.css). Le decorazioni
+	   accanto al titolo: note su desktop (102px), stelline su mobile (56px) */
+	--pillola-fase: 2.25rem;
+	--freccia-fasi: 2.75rem;
+	--freccia-fasi-tratto: 0.1875rem;
+	--pallino-fasi: 0.75rem;
+	--pallino-fasi-bordo: 0.0625rem;
+	--controlli-fasi: 19.4375rem;
+	--decorazione-fasi: 3.5rem;
+
+	/* Tendine (La Ricerca): la linea sottile tra una tendina e l'altra e la freccia (27 × 9 in Figma) */
+	--linea-sottile: 0.0625rem;
+	--freccia-tendina: 1.6875rem;
+	--sottolineatura-bottone-hover: 0.1875rem;
+
+	/* Il tasto play sopra la copertina del video (64px su mobile, 96px su desktop) */
+	--play-video: 4rem;
+
+	/* Il team: lo spazio tra il titolo di un gruppo e i membri, e tra una persona e l'altra
+	   (24px su mobile, 32px su desktop) */
+	--spazio-gruppo: var(--spazio-5);
+
+	/* Spaziature */
+
+	/* Testo corrente mai a tutta larghezza: al massimo le colonne 7–12 del desktop
+	   (6 colonne e 5 gutter a 1512px: 6 × 93.33px + 5 × 24px = 680px) */
+	--colonna-testo: 42.5rem;
+
+	/* Scala delle spaziature: multipli di 0.25rem (4px) */
+	--spazio-1: 0.25rem;
+	--spazio-2: 0.5rem;
+	--spazio-3: 0.75rem;
+	--spazio-4: 1rem;
+	--spazio-5: 1.5rem;
+	--spazio-6: 2rem;
+	--spazio-7: 3rem;
+	--spazio-8: 4rem;
+	--spazio-9: 6rem;
+
+	/* Layout: griglia a 4 colonne su mobile, 12 su desktop (vedi layout.css). Nessuna larghezza
+	   massima: come in Figma il margine resta fisso e le colonne crescono con lo schermo */
+	--margine-pagina: 1.25rem;
+	--gutter: var(--spazio-4);
+	--spazio-sezione: var(--spazio-8);
+	/* Tra una sezione e una sua sottosezione (Perché Happy? → Vuoi partecipare?) */
+	--spazio-sottosezione: var(--spazio-6);
+
+	/* Altezza della navbar (components.css): il pulsante o la voce più alta, il padding e la linea.
+	   Serve alle ancore (base.css) e alle sezioni alte uno schermo */
+	--navbar-altezza: calc(var(--bottone-altezza-min) + 2 * var(--spazio-3) + var(--bordo-contorno));
+}
+
+/* Desktop: da 64rem (1024px). Il valore è in rem per seguire zoom e dimensione del testo.
+   Nota: nelle media query non si possono usare le custom property, quindi 64rem è scritto qui. */
+@media (min-width: 64rem) {
+	:root {
+		/* Titoli grandi fluidi tra 64rem (1024px) e 94.5rem (1512px), poi fermi ai valori di Figma.
+		   Minimi e massimi in rem, così lo zoom del testo resta rispettato. */
+		--text-display: clamp(4rem, calc(4rem + (100vw - 64rem) * 0.0656), 6rem);
+		--text-titolo-1: clamp(2.25rem, calc(2.25rem + (100vw - 64rem) * 0.0246), 3rem);
+
+		--text-titolo-2: 2rem;
+		--text-titolo-3: 1.5rem;
+
+		--scala-loghi: 1;
+		/* Su desktop logo e mascotte stanno da soli sopra presentazione e video: il logo cresce con lo
+		   schermo, da 26.5625rem (425px) a 1024px fino a 40rem (640px); a 1512px è 544px come in Figma.
+		   La mascotte è alta esattamente quanto logo e sottotitolo insieme: l'altezza del logo (SVG 425 × 121),
+		   lo spazio e una riga di sottotitolo. La larghezza segue dalle proporzioni del disegno (353 × 369) */
+		--hero-logo: clamp(26.5625rem, 36vw, 40rem);
+		--hero-mascotte-altezza: calc(var(--hero-logo) * 121 / 425 + var(--spazio-2) + var(--text-titolo-3) * var(--interlinea-titolo-3));
+		--hero-mascotte: calc(var(--hero-mascotte-altezza) * 353 / 369);
+		--card-larghezza: 20.9375rem;
+		--illustrazione-profilo: 36rem;
+		--pallino-fasi: 1rem;
+		--pallino-fasi-bordo: 0.125rem;
+		--controlli-fasi: 49.5rem;
+		--decorazione-fasi: 6.375rem;
+		--spazio-gruppo: var(--spazio-6);
+		--play-video: 6rem;
+
+		--margine-pagina: 4rem;
+		--gutter: var(--spazio-5);
+		--spazio-sezione: var(--spazio-9);
+		--spazio-sottosezione: var(--spazio-7);
+	}
+}

@@ -1,0 +1,251 @@
+/* Reset, tipografia di base, stati di focus. Vedi docs/design-tokens.md
+   Qui i token di tokens.css diventano regole. Nessun valore scritto a mano. */
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html {
+	/* Nessuna dimensione del testo: vale quella scelta dall'utente (1rem = 16px di default) */
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	/* Con la navbar sticky, un'ancora (#ricerca) si ferma sotto la navbar invece di finirci dietro */
+	scroll-padding-block-start: var(--navbar-altezza);
+}
+
+img,
+picture,
+svg,
+video {
+	display: block;
+	max-inline-size: 100%;
+	block-size: auto;
+}
+
+/* Un elemento con l'attributo hidden resta nascosto anche se un componente gli dà un display */
+[hidden] {
+	display: none !important;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+	color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* Tipografia di base */
+
+:root {
+	/* Cambiano dentro un fondo colorato (vedi .su-colore) */
+	--color-focus: var(--color-focus-su-bianco);
+	--color-decorazione: var(--color-verde-salvia);
+}
+
+body {
+	/* Il footer resta in fondo alla finestra anche nelle pagine corte */
+	display: flex;
+	flex-direction: column;
+	min-block-size: 100vh;
+	min-block-size: 100dvh;
+	background-color: var(--color-sfondo);
+	color: var(--color-testo);
+	font-family: var(--font-testo);
+	font-size: var(--text-corpo);
+	font-weight: var(--peso-medio);
+	line-height: var(--interlinea-testo);
+	/* Su macOS i browser ingrossano i tratti (soprattutto testo chiaro su fondo colorato) e il testo
+	   sembra più pesante e sfocato che in Figma. Così si disegna come in Figma; altrove non cambia nulla */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+/* Titoli: il livello (h1…h4) dice la struttura, la classe .text-… dà lo stesso aspetto a un altro
+   livello (per esempio un h2 con l'aspetto di un titolo-2). Un solo h1 per pagina. */
+h1,
+h2,
+h3,
+h4,
+.text-display,
+.text-titolo-1,
+.text-titolo-2,
+.text-titolo-3 {
+	font-family: var(--font-titoli);
+	line-height: var(--interlinea-titoli);
+}
+
+h1,
+.text-display {
+	font-size: var(--text-display);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-display);
+}
+
+h2,
+.text-titolo-1 {
+	font-size: var(--text-titolo-1);
+	font-weight: var(--peso-semibold);
+}
+
+h3,
+.text-titolo-2 {
+	font-size: var(--text-titolo-2);
+	font-weight: var(--peso-semibold);
+}
+
+h4,
+.text-titolo-3 {
+	font-size: var(--text-titolo-3);
+	font-weight: var(--peso-grassetto);
+	line-height: var(--interlinea-titolo-3);
+}
+
+/* Testo corrente mai a tutta larghezza */
+p {
+	max-inline-size: var(--colonna-testo);
+}
+
+/* Titolo di sezione: il segno a pennello a sinistra (decorativo, assets/images/segno-titolo.svg).
+   Il segno è una maschera: la forma viene dal file, il colore da --color-decorazione (verde sul
+   bianco, bianco sul colore). Le misure in em lo tengono in proporzione al titolo. */
+.titolo-sezione {
+	display: flex;
+	align-items: start;
+	column-gap: var(--spazio-2);
+}
+
+.titolo-sezione::before {
+	content: '';
+	flex: none;
+	block-size: 0.95em;
+	margin-block-start: 0.125em;
+	aspect-ratio: 26.4774 / 49.0326;
+	background-color: var(--color-decorazione);
+	mask: url('../images/segno-titolo.svg') center / contain no-repeat;
+}
+
+/* Font e interlinea dichiarati: l'etichetta può stare anche su un titolo (h4 "Riferimenti") */
+.text-etichetta {
+	font-family: var(--font-testo);
+	line-height: var(--interlinea-testo);
+	font-size: var(--text-etichetta);
+	font-weight: var(--peso-grassetto);
+	letter-spacing: var(--spaziatura-etichetta);
+	text-transform: uppercase;
+}
+
+/* Riferimenti e didascalie: solo su bianco */
+.text-nota {
+	font-size: var(--text-nota);
+}
+
+/* Fondo colorato (salvia, Insegnanti, Famiglie, Professionisti): il testo è sempre bianco e mai
+   sotto 1.25rem in grassetto (o 1.5rem o più). Per questo il testo corrente diventa grassetto e una
+   nota qui dentro non può restare piccola. Il colore si sceglie con una classe .fondo-… */
+.su-colore {
+	color: var(--color-testo-su-colore);
+	font-weight: var(--peso-grassetto);
+	--color-link: var(--color-testo-su-colore);
+	--color-focus: var(--color-focus-su-colore);
+	--color-decorazione: var(--color-testo-su-colore);
+}
+
+.su-colore .text-nota {
+	font-size: var(--text-corpo-colore);
+	font-weight: var(--peso-grassetto);
+}
+
+.fondo-verde-salvia {
+	background-color: var(--color-verde-salvia);
+}
+
+.fondo-rosa-insegnanti {
+	background-color: var(--color-rosa-insegnanti);
+}
+
+.fondo-arancione-famiglie {
+	background-color: var(--color-arancione-famiglie);
+}
+
+.fondo-blu-professionisti {
+	background-color: var(--color-blu-professionisti);
+}
+
+/* Link: sempre sottolineati, il colore da solo non basta per riconoscerli */
+a {
+	color: var(--color-link);
+	font-size: var(--text-link);
+	font-weight: var(--peso-grassetto);
+	text-decoration-line: underline;
+	text-decoration-thickness: var(--sottolineatura-spessore);
+	text-underline-offset: 0.25em;
+}
+
+a:hover {
+	/* Più spessa al passaggio del mouse; il colore non cambia */
+	text-decoration-thickness: var(--sottolineatura-spessore-hover);
+}
+
+/* Testo solo per chi usa lo screen reader (per esempio l'etichetta di un pulsante con solo un'icona) */
+.solo-screen-reader {
+	position: absolute;
+	inline-size: 0.0625rem;
+	block-size: 0.0625rem;
+	margin: -0.0625rem;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+/* Primo elemento della pagina: compare solo con la tastiera e salta la navigazione */
+.salta-al-contenuto {
+	position: absolute;
+	inset-block-start: var(--spazio-2);
+	inset-inline-start: var(--spazio-2);
+	padding: var(--spazio-2) var(--spazio-4);
+	background-color: var(--color-testo);
+	color: var(--color-sfondo);
+	transform: translateY(-200%);
+}
+
+.salta-al-contenuto:focus {
+	transform: none;
+}
+
+/* Focus */
+
+/* Mai rimosso. Il colore viene da --color-focus: verde salvia su bianco, bianco su fondo colorato */
+:focus-visible {
+	outline: var(--focus-spessore) solid var(--color-focus);
+	outline-offset: var(--focus-distanza);
+}
+
+a:focus-visible,
+button:focus-visible {
+	border-radius: var(--raggio-pieno);
+}
