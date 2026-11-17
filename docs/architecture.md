@@ -4,9 +4,9 @@
 
 - **Kirby 5:** CMS in PHP, senza database. I contenuti sono file di testo in `content/`; i tipi di contenuto sono blueprint YAML in `site/blueprints/`; le pagine si costruiscono con template e snippet PHP. Dettagli, pannello e ruoli in `docs/kirby.md`.
 - **CSS vanilla con custom properties:** nessun framework; tutti i valori grafici vengono dai design token.
-- **JavaScript:** solo dove serve (il menu su mobile, il tasto play del video, il carosello delle fasi, le tendine della Ricerca e del Team), sempre come miglioramento: senza, il sito funziona.
+- **JavaScript:** solo dove serve (il menu su mobile, il tasto play del video, il carosello delle fasi, le tendine della Ricerca e del Team), sempre come miglioramento: senza, il sito funziona. Unica eccezione, i Diaries: senza JavaScript gli spazi restano campi di testo e il diario si invia, ma illustrazioni e motivi richiedono JavaScript.
 - **Video:** sul server del sito, non su una piattaforma esterna (niente cookie né script di terzi): MP4 (H.264) compresso, con i sottotitoli in un file `.vtt`. Kirby non conosce i `.vtt`: li registra il plugin `site/plugins/sottotitoli`. Un video troppo pesante per il caricamento dal pannello si carica con FileZilla nella cartella della pagina e poi si sceglie nel pannello. I video non vanno in git (`.gitignore`).
-- **Form:** link a moduli esterni (Qualtrics della SUPSI); il link del bottone "Partecipa" sta in Sito → Generale.
+- **Form:** link a moduli esterni (Qualtrics della SUPSI); il link del bottone "Partecipa" sta in Sito → Generale. Unica eccezione, i Diaries: un form interno al sito. I diari inviati diventano bozze in `content/diari-ricevuti/_drafts/` (escluso da Git) e i CSV si generano al momento, solo per chi è collegato al pannello (vedi "Diaries" sotto).
 - **Hosting:** SUPSI, `happy.supsi.ch` (da confermare: PHP 8.2 o più recente).
 
 ## Struttura delle cartelle
@@ -57,6 +57,15 @@ La home è l'unica pagina lunga: il template `home` disegna la hero (l'unico `h1
 Gli snippet dei tipi non ripetono la struttura: usano lo snippet `sezione`, che crea il `<section>` (con `id` uguale al nome della cartella, l'ancora del menu), il titolo `h2` con il segno a pennello nelle colonne 1–5 e il contenuto nelle colonne 7–12. Il tipo fornisce solo il contenuto (slot predefinito) e, se serve, qualcosa sotto il titolo (slot `laterale`) o sotto tutta la sezione, a tutta larghezza (slot `sotto`, per esempio le card dei profili).
 
 Le sezioni non hanno un indirizzo proprio: una regola in `site/config/config.php` manda `/home/ricerca` a `/#ricerca`, così anche l'anteprima del pannello porta al punto giusto.
+
+## Diaries
+
+Il modulo dei diari è una pagina a sé, fuori dal one-pager, in sviluppo: struttura, file e percorso in `docs/diaries.md`. I principi già fissati:
+
+- Una pagina Diaries (benvenuto e scelta del profilo) con un racconto per profilo, ognuno con il suo indirizzo (`/diaries/insegnanti`).
+- `diari.css` si carica solo nelle pagine dei Diaries.
+- Le barre delle illustrazioni e dei motivi sono indipendenti: si spengono dal pannello o si tolgono dal codice senza rompere il resto. Il nucleo `diari.js` non conosce le barre.
+- I diari inviati sono bozze in `content/diari-ricevuti/_drafts/`, mai su Git. Il dataset CSV non si salva: lo genera il server al momento.
 
 ## Struttura di ogni pagina
 

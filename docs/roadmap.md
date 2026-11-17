@@ -34,5 +34,5 @@ Se ne occupa Ginevra, separatamente da questo repository.
 
 ## Dopo il rilascio
 
-- Diaries e Risorse come nuove sezioni della home.
+- Diaries come pagina a sé con un modulo interno (in sviluppo, vedi `docs/diaries.md`); Risorse come nuova sezione della home.
 - Toolkit video, con il ruolo Partner per gestirli dal pannello. Blueprint e ruolo sono stati tolti l'8 ottobre 2026: si recuperano dalla storia di Git.
