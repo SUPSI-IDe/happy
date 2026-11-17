@@ -17,3 +17,6 @@ node_modules/
 
 # Video: troppo pesanti per la storia di git. Stanno sul server (content/), l'originale nella cartella del progetto
 /content/**/*.mp4
+
+# Diaries: i diari compilati sono dati delle persone e la repository è pubblica
+/content/diari-ricevuti/_drafts/

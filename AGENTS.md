@@ -6,7 +6,7 @@
 
 Il sito di **HAPPY – HeAlthy Playing Practices for Young musicians**, progetto di ricerca partecipativa della SUPSI con il Conservatorio della Svizzera italiana (SUM-CSI), finanziato dal FNS (programma Agora). Si rivolge a tre profili: insegnanti di musica, famiglie e professionisti della salute.
 
-Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e va online su `happy.supsi.ch`. È un one-pager: la home contiene tutte le sezioni, a parte ci sono solo le pagine dei profili. I contenuti seguono l'ontologia di `docs/ontology.md`.
+Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e va online su `happy.supsi.ch`. È un one-pager: la home contiene tutte le sezioni, a parte ci sono solo le pagine dei profili, i Diaries e le pagine di testo (come il trattamento dati). I contenuti seguono l'ontologia di `docs/ontology.md`.
 
 ## Regole d'oro (da non infrangere)
 
@@ -19,7 +19,7 @@ Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e v
 - **Doodle e note decorative mai sopra o in mezzo al testo corrente:** stanno vicino a illustrazioni, mascotte o alla fine di un titolo. Quelli disegnati per il sito sono nei colori di sistema; le note di Laura hanno i loro colori.
 - **Testi nei file di contenuto**, mai scritti direttamente nei componenti.
 - **Mobile-first:** ogni componente si scrive prima per mobile e si verifica su entrambi i formati.
-- **Niente servizi esterni a runtime:** né font, né script, né tracciamento da altri siti. I form sono link a moduli esterni (Qualtrics della SUPSI).
+- **Niente servizi esterni a runtime:** né font, né script, né tracciamento da altri siti. I form sono link a moduli esterni (Qualtrics della SUPSI), tranne i **Diaries**: un modulo interno al sito, anonimo (niente cookie, IP o analytics), i cui diari compilati non vanno mai su Git.
 
 ## Indice della documentazione
 
@@ -31,6 +31,7 @@ Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e v
 | `docs/design-tokens.md` | Palette, tipografia, spaziature, regole visive, asset di Laura |
 | `docs/workflow.md` | Metodo di sviluppo con AI, Git, verifiche |
 | `docs/roadmap.md` | Fasi, timeline, next steps |
+| `docs/diaries.md` | Diaries: struttura, dati, interfaccia e percorso di sviluppo |
 
 ## Dove andare per…
 
@@ -41,6 +42,7 @@ Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e v
 | Creare o modificare un componente | `docs/architecture.md` → `site/snippets/` e `assets/css/components.css` |
 | Sostituire un placeholder con un asset di Laura | `docs/design-tokens.md` → `assets/` |
 | Iniziare una sessione di lavoro con l'AI | `docs/workflow.md` |
+| Lavorare sui Diaries | `docs/diaries.md` |
 
 ## Verifica prima di ogni merge
 

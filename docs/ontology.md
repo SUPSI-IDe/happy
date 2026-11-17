@@ -4,7 +4,7 @@ I tipi di contenuto del sito. Ogni tipo ha campi fissi, è un *blueprint* di Kir
 
 ## Struttura del sito
 
-Il sito è un **one-pager**: la home contiene tutte le sezioni, una sotto l'altra. A parte ci sono solo le tre pagine dei profili.
+Il sito è un **one-pager**: la home contiene tutte le sezioni, una sotto l'altra. A parte ci sono solo le tre pagine dei profili, i Diaries e le pagine di testo.
 
 ```
 Home (hero: logo, mascotte, video, "Cos'è Happy?")
@@ -16,6 +16,9 @@ Home (hero: logo, mascotte, video, "Cos'è Happy?")
 ├── Il team              team         → gruppo, gruppo, …
 └── Contatti             contatti
 Insegnanti · Famiglie · Professionisti   profilo (pubblicate e ordinate: sono le card)
+Diaries                  diaries      → racconto, racconto, racconto (uno per profilo)
+Diari ricevuti           diari-ricevuti → diario, diario, … (bozze, mai visibili sul sito né su Git)
+Trattamento dati         testo        (fuori dalla home e dalla navbar)
 ```
 
 Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine sulla pagina, solo le sezioni pubblicate si vedono, e il nome della cartella diventa l'ancora (`#ricerca`). Le sezioni non hanno un indirizzo proprio: chi apre `/home/ricerca` viene mandato a `/#ricerca`.
@@ -35,6 +38,19 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 | **Gruppo** | titolo, membri (nome, link, ruolo, ente dal più piccolo al più grande, senza link) | Gruppo di progetto, Consulenti, Partner, Scuole. Per i partner e le scuole basta il nome: se nessun membro ha ruolo o ente, il gruppo è un elenco di nomi |
 | **Contatti** | titolo, voce di menu, testo, email, illustrazione | Chiude la home prima del piè di pagina: titolo piccolo senza segno, mascotte decorativa. È una sezione a sé (con la sua voce di menu e il suo `h2`) perché i contatti non riguardano solo il team |
 | **Profilo** | titolo, colore, illustrazione (il personaggio), introduzione, titolo e testo di "Come partecipare", testo e link del bottone del sondaggio, testo dopo il bottone | Insegnanti di musica (rosa), Famiglie (arancione), Professionisti della salute (blu). Il colore colora la pagina e la navbar, sceglie la macchia della card e le note intorno al personaggio. L'etichetta sopra il titolo è il titolo della sezione A chi ci rivolgiamo |
+| **Diaries** | testi dell'interfaccia (benvenuto, istruzioni, bottone, spiegazione del bottone non attivo, frase privacy, avviso sull'anonimizzazione, conferma), pagina sul trattamento dati (selezione di una pagina, non un URL), illustrazioni e motivi (file) | Il modulo dei diari: benvenuto e scelta del profilo. Contiene i racconti. È un modulo interno al sito, anonimo. Dettagli in `docs/diaries.md` |
+| **Racconto** | racconto (blocchi Frase e Spazio), mostra la barra delle illustrazioni, mostra la barra dei motivi, testo del P.S. | Uno per profilo, con il suo indirizzo (`/diaries/insegnanti`) |
+| **Diario ricevuto** | profilo, data (solo il giorno), versione, racconto leggibile, testi, elementi, P.S. | Creato in automatico all'invio, campi in sola lettura. Il titolo è un codice casuale. Sta in Diari ricevuti, un contenitore mai visibile sul sito |
+| **Pagina di testo** | titolo, testo | Pagina semplice e riusabile, fuori dalla home e dalla navbar. Oggi: il trattamento dati (testo di Cinzia) |
+
+### Blocchi e file dei Diaries
+
+| Tipo | Campi | Note |
+|---|---|---|
+| **Frase** (blocco) | testo | La parte fissa del racconto |
+| **Spazio** (blocco) | codice, blocco, domanda, lunghezza, accetta elementi, obbligatorio | Lo spazio da completare. Il codice non si cambia dopo l'inizio della raccolta. Le opzioni di "blocco" stanno in `fields/blocco-racconto.yml` |
+| **Elemento** (file) | codice, categoria (corpo / luogo / persona), testo alternativo | Un'illustrazione della libreria |
+| **Motivo** (file) | codice, nome accessibile neutro | Un suono della libreria |
 
 Il **sito** contiene i dati comuni a tutte le pagine: il nome esteso del progetto, il bottone "Partecipa al progetto" (testo e link al modulo), la condivisione (descrizione e immagine dell'anteprima del link) e il piè di pagina.
 
@@ -44,4 +60,4 @@ Il **sito** contiene i dati comuni a tutte le pagine: il nome esteso del progett
 - Ogni nuovo tipo di contenuto va prima aggiunto qui, poi nel codice.
 - Un dato sta in un solo posto. Se serve in più punti (il nome esteso, il bottone "Partecipa"), sta nel sito e i componenti lo leggono da lì.
 - Le illustrazioni decorative (note, doodle) non sono contenuti: non hanno campi, le disegna lo snippet della sezione.
-- Diaries, Risorse e Toolkit torneranno dopo il rilascio come nuove sezioni della home.
+- I Diaries sono una pagina a sé (vedi `docs/diaries.md`). Risorse e Toolkit torneranno dopo il rilascio come nuove sezioni della home.
