@@ -52,7 +52,7 @@ C'è un solo ruolo, **Amministratore**, che può fare tutto. Il ruolo Partner (p
 
 Il sito si carica con FileZilla in SFTP su `web1.supsi.ch`, con l'account SUPSI. La cartella del sito sul server è `/supsi_happy/docs`.
 
-**Cosa caricare:** `assets/`, `content/`, `kirby/`, `site/` e `index.php` (il `.htaccess` è già sul server, creato con Luca). `vendor/` non serve: `index.php` carica Kirby direttamente da `kirby/`. Nient'altro: `docs/`, `scripts/`, `node_modules/`, i file di configurazione (`composer.json`, `package.json`, `AGENTS.md`…) e simili non servono al sito e potrebbero essere leggibili da chiunque. Il `content/` del server non si sovrascrive mai, perché contiene le modifiche fatte dal pannello online.
+**Cosa caricare:** `assets/`, `content/` (solo la prima volta, o per una pagina nuova: vedi sotto), `kirby/`, `site/` e `index.php` (il `.htaccess` è già sul server, creato con Luca). `vendor/` non serve: `index.php` carica Kirby direttamente da `kirby/`. Nient'altro: `docs/`, `scripts/`, `node_modules/`, i file di configurazione (`composer.json`, `package.json`, `AGENTS.md`…) e simili non servono al sito e potrebbero essere leggibili da chiunque. Il `content/` del server non si sovrascrive mai, perché contiene le modifiche fatte dal pannello online.
 
 **Permessi:** sul server PHP gira con un utente diverso da quello SFTP, quindi le cartelle in cui Kirby scrive vanno messe a `777`. In FileZilla: tasto destro → *File permissions…* → `777`, *Recurse into subdirectories*, *Apply to all files and directories*. Le cartelle sono `content/`, `media/`, `site/accounts/`, `site/sessions/` e `site/cache/` (se mancano, si creano vuote).
 
@@ -72,7 +72,17 @@ Per impostarne una nuova, si genera un nuovo `.htpasswd` e lo si carica nella st
 php -r '$p = readline("Nuova password: "); file_put_contents("site/accounts/<id>/.htpasswd", password_hash($p, PASSWORD_DEFAULT));'
 ```
 
-Ancora da chiarire con SUPSI: la licenza Kirby per `happy.supsi.ch`, i proprietari delle cartelle scritte da PHP (oggi `777`, cioè scrivibili da chiunque sul server: meglio dare la proprietà all'utente di PHP), chi fa backup e aggiornamenti di sicurezza.
+Ancora da chiarire con SUPSI: la licenza Kirby per `happy.supsi.ch`, i proprietari delle cartelle scritte da PHP (oggi `777`, cioè scrivibili da chiunque sul server: meglio dare la proprietà all'utente di PHP), chi fa gli aggiornamenti di sicurezza e il backup del server, compreso `content/` (vedi «Contenuti: il server è la fonte»).
+
+## Contenuti: il server è la fonte
+
+Da quando i testi si modificano dal pannello online, la versione vera di `content/` è **quella sul server**. Il `content/` di Git è il **contenuto di partenza**: serve ad avviare il sito in locale e a sviluppare, e non si aggiorna con le modifiche fatte dal pannello. Per questo può essere diverso dai testi del sito, ed è normale: per i testi attuali fanno fede il sito e il pannello.
+
+**Backup:** non si fa da Git. Il backup di `content/` è quello del server SUPSI (da confermare con Kenan: vedi sotto).
+
+**Sviluppare con i testi aggiornati (facoltativo):** scarica `/supsi_happy/docs/content/` dal server con FileZilla nella cartella `content/` locale. Non serve fare il commit di questi file.
+
+**Mai al contrario:** il `content/` locale non si carica sul server, se non per una pagina nuova che online non esiste ancora. Così non si cancellano le modifiche fatte dal pannello.
 
 ## Se qualcosa si rompe online
 
