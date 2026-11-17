@@ -26,7 +26,7 @@ Il sito è costruito direttamente con **Kirby** (CMS in PHP, senza database) e v
 | Documento | Contenuto |
 |---|---|
 | `docs/architecture.md` | Stack, struttura delle cartelle, layout a colonne, componenti |
-| `docs/kirby.md` | Lavorare in locale, pannello, ruoli, messa online |
+| `docs/kirby.md` | Lavorare in locale, pannello, ruoli, messa online, contenuti del server |
 | `docs/ontology.md` | Tipi di contenuto e relativi campi (diventano i blueprint di Kirby) |
 | `docs/design-tokens.md` | Palette, tipografia, spaziature, regole visive, asset di Laura |
 | `docs/workflow.md` | Metodo di sviluppo con AI, Git, verifiche |

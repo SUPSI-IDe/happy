@@ -1,8 +1,8 @@
 {
-	"name": "nereat2/maind-happy",
+	"name": "supsi-ide/happy",
 	"description": "Sito del progetto HAPPY (SUPSI / CSI), costruito con Kirby",
 	"type": "project",
-	"license": "proprietary",
+	"license": "MIT",
 	"require": {
 		"php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
 		"getkirby/cms": "^5.6"

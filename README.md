@@ -6,7 +6,7 @@ Il sito è online su [happy.supsi.ch](https://happy.supsi.ch).
 
 ## Com'è fatto
 
-Il sito è costruito con [Kirby](https://getkirby.com), un CMS in PHP senza database: i contenuti sono file di testo nella cartella `content/`. È un one-pager: la home contiene tutte le sezioni, a parte ci sono solo le pagine dei tre profili.
+Il sito è costruito con [Kirby](https://getkirby.com), un CMS in PHP senza database: i contenuti sono file di testo nella cartella `content/`. È un one-pager: la home contiene tutte le sezioni, a parte ci sono solo le pagine dei tre profili. I testi in `content/` sono quelli di partenza: le versioni aggiornate si modificano dal pannello e sono quelle del sito online.
 
 Chi lavora sul progetto, persona o AI, parte da [`AGENTS.md`](AGENTS.md): contiene le regole d'oro (accessibilità WCAG 2.1 AA, solo token, mobile-first…) e l'indice della documentazione in [`docs/`](docs/).
 
