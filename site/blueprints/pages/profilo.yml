@@ -7,7 +7,8 @@ fields:
     required: true
     options:
       rosa-insegnanti: Rosa (Insegnanti)
-      arancione-famiglie: Arancione (Famiglie)
+      # Il valore resta "arancione-famiglie" (classi CSS e profili già salvati): cambia solo il nome nel pannello
+      arancione-famiglie: Arancione (Genitori)
       blu-professionisti: Blu (Professionisti)
     width: 1/3
     help: Colora la pagina e la sua card, e sceglie le note intorno al personaggio

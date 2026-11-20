@@ -15,7 +15,7 @@ Home (hero: logo, mascotte, video, "Cos'è Happy?")
 ├── La Ricerca           ricerca      → tema, tema, …
 ├── Il team              team         → gruppo, gruppo, …
 └── Contatti             contatti
-Insegnanti · Famiglie · Professionisti   profilo (pubblicate e ordinate: sono le card)
+Insegnanti · Genitori · Professionisti   profilo (pubblicate e ordinate: sono le card)
 Diaries                  diaries      → racconto, racconto, racconto (uno per profilo)
 Diari ricevuti           diari-ricevuti → diario, diario, … (bozze, mai visibili sul sito né su Git)
 Trattamento dati         testo        (fuori dalla home e dalla navbar)
@@ -37,7 +37,7 @@ Ogni sezione è una pagina figlia della home: l'ordine nel pannello è l'ordine 
 | **Team** | titolo, voce di menu | Contiene i gruppi. Il primo è sempre aperto, gli altri sono tendine |
 | **Gruppo** | titolo, membri (nome, link, ruolo, ente dal più piccolo al più grande, senza link) | Gruppo di progetto, Consulenti, Partner, Scuole. Per i partner e le scuole basta il nome: se nessun membro ha ruolo o ente, il gruppo è un elenco di nomi |
 | **Contatti** | titolo, voce di menu, testo, email, illustrazione | Chiude la home prima del piè di pagina: titolo piccolo senza segno, mascotte decorativa. È una sezione a sé (con la sua voce di menu e il suo `h2`) perché i contatti non riguardano solo il team |
-| **Profilo** | titolo, colore, illustrazione (il personaggio), introduzione, titolo e testo di "Come partecipare", testo e link del bottone del sondaggio, testo dopo il bottone | Insegnanti di musica (rosa), Famiglie (arancione), Professionisti della salute (blu). Il colore colora la pagina e la navbar, sceglie la macchia della card e le note intorno al personaggio. L'etichetta sopra il titolo è il titolo della sezione A chi ci rivolgiamo |
+| **Profilo** | titolo, colore, illustrazione (il personaggio), introduzione, titolo e testo di "Come partecipare", testo e link del bottone del sondaggio, testo dopo il bottone | Insegnanti di musica (rosa), Genitori (arancione), Professionisti della salute (blu). Il colore colora la pagina e la navbar, sceglie la macchia della card e le note intorno al personaggio. L'etichetta sopra il titolo è il titolo della sezione A chi ci rivolgiamo |
 | **Diaries** | testi dell'interfaccia (benvenuto, istruzioni, bottone, spiegazione del bottone non attivo, frase privacy, avviso sull'anonimizzazione, conferma), pagina sul trattamento dati (selezione di una pagina, non un URL), illustrazioni e motivi (file) | Il modulo dei diari: benvenuto e scelta del profilo. Contiene i racconti. È un modulo interno al sito, anonimo. Dettagli in `docs/diaries.md` |
 | **Racconto** | racconto (blocchi Frase e Spazio), mostra la barra delle illustrazioni, mostra la barra dei motivi, testo del P.S. | Uno per profilo, con il suo indirizzo (`/diaries/insegnanti`) |
 | **Diario ricevuto** | profilo, data (solo il giorno), versione, racconto leggibile, testi, elementi, P.S. | Creato in automatico all'invio, campi in sola lettura. Il titolo è un codice casuale. Sta in Diari ricevuti, un contenitore mai visibile sul sito |
