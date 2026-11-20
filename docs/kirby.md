@@ -56,7 +56,7 @@ Il sito si carica con FileZilla in SFTP su `web1.supsi.ch`, con l'account SUPSI.
 
 **Permessi:** sul server PHP gira con un utente diverso da quello SFTP, quindi le cartelle in cui Kirby scrive vanno messe a `777`. In FileZilla: tasto destro → *File permissions…* → `777`, *Recurse into subdirectories*, *Apply to all files and directories*. Le cartelle sono `content/`, `media/`, `site/accounts/`, `site/sessions/` e `site/cache/` (se mancano, si creano vuote).
 
-Attenzione: le cartelle create da PHP risultano di proprietà di `nobody` (permessi `dr-xrwsr-x`) e l'utente SFTP **non può cambiarne i permessi**: FileZilla accetta il `777` ma non succede nulla. In quel caso la cartella va **cancellata e ricreata** da FileZilla (così diventa dell'utente SFTP) e poi messa a `777`. Vedi «Se qualcosa si rompe online».
+Attenzione: le cartelle create da PHP risultano di proprietà di `nobody` (permessi `dr-xrwsr-x`) e l'utente SFTP **non può cambiarne i permessi**: FileZilla accetta il `777` ma non succede nulla. In quel caso la cartella va **rinominata (`nome_old`) e ricreata** da FileZilla (così diventa dell'utente SFTP) e poi messa a `777`. Vedi «Se qualcosa si rompe online».
 
 **Account amministratore:** online il pannello non si installa (Kirby blocca l'installazione sui server pubblici). Si carica invece la cartella dell'account creata in locale, da `site/accounts/` a `/supsi_happy/docs/site/accounts/`, e poi si rimette `777` su `site/accounts/`. La password è quella del pannello in locale.
 
@@ -86,7 +86,9 @@ Da quando i testi si modificano dal pannello online, la versione vera di `conten
 
 ## Se qualcosa si rompe online
 
-Prima di tutto si guarda quali cartelle Kirby non riesce a scrivere: `https://happy.supsi.ch/api/system` (in `requirements`, `false` = non scrivibile). La cache non compare lì.
+Prima di tutto si guarda quali cartelle Kirby non riesce a scrivere: `https://happy.supsi.ch/api/system` (in `requirements`, `false` = non scrivibile). La cache non compare lì. Anche la pagina `/panel/installation`, quando il pannello ci rimanda, elenca le cartelle non scrivibili. In FileZilla si attivano le colonne *Permissions* e *Owner/Group* (tasto destro sull'intestazione): le cartelle in cui Kirby scrive devono essere `drwxrwxrwx`.
+
+**Prima di toccare qualsiasi cartella:** scaricare `content/` e `site/accounts/` sul computer (con *Server → Force showing hidden files* attivo) e controllare che la scheda *Failed transfers* sia vuota.
 
 | Sintomo | Cartella | Rimedio |
 |---|---|---|
@@ -94,6 +96,18 @@ Prima di tutto si guarda quali cartelle Kirby non riesce a scrivere: `https://ha
 | Pannello che rimanda a `/panel/installation` | `site/sessions`, `site/accounts` | `sessions`: ricrearla vuota, `777`. `accounts`: **prima scaricarla** (contiene l'account e il file nascosto `.htpasswd`), ricrearla, ricaricarne il contenuto, `777` ricorsivo |
 | Login che fallisce con «Cannot read properties of null (reading 'error')» | `site/cache` | Ricrearla vuota, `777` |
 | Il pannello non salva («not writable») | `content` | ⚠️ Contiene i testi: prima scaricarne una copia, poi ricrearla, ricaricare la copia, `777` ricorsivo |
+
+**«Ricrearla» in pratica:** se FileZilla risponde `Permission denied` al `777`, la cartella è di `nobody`. Non si cancella (anche la cancellazione può fallire): la si **rinomina** in `nome_old`, si crea una cartella nuova con il nome originale (risulta dell'utente SFTP) e la si mette a `777`. Per `accounts` e `content` si ricarica dentro il contenuto della copia appena scaricata (in FileZilla prima *Server → Force showing hidden files*, per non perdere `.htpasswd`) e si mette `777` ricorsivo. Le cartelle `_old` si tengono finché pannello e sito non sono verificati (login, salvataggio di un testo, caricamento di un'immagine, pagine del sito); `sessions`, `cache` e `media` non hanno bisogno di copia.
+
+**Log degli errori:** il server tiene i log in `/supsi_happy/logs/` (fuori da `docs/`). `error.log` è il mese in corso, `error.log.1` il precedente, i `.gz` quelli più vecchi; gli `access.log` (le visite) non servono. Gli errori di Kirby riportano data, ora e cartella (es. `The session storage directory ".../site/sessions" is not writable`). Un errore compare solo quando qualcuno apre il pannello, quindi il log dice quando ci si è accorti del problema, non sempre quando è nato: per stringere si guardano le date dei file dentro la cartella (l'ultimo file scritto da Kirby è l'ultima volta che funzionava).
+
+**Le altre cartelle in `/supsi_happy/`** (`conf`, `lib`, `site-data`, `docs-archive`, `tmp`) sono dell'hosting SUPSI, create con lo spazio il 4 settembre 2026: non si toccano.
+
+### Episodio di novembre 2026
+
+Il pannello rimandava a `/panel/installation`. Il 2 novembre alle 14:57 Kirby scriveva ancora in `site/sessions` (ultimi file di sessione); il 18 novembre `sessions`, `cache`, `accounts`, `content` e `media` erano tutte di `nobody` con permessi `575`/`2575` (non scrivibili da PHP). Nessuno del progetto le aveva toccate e Kirby non cambia i permessi delle cartelle esistenti: la causa probabile è un'operazione lato server, non confermata. Il sito pubblico funzionava, perché leggere non richiede permessi di scrittura. Il 20 novembre si è fatto il backup di `content` e `accounts` e si sono ricreate tutte e cinque le cartelle come descritto sopra.
+
+**Se ricapita:** è la conferma che qualcosa sul server reimposta i permessi. Si annotano le date (cartelle e `error.log`), si ripete il rimedio e si chiede a SUPSI di dare le cartelle all'utente con cui gira PHP, invece del `777`. Per capire se è un problema del server o solo di questo sito, conviene chiedere anche ad altri progetti Kirby sullo stesso server.
 
 Per leggere l'errore vero: in `site/config/config.php` **sul server** si mette per qualche minuto `'debug' => true`, si ricarica la pagina, e poi si ricarica il `config.php` del repository, che lo rispegne. Il debug mostra a tutti percorsi e dettagli del server: mai lasciarlo acceso.
 
